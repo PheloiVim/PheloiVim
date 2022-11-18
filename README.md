@@ -2,7 +2,7 @@
 
 ## ScreenShot
 
-![App Screenshot](https://imgur.com/uk5aASy.png)
+![App Screenshot](https://imgur.com/jEt4gkN.png)
 
 ## Dependencies
 
