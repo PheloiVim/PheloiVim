@@ -16,6 +16,8 @@ Install following programs before use this config
 
 - [Fd](https://github.com/sharkdp/fd) : Finder
 
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) : Search directories
+
 # Apply my config
 ```bash
 git clone https://github.com/yeuxacucodon/neovim-config.git ~/.config/nvim
