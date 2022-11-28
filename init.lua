@@ -1,4 +1,8 @@
 require "config.plugins"
+require "lsp.handlers"
+require "lsp.lspconfig"
+require "config.options"
+require "config.keymaps"
 require "config.cmp"
 require "lsp.mason"
 require "config.lualine"
