@@ -15,7 +15,7 @@ o.colorcolumn = 80
 o.smartcase = true
 o.filetype = true
 o.smartindent = true
-o.clipboard = unnamedplus
+vim.opt.clipboard = "unnamedplus"
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
