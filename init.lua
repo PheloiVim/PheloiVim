@@ -1,0 +1,6 @@
+require "config.plugins"
+require "config.cmp"
+require "lsp.mason"
+require "config.lualine"
+require "config.theme"
+require "config.nvimtree"
