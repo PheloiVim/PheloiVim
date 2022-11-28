@@ -23,10 +23,15 @@ return require('packer').startup(function(use)
 	use 'folke/tokyonight.nvim'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-tree/nvim-tree.lua'
+	use 'RRethy/vim-illuminate'
+	use 'windwp/nvim-autopairs'
+	use 'nvim-treesitter/nvim-treesitter'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
 	use 'williamboman/mason-lspconfig.nvim'
+	use 'jose-elias-alvarez/null-ls.nvim'
+	use 'nvim-lua/plenary.nvim'
 	-- CMP
 	use 'hrsh7th/nvim-cmp'
 	use 'hrsh7th/cmp-cmdline'
@@ -34,6 +39,12 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 	use 'saadparwaiz1/cmp_luasnip'
+	use 'hrsh7th/cmp-nvim-lua'
 	-- Snippets
 	use 'L3MON4D3/LuaSnip'
+	use 'rafamadriz/friendly-snippets'
+	-- Auto set up configuration
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)
