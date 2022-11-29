@@ -1,4 +1,7 @@
 require "config.plugins"
+require "config.telescope"
+require "config.impatient"
+require "config.alpha"
 require "config.toggleterm"
 require "config.treesitter"
 require "config.options"

@@ -27,6 +27,9 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'
 	use 'nvim-treesitter/nvim-treesitter'
 	use 'akinsho/toggleterm.nvim'
+	use 'goolord/alpha-nvim'
+	use 'nvim-telescope/telescope.nvim'
+	use 'lewis6991/impatient.nvim'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
