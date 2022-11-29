@@ -30,6 +30,7 @@ return require('packer').startup(function(use)
 	use 'goolord/alpha-nvim'
 	use 'nvim-telescope/telescope.nvim'
 	use 'lewis6991/impatient.nvim'
+	use 'akinsho/bufferline.nvim'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'

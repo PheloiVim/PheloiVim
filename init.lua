@@ -1,4 +1,5 @@
 require "config.plugins"
+require "config.bufferline"
 require "config.telescope"
 require "config.impatient"
 require "config.alpha"
