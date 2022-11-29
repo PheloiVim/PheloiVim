@@ -1,4 +1,5 @@
 require "config.plugins"
+require "config.toggleterm"
 require "config.treesitter"
 require "config.options"
 require "config.keymaps"

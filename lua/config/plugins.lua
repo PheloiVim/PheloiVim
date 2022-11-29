@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
 	use 'RRethy/vim-illuminate'
 	use 'windwp/nvim-autopairs'
 	use 'nvim-treesitter/nvim-treesitter'
+	use 'akinsho/toggleterm.nvim'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
