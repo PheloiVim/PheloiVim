@@ -23,6 +23,8 @@ o.smartcase = true
 o.filetype = true
 o.smartindent = true
 opt.clipboard = "unnamedplus"
+opt.completeopt = { "menuone", "noselect" }
+opt.updatetime = 300
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
