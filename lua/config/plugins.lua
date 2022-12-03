@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
 	use 'nvim-telescope/telescope.nvim'
 	use 'lewis6991/impatient.nvim'
 	use 'akinsho/bufferline.nvim'
+	use 'lewis6991/gitsigns.nvim'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
