@@ -1,6 +1,6 @@
 vim.cmd[[colorscheme tokyonight]]
 
 require("tokyonight").setup{
-	style = "storm",
+	style = "night",
 	terminal_colors = true,
 }
