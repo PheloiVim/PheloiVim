@@ -14,7 +14,7 @@ Install following programs before use this config
 
 - [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) : Icon support
 
-- [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) : The Ultimate Editor
+- [Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim) : V0.8
 
 - [Git](https://git-scm.com/) : Plugins install
 
