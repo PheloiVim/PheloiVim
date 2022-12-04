@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = { "html", "lua", "css" },
+  ensure_installed = { "html", "lua", "css", "cpp" },
 	highlight = {
 		enable = true
 	},
