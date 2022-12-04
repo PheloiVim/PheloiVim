@@ -4,6 +4,10 @@
 
 ![App Screenshot](https://imgur.com/jEt4gkN.png)
 
+![App Screenshot](https://imgur.com/qHkOUed.png)
+
+![App Screenshot](https://imgur.com/HuBRoXe.png)
+
 ## Dependencies
 
 Install following programs before use this config
