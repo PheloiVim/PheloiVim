@@ -1,4 +1,5 @@
 require "config.plugins"
+require "config.hop"
 require "config.gitsigns"
 require "config.bufferline"
 require "config.telescope"

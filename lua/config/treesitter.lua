@@ -4,9 +4,9 @@ if not status_ok then
 end
 
 configs.setup({
-  ensure_installed = { "html", "lua", "css", "cpp", "rust" },
+	ensure_installed = { "html", "lua", "css", "cpp", "rust" },
 	highlight = {
-		enable = true
+		enable = true,
 	},
 	autopairs = {
 		enable = true,
