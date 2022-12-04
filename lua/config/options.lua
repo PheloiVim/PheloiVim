@@ -3,7 +3,7 @@ local opt = vim.opt
 local g = vim.g
 
 o.showmode = false
-o.wildmenu = true
+o.wildmenu = false
 o.hlsearch = true
 o.cursorline = true
 o.backup = false
