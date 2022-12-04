@@ -20,7 +20,6 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use 'nvim-lualine/lualine.nvim'
-	use 'gelguy/wilder.nvim'
 	use 'folke/tokyonight.nvim'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-tree/nvim-tree.lua'
@@ -33,6 +32,7 @@ return require('packer').startup(function(use)
 	use 'lewis6991/impatient.nvim'
 	use 'akinsho/bufferline.nvim'
 	use 'lewis6991/gitsigns.nvim'
+	use 'lukas-reineke/indent-blankline.nvim'
 	-- LSP
 	use 'neovim/nvim-lspconfig'
 	use 'williamboman/mason.nvim'
