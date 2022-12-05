@@ -114,12 +114,19 @@ cmp.setup({
 		select = false,
 	},
 	window = {
+		completion = cmp.config.window.bordered({
+			border = "rounded",
+			col_offset = -3,
+			side_padding = 1,
+		}),
+
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = "rounded",
+
 		},
 	},
 	experimental = {
-		ghost_text = false,
+		ghost_text = true,
 		native_menu = false,
 	},
 })
