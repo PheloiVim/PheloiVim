@@ -14,6 +14,8 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]])
+
+-- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
 -- Install plugins
