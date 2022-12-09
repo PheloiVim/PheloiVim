@@ -1,4 +1,5 @@
 require "config.plugins"
+require "config.devicons"
 require "config.autocommands"
 require "config.hop"
 require "config.gitsigns"

@@ -25,6 +25,10 @@ o.smartindent = true
 opt.clipboard = "unnamedplus"
 opt.completeopt = { "menuone", "noselect" }
 opt.updatetime = 300
+opt.laststatus = 2
+opt.title = true
+opt.expandtab = true
+opt.shell = 'fish'
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
