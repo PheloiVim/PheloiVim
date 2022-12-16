@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "lua", "cpp", "rust", "python" },
+	ensure_installed = { "lua", "cpp", "rust", "python", "bash" },
 	highlight = {
 		enable = true,
 	},
