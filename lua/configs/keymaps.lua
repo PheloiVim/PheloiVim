@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap.set
 
--- Telescope
+-- NvimTree
 keymap("n", "<F2>", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<F3>", ":NvimTreeFocus<cr>", opts)
 

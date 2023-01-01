@@ -17,7 +17,7 @@ bufferline.setup({
         tab_size = 21,
         diagnostics = true,
         diagnostics_update_in_insert = false,
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = { { filetype = "NvimTree", text = "Explorer", padding = 1 } },
         show_buffer_icons = true,
         show_buffer_close_icons = true,
         show_close_icon = false,
