@@ -3,6 +3,28 @@ if not status_ok then
     return
 end
 
+local function lsp_progress()
+    if not rawget(vim, "lsp") then
+        return ""
+    end
+
+    local Lsp = vim.lsp.util.get_progress_messages()[1]
+
+    if vim.o.columns < 120 or not Lsp then
+        return ""
+    end
+
+    local msg = Lsp.message or ""
+    local percentage = Lsp.percentage or 0
+    local title = Lsp.title or ""
+    local spinners = { "", "" }
+    local ms = vim.loop.hrtime() / 1000000
+    local frame = math.floor(ms / 120) % #spinners
+    local content = string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
+
+    return ("%#St_LspProgress#" .. content) or ""
+end
+
 local function lsp()
     if rawget(vim, "lsp") then
         for _, client in ipairs(vim.lsp.get_active_clients()) do
@@ -10,6 +32,9 @@ local function lsp()
                 return (vim.o.columns > 100 and "%#St_LspStatus#" .. "   LSP ~ " .. client.name .. " ") or "   LSP "
             end
         end
+    end
+    if next(vim.lsp.get_active_clients).name == nil then
+        return ""
     end
 end
 
@@ -66,7 +91,7 @@ end
 lualine.setup({
     options = {
         icons_enabled = true,
-        theme = "auto",
+        theme = "carbonfox",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
@@ -75,7 +100,7 @@ lualine.setup({
     sections = {
         lualine_a = { mode },
         lualine_b = { filename },
-        lualine_c = { git },
+        lualine_c = { git, "%=", lsp_progress },
         lualine_x = { diagnostic, lsp },
         lualine_y = { filetype },
         lualine_z = { "location" },
