@@ -3,11 +3,15 @@ if not status_ok then
     return
 end
 
-local colors = {
-    yellow = "#ECBE7B",
-    cyan = "#008080",
-    red = "#ec5f67",
-}
+local function lsp()
+    if rawget(vim, "lsp") then
+        for _, client in ipairs(vim.lsp.get_active_clients()) do
+            if client.attached_buffers[vim.api.nvim_get_current_buf()] then
+                return (vim.o.columns > 100 and "%#St_LspStatus#" .. "   LSP ~ " .. client.name .. " ") or "   LSP "
+            end
+        end
+    end
+end
 
 local mode = {
     "mode",
@@ -16,16 +20,23 @@ local mode = {
     end,
 }
 
-local diagnostics = {
-    "diagnostics",
-    sources = { "nvim_diagnostic" },
-    symbols = { error = " ", warn = " ", info = " " },
-    diagnostics_color = {
-        color_error = { fg = colors.red },
-        color_warn = { fg = colors.yellow },
-        color_info = { fg = colors.cyan },
-    },
-}
+local function diagnostic()
+    if not rawget(vim, "lsp") then
+        return ""
+    end
+
+    local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+    local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+    local hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
+    local info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
+
+    errors = (errors and errors > 0) and ("%#St_lspError#" .. " " .. errors .. " ") or ""
+    warnings = (warnings and warnings > 0) and ("%#St_lspWarning#" .. "  " .. warnings .. " ") or ""
+    hints = (hints and hints > 0) and ("%#St_lspHints#" .. "ﯧ " .. hints .. " ") or ""
+    info = (info and info > 0) and ("%#St_lspInfo#" .. " " .. info .. " ") or ""
+
+    return errors .. warnings .. hints .. info
+end
 
 local filename = {
     "filename",
@@ -65,7 +76,7 @@ lualine.setup({
         lualine_a = { mode },
         lualine_b = { filename },
         lualine_c = { git },
-        lualine_x = { diagnostics },
+        lualine_x = { diagnostic, lsp },
         lualine_y = { filetype },
         lualine_z = { "location" },
     },

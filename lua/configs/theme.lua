@@ -34,7 +34,11 @@ nightfox.setup({
             -- ...
         },
     },
-    palettes = {},
+    palettes = {
+        carbonfox = {
+            bg0 = '#171717'
+        }
+    },
     specs = {},
     groups = {},
 })
@@ -71,7 +75,16 @@ hl(0, 'LspSignatureActiveParameter', { fg = '#192330', bg = '#8ebaa4' })
 hl(0, 'NormalFloat', { bg = '#161616' })
 hl(0, 'FloatBorder', { fg = '#61afef' })
 -- Git
-hl(0, 'DiffAdd', {fg = '#61afef'})
-hl(0, 'DiffAdded', {fg = '#98c379'})
+hl(0, 'DiffAdd', { fg = '#61afef' })
+hl(0, 'DiffAdded', { fg = '#98c379' })
+hl(0, 'DiffChange', { fg = '#6f737b' })
+hl(0, 'DiffChangeDelete', { fg = '#e06c75' })
+hl(0, 'DiffModified', { fg = '#fca2aa' })
+hl(0, 'DiffDelete', { fg = '#e06c75' })
+hl(0, 'DiffRemoved', { fg = '#e06c75' })
+-- Lualine
+hl(0, 'St_lspError', { fg = '#e06c75', bg = '#171717' })
+hl(0, 'St_lspWarning', { fg = '#FFFF00', bg = '#171717' })
+hl(0, 'St_LspHints', { fg = '#00FFFF', bg = '#171717' })
 
 vim.api.nvim_command("redraw")
