@@ -22,3 +22,5 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 
 -- Ctrl - s : save
 keymap("n", "<C-s>", ":w<cr>", opts)
+
+keymap("", "<C-f>", ":lua vim.lsp.buf.format()<cr>", opts)
