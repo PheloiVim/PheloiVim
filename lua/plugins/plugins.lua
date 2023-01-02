@@ -68,4 +68,6 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim")
 	-- Illuminate
 	use("RRethy/vim-illuminate")
+	-- Terminal
+	use("akinsho/toggleterm.nvim")
 end)

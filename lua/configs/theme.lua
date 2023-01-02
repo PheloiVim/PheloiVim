@@ -29,7 +29,7 @@ hl(0, "CmpItemKindModule", { fg = "#ffd089" })
 hl(0, "CmpItemKindProperty", { fg = "#f7768e" })
 
 -- Float Windows
-hl(0, "NormalFloat", { bg = "#1A1B26" })
+hl(0, "NormalFloat", { bg = "#161616" })
 hl(0, "FloatBorder", { fg = "#D4D6E4" })
 
 -- Git

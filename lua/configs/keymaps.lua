@@ -23,4 +23,8 @@ keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(v
 -- Ctrl - s : save
 keymap("n", "<C-s>", ":w<cr>", opts)
 
+-- Ctrl - f : Format code
 keymap("", "<C-f>", ":lua vim.lsp.buf.format()<cr>", opts)
+
+-- Toggle terminal
+keymap("", "<F5>", "<cmd>ToggleTerm<cr>", opts)

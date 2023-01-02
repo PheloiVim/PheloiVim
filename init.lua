@@ -19,6 +19,7 @@ require("plugins.nvim_tree")
 require("plugins.plugins")
 require("plugins.telescope")
 require("plugins.treesitter")
+require("plugins.toggleterm")
 
 -- LSP
 require("lsp")
