@@ -1,8 +1,8 @@
 local status_ok, hop = pcall(require, "hop")
 if not status_ok then
-    return
+	return
 end
 
-hop.setup {
-    keys = "123456789",
-}
+hop.setup({
+	keys = "123456789",
+})
