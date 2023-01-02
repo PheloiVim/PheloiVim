@@ -2,11 +2,11 @@
 
 ## ScreenShot
 
-![App Screenshot](https://imgur.com/jEt4gkN.png)
+![App Screenshot](https://imgur.com/kUKifUR.png)
 
-![App Screenshot](https://imgur.com/qHkOUed.png)
+![App Screenshot](https://imgur.com/6X7XLmP.png)
 
-![App Screenshot](https://imgur.com/HuBRoXe.png)
+![App Screenshot](https://imgur.com/GgiaWZw.png)
 
 ## Dependencies
 
