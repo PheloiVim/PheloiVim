@@ -1,4 +1,4 @@
-local colorscheme = "tokyonight-night"
+local colorscheme = "carbonfox"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -42,8 +42,8 @@ hl(0, "DiffDelete", { fg = "#e06c75" })
 hl(0, "DiffRemoved", { fg = "#e06c75" })
 
 -- Lualine
-hl(0, "St_lspError", { fg = "#e06c75", bg = "#16161E" })
-hl(0, "St_lspWarning", { fg = "#FFFF00", bg = "#16161E" })
-hl(0, "St_LspHints", { fg = "#00FFFF", bg = "#16161E" })
-hl(0, "St_LspInfo", { fg = "#2EA043", bg = "#16161E" })
-hl(0, "St_LspStatus", { fg = "#C4C8DA", bg = "#16161E" })
+hl(0, "St_lspError", { fg = "#e06c75", bg = "#0C0C0C" })
+hl(0, "St_lspWarning", { fg = "#FFFF00", bg = "#0C0C0C" })
+hl(0, "St_LspHints", { fg = "#00FFFF", bg = "#0C0C0C" })
+hl(0, "St_LspInfo", { fg = "#2EA043", bg = "#0C0C0C" })
+hl(0, "St_LspStatus", { fg = "#C4C8DA", bg = "#0C0C0C" })
