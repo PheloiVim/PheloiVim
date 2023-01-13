@@ -1,4 +1,4 @@
-local colorscheme = "carbonfox"
+local colorscheme = "catppuccin-mocha"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
@@ -7,9 +7,9 @@ end
 
 local hl = vim.api.nvim_set_hl
 -- Nvim CMP
-hl(0, "CmpDocBorder", { fg = "#D4D6E4" })
-hl(0, "CmPmenu", { bg = "#D4D6E4" })
-hl(0, "CmpBorder", { fg = "#D4D6E4" })
+hl(0, "CmpDocBorder", { fg = "#1A1826" })
+hl(0, "CmPmenu", { bg = "#1A1826" })
+hl(0, "CmpBorder", { fg = "#1A1826" })
 hl(0, "CmpItemAbbr", { fg = "#cdcecf" })
 hl(0, "CmpItemAbbrMatch", { fg = "#dbc074", bold = true })
 hl(0, "CmpItemKindConstant", { fg = "#fe9373" })
@@ -29,8 +29,8 @@ hl(0, "CmpItemKindModule", { fg = "#ffd089" })
 hl(0, "CmpItemKindProperty", { fg = "#f7768e" })
 
 -- Float Windows
-hl(0, "NormalFloat", { bg = "#161616" })
-hl(0, "FloatBorder", { fg = "#D4D6E4" })
+hl(0, "NormalFloat", { bg = "#1E1E2E" })
+hl(0, "FloatBorder", { fg = "#1A1826" })
 
 -- Git
 hl(0, "DiffAdd", { fg = "#61afef" })
@@ -42,8 +42,8 @@ hl(0, "DiffDelete", { fg = "#e06c75" })
 hl(0, "DiffRemoved", { fg = "#e06c75" })
 
 -- Lualine
-hl(0, "St_lspError", { fg = "#e06c75", bg = "#0C0C0C" })
-hl(0, "St_lspWarning", { fg = "#FFFF00", bg = "#0C0C0C" })
-hl(0, "St_LspHints", { fg = "#00FFFF", bg = "#0C0C0C" })
-hl(0, "St_LspInfo", { fg = "#2EA043", bg = "#0C0C0C" })
-hl(0, "St_LspStatus", { fg = "#C4C8DA", bg = "#0C0C0C" })
+hl(0, "St_lspError", { fg = "#e06c75" })
+hl(0, "St_lspWarning", { fg = "#FFFF00" })
+hl(0, "St_LspHints", { fg = "#00FFFF" })
+hl(0, "St_LspInfo", { fg = "#2EA043" })
+hl(0, "St_LspStatus", { fg = "#1CDEBB" })

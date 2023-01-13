@@ -24,7 +24,7 @@ return packer.startup(function(use)
 	-- Have packer manage it self
 	use("wbthomason/packer.nvim")
 	-- Theme
-	use("EdenEast/nightfox.nvim")
+	use("catppuccin/nvim")
 	-- Statusline
 	use("nvim-lualine/lualine.nvim")
 	-- Git
