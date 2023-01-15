@@ -14,7 +14,7 @@ opt.wildmenu = false
 opt.completeopt = { "menuone", "noselect" }
 opt.shiftwidth = 4
 opt.tabstop = 4
-opt.wrap = false
+opt.wrap = true
 opt.softtabstop = 2
 opt.fillchars = { eob = " " }
 opt.ignorecase = true

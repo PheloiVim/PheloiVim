@@ -109,6 +109,10 @@ M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 	client.server_capabilities.documentRangeFormattingProvider = false
 
+	-- if client.name == "rome" then
+	-- 	client.server_capabilities.documentFormattingProvider = true
+	-- end
+
 	if client.server_capabilities.signatureHelpProvider then
 		require("lsp.signature").setup(client)
 	end
