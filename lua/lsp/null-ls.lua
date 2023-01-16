@@ -12,7 +12,9 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.stylua,
-        -- formatting.prettierd,
-        formatting.rome,
+		formatting.prettierd.with({
+			filetypes = { "html", "css" },
+		}),
+		-- formatting.rome,
 	},
 })
