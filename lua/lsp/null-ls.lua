@@ -15,6 +15,6 @@ null_ls.setup({
 		formatting.prettierd.with({
 			filetypes = { "html", "css" },
 		}),
-		-- formatting.rome,
+		formatting.rome,
 	},
 })
