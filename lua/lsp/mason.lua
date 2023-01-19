@@ -1,4 +1,4 @@
-local servers = { "sumneko_lua", "rome", "html", "cssls" }
+local servers = { "sumneko_lua", "rome", "html", "cssls", "tsserver" }
 
 local settings = {
 	ui = {
