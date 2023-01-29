@@ -2,6 +2,7 @@
 require "configs.theme"
 require "configs.keymaps"
 require "configs.options"
+require "configs.autocmd"
 
 -- Plugins
 require "plugins.plugins"
@@ -19,6 +20,7 @@ require "plugins.toggleterm"
 require "plugins.impatient"
 require "plugins.trouble"
 require "plugins.bufferline"
+
 
 -- LSP
 require "lsp.mason"
