@@ -23,7 +23,7 @@ opt.mouse = "a"
 opt.number = true
 opt.numberwidth = 2
 opt.ruler = false
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
