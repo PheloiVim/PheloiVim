@@ -116,7 +116,7 @@ lualine.setup({
 		theme = "tokyonight",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "NvimTree" },
+		disabled_filetypes = { "NvimTree", "toggleterm" },
 		always_divide_middle = true,
 	},
 	sections = {
