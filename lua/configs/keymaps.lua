@@ -1,6 +1,10 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- NvimTree
 keymap("n", "<F2>", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<F3>", ":NvimTreeFocus<cr>", opts)
@@ -42,4 +46,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 
 -- Toggle terminal
-keymap("", "<F5>", ":ToggleTerm<cr>", opts)
+keymap("n", "<F5>", ":ToggleTerm<cr>", opts)
+
+--Toggle Trouble
+keymap("n", "<C-n>", ":TroubleToggle<cr>", opts)
