@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local servers = { "sumneko_lua", "html", "cssls", "tsserver", "rome", "clangd" }
+local servers = { "sumneko_lua", "html", "cssls", "tsserver", "rome", "clangd", "rust_analyzer" }
 
 mason.setup({
 	ui = {
@@ -11,7 +11,7 @@ mason.setup({
 		icons = {
 			package_installed = " ",
 			package_pending = " ",
-			package_uninstalled = "ﮊ ",
+			package_uninstalled = " ",
 		},
 	},
 })
