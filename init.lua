@@ -20,6 +20,7 @@ require("plugins.toggleterm")
 require("plugins.impatient")
 require("plugins.trouble")
 require("plugins.bufferline")
+require("plugins.nvim-dap")
 
 -- LSP
 require("lsp")

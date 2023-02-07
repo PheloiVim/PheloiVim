@@ -103,8 +103,7 @@ local lsp_info = function()
 		end
 		for _, client in ipairs(vim.lsp.get_active_clients()) do
 			if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-				return (vim.o.columns > 100 and "%#St_LspStatus#" .. "|   LSP ~ " .. client.name .. " ")
-					or "   LSP "
+				return "%#St_LspStatus#" .. "|   LSP ~ " .. client.name .. " "
 			end
 		end
 	end
@@ -116,7 +115,7 @@ lualine.setup({
 		theme = "tokyonight",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "NvimTree", "toggleterm" },
+		disabled_filetypes = { "NvimTree", "toggleterm", "Trouble" },
 		always_divide_middle = true,
 	},
 	sections = {

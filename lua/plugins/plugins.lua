@@ -80,6 +80,9 @@ return packer.startup(function(use)
 	use("phaazon/hop.nvim")
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	-- Debug
+	use("mfussenegger/nvim-dap")
+	use("rcarriga/nvim-dap-ui")
 	-- Identline
 	use("lukas-reineke/indent-blankline.nvim")
 	-- Automatically set up your configuration after cloning packer.nvim
