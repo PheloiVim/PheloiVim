@@ -50,3 +50,6 @@ keymap("n", "<F5>", ":ToggleTerm<cr>", opts)
 
 --Toggle Trouble
 keymap("n", "<C-n>", ":TroubleToggle<cr>", opts)
+
+-- Format
+keymap("n", "<C-f>", ":lua vim.lsp.buf.format{ async = true }<cr>", opts)
