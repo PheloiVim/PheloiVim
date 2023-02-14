@@ -3,7 +3,7 @@ if not status_ok then
 	return
 end
 
-local servers = { "sumneko_lua", "html", "cssls", "tsserver", "rome", "clangd", "rust_analyzer", "bashls" }
+local servers = { "lua_ls", "html", "cssls", "tsserver", "rome", "clangd", "rust_analyzer", "bashls" }
 
 mason.setup({
 	ui = {
