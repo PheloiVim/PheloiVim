@@ -1,92 +1,74 @@
-local fn = vim.fn
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
 		"git",
 		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Packer init
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
-packer.init({
-	display = {
-		working_sym = "⟳",
-		error_sym = "✗ ",
-		done_sym = " ",
-		removed_sym = " ",
-		moved_sym = "",
-		open_fn = function()
-			return require("packer.util").float({ border = "solid" })
+require("lazy").setup({
+	-- Theme
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd([[colorscheme tokyonight-night]])
 		end,
 	},
-	auto_clean = true,
-	compile_on_sync = true,
-})
-
--- Install plugins
-return packer.startup(function(use)
-	-- Have packer manage it self
-	use("wbthomason/packer.nvim")
-	-- Theme
-	use("folke/tokyonight.nvim")
-	use("nvim-tree/nvim-web-devicons")
+	"nvim-tree/nvim-web-devicons",
 	-- LSP
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("folke/trouble.nvim")
+	"neovim/nvim-lspconfig",
+	{
+		"williamboman/mason.nvim",
+		lazy = true,
+	},
+	{
+		"folke/trouble.nvim",
+		lazy = true,
+	},
 	-- Formatters, Linters
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("nvim-lua/plenary.nvim")
+	{ "jose-elias-alvarez/null-ls.nvim", lazy = true },
+	{ "nvim-lua/plenary.nvim", lazy = true },
 	-- Snippets
-	use("L3MON4D3/LuaSnip")
-	use("rafamadriz/friendly-snippets")
+	"L3MON4D3/LuaSnip",
+	"rafamadriz/friendly-snippets",
 	-- Completion engine
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-cmdline")
-	use("saadparwaiz1/cmp_luasnip")
-	use("windwp/nvim-autopairs")
-	-- Statusline
-	use("nvim-lualine/lualine.nvim")
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"saadparwaiz1/cmp_luasnip",
+	"windwp/nvim-autopairs",
+	-- Status line
+	"nvim-lualine/lualine.nvim",
 	-- Better highlight
-	use("nvim-treesitter/nvim-treesitter")
+	"nvim-treesitter/nvim-treesitter",
 	-- Finder
-	use("nvim-telescope/telescope.nvim")
+	{ "nvim-telescope/telescope.nvim", lazy = true },
 	-- Improve startup time
-	use("lewis6991/impatient.nvim")
+	{ "lewis6991/impatient.nvim", lazy = true },
 	-- Bufferline
-	use("akinsho/bufferline.nvim")
+	"akinsho/bufferline.nvim",
 	-- Explorer
-	use("nvim-tree/nvim-tree.lua")
+	{ "nvim-tree/nvim-tree.lua", lazy = true },
 	-- Comment
-	use("numToStr/Comment.nvim")
+	{ "numToStr/Comment.nvim", lazy = true },
 	-- Terminal
-	use("akinsho/toggleterm.nvim")
+	{ "akinsho/toggleterm.nvim", lazy = true },
 	-- Move faster
-	use("phaazon/hop.nvim")
+	{ "phaazon/hop.nvim", lazy = true },
 	-- Git
-	use("lewis6991/gitsigns.nvim")
+	{ "lewis6991/gitsigns.nvim", lazy = true },
 	-- Debug
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
+	{ "mfussenegger/nvim-dap", lazy = true },
+	{ "rcarriga/nvim-dap-ui", lazy = true },
 	-- Identline
-	use("lukas-reineke/indent-blankline.nvim")
-	-- Automatically set up your configuration after cloning packer.nvim
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+	{ "lukas-reineke/indent-blankline.nvim", lazy = false },
+})

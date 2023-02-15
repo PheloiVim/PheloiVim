@@ -1,5 +1,4 @@
 -- Configs
-require("configs.theme")
 require("configs.keymaps")
 require("configs.options")
 require("configs.autocmd")
