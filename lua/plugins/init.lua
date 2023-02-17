@@ -201,4 +201,19 @@ require("lazy").setup({
 			require("plugins.toggleterm")
 		end,
 	},
+
+	{
+		"echasnovski/mini.indentscope",
+		name = "indentscope",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("mini.indentscope").setup({
+				symbol = "│",
+				draw = {
+					delay = 50,
+				},
+			})
+		end,
+	},
 })

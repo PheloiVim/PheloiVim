@@ -58,3 +58,6 @@ keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 -- Buffer
 keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
 keymap("n", "<leader>p", "<cmd>bprevious<cr>", opts)
+
+-- No hl search
+keymap("n", "<leader>h", "<cmd>nohlsearch<cr>")
