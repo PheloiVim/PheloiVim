@@ -87,6 +87,7 @@ local diagnostic = {
 	},
 	update_in_insert = true,
 }
+
 local progress = function()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")

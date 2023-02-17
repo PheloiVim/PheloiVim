@@ -6,15 +6,16 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- NvimTree
-keymap("n", "<F2>", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<F3>", ":NvimTreeFocus<cr>", opts)
+keymap("n", "<F2>", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("n", "<F3>", "<cmd>NvimTreeFocus<cr>", opts)
 
 -- Hop
-keymap("n", "1", ":HopWord<cr>", opts)
-keymap("n", "2", ":HopLine<cr>", opts)
+keymap("n", "1", "<cmd>HopWord<cr>", opts)
+keymap("n", "2", "<cmd>HopLine<cr>", opts)
+
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+keymap("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
+keymap("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 
 -- Move while insert
 keymap("i", "<C-h>", "<Left>")
@@ -23,11 +24,11 @@ keymap("i", "<C-k>", "<Up>")
 keymap("i", "<C-l>", "<Right>")
 
 -- Save
-keymap("n", "<C-s>", ":w<cr>")
+keymap("n", "<C-s>", "<cmd>w<cr>")
 
 -- Comment
-keymap("n", "<leader>/", ":lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", '<ESC>:lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
+keymap("x", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -36,20 +37,24 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
+keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<C-i>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<C-o>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- Toggle terminal
-keymap("n", "<F5>", ":ToggleTerm<cr>", opts)
+keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
 
 --Toggle Trouble
-keymap("n", "<C-n>", ":TroubleToggle<cr>", opts)
+keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
 
 -- Format
-keymap("n", "<C-f>", ":lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Buffer
+keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
+keymap("n", "<leader>p", "<cmd>bprevious<cr>", opts)

@@ -78,6 +78,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "nvim_lua" },
 		{ name = "path" },
+		{ name = "calc" },
 	},
 	experimental = {
 		ghost_text = true,
