@@ -216,4 +216,11 @@ require("lazy").setup({
 			})
 		end,
 	},
+
+	{
+		"RRethy/vim-illuminate",
+		name = "Illuminate",
+		lazy = true,
+		event = "VeryLazy",
+	},
 })
