@@ -43,8 +43,8 @@ keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
 -- Telescope
-keymap("n", "<C-i>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<C-o>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<F6>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<F7>", "<cmd>Telescope live_grep<CR>", opts)
 
 -- Toggle terminal
 keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
@@ -53,7 +53,7 @@ keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
 keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
 
 -- Format
-keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<C-i>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Buffer
 keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
