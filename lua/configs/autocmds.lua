@@ -5,7 +5,11 @@ end
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 	group = augroup("checktime"),
-	command = "checktime",
+	callback = function()
+		if vim.fn.getcmdwintype() == "" then
+			vim.cmd("checktime")
+		end
+	end,
 })
 
 -- Highlight on yank
@@ -53,5 +57,26 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function()
+		local line_count = vim.fn.line("$")
+		if line_count >= 5000 then
+			vim.cmd("IlluminatePauseBuf")
+		end
+	end,
+})
+
+-- Auto set relativenumber if open a large file
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	callback = function()
+		local line_count = vim.fn.line("$")
+		if line_count >= 100 then
+			vim.opt.relativenumber = true
+		else
+			vim.opt.relativenumber = false
+		end
 	end,
 })
