@@ -157,23 +157,6 @@ require("lazy").setup({
 	},
 
 	{
-		"nvim-telescope/telescope.nvim",
-		name = "telescope",
-		lazy = true,
-		cmd = "Telescope find_files",
-		dependencies = {
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			config = function()
-				require("telescope").load_extension("fzf")
-			end,
-		},
-		config = function()
-			require("plugins.telescopes")
-		end,
-	},
-
-	{
 		"lewis6991/impatient.nvim",
 		lazy = true,
 		event = "VeryLazy",

@@ -42,10 +42,6 @@ keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
 keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
--- Telescope
-keymap("n", "<F6>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<F7>", "<cmd>Telescope live_grep<CR>", opts)
-
 -- Toggle terminal
 keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
 
