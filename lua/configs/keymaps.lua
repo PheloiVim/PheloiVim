@@ -18,10 +18,10 @@ keymap("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 keymap("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 
 -- Move while insert
-keymap("i", "<C-h>", "<Left>")
-keymap("i", "<C-j>", "<Down>")
-keymap("i", "<C-k>", "<Up>")
-keymap("i", "<C-l>", "<Right>")
+keymap("i", "<C-h>", "<Left>", opts)
+keymap("i", "<C-j>", "<Down>", opts)
+keymap("i", "<C-k>", "<Up>", opts)
+keymap("i", "<C-l>", "<Right>", opts)
 
 -- Save
 keymap("n", "<C-s>", "<cmd>w<cr>")
@@ -56,4 +56,8 @@ keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
 keymap("n", "<leader>p", "<cmd>bprevious<cr>", opts)
 
 -- No hl search
-keymap("n", "<leader>h", "<cmd>nohlsearch<cr>")
+keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
+
+-- Telescope
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)

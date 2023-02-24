@@ -82,6 +82,20 @@ require("lazy").setup({
 	},
 
 	{
+		"nvim-telescope/telescope.nvim",
+		name = "telescope",
+		lazy = true,
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "make",
+		},
+		config = function()
+			require("plugins.telescope")
+		end,
+	},
+
+	{
 		"hrsh7th/nvim-cmp",
 		name = "nvim cmp",
 		lazy = true,
