@@ -74,9 +74,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function()
 		local line_count = vim.fn.line("$")
 		if line_count >= 100 then
-			vim.opt.relativenumber = true
+			vim.cmd([[set relativenumber]])
 		else
-			vim.opt.relativenumber = false
+			vim.cmd([[set norelativenumber]])
 		end
 	end,
 })

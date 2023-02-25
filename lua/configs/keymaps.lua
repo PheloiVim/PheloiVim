@@ -14,8 +14,12 @@ keymap("n", "1", "<cmd>HopWord<cr>", opts)
 keymap("n", "2", "<cmd>HopLine<cr>", opts)
 
 -- Move text up and down
+keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 keymap("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 keymap("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
+keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
+keymap("v", "<A-j>", ":m '>+1<cr>gv=gv", opts)
 
 -- Move while insert
 keymap("i", "<C-h>", "<Left>", opts)
@@ -54,6 +58,7 @@ keymap("n", "<C-i>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 -- Buffer
 keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
 keymap("n", "<leader>p", "<cmd>bprevious<cr>", opts)
+keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts)
 
 -- No hl search
 keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
@@ -61,3 +66,7 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Stay in indent
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
