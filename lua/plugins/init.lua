@@ -27,6 +27,15 @@ require("lazy").setup({
 	},
 
 	{
+		"simrat39/symbols-outline.nvim",
+		name = "symbol outline",
+		lazy = false,
+		config = function()
+			require("symbols-outline").setup()
+		end,
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		name = "treesitter",
 		config = function()
