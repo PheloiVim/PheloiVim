@@ -67,6 +67,6 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 
--- Stay in indent
+-- Better indenting
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)

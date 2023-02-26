@@ -1,6 +1,7 @@
 local opt = vim.opt
 local g = vim.g
 
+opt.history = 0
 opt.shell = "fish"
 opt.laststatus = 0
 opt.hlsearch = true
