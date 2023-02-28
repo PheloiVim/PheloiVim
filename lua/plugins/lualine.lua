@@ -24,7 +24,7 @@ local file_info = function()
 		filename = " " .. filename .. " |"
 	end
 
-	return "%#St_file_info#" .. icon .. filename
+	return icon .. filename
 end
 
 local mode = {
@@ -51,7 +51,7 @@ local git = function()
 	local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
 	local branch_name = " " .. git_status.head .. " "
 
-	return "%#St_gitIcons#" .. branch_name .. added .. changed .. removed
+	return branch_name .. added .. changed .. removed
 end
 
 local lsp_progress = function()
@@ -73,7 +73,7 @@ local lsp_progress = function()
 	local frame = math.floor(ms / 120) % #spinners
 	local content = string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
 
-	return ("%#St_LspProgress#" .. content) or ""
+	return content or ""
 end
 
 local diagnostic = {
@@ -104,7 +104,7 @@ local lsp_info = function()
 		end
 		for _, client in ipairs(vim.lsp.get_active_clients()) do
 			if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-				return "%#St_LspStatus#" .. "|   LSP ~ " .. client.name .. " "
+				return "|   LSP ~ " .. client.name .. " "
 			end
 		end
 	end
@@ -121,8 +121,8 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { mode },
-		lualine_b = { file_info },
-		lualine_c = { git, "%=", lsp_progress },
+		lualine_b = {},
+		lualine_c = { file_info, git, "%=", lsp_progress },
 		lualine_x = { diagnostic, lsp_info },
 		lualine_y = { location },
 		lualine_z = { progress },
