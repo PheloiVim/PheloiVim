@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
+-- Change default leader key to <space>
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -51,6 +52,7 @@ keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
 
 --Toggle Trouble
 keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
+keymap("n", "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", opts)
 
 -- Format
 keymap("n", "<C-i>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
