@@ -50,6 +50,7 @@ opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wrap = true -- Enable line wrap
+opt.shell = "/usr/bin/fish"
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
