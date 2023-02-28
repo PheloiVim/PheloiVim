@@ -29,7 +29,8 @@ require("lazy").setup({
 	{
 		"simrat39/symbols-outline.nvim",
 		name = "symbol outline",
-		lazy = false,
+		lazy = true,
+		cmd = "SymbolsOutline",
 		config = function()
 			require("symbols-outline").setup()
 		end,
@@ -126,7 +127,7 @@ require("lazy").setup({
 		"windwp/nvim-autopairs",
 		name = "autopairs",
 		lazy = true,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = function()
 			require("plugins.autopairs")
 		end,
@@ -145,7 +146,7 @@ require("lazy").setup({
 	{
 		"L3MON4D3/LuaSnip",
 		lazy = true,
-		event = "InsertEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
