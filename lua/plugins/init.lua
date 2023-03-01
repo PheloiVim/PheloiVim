@@ -95,7 +95,7 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		name = "telescope",
 		lazy = true,
-		event = "VeryLazy",
+		cmd = { "Telescope find_files" },
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
