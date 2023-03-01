@@ -92,6 +92,16 @@ require("lazy").setup({
 	},
 
 	{
+		"j-hui/fidget.nvim",
+		name = "fidget",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("fidget").setup()
+		end,
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		name = "telescope",
 		lazy = true,
