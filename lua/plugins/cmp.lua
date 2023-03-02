@@ -67,6 +67,7 @@ cmp.setup({
 		end,
 	},
 	formatting = {
+		fields = { "kind", "abbr", "menu" },
 		format = function(_, vim_item)
 			vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
 			return vim_item
@@ -87,6 +88,10 @@ cmp.setup({
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<TAB>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+	},
+	confirm_opts = {
+		behavior = cmp.ConfirmBehavior.Replace,
+		select = false,
 	},
 })
 
