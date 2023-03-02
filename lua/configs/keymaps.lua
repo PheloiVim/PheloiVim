@@ -8,7 +8,7 @@ vim.g.maplocalleader = " "
 
 -- NvimTree
 keymap("n", "<F2>", "<cmd>NvimTreeToggle<cr>", opts)
-keymap("n", "<F3>", "<cmd>NvimTreeFocus<cr>", opts)
+keymap("n", "<leader>e", "<cmd>NvimTreeFocus<cr>", opts)
 
 -- Hop
 keymap("n", "1", "<cmd>HopWord<cr>", opts)
@@ -58,12 +58,12 @@ keymap("n", "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", opts)
 keymap("n", "<C-i>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Buffer
-keymap("n", "<leader>n", "<cmd>bnext<cr>", opts)
-keymap("n", "<leader>p", "<cmd>bprevious<cr>", opts)
-keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts)
+keymap("n", "<TAB>", "<cmd>bnext<cr>", opts) -- next buffer
+keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts) -- previous buffer
+keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 
 -- No hl search
-keymap("n", "<leader>h", "<cmd>nohlsearch<cr>", opts)
+keymap("n", "<ESC>", "<cmd>nohlsearch<cr>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
@@ -72,3 +72,6 @@ keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
 -- Better indenting
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- Toggle relative number
+keymap("n", "<leader>n", "<cmd>set rnu!<cr>")
