@@ -57,6 +57,8 @@ require("lazy").setup({
 	{
 		"neovim/nvim-lspconfig",
 		name = "nvim lsp",
+		lazy = false,
+		priority = 1000,
 		dependencies = {
 			{
 				"folke/trouble.nvim",

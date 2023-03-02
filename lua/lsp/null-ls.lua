@@ -15,6 +15,5 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.clang_format,
 		formatting.ptop,
-		diagnostics.clang_check,
 	},
 })

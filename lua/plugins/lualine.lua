@@ -34,9 +34,9 @@ local mode = {
 	end,
 }
 
-local location = {
-	"location",
-	padding = 1,
+local encoding = {
+	"encoding",
+	padding = 2,
 }
 
 local git = function()
@@ -102,14 +102,14 @@ lualine.setup({
 		lualine_b = {},
 		lualine_c = { file_info, git, "%=" },
 		lualine_x = { diagnostic, lsp_info },
-		lualine_y = { location },
+		lualine_y = { encoding },
 		lualine_z = { progress },
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
 		lualine_c = {},
-		lualine_x = { "location" },
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},

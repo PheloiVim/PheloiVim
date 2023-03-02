@@ -89,10 +89,6 @@ cmp.setup({
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<TAB>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 	},
-	confirm_opts = {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = false,
-	},
 })
 
 cmp.setup.cmdline(":", {
