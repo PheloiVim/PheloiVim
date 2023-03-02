@@ -23,7 +23,7 @@ M.capabilities.textDocument.completion.completionItem = {
 	},
 }
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-M.capabilities.offsetEncoding = { "utf-16" }
+-- M.capabilities.offsetEncoding = { "utf-8" }
 
 M.setup = function()
 	local signs = {
@@ -100,6 +100,12 @@ end
 M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 	client.server_capabilities.documentRangeFormattingProvider = false
+
+	if client.name == "clangd" then
+		client.server_capabilities.documentFormattingProvider = true
+		client.server_capabilities.documentRangeFormattingProvider = true
+	end
+
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
