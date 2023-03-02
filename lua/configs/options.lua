@@ -2,8 +2,8 @@ local opt = vim.opt
 
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.backspace = { "nostop" }
 opt.cmdheight = 1
+opt.whichwrap:append "<>[]hl"
 opt.copyindent = true
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.conceallevel = 3 -- Hide * markup for bold and italic
@@ -11,7 +11,7 @@ opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enable highlighting of the current line
 opt.copyindent = true
 opt.fileencoding = "utf-8"
-opt.history = 100
+opt.history = 0
 opt.preserveindent = true
 opt.expandtab = true -- Use spaces instead of tabs
 opt.formatoptions = "jcroqlnt" -- tcqj
@@ -31,14 +31,12 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true -- Round indent
 opt.shiftwidth = 2 -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true })
-opt.showtabline = 2
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
 opt.smartindent = true -- Insert indents automatically
-opt.numberwidth = 2
-opt.spelllang = { "en" }
+opt.numberwidth = 1
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true -- Put new windows right of current
 opt.tabstop = 2 -- Number of spaces tabs count for

@@ -68,15 +68,3 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		end
 	end,
 })
-
--- Auto set relativenumber if open a large file
-vim.api.nvim_create_autocmd({ "FileType" }, {
-	callback = function()
-		local line_count = vim.fn.line("$")
-		if line_count >= 100 then
-		  vim.opt_local.relativenumber = true
-		else
-		  vim.opt_local.relativenumber = false
-		end
-	end,
-})
