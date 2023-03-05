@@ -32,7 +32,9 @@ require("lazy").setup({
 		lazy = true,
 		cmd = "SymbolsOutline",
 		config = function()
-			require("symbols-outline").setup()
+			require("symbols-outline").setup({
+				auto_close = true,
+			})
 		end,
 	},
 

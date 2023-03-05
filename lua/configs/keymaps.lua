@@ -55,7 +55,7 @@ keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
 keymap("n", "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", opts)
 
 -- Format
-keymap("n", "<C-i>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<C-S-I>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Buffer
 keymap("n", "<TAB>", "<cmd>bnext<cr>", opts) -- next buffer
@@ -74,4 +74,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Toggle relative number
-keymap("n", "<leader>n", "<cmd>set rnu!<cr>")
+keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
+
+-- Toggle symbols outline
+keymap("n", "<C-m>", "<cmd>SymbolsOutline<cr>", opts)
