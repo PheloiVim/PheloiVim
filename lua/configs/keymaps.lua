@@ -8,11 +8,6 @@ vim.g.maplocalleader = " "
 
 -- NvimTree
 keymap("n", "<F2>", "<cmd>NvimTreeToggle<cr>", opts)
-keymap("n", "<leader>e", "<cmd>NvimTreeFocus<cr>", opts)
-
--- Hop
-keymap("n", "1", "<cmd>HopWord<cr>", opts)
-keymap("n", "2", "<cmd>HopLine<cr>", opts)
 
 -- Move text up and down
 keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })

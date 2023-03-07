@@ -109,7 +109,7 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		name = "telescope",
 		lazy = true,
-		cmd = { "Telescope find_files" },
+		cmd = "Telescope",
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
@@ -178,7 +178,10 @@ require("lazy").setup({
 	{
 		"phaazon/hop.nvim",
 		lazy = true,
-		event = "VeryLazy",
+		keys = {
+			{ "1", "<cmd>HopWord<cr>" },
+			{ "2", "<cmd>HopLine<cr>" },
+		},
 		config = function()
 			require("plugins.hop")
 		end,
