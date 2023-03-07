@@ -14,4 +14,4 @@
 
 This repository hosts my Neovim configuration for Linux. It's a minimal configuration with Lua and easy to customize and extend the config. You can clone this repository and use it but not good. A good configuration is personal, you should make your own unique config files .
 
-⚠️ This config is only for the **lastest Neovim stable release**. If you use a old neovim version, you can update via package manager or download the lastest version from [Neovim offical repository](https://github.com/neovim/neovim)
+⚠️ This config is only for the **lastest Neovim stable release**. If you use an old neovim version, you can update via package manager or download the lastest version from [Neovim offical repository](https://github.com/neovim/neovim)
