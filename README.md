@@ -41,14 +41,31 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Git
 - GCC
 - XClip (X11) for system clipboard support
+- fd for telescope
+- ripgrep for telescope
 
 ## ⌨️ Mapping table
 
 <table>
   <tr>
-    <th>keyboard shortcuts</th>
+    <th>Keyboard shortcuts</th>
     <th>Mode</th>
     <th>Description</th>
+  </tr>
+  <tr>
+    <td>Ctrl + f</td>
+    <td>Normal</td>
+    <td>Code formatting</td>
+  </tr>
+  <tr>
+    <td>Space + ff</td>
+    <td>Normal</td>
+    <td>Find files via telescope</td>
+  </tr>
+  <tr>
+    <td>Space + fg</td>
+    <td>Normal</td>
+    <td>Grep via telescope</td>
   </tr>
 </table>
 
