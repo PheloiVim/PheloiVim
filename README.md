@@ -41,6 +41,16 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - GCC
 - XClip (X11) for system clipboard support
 
+## ⌨️ Mapping table
+
+<table>
+  <tr>
+    <th>keyboard shortcuts</th>
+    <th>Mode</th>
+    <th>Description</th>
+  </tr>
+</table>
+
 ## 📷 Screenshot
 
 <div align="center">
