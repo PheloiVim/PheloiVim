@@ -40,3 +40,21 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Git
 - GCC
 - XClip (X11) for system clipboard support
+
+## 📷 Screenshot
+
+<div align="center">
+
+<img alt="nvim-cmp" src="./images/completion.png" />
+
+<img alt="command line completion" src="./image/commandline.png" />
+
+<img alt="explorer" src="./image/explorer.png" />
+
+<img alt="lsp diagnostic" src="./image/lsp.png" />
+
+<img alt="symbols outline" src="./image/symbolsOutline.png" />
+
+<img alt="telescope" src="./image/telescope.png" />
+
+</div>
