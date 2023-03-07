@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="neovim logo" src="./images/neovim.svg" width="300px" />
+  <img alt="neovim logo" src="./images/neovim.svg" width="300px" />
 </div>
 
 <h1 align="center">My neovim config for HTML, CSS, JavaScript,...</h1>
@@ -44,17 +44,10 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 ## 📷 Screenshot
 
 <div align="center">
-
-<img alt="nvim-cmp" src="./images/completion.png" />
-
-<img alt="command line completion" src="./images/commandline.png" />
-
-<img alt="explorer" src="./images/explorer.png" />
-
-<img alt="lsp diagnostic" src="./images/lsp.png" />
-
-<img alt="symbols outline" src="./images/symbolsOutline.png" />
-
-<img alt="telescope" src="./images/telescope.png" />
-
+  <img alt="nvim-cmp" src="./images/completion.png" />
+  <img alt="command line completion" src="./images/commandline.png" />
+  <img alt="explorer" src="./images/explorer.png" />
+  <img alt="lsp diagnostic" src="./images/lsp.png" />
+  <img alt="symbols outline" src="./images/symbolsOutline.png" />
+  <img alt="telescope" src="./images/telescope.png" />
 </div>
