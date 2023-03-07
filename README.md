@@ -14,4 +14,21 @@
 
 This repository hosts my Neovim configuration for Linux. It's a minimal configuration with Lua and easy to customize and extend the config. You can clone this repository and use it but not good. A good configuration is personal, you should make your own unique config files .
 
-⚠️ This config is only for the **lastest Neovim stable release**. If you use an old neovim version, you can update via package manager or download the lastest version from [Neovim offical repository](https://github.com/neovim/neovim)
+⚠️ This config is only for the **lastest Neovim stable release**. If you use an older neovim version, you can update via package manager or download the lastest version from [Neovim offical repository](https://github.com/neovim/neovim)
+
+## ✨ Detail
+
+- Plugin management: [lazy.nvim](https://github.com/folke/lazy.nvim)
+- Status line: [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- File tree explorer: [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+- Syntax highlighter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- Fast buffer jump: [hop.nvim](https://github.com/phaazon/hop.nvim)
+- Theme: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- Fuzzy searching: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- Faster code commenting: [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
+- Language server protocol (LSP) support: [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) & [mason.nvim](https://github.com/williamboman/mason.nvim)
+- Code Formatting: [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
+- Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- ............
