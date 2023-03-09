@@ -152,6 +152,11 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
     <td>Normal, Insert, Visual</td>
     <td>Move text line down</td>
   </tr>
+  <tr>
+    <td>Space + /</td>
+    <td>Normal, Visual</td>
+    <td>Comment code</td>
+  </tr>
 </table>
 
 ## 📷 Screenshot
