@@ -117,6 +117,11 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
     <td>Normal</td>
     <td>Left window focus</td>
   </tr>
+  <tr>
+    <td>Ctrl + j</td>
+    <td>Normal</td>
+    <td>Bottom window focus</td>
+  </tr>
 </table>
 
 ## 📷 Screenshot
