@@ -159,7 +159,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
   </tr>
 </table>
 
-And more...[keymap](./lua/configs/keymaps.lua)
+And more...[keymaps](./lua/configs/keymaps.lua)
 
 ## 📷 Screenshot
 
