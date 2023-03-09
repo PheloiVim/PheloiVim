@@ -128,6 +128,16 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
     <td>Up window focus</td>
   </tr>
   <tr>
+    <td>1</td>
+    <td>Normal</td>
+    <td>Hop Word</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Normal</td>
+    <td>Hop Line</td>
+  </tr>
+  <tr>
     <td>Ctrl + l</td>
     <td>Normal</td>
     <td>Right window focus</td>
@@ -135,12 +145,12 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
   <tr>
     <td>Alt + k</td>
     <td>Normal, Insert, Visual</td>
-    <td>Move current line up</td>
+    <td>Move text line up</td>
   </tr>
   <tr>
     <td>Alt + j</td>
     <td>Normal, Insert, Visual</td>
-    <td>Move current line down</td>
+    <td>Move text line down</td>
   </tr>
 </table>
 
