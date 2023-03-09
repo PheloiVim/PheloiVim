@@ -67,6 +67,56 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
     <td>Normal</td>
     <td>Grep via telescope</td>
   </tr>
+  <tr>
+    <td>F2</td>
+    <td>Normal</td>
+    <td>Toggle Nvim Tree</td>
+  </tr>
+  <tr>
+    <td>Ctrl + s</td>
+    <td>Normal</td>
+    <td>Save</td>
+  </tr>
+  <tr>
+    <td>Ctrl + m</td>
+    <td>Normal</td>
+    <td>Toggle symbols outline</td>
+  </tr>
+  <tr>
+    <td>Tab</td>
+    <td>Normal</td>
+    <td>Next buffer</td>
+  </tr>
+  <tr>
+    <td>Shift + Tab</td>
+    <td>Normal</td>
+    <td>Previous buffer</td>
+  </tr>
+  <tr>
+    <td>Space + q</td>
+    <td>Normal</td>
+    <td>Close buffer</td>
+  </tr>
+  <tr>
+    <td>Esc</td>
+    <td>Normal</td>
+    <td>Remove hightlight</td>
+  </tr>
+  <tr>
+    <td>Space + n</td>
+    <td>Normal</td>
+    <td>Toggle relative number</td>
+  </tr>
+  <tr>
+    <td>Ctrl + n</td>
+    <td>Normal</td>
+    <td>Toggle Trouble</td>
+  </tr>
+  <tr>
+    <td>Ctrl + h</td>
+    <td>Normal</td>
+    <td>Left window focus</td>
+  </tr>
 </table>
 
 ## 📷 Screenshot
