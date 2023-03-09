@@ -32,7 +32,6 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Code Formatting: [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- Winbar code outline: [nvim-navic](https://github.com/SmiteshP/nvim-navic)
 - ............
 
 ## ⚡️ Requirements
