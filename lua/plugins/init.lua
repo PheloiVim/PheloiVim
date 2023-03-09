@@ -59,16 +59,16 @@ require("lazy").setup({
 	{
 		"neovim/nvim-lspconfig",
 		name = "nvim lsp",
-		lazy = false,
-		priority = 1000,
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			{
-				"folke/trouble.nvim",
-				name = "trouble",
-			},
 			{
 				"williamboman/mason.nvim",
 				name = "mason",
+			},
+			{
+				"folke/trouble.nvim",
+				name = "trouble",
 			},
 			{
 				"jose-elias-alvarez/null-ls.nvim",
@@ -123,7 +123,7 @@ require("lazy").setup({
 		"hrsh7th/nvim-cmp",
 		name = "nvim cmp",
 		lazy = true,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -151,7 +151,7 @@ require("lazy").setup({
 		"lewis6991/gitsigns.nvim",
 		name = "gitsigns",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("plugins.gitsigns")
 		end,
@@ -191,7 +191,7 @@ require("lazy").setup({
 		"lukas-reineke/indent-blankline.nvim",
 		name = "indentline",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("plugins.indentline")
 		end,
@@ -230,7 +230,7 @@ require("lazy").setup({
 		"echasnovski/mini.indentscope",
 		name = "indentscope",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("mini.indentscope").setup({
 				symbol = "│",
@@ -246,5 +246,16 @@ require("lazy").setup({
 		name = "Illuminate",
 		lazy = true,
 		event = "VeryLazy",
+	},
+
+	{
+		"SmiteshP/nvim-navic",
+		name = "navic",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+			require("plugins.navic")
+		end,
 	},
 })

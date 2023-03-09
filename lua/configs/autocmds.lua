@@ -68,3 +68,11 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "help", "NvimTree", "Trouble", "lazy", "mason" },
+	callback = function()
+		vim.b.miniindentscope_disable = true
+		vim.cmd("IlluminatePauseBuf")
+	end,
+})

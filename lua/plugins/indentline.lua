@@ -6,8 +6,6 @@ end
 vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
 vim.g.indent_blankline_filetype_exclude = {
 	"help",
-	"startify",
-	"packer",
 	"NvimTree",
 	"Trouble",
 }

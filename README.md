@@ -40,7 +40,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - A Nerd font
 - Git
 - GCC
-- XClip (X11) or wl-clipboard (Wayland) for system clipboard support
+- XClip (X11) for system clipboard support
 - fd for telescope
 - ripgrep for telescope
 
@@ -159,7 +159,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
   </tr>
 </table>
 
-And more...[keymaps](./lua/configs/keymaps.lua)
+And more...[keymap](./lua/configs/keymaps.lua)
 
 ## 📷 Screenshot
 
