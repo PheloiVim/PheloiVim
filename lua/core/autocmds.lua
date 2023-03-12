@@ -60,17 +60,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-	callback = function()
-		local line_count = vim.fn.line("$")
-		if line_count >= 5000 then
-			vim.cmd("IlluminatePauseBuf")
-		end
-	end,
-})
-
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "help", "NvimTree", "Trouble", "lazy", "mason" },
+	pattern = { "help", "NvimTree", "Trouble", "mason" },
 	callback = function()
 		vim.b.miniindentscope_disable = true
 		vim.cmd("IlluminatePauseBuf")

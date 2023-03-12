@@ -2,9 +2,8 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- Change default leader key to <space>
-keymap("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- NvimTree
 keymap("n", "<F2>", "<cmd>NvimTreeToggle<cr>", opts)
@@ -61,8 +60,10 @@ keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 keymap("n", "<ESC>", "<cmd>nohlsearch<cr>", opts)
 
 -- Telescope
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
+keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
+keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
 -- Better indenting
 keymap("v", "<", "<gv", opts)

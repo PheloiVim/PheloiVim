@@ -1,26 +1,5 @@
-local status_ok, mason = pcall(require, "mason")
-if not status_ok then
-	return
-end
-
 local servers = { "lua_ls", "html", "cssls", "tsserver", "rome", "clangd", "bashls" }
-
-mason.setup({
-	ui = {
-		border = "solid",
-		icons = {
-			package_installed = " ",
-			package_pending = " ",
-			package_uninstalled = " ",
-		},
-	},
-})
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
-
+local lspconfig = require("lspconfig")
 local opts = {}
 
 for _, server in pairs(servers) do
