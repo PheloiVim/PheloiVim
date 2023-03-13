@@ -26,10 +26,21 @@ return {
 			"RRethy/vim-illuminate",
 			config = function()
 				require("illuminate").configure({
+					providers = {
+						"lsp",
+						"treesitter",
+						"regex",
+					},
+					delay = 200,
 					filetypes_denylist = {
 						"lazy",
 						"help",
 						"lspinfo",
+						"NvimTree",
+						"TelescopePrompt",
+						"Outline",
+						"Trouble",
+						"toggleterm",
 					},
 				})
 			end,

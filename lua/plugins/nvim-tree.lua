@@ -18,6 +18,9 @@ return {
 			},
 			renderer = {
 				root_folder_modifier = ":t",
+				indent_markers = {
+					enable = true,
+				},
 				icons = {
 					glyphs = {
 						default = "",

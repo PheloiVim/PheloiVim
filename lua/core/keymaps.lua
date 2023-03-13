@@ -77,3 +77,6 @@ keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
 -- Toggle symbols outline
 keymap("n", "<C-m>", "<cmd>SymbolsOutline<cr>", opts)
+
+-- Git
+keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
