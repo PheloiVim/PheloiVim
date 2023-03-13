@@ -44,9 +44,6 @@ keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
 keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
 
--- Toggle terminal
-keymap("n", "<F5>", "<cmd>ToggleTerm<cr>", opts)
-
 --Toggle Trouble
 keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
 keymap("n", "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", opts)
@@ -77,6 +74,3 @@ keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
 -- Toggle symbols outline
 keymap("n", "<C-m>", "<cmd>SymbolsOutline<cr>", opts)
-
--- Git
-keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
