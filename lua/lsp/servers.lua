@@ -1,4 +1,4 @@
-local servers = { "lua_ls", "html", "cssls", "tsserver", "rome", "clangd", "bashls" }
+local servers = { "lua_ls", "html", "cssls", "tsserver", "rome", "clangd", "bashls", "rust_analyzer" }
 local lspconfig = require("lspconfig")
 local opts = {}
 
