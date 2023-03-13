@@ -5,7 +5,7 @@
 <h1 align="center">My neovim config for HTML, CSS, JavaScript,...</h1>
 
 <div align="center">
-  <img alt="Neovim" src="https://img.shields.io/github/v/release/neovim/neovim?style=for-the-badge&logo=neovim&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver"
+  <img alt="Neovim" src="https://img.shields.io/github/v/release/neovim/neovim?style=for-the-badge&logo=neovim&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
   <img alt="Last commit" src="https://img.shields.io/github/last-commit/yeuxacucodon/neovim-config?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41" />
   <img alt="Stars" src="https://img.shields.io/github/stars/yeuxacucodon/neovim-config?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41" />
   <img alt="Repo size" src="https://img.shields.io/github/repo-size/yeuxacucodon/neovim-config?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41" />
