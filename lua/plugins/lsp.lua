@@ -2,11 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local status_ok, _ = pcall(require, "lspconfig")
-		if not status_ok then
-			return
-		end
-
 		require("lsp.servers")
 		require("lsp.handlers").setup()
 	end,
