@@ -8,6 +8,8 @@ opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.scrolloff = 4
 opt.writebackup = false -- Disable making a backup before overwriting a file
 opt.inccommand = "nosplit" -- preview incremental substitute
+opt.confirm = true
+opt.conceallevel = 3
 
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
@@ -26,6 +28,7 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"
 opt.list = true
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 
 -- Numbers
 opt.number = true

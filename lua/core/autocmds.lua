@@ -59,11 +59,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "help", "NvimTree", "Trouble", "mason" },
-	callback = function()
-		vim.b.miniindentscope_disable = true
-		vim.cmd("IlluminatePauseBuf")
-	end,
-})

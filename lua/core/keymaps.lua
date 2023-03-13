@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- Change default leader key to <space>
-vim.keymap.set("", "<Space>", "<Nop>", opts)
+keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- NvimTree
@@ -24,6 +24,9 @@ keymap("i", "<C-l>", "<Right>", opts)
 
 -- Save
 keymap("n", "<C-s>", "<cmd>w<cr>")
+
+-- Quit
+keymap("n", "<C-q>", "<cmd>q<cr>")
 
 -- Comment
 keymap("x", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)

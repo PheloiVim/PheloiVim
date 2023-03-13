@@ -22,7 +22,18 @@ return {
 			end,
 		},
 		{ "folke/trouble.nvim", config = true },
-		{ "RRethy/vim-illuminate" },
+		{
+			"RRethy/vim-illuminate",
+			config = function()
+				require("illuminate").configure({
+					filetypes_denylist = {
+						"lazy",
+						"help",
+						"lspinfo",
+					},
+				})
+			end,
+		},
 		{
 			"ray-x/lsp_signature.nvim",
 			config = function()
