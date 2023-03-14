@@ -73,7 +73,7 @@ return {
 					end,
 				},
 				formatting = {
-					fields = { "kind", "abbr", "menu" },
+					fields = { "abbr", "kind" },
 					format = function(_, vim_item)
 						vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
 						return vim_item
