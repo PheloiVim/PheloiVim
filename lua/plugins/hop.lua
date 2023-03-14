@@ -1,6 +1,5 @@
 return {
 	"phaazon/hop.nvim",
-	lazy = true,
 	keys = {
 		{ "1", "<cmd>HopWord<cr>" },
 		{ "2", "<cmd>HopLine<cr>" },

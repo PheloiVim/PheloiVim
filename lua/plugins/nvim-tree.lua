@@ -1,8 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
-  keys = {
-    require("core.keymaps").NvimTree
-  },
+  keys = require("core.keymaps").NvimTree,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},

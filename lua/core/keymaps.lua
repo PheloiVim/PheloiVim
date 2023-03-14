@@ -9,8 +9,7 @@ vim.g.mapleader = " "
 
 -- NvimTree
 M.NvimTree = {
-	"<F2>",
-	"<cmd>NvimTreeToggle<cr>",
+	{ "<F2>", "<cmd>NvimTreeToggle<cr>" },
 }
 
 -- Move text up and down
