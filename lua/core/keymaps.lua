@@ -57,8 +57,8 @@ keymap("n", "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", opts)
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Buffer
-keymap("n", "<C-l>", "<cmd>bnext<cr>", opts) -- next buffer
-keymap("n", "<C-h>", "<cmd>bprevious<cr>", opts) -- previous buffer
+keymap("n", "<TAB>", "<cmd>bnext<cr>", opts) -- next buffer
+keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts) -- previous buffer
 keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 
 -- No hl search
