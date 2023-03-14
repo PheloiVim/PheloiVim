@@ -17,8 +17,6 @@ return {
 				formatting.stylua,
 				formatting.clang_format,
 				formatting.rustfmt,
-				code_actions.eslint_d,
-				diagnostics.eslint_d,
 			},
 		})
 	end,
