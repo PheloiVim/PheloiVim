@@ -1,9 +1,6 @@
 return {
 	"akinsho/toggleterm.nvim",
-	keys = {
-		{ "<F5>", "<cmd>ToggleTerm<cr>" },
-		{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
-	},
+	keys = require("core.keymaps").ToggleTerm,
 	config = function()
 		local toggleterm = require("toggleterm")
 		toggleterm.setup({

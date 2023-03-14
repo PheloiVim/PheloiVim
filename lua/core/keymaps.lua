@@ -78,6 +78,13 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
 -- Toggle symbols outline
-keymap("n", "<C-m>", "<cmd>SymbolsOutline<cr>", opts)
+M.SymbolsOutline = {
+	{ "<C-m>", "<cmd>SymbolsOutline<cr>" },
+}
+
+M.ToggleTerm = {
+	{ "<F5>", "<cmd>ToggleTerm<cr>" },
+	{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
+}
 
 return M
