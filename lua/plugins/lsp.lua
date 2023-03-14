@@ -21,6 +21,7 @@ return {
 				})
 			end,
 		},
+		{ "williamboman/mason-lspconfig.nvim" },
 		{ "folke/trouble.nvim", config = true },
 		{
 			"RRethy/vim-illuminate",
@@ -38,7 +39,6 @@ return {
 						"lspinfo",
 						"NvimTree",
 						"TelescopePrompt",
-						"Outline",
 						"Trouble",
 						"toggleterm",
 					},
@@ -52,42 +52,26 @@ return {
 			end,
 		},
 		{
-			"SmiteshP/nvim-navic",
+			"glepnir/lspsaga.nvim",
 			config = function()
-				local navic = require("nvim-navic")
-				navic.setup({
-					separator = " > ",
-					highlight = true,
-					depth_limit = 5,
-					depth_limit_indicator = "..",
-					safe_output = true,
-					icons = {
-						File = " ",
-						Module = " ",
-						Namespace = " ",
-						Package = " ",
-						Class = " ",
-						Method = " ",
-						Property = " ",
-						Field = " ",
-						Constructor = " ",
-						Enum = "練",
-						Interface = "練",
-						Function = " ",
-						Variable = " ",
-						Constant = " ",
-						String = " ",
-						Number = " ",
-						Boolean = "◩ ",
-						Array = " ",
-						Object = " ",
-						Key = " ",
-						Null = "ﳠ ",
-						EnumMember = " ",
-						Struct = " ",
-						Event = " ",
-						Operator = " ",
-						TypeParameter = " ",
+				require("lspsaga").setup({
+					diagnostic = {
+						on_insert = false,
+						on_insert_follow = false,
+						show_virt_line = false,
+						show_code_action = false,
+					},
+					outline = {
+						win_width = 40,
+						keys = {
+							jump = "o",
+							expand_collapse = "u",
+							quit = "q",
+						},
+					},
+					symbol_in_winbar = {
+						separator = "  ",
+						show_file = false,
 					},
 				})
 			end,

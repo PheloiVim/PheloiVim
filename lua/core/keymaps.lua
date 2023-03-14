@@ -13,8 +13,8 @@ M.NvimTree = {
 }
 
 -- Move text up and down
-keymap("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-keymap("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+keymap("n", "<A-k>", "<cmd>m .-2<cr>==", opts)
+keymap("n", "<A-j>", "<cmd>m .+1<cr>==", opts)
 keymap("i", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", opts)
 keymap("i", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", opts)
 keymap("v", "<A-k>", ":m '<-2<cr>gv=gv", opts)
@@ -76,11 +76,15 @@ keymap("v", ">", ">gv", opts)
 -- Toggle relative number
 keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
--- Toggle symbols outline
-M.SymbolsOutline = {
-	{ "<C-m>", "<cmd>SymbolsOutline<cr>" },
-}
+-- Lspsaga
+keymap("n", "<C-o>", "<cmd>Lspsaga outline<cr>", opts)
+keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
+keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
+keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<CR><cr>", opts)
+keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
 
+-- Toggle Terminal
 M.ToggleTerm = {
 	{ "<F5>", "<cmd>ToggleTerm<cr>" },
 	{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },

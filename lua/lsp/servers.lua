@@ -1,7 +1,8 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
 	"lua_ls", -- Lua lsp
 	"html", -- Html lsp
-  "emmet_ls", -- Emmet support
+	"emmet_ls", -- Emmet support
 	"cssls", -- Css lsp
 	"tsserver", -- JavaScript lsp
 	"rome", -- JavaScript lsp
@@ -12,6 +13,11 @@ local servers = {
 }
 local lspconfig = require("lspconfig")
 local opts = {}
+
+-- require("mason-lspconfig").setup({
+-- 	ensure_installed = servers,
+-- 	automatic_installation = false,
+-- })
 
 for _, server in pairs(servers) do
 	opts = {
