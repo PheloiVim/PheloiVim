@@ -1,4 +1,15 @@
-local servers = { "lua_ls", "html", "cssls", "tsserver", "rome", "clangd", "bashls", "rust_analyzer" }
+local servers = {
+	"lua_ls", -- Lua lsp
+	"html", -- Html lsp
+  "emmet_ls", -- Emmet support
+	"cssls", -- Css lsp
+	"tsserver", -- JavaScript lsp
+	"rome", -- JavaScript lsp
+	"clangd", -- C, C++ lsp
+	"bashls", -- Bash lsp
+	"rust_analyzer", -- Rust lsp
+	"jsonls", -- Json lsp
+}
 local lspconfig = require("lspconfig")
 local opts = {}
 
