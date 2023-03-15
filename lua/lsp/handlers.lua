@@ -78,7 +78,6 @@ local function lsp_keymaps(bufnr)
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-	keymap(bufnr, "n", "<leader>ls", "<cmd>lua require('lsp_signature').toggle_float_win()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
