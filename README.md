@@ -172,4 +172,5 @@ And more...[keymaps](./lua/core/keymaps.lua)
   <img alt="lsp diagnostic" src="./images/lsp.png" />
   <img alt="symbols outline" src="./images/symbolsOutline.png" />
   <img alt="telescope" src="./images/telescope.png" />
+  <img alt="lazygit" src="./images/lazygit.png" />
 </div>
