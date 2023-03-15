@@ -61,10 +61,10 @@ return {
 			cmp.setup({
 				window = {
 					completion = {
-						border = "single",
+						border = "solid",
 					},
 					documentation = {
-						border = "single",
+						border = "solid",
 					},
 				},
 				snippet = {
