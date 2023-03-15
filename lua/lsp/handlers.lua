@@ -84,9 +84,7 @@ end
 M.on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 	client.server_capabilities.documentRangeFormattingProvider = false
-	if client.server_capabilities.signatureHelpProvider then
-		require("lsp_signature").on_attach(client)
-	end
+
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then

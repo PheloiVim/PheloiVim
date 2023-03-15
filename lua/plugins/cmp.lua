@@ -3,6 +3,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		event = "VeryLazy",
 		dependencies = {
+			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"L3MON4D3/LuaSnip",
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-nvim-lsp",
@@ -86,6 +87,7 @@ return {
 					{ name = "nvim_lua" },
 					{ name = "path" },
 					{ name = "calc" },
+					{ name = "nvim_lsp_signature_help" },
 				},
 				experimental = {
 					ghost_text = true,

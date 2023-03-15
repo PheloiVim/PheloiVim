@@ -46,12 +46,6 @@ return {
 			end,
 		},
 		{
-			"ray-x/lsp_signature.nvim",
-			config = function()
-				require("lsp_signature").setup()
-			end,
-		},
-		{
 			"glepnir/lspsaga.nvim",
 			config = function()
 				require("lspsaga").setup({
