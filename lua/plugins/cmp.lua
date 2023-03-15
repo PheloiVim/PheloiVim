@@ -90,7 +90,7 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 				},
 				experimental = {
-					ghost_text = true,
+					ghost_text = false,
 				},
 				mapping = {
 					["<C-k>"] = cmp.mapping.select_prev_item(),
