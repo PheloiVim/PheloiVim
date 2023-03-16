@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="neovim logo" src="./images/neovim.svg" width="300px" />
+  <img alt="neovim logo" src="./neovim.svg" width="300px" />
 </div>
 
 <h1 align="center">My neovim config for HTML, CSS, JavaScript,...</h1>
@@ -46,7 +46,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - fd for telescope
 - ripgrep for telescope
 
-## ⌨️ Mapping table
+## ⌨️  Mapping table
 
 <table>
   <tr>
