@@ -166,11 +166,11 @@ And more...[keymaps](./lua/core/keymaps.lua)
 ## 📷 Screenshot
 
 <div align="center">
-  <img alt="nvim-cmp" src="./images/completion.png" />
-  <img alt="command line completion" src="./images/commandline.png" />
-  <img alt="explorer" src="./images/explorer.png" />
-  <img alt="lsp diagnostic" src="./images/lsp.png" />
-  <img alt="symbols outline" src="./images/symbolsOutline.png" />
-  <img alt="telescope" src="./images/telescope.png" />
-  <img alt="lazygit" src="./images/lazygit.png" />
+  <img alt="nvim-cmp" src="https://i.imgur.com/y695xX0.png" />
+  <img alt="wild menu completion" src="https://i.imgur.com/yVdOMZj.png" />
+  <img alt="explorer" src="https://i.imgur.com/n6q5grn.png" />
+  <img alt="lsp diagnostic & code actions" src="https://i.imgur.com/8zPvVCd.png" />
+  <img alt="symbols outline" src="https://i.imgur.com/UuSZV5f.png" />
+  <img alt="telescope" src="https://i.imgur.com/9Ziziuo.png" />
+  <img alt="lazygit" src="https://i.imgur.com/tgVEIaN.png" />
 </div>
