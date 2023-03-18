@@ -14,6 +14,8 @@ return {
 				"javascript",
 				"java",
 				"rust",
+				"cpp",
+				"c",
 			},
 			highlight = {
 				enable = true,

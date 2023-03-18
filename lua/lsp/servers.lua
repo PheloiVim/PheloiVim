@@ -16,7 +16,6 @@ local opts = {}
 
 -- require("mason-lspconfig").setup({
 -- 	ensure_installed = servers,
--- 	automatic_installation = false,
 -- })
 
 for _, server in pairs(servers) do
