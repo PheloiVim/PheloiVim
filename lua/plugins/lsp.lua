@@ -77,6 +77,7 @@ return {
 				fidget.setup({
 					text = {
 						spinner = "pipe",
+						done = "",
 					},
 					timer = {
 						spinner_rate = 100,
