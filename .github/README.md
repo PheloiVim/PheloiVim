@@ -34,7 +34,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - Winbar code outline: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- And more...[plugins here](./lua/plugins/)
+- And more...[plugins here](https://github.com/yeuxacucodon/neovim-config/tree/master/lua/plugins)
 
 ## ⚡️ Requirements
 
@@ -161,7 +161,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
   </tr>
 </table>
 
-And more...[keymaps](./lua/core/keymaps.lua)
+And more...[keymaps](https://github.com/yeuxacucodon/neovim-config/blob/master/lua/core/keymaps.lua)
 
 ## 📷 Screenshot
 
