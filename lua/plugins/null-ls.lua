@@ -17,7 +17,7 @@ return {
 				formatting.stylua,
 				formatting.clang_format,
 				formatting.rustfmt,
-        formatting.ptop,
+				formatting.ptop,
 			},
 		})
 	end,
