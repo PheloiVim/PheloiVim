@@ -9,7 +9,7 @@ vim.g.mapleader = " "
 
 -- NvimTree
 M.NvimTree = {
-	{ "<F2>", "<cmd>NvimTreeToggle<cr>" },
+  { "<F2>", "<cmd>NvimTreeToggle<cr>" },
 }
 
 -- Move text up and down
@@ -86,8 +86,8 @@ keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
 
 -- Toggle Terminal
 M.ToggleTerm = {
-	{ "<F5>", "<cmd>ToggleTerm<cr>" },
-	{ "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
+  { "<F5>", "<cmd>ToggleTerm<cr>" },
+  { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
 }
 
 return M

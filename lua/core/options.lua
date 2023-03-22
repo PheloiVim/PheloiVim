@@ -36,7 +36,7 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append("sI")
+opt.shortmess:append "sI"
 
 opt.signcolumn = "yes"
 opt.splitbelow = true
@@ -49,15 +49,15 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append("<>[]hl")
+opt.whichwrap:append "<>[]hl"
 
 -- disable some default providers
-for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
-	vim.g["loaded_" .. provider .. "_provider"] = 0
+for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
 -- Remove "How to disable mouse"
-vim.cmd([[
+vim.cmd [[
   aunmenu PopUp.How-to\ disable\ mouse
   aunmenu PopUp.-1-
-]])
+]]
