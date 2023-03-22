@@ -46,7 +46,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - fd for telescope
 - ripgrep for telescope
 
-## ⌨️  Mapping table
+## ⌨️ Mapping table
 
 <table>
   <tr>
