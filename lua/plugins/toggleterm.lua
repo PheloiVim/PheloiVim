@@ -4,7 +4,7 @@ return {
   config = function()
     local toggleterm = require "toggleterm"
     toggleterm.setup {
-      size = 30,
+      size = 20,
       open_mapping = [[<F5>]],
       hide_numbers = true,
       shade_terminals = true,
