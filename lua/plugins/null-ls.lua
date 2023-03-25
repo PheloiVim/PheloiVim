@@ -14,6 +14,7 @@ return {
       debug = false,
       sources = {
         formatting.prettier,
+        formatting.shfmt,
         formatting.stylua,
         formatting.clang_format,
         formatting.rustfmt,
