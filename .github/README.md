@@ -25,7 +25,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - File tree explorer: [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
 - Syntax highlighter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - Fast buffer jump: [hop.nvim](https://github.com/phaazon/hop.nvim)
-- Theme: [onedark.nvim](https://github.com/navarasu/onedark.nvim)
+- Theme: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - Fuzzy searching: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - Faster code commenting: [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
