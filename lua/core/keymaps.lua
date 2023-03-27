@@ -12,6 +12,23 @@ M.NvimTree = {
   { "<F2>", "<cmd>NvimTreeToggle<cr>" },
 }
 
+-- Illuminate
+keymap("n", "<a-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
+
+-- Easy to delete the character at the right of the cursor
+keymap("i", "<C-D>", "<DEL>")
+
+-- Turn the word under cursor to uppercase
+keymap("i", "<C-u>", "<Esc>viwUea")
+-- Turn the word under cursor to lowercase
+keymap("i", "<C-i>", "<Esc>viwuea")
+-- Turn the current word into title case
+keymap("i", "<C-t>", "<Esc>b~lea")
+
+-- Go to start or end of line easier
+keymap({ "n", "x" }, "H", "^")
+keymap({ "n", "x" }, "L", "g_")
+
 -- Move text up and down
 keymap("n", "<A-k>", "<cmd>m .-2<cr>==", opts)
 keymap("n", "<A-j>", "<cmd>m .+1<cr>==", opts)
