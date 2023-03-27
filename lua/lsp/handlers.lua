@@ -92,6 +92,5 @@ M.on_attach = function(client, bufnr)
 
   illuminate.on_attach(client)
 end
-require("lspconfig.ui.windows").default_options.border = "single"
 
 return M
