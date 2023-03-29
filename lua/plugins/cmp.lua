@@ -16,7 +16,7 @@ return {
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
-      vim.o.completeopt = "menu,menuone,noselect"
+      vim.o.completeopt = "menu,menuone,noselect,noinsert"
       require("luasnip/loaders/from_vscode").lazy_load()
 
       local lsp_icons = {
@@ -92,7 +92,7 @@ return {
         experimental = {
           ghost_text = false,
         },
-        mapping = {
+        mapping = cmp.mapping.preset.insert {
           ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<TAB>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
