@@ -16,7 +16,6 @@ return {
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
-      vim.o.completeopt = "menu,menuone,noselect,noinsert"
       require("luasnip/loaders/from_vscode").lazy_load()
 
       local lsp_icons = {
@@ -60,6 +59,9 @@ return {
         Copilot = " ",
       }
       cmp.setup {
+        completion = {
+          completeopt = "menu,menuone",
+        },
         window = {
           completion = {
             border = "solid",
@@ -95,7 +97,13 @@ return {
         mapping = cmp.mapping.preset.insert {
           ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+          ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
           ["<TAB>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
+          ["<C-e>"] = cmp.mapping {
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          },
         },
       }
 
