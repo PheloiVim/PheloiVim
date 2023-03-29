@@ -6,6 +6,7 @@ local M = {}
 -- Change default leader key to <space>
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
+keymap("n", "i", "a", opts)
 
 -- NvimTree
 M.NvimTree = {
