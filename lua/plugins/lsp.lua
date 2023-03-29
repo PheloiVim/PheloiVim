@@ -79,7 +79,7 @@ return {
             done = "",
           },
           timer = {
-            spinner_rate = 100,
+            spinner_rate = 200,
           },
         }
       end,

@@ -10,24 +10,6 @@ return {
       cyan = "#008080",
     }
 
-    local file_info = function()
-      local icon = "  "
-      local filename = (vim.fn.expand "%" == "" and "Empty ") or vim.fn.expand "%:t"
-
-      if filename ~= "Empty " then
-        local devicons_present, devicons = pcall(require, "nvim-web-devicons")
-
-        if devicons_present then
-          local ft_icon = devicons.get_icon(filename)
-          icon = (ft_icon ~= nil and " " .. ft_icon) or ""
-        end
-
-        filename = " " .. filename .. " |"
-      end
-
-      return icon .. filename
-    end
-
     local mode = {
       "mode",
       fmt = function(str)
@@ -101,7 +83,7 @@ return {
       sections = {
         lualine_a = { mode },
         lualine_b = {},
-        lualine_c = { file_info, git },
+        lualine_c = { git },
         lualine_x = { diagnostic, lsp_info },
         lualine_y = { encoding },
         lualine_z = { progress },
