@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   config = function()
     require("indent_blankline").setup {
       char = "▏",
@@ -11,7 +11,6 @@ return {
       buftype_exclude = { "terminal", "nofile" },
       filetype_exclude = {
         "help",
-        "packer",
         "NvimTree",
       },
     }
