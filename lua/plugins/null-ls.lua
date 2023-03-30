@@ -13,6 +13,21 @@ return {
     null_ls.setup {
       debug = false,
       sources = {
+        formatting.prettier.with {
+          filetypes = {
+            "css",
+            "scss",
+            "less",
+            "html",
+            "json",
+            "jsonc",
+            "yaml",
+            "markdown",
+            "markdown.mdx",
+            "graphql",
+            "handlebars",
+          },
+        },
         formatting.shfmt,
         formatting.stylua,
         formatting.clang_format,
