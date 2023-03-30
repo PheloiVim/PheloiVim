@@ -20,7 +20,11 @@ return {
         "json",
         "luap",
       },
+      sync_install = false,
       auto_install = true,
+      autopairs = {
+        enable = true,
+      },
       highlight = {
         enable = true,
         use_languagetree = true,
