@@ -9,9 +9,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-calc",
     },
     config = function()
       local cmp = require "cmp"
@@ -83,13 +81,12 @@ return {
             return vim_item
           end,
         },
+
         sources = {
           { name = "luasnip" },
           { name = "nvim_lsp" },
           { name = "buffer" },
-          { name = "nvim_lua" },
           { name = "path" },
-          { name = "calc" },
           { name = "nvim_lsp_signature_help" },
         },
         experimental = {
@@ -107,22 +104,6 @@ return {
           },
         },
       }
-
-      cmp.setup.cmdline(":", {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = cmp.config.sources({
-          { name = "path" },
-        }, {
-          { name = "cmdline" },
-        }),
-      })
-
-      cmp.setup.cmdline({ "/", "?" }, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-          { name = "buffer" },
-        },
-      })
     end,
   },
 }
