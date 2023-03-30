@@ -58,9 +58,10 @@ return {
         Package = "",
         Copilot = " ",
       }
+
       cmp.setup {
         completion = {
-          completeopt = "menu,menuone",
+          completeopt = "menu,menuone,noinsert",
         },
         window = {
           completion = {
@@ -94,7 +95,7 @@ return {
         experimental = {
           ghost_text = false,
         },
-        mapping = cmp.mapping.preset.insert {
+        mapping = {
           ["<C-k>"] = cmp.mapping.select_prev_item(),
           ["<C-j>"] = cmp.mapping.select_next_item(),
           ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
