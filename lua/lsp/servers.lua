@@ -14,9 +14,9 @@ local servers = {
 local lspconfig = require "lspconfig"
 local opts = {}
 
--- require("mason-lspconfig").setup({
--- 	ensure_installed = servers,
--- })
+require("mason-lspconfig").setup {
+  ensure_installed = { "lua_ls", "html", "emmet_ls", "cssls", "tsserver", "rome", "bashls", "rust_analyzer", "jsonls" },
+}
 
 for _, server in pairs(servers) do
   opts = {
