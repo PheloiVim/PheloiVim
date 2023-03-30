@@ -10,6 +10,9 @@ opt.writebackup = false -- Disable making a backup before overwriting a file
 opt.inccommand = "nosplit" -- preview incremental substitute
 opt.confirm = true
 opt.conceallevel = 3
+opt.fileencoding = "utf-8"
+opt.hlsearch = true
+opt.ignorecase = true
 
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
@@ -22,6 +25,8 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.preserveindent = true
 opt.shiftround = true
+opt.wildmenu = true
+opt.wildmode = ""
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
