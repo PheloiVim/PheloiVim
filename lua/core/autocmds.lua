@@ -61,9 +61,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   callback = function(ctx)
     local dir = vim.fn.fnamemodify(ctx.file, ":p:h")
-    local res = vim.fn.isdirectory(dir)
-
-    if res == 0 then
+    if vim.fn.isdirectory(dir) == 0 then
       vim.fn.mkdir(dir, "p")
     end
   end,
