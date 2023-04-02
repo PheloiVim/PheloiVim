@@ -3,7 +3,6 @@ return {
     "hrsh7th/nvim-cmp",
     event = "VeryLazy",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp-signature-help",
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
       "hrsh7th/cmp-nvim-lsp",
@@ -59,15 +58,7 @@ return {
 
       cmp.setup {
         completion = {
-          completeopt = "menu,menuone,noinsert",
-        },
-        window = {
-          completion = {
-            border = "solid",
-          },
-          documentation = {
-            border = "solid",
-          },
+          completeopt = "menu,menuone",
         },
         snippet = {
           expand = function(args)
@@ -81,16 +72,11 @@ return {
             return vim_item
           end,
         },
-
         sources = {
           { name = "luasnip" },
           { name = "nvim_lsp" },
           { name = "buffer" },
           { name = "path" },
-          { name = "nvim_lsp_signature_help" },
-        },
-        experimental = {
-          ghost_text = false,
         },
         mapping = {
           ["<C-k>"] = cmp.mapping.select_prev_item(),
