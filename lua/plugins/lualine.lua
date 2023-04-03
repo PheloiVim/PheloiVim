@@ -66,7 +66,7 @@ return {
         end
         local buf_client_names = {}
         for _, client in pairs(buf_clients) do
-          if client.name ~= "null-ls" and client.name ~= "copilot" then
+          if client.name ~= "null-ls" then
             table.insert(buf_client_names, client.name)
           end
         end
