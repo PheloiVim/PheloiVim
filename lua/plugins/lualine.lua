@@ -76,30 +76,27 @@ return {
       return registered_providers[require("null-ls").methods.FORMATTING] or {}
     end
 
-    local lsp_info = {
-      function()
-        local buf_clients = vim.lsp.buf_get_clients()
-        local buf_client_names = {}
-        local file_type = vim.bo.filetype
+    local lsp_info = function()
+      local buf_clients = vim.lsp.buf_get_clients()
+      local buf_client_names = {}
+      local file_type = vim.bo.filetype
 
-        if next(buf_clients) == nil then
-          return "No Active LSP"
+      if next(buf_clients) == nil then
+        return "No Active LSP"
+      end
+      for _, client in pairs(buf_clients) do
+        if client.name ~= "null-ls" then
+          table.insert(buf_client_names, client.name)
         end
-        for _, client in pairs(buf_clients) do
-          if client.name ~= "null-ls" then
-            table.insert(buf_client_names, client.name)
-          end
-        end
+      end
 
-        local supported_formatters = List_registered(file_type)
-        vim.list_extend(buf_client_names, supported_formatters)
+      local supported_formatters = List_registered(file_type)
+      vim.list_extend(buf_client_names, supported_formatters)
 
-        local unique_client_names = vim.fn.uniq(buf_client_names)
-        local LSP = "|   LSP ~ " .. table.concat(unique_client_names, ", ") .. " "
-        return LSP
-      end,
-      color = { fg = "#30F78A" },
-    }
+      local unique_client_names = vim.fn.uniq(buf_client_names)
+      local LSP = "|   LSP ~ " .. table.concat(unique_client_names, ", ") .. " "
+      return LSP
+    end
 
     lualine.setup {
       options = {
