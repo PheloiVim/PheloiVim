@@ -1,10 +1,5 @@
 local M = {}
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
-end
-
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
   snippetSupport = true,
@@ -22,8 +17,8 @@ M.capabilities.textDocument.completion.completionItem = {
     },
   },
 }
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
-M.capabilities.offsetEncoding = { "utf-16" }
+M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
+-- M.capabilities.offsetEncoding = { "utf-16" }
 
 M.setup = function()
   local signs = {
@@ -50,16 +45,10 @@ M.setup = function()
     float = {
       focusable = true,
       style = "minimal",
-      border = "single",
       source = "always",
     },
   }
-
   vim.diagnostic.config(config)
-
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "single",
-  })
 
   vim.notify = function(msg, log_level)
     if msg:match "exit code" then
