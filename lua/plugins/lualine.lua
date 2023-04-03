@@ -58,18 +58,42 @@ return {
       return " " .. chars[index] .. " "
     end
 
+    function Formatter(filetype)
+      local s = require "null-ls.sources"
+      local available_sources = s.get_available(filetype)
+      local registered = {}
+      for _, source in ipairs(available_sources) do
+        for method in pairs(source.methods) do
+          registered[method] = registered[method] or {}
+          table.insert(registered[method], source.name)
+        end
+      end
+      return registered
+    end
+
+    function List_registered(filetype)
+      local registered_providers = Formatter(filetype)
+      return registered_providers[require("null-ls").methods.FORMATTING] or {}
+    end
+
     local lsp_info = {
       function()
         local buf_clients = vim.lsp.buf_get_clients()
+        local buf_client_names = {}
+        local file_type = vim.bo.filetype
+
         if next(buf_clients) == nil then
           return "No Active LSP"
         end
-        local buf_client_names = {}
         for _, client in pairs(buf_clients) do
           if client.name ~= "null-ls" then
             table.insert(buf_client_names, client.name)
           end
         end
+
+        local supported_formatters = List_registered(file_type)
+        vim.list_extend(buf_client_names, supported_formatters)
+
         local unique_client_names = vim.fn.uniq(buf_client_names)
         local LSP = "|   LSP ~ " .. table.concat(unique_client_names, ", ") .. " "
         return LSP
