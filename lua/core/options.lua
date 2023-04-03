@@ -1,6 +1,10 @@
 local opt = vim.opt
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
+opt.grepformat = "%f:%l:%c:%m"
+opt.inccommand = "nosplit"
+opt.cmdheight = 0
+opt.grepprg = "rg --vimgrep"
 opt.showmode = false
 opt.history = 10
 opt.pumblend = 10 -- Popup blend
