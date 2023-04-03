@@ -76,15 +76,6 @@ return {
       return registered_providers[require("null-ls").methods.FORMATTING] or {}
     end
 
-    local formatter_list = function()
-      local file_type = vim.bo.filetype
-      local supported_formatters = List_registered(file_type)
-      local buf_formatter_name = {}
-      vim.list_extend(buf_formatter_name, supported_formatters)
-      local formatter = vim.fn.uniq(buf_formatter_name)
-      return "|  " .. table.concat(formatter)
-    end
-
     local lsp_info = function()
       local buf_clients = vim.lsp.buf_get_clients()
       local buf_client_names = {}
@@ -97,6 +88,10 @@ return {
           table.insert(buf_client_names, client.name)
         end
       end
+
+      local file_type = vim.bo.filetype
+      local supported_formatters = List_registered(file_type)
+      vim.list_extend(buf_client_names, supported_formatters)
 
       local unique_client_names = vim.fn.uniq(buf_client_names)
       return "|   ~ " .. table.concat(unique_client_names, ", ")
@@ -115,7 +110,7 @@ return {
         lualine_a = { mode },
         lualine_b = {},
         lualine_c = { git },
-        lualine_x = { diagnostic, lsp_info, formatter_list },
+        lualine_x = { diagnostic, lsp_info },
         lualine_y = { encoding },
         lualine_z = { progress },
       },
