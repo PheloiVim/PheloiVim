@@ -108,7 +108,7 @@ return {
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = {},
+        lualine_b = { "fileformat", "location" },
         lualine_c = { git },
         lualine_x = { diagnostic, lsp_info },
         lualine_y = { encoding },
