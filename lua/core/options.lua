@@ -1,5 +1,5 @@
 local opt = vim.opt
--------------------------------------- options ------------------------------------------
+
 opt.laststatus = 0 -- global statusline
 opt.grepformat = "%f:%l:%c:%m"
 opt.inccommand = "nosplit"
@@ -17,7 +17,7 @@ opt.conceallevel = 3
 opt.fileencoding = "utf-8"
 opt.hlsearch = true
 opt.ignorecase = true
-
+opt.wildmenu = true
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
@@ -29,8 +29,6 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.preserveindent = true
 opt.shiftround = true
-opt.wildmenu = true
-opt.wildmode = ""
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
