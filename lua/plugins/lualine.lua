@@ -58,18 +58,24 @@ return {
       return " " .. chars[index] .. " "
     end
 
-    local lsp_info = function()
-      if rawget(vim, "lsp") then
-        if next(vim.lsp.get_active_clients()) == nil then
-          return "No Active LSP "
+    local lsp_info = {
+      function()
+        local buf_clients = vim.lsp.buf_get_clients()
+        if next(buf_clients) == nil then
+          return "No Active LSP"
         end
-        for _, client in ipairs(vim.lsp.get_active_clients()) do
-          if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-            return "|   LSP ~ " .. client.name .. " "
+        local buf_client_names = {}
+        for _, client in pairs(buf_clients) do
+          if client.name ~= "null-ls" and client.name ~= "copilot" then
+            table.insert(buf_client_names, client.name)
           end
         end
-      end
-    end
+        local unique_client_names = vim.fn.uniq(buf_client_names)
+        local LSP = "|   LSP ~ " .. table.concat(unique_client_names, ", ") .. " "
+        return LSP
+      end,
+      color = { fg = "#30F78A" },
+    }
 
     lualine.setup {
       options = {
