@@ -94,7 +94,7 @@ return {
       vim.list_extend(buf_client_names, supported_formatters)
 
       local unique_client_names = vim.fn.uniq(buf_client_names)
-      return "|   ~ " .. table.concat(unique_client_names, ", ")
+      return "|   LSP: " .. table.concat(unique_client_names, ", ")
     end
 
     lualine.setup {
