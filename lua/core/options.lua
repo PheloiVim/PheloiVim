@@ -1,9 +1,9 @@
 local opt = vim.opt
 -------------------------------------- options ------------------------------------------
-opt.laststatus = 3 -- global statusline
+opt.laststatus = 0 -- global statusline
 opt.grepformat = "%f:%l:%c:%m"
 opt.inccommand = "nosplit"
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.grepprg = "rg --vimgrep"
 opt.showmode = false
 opt.history = 10
