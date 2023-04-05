@@ -18,7 +18,7 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 M.capabilities = require("cmp_nvim_lsp").default_capabilities(M.capabilities)
--- M.capabilities.offsetEncoding = { "utf-16" }
+M.capabilities.offsetEncoding = { "UTF-8" }
 
 M.setup = function()
   local signs = {
