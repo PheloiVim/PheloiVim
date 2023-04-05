@@ -19,6 +19,7 @@ return {
 
     local encoding = {
       "encoding",
+      fmt = string.upper,
       padding = 2,
     }
 
