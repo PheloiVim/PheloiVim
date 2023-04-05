@@ -111,7 +111,7 @@ return {
         lualine_b = { "fileformat", "location" },
         lualine_c = { git },
         lualine_x = { diagnostic, lsp_info },
-        lualine_y = { encoding },
+        lualine_y = { "filetype", encoding },
         lualine_z = { progress },
       },
     }
