@@ -69,6 +69,7 @@ return {
         }
       end,
     },
+    { "ray-x/lsp_signature.nvim" },
     {
       "j-hui/fidget.nvim",
       config = function()
