@@ -57,13 +57,15 @@ return {
       }
 
       cmp.setup {
-        completion = {
-          completeopt = "menu,menuone",
-        },
+        completion = { completeopt = "menu,menuone,noinsert" },
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
           end,
+        },
+        window = {
+          completion = { border = "none" },
+          documentation = { border = "none" },
         },
         formatting = {
           fields = { "abbr", "kind" },
