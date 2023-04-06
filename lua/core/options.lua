@@ -17,7 +17,7 @@ opt.conceallevel = 3
 opt.fileencoding = "utf-8"
 opt.hlsearch = true
 opt.ignorecase = true
-opt.wildmenu = true
+opt.wildmenu = false
 opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
