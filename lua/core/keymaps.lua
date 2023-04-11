@@ -94,6 +94,7 @@ keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
 M.ToggleTerm = {
   { "<F5>", "<cmd>ToggleTerm<cr>" },
   { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
+  { "<F6>", "<cmd>lua LIVE_SERVER()<cr>" },
 }
 
 return M
