@@ -21,9 +21,13 @@ return {
 
     local Terminal = require("toggleterm.terminal").Terminal
     local lazygit = Terminal:new { cmd = "lazygit", hidden = true, direction = "float", size = 40 }
+    local live_server = Terminal:new { cmd = "live-server", hidden = true }
 
     function _LAZYGIT_TOGGLE()
       lazygit:toggle()
+    end
+    function LIVE_SERVER()
+      live_server:toggle()
     end
   end,
 }
