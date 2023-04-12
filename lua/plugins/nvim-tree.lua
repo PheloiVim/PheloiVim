@@ -21,7 +21,6 @@ return {
         adaptive_size = false,
         width = 30,
         side = "left",
-        hide_root_folder = true,
         mappings = {
           list = {
             { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
@@ -52,6 +51,7 @@ return {
         indent_markers = {
           enable = true,
         },
+        root_folder_label = false,
         icons = {
           glyphs = {
             default = "",
