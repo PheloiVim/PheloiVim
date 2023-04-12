@@ -27,6 +27,14 @@ return {
         enforce_regular_tabs = true,
         always_show_bufferline = true,
       },
+      highlights = {
+        close_button = {
+          fg = "#6f737b",
+        },
+        close_button_selected = {
+          fg = "#e06c75",
+        },
+      },
     }
   end,
 }
