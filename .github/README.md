@@ -42,7 +42,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - A Nerd font
 - Git
 - GCC
-- XClip (X11) for system clipboard support
+- XClip (X11) or wl-clipboar (Wayland) for system clipboard support on Linux
 - fd for telescope
 - ripgrep for telescope
 
