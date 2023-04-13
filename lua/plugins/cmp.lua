@@ -87,10 +87,7 @@ return {
           ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
           ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
           ["<TAB>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
-          ["<C-e>"] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-          },
+          ["<C-e>"] = cmp.mapping.abort(),
         },
       }
 
