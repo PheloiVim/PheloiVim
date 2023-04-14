@@ -1,9 +1,8 @@
 return {
   "akinsho/bufferline.nvim",
   event = "VeryLazy",
-  config = function()
-    local bufferline = require "bufferline"
-    bufferline.setup {
+  opts = function()
+    return {
       options = {
         numbers = "none",
         left_mouse_command = "buffer %d",

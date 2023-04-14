@@ -6,11 +6,9 @@ return {
       build = "make",
     },
   },
-  config = function()
-    local telescope = require "telescope"
+  opts = function()
     local actions = require "telescope.actions"
-
-    telescope.setup {
+    local options = {
       defaults = {
         vimgrep_arguments = {
           "rg",
@@ -52,7 +50,6 @@ return {
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-
         mappings = {
           i = {
             ["<C-n>"] = actions.cycle_history_next,
@@ -116,7 +113,7 @@ return {
         },
       },
     }
-
-    telescope.load_extension "fzf"
+    require("telescope").load_extension "fzf"
+    return options
   end,
 }

@@ -1,9 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  config = function()
-    local lualine = require "lualine"
-
+  opts = function()
     local colors = {
       yellow = "#ECBE7B",
       red = "#ec5f67",
@@ -98,7 +96,7 @@ return {
       return "|   LSP: " .. table.concat(unique_client_names, ", ")
     end
 
-    lualine.setup {
+    return {
       options = {
         icons_enabled = true,
         theme = "catppuccin",

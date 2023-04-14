@@ -1,7 +1,7 @@
 return {
   "goolord/alpha-nvim",
   event = "VimEnter",
-  config = function()
+  opts = function()
     local dashboard = require "alpha.themes.dashboard"
     dashboard.section.header.val = {
       [[                               __                ]],
@@ -27,6 +27,10 @@ return {
     dashboard.section.buttons.opts.hl = "AlphaButtons"
     dashboard.section.footer.opts.hl = "AlphaFooter"
     dashboard.opts.layout[1].val = 8
+    return dashboard
+  end,
+
+  config = function(_, dashboard)
     -- close Lazy and re-open when the dashboard is ready
     if vim.o.filetype == "lazy" then
       vim.cmd.close()

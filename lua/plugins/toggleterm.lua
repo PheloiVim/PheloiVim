@@ -1,9 +1,15 @@
 return {
   "akinsho/toggleterm.nvim",
   keys = require("core.keymaps").ToggleTerm,
-  config = function()
-    local toggleterm = require "toggleterm"
-    toggleterm.setup {
+  init = function()
+    local Terminal = require("toggleterm.terminal").Terminal
+    local lazygit = Terminal:new { cmd = "lazygit", hidden = true, direction = "float", size = 40 }
+    function _LAZYGIT_TOGGLE()
+      lazygit:toggle()
+    end
+  end,
+  opts = function()
+    return {
       size = 15,
       open_mapping = [[<F5>]],
       hide_numbers = true,
@@ -18,12 +24,5 @@ return {
         border = "single",
       },
     }
-
-    local Terminal = require("toggleterm.terminal").Terminal
-    local lazygit = Terminal:new { cmd = "lazygit", hidden = true, direction = "float", size = 40 }
-
-    function _LAZYGIT_TOGGLE()
-      lazygit:toggle()
-    end
   end,
 }
