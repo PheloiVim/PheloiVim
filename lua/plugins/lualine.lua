@@ -104,7 +104,7 @@ return {
         theme = "tokyonight",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "NvimTree", "toggleterm", "Trouble", "alpha" },
+        disabled_filetypes = { "NvimTree", "toggleterm", "Trouble", "alpha", "lspsagaoutline" },
         always_divide_middle = true,
       },
       sections = {
