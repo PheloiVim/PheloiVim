@@ -1,7 +1,20 @@
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
   lazy = false,
   config = function()
-    vim.cmd "colorscheme tokyonight-night"
+    require("catppuccin").setup {
+      flavour = "mocha",
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        nvimtree = true,
+        telescope = true,
+        fidget = true,
+        treesitter = true,
+        mason = true,
+        illuminate = true,
+      },
+    }
+    vim.cmd "colorscheme catppuccin"
   end,
 }
