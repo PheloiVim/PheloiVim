@@ -48,6 +48,9 @@ return {
       "glepnir/lspsaga.nvim",
       config = function()
         require("lspsaga").setup {
+          ui = {
+            kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+          },
           diagnostic = {
             on_insert = false,
             on_insert_follow = false,
@@ -75,6 +78,9 @@ return {
       config = function()
         local fidget = require "fidget"
         fidget.setup {
+          window = {
+            blend = 0,
+          },
           text = {
             spinner = "pipe",
             done = "",
