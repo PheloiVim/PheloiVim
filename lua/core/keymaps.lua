@@ -52,8 +52,8 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", "<cmd>resize -2<CR>", opts)
 keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
-keymap("n", "<C-Left>", "<cmd>vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", "<cmd>vertical resize +2<CR>", opts)
+keymap("n", "<C-Left>", "<cmd>vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>", opts)
 
 --Toggle Trouble
 keymap("n", "<C-n>", "<cmd>TroubleToggle<cr>", opts)
