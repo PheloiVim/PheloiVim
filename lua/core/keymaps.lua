@@ -83,7 +83,7 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
 -- Lspsaga
-keymap("n", "<C-o>", "<cmd>Lspsaga outline<cr>", opts)
+keymap("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", opts)
 keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
 keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
