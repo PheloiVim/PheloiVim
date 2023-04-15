@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  config = function()
+  init = function()
     require "lsp.servers"
     require("lsp.handlers").setup()
   end,
