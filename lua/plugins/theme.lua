@@ -11,10 +11,12 @@ return {
         gitsigns = true,
         nvimtree = true,
         telescope = true,
+        hop = true,
         fidget = true,
         treesitter = true,
         mason = true,
         illuminate = true,
+        lsp_trouble = true,
       },
     }
     vim.cmd.colorscheme "catppuccin"
