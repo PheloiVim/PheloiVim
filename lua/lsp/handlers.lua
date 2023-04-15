@@ -61,20 +61,7 @@ end
 M.on_attach = function(client, bufnr)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
-
-  require("lsp_signature").on_attach({
-    bind = true,
-    close_timeout = 1000,
-    floating_window_off_x = 5,
-    floating_window_off_y = 0,
-    handler_opts = {
-      border = "solid",
-    },
-  }, bufnr)
-
   lsp_keymaps(bufnr)
-
-  require("illuminate").on_attach(client)
 end
 
 return M
