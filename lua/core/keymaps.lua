@@ -15,6 +15,10 @@ M.NvimTree = {
 -- Illuminate
 keymap("n", "<A-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
 
+-- better up/down
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- Go to start or end of line easier
 keymap({ "n", "x" }, "H", "^")
 keymap({ "n", "x" }, "L", "g_")
@@ -62,8 +66,8 @@ keymap("n", "<leader>ld", "<cmd>TroubleToggle<cr>", opts)
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 
 -- Buffer
-keymap("n", "<TAB>", "<cmd>bnext<cr>", opts) -- next buffer
-keymap("n", "<S-TAB>", "<cmd>bprevious<cr>", opts) -- previous buffer
+keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", opts) -- next buffer
+keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", opts) -- previous buffer
 keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 
 -- No hl search
