@@ -1,6 +1,9 @@
 return {
   "windwp/nvim-autopairs",
-  event = "InsertEnter",
+  event = {
+    "InsertEnter",
+    "CmdlineEnter",
+  },
   opts = {
     enable_check_bracket_line = true,
     check_ts = true,
@@ -17,8 +20,4 @@ return {
       highlight_grey = "Comment",
     },
   },
-  config = function(_, opts)
-    require("nvim-autopairs").setup(opts)
-    require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done {})
-  end,
 }
