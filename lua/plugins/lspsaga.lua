@@ -1,8 +1,8 @@
 return {
   "glepnir/lspsaga.nvim",
   event = "VeryLazy",
-  config = function()
-    require("lspsaga").setup {
+  opts = function()
+    return {
       ui = {
         kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
       },
