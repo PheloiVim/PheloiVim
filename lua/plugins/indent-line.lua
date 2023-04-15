@@ -3,6 +3,8 @@ return {
   event = "VeryLazy",
   opts = {
     char = "▏",
+    enabled = true,
+    colored_indent_levels = false,
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
     use_treesitter = true,
