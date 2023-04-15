@@ -49,20 +49,9 @@ M.setup = function()
     },
   }
   vim.diagnostic.config(config)
-
-  vim.notify = function(msg, log_level)
-    if msg:match "exit code" then
-      return
-    end
-    if log_level == vim.log.levels.ERROR then
-      vim.api.nvim_err_writeln(msg)
-    else
-      vim.api.nvim_echo({ { msg } }, true, {})
-    end
-  end
 end
 
-local function lsp_keymaps(bufnr)
+local lsp_keymaps = function(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
