@@ -18,7 +18,24 @@ return {
         },
       },
     },
-    { "williamboman/mason-lspconfig.nvim" },
+    {
+      "williamboman/mason-lspconfig.nvim",
+      opts = {
+        {
+          ensure_installed = {
+            "lua_ls",
+            "html",
+            "emmet_ls",
+            "cssls",
+            "tsserver",
+            "rome",
+            "bashls",
+            "rust_analyzer",
+            "jsonls",
+          },
+        },
+      },
+    },
     {
       "j-hui/fidget.nvim",
       opts = {
@@ -34,5 +51,6 @@ return {
         },
       },
     },
+    { "ray-x/lsp_signature.nvim" },
   },
 }
