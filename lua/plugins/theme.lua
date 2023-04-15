@@ -6,6 +6,7 @@ return {
     require("catppuccin").setup {
       flavour = "mocha",
       integrations = {
+        lsp_saga = true,
         cmp = true,
         gitsigns = true,
         nvimtree = true,
