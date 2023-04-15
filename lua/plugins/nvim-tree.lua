@@ -5,7 +5,6 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = function()
-    local tree_cb = require("nvim-tree.config").nvim_tree_callback
     return {
       disable_netrw = true,
       hijack_netrw = true,
@@ -23,9 +22,7 @@ return {
         side = "left",
         mappings = {
           list = {
-            { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-            { key = "h", cb = tree_cb "close_node" },
-            { key = "v", cb = tree_cb "vsplit" },
+            { key = { "l", "<CR>", "o" }, cb = require("nvim-tree.config").nvim_tree_callback "edit" },
           },
         },
       },
