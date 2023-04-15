@@ -43,7 +43,7 @@ return {
           blend = 0,
         },
         text = {
-          spinner = "pipe",
+          spinner = "dots",
           done = "",
         },
         timer = {
