@@ -9,6 +9,7 @@ return {
     },
     delay = 200,
     filetypes_denylist = {
+      "alpha",
       "lazy",
       "help",
       "lspinfo",
