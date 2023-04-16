@@ -19,7 +19,7 @@ return {
       "json",
       "luap",
     },
-    sync_install = false,
+    sync_install = true,
     auto_install = true,
     autopairs = {
       enable = true,
