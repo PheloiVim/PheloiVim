@@ -12,9 +12,6 @@ M.NvimTree = {
   { "<F2>", "<cmd>NvimTreeToggle<cr>" },
 }
 
--- Illuminate
-keymap("n", "<A-n>", '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', { noremap = true })
-
 -- better up/down
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
