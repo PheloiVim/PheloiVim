@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
   opts = {
     ensure_installed = {
       "lua",
@@ -19,14 +19,8 @@ return {
       "json",
       "luap",
     },
-    sync_install = true,
-    auto_install = true,
-    autopairs = {
-      enable = true,
-    },
     highlight = {
       enable = true,
-      use_languagetree = true,
       additional_vim_regex_highlighting = false,
     },
     indent = {
