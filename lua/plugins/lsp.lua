@@ -21,18 +21,16 @@ return {
     {
       "williamboman/mason-lspconfig.nvim",
       opts = {
-        {
-          ensure_installed = {
-            "lua_ls",
-            "html",
-            "emmet_ls",
-            "cssls",
-            "tsserver",
-            "rome",
-            "bashls",
-            "rust_analyzer",
-            "jsonls",
-          },
+        ensure_installed = {
+          "lua_ls",
+          "html",
+          "emmet_ls",
+          "cssls",
+          "tsserver",
+          "rome",
+          "bashls",
+          "rust_analyzer",
+          "jsonls",
         },
       },
     },

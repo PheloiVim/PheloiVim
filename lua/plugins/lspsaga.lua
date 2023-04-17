@@ -3,6 +3,9 @@ return {
   event = "VeryLazy",
   opts = function()
     return {
+      ui = {
+        kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+      },
       diagnostic = {
         on_insert = false,
         on_insert_follow = false,

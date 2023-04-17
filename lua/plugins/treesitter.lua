@@ -2,6 +2,8 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
   opts = {
+    sync_install = true,
+    auto_install = true,
     ensure_installed = {
       "lua",
       "markdown",
@@ -27,4 +29,7 @@ return {
       enable = true,
     },
   },
+  config = function(_, opts)
+    require("nvim-treesitter.configs").setup(opts)
+  end,
 }
