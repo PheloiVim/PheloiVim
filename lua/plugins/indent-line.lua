@@ -2,7 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   opts = {
-    char = "▏",
+    char = "|",
     enabled = true,
     colored_indent_levels = false,
     show_trailing_blankline_indent = false,
@@ -13,6 +13,8 @@ return {
     filetype_exclude = {
       "help",
       "NvimTree",
+      "lazy",
+      "alpha",
     },
   },
 }
