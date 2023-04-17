@@ -2,6 +2,7 @@ return {
   "lukas-reineke/indent-blankline.nvim",
   event = "VeryLazy",
   opts = {
+    show_current_context_start = true,
     char = "|",
     enabled = true,
     colored_indent_levels = false,
