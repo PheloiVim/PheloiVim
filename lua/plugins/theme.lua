@@ -6,6 +6,7 @@ return {
   config = function()
     require("catppuccin").setup {
       flavour = "mocha",
+      term_colors = true,
       integrations = {
         lsp_saga = true,
         cmp = true,
@@ -18,6 +19,7 @@ return {
         mason = true,
         illuminate = true,
         lsp_trouble = true,
+        notify = true,
       },
     }
     vim.cmd.colorscheme "catppuccin"
