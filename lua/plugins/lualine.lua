@@ -99,7 +99,7 @@ return {
     return {
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
+        theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         disabled_filetypes = { "NvimTree", "toggleterm", "Trouble", "alpha", "lspsagaoutline" },
@@ -107,10 +107,10 @@ return {
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = { "fileformat", "location" },
+        lualine_b = { "location" },
         lualine_c = { git },
-        lualine_x = { diagnostic, lsp_info },
-        lualine_y = { "filetype", encoding },
+        lualine_x = { "searchcount", diagnostic, lsp_info },
+        lualine_y = { "filetype", "filesize", encoding },
         lualine_z = { progress },
       },
     }
