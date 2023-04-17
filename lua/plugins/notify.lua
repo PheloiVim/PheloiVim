@@ -1,6 +1,5 @@
 return {
   "rcarriga/nvim-notify",
-  event = "VeryLazy",
   opts = {
     timeout = 3000,
     max_height = function()
