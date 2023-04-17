@@ -26,7 +26,6 @@ return {
         enforce_regular_tabs = true,
         always_show_bufferline = true,
       },
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
     }
   end,
 }
