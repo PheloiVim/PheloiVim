@@ -20,11 +20,6 @@ return {
         adaptive_size = false,
         width = 30,
         side = "left",
-        mappings = {
-          list = {
-            { key = { "l", "<CR>", "o" }, cb = require("nvim-tree.config").nvim_tree_callback "edit" },
-          },
-        },
       },
       actions = {
         open_file = {
