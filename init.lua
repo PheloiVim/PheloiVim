@@ -17,9 +17,7 @@ require "core.autocmds"
 require "core.keymaps"
 
 require("lazy").setup {
-  spec = {
-    { import = "plugins" },
-  },
+  spec = { import = "plugins" },
   defaults = { lazy = true },
   ui = {
     icons = {
