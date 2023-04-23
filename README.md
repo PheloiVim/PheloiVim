@@ -47,12 +47,9 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 ## 📷 Screenshot
 
 <div align="center">
-  <img src="https://i.imgur.com/fqsPjq4.png" />
-  <img src="https://i.imgur.com/akkXQNv.png" />
-  <img src="https://i.imgur.com/vzPJHOg.png" />
-  <img src="https://i.imgur.com/N8d1ybW.png" />
-  <img src="https://i.imgur.com/QtdMHtM.png" />
-  <img src="https://i.imgur.com/FPdqMB4.png" />
-  <img src="https://i.imgur.com/YuBK7oQ.png" />
-  <img src="https://i.imgur.com/cKhxAOb.png" />
+  <img src="https://i.imgur.com/iYBR9Rd.png" />
+  <img src="https://i.imgur.com/BbE3ws6.png" />
+  <img src="https://i.imgur.com/QWNRAg9.png" />
+  <img src="https://i.imgur.com/gZytKuk.png" />
+  <img src="https://i.imgur.com/fMPy4rA.png" />
 </div>
