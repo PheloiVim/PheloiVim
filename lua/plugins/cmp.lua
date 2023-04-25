@@ -64,8 +64,8 @@ return {
         end,
       },
       window = {
-        completion = { border = "none" },
-        documentation = { border = "none" },
+        completion = { border = "solid" },
+        documentation = { border = "solid" },
       },
       formatting = {
         fields = { "abbr", "kind" },
