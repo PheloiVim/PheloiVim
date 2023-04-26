@@ -1,11 +1,11 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
   "lua_ls", -- Lua lsp
-  "html", -- Html lsp
+  "html", -- HTML lsp
   "emmet_ls", -- Emmet support
-  "cssls", -- Css lsp
-  "tsserver", -- JavaScript lsp
-  "rome", -- JavaScript lsp
+  "cssls", -- CSS lsp
+  "tsserver", -- JavaScript, TypeScript lsp
+  "rome", -- JavaScript, TypeScript Linter
   "clangd", -- C, C++ lsp
   "bashls", -- Bash lsp
   "rust_analyzer", -- Rust lsp
