@@ -19,6 +19,18 @@ return {
           quit = "q",
         },
       },
+      hover = {
+        max_width = 0.5,
+      },
+      code_action = {
+        num_shortcut = true,
+        show_server_name = true,
+        extend_gitsigns = true,
+        keys = {
+          quit = "q",
+          exec = "<CR>",
+        },
+      },
       symbol_in_winbar = {
         separator = "  ",
         show_file = false,
