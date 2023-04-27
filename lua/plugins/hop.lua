@@ -1,9 +1,6 @@
 return {
   "phaazon/hop.nvim",
-  keys = {
-    { "1", "<cmd>HopWord<cr>" },
-    { "2", "<cmd>HopLine<cr>" },
-  },
+  keys = require("core.keymaps").Hop,
   opts = {
     keys = "123456789",
   },
