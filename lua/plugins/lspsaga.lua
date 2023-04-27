@@ -15,8 +15,7 @@ return {
       outline = {
         win_width = 40,
         keys = {
-          jump = "o",
-          expand_collapse = "u",
+          expand_or_jump = "o",
           quit = "q",
         },
       },
