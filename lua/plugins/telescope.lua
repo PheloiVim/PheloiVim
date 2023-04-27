@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  keys = require("core.keymaps").Telescope,
   dependencies = {
     {
       "nvim-telescope/telescope-fzf-native.nvim",
