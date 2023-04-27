@@ -60,7 +60,7 @@ keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>", opts)
 keymap("n", "<leader>ld", "<cmd>TroubleToggle<cr>", opts)
 
 -- Format
-keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{async = true}<cr>", opts)
 
 -- Buffer
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", opts) -- next buffer
@@ -71,10 +71,11 @@ keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 keymap("n", "<ESC>", "<cmd>nohlsearch<cr>", opts)
 
 -- Telescope
-keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
+M.Telescope = {
+  { "<leader>ff", "<cmd>Telescope find_files<cr>" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>" },
+}
 
 -- Better indenting
 keymap("v", "<", "<gv", opts)
@@ -95,6 +96,11 @@ keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
 M.ToggleTerm = {
   { "<F5>", "<cmd>ToggleTerm<cr>" },
   { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
+}
+
+M.Hop = {
+  { "1", "<cmd>HopWord<cr>" },
+  { "2", "<cmd>HopLine<cr>" },
 }
 
 return M
