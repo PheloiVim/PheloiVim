@@ -28,7 +28,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Faster code commenting: [Comment.nvim](https://github.com/numToStr/Comment.nvim)
 - Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - Language server protocol (LSP) support: [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) & [mason.nvim](https://github.com/williamboman/mason.nvim)
-- Code Formatting: [null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim)
+- Code Formatting: [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - Winbar code outline, code action,...: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
