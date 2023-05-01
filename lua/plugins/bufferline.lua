@@ -6,7 +6,7 @@ return {
       options = {
         numbers = "none",
         left_mouse_command = "buffer %d",
-        buffer_close_icon = "",
+        buffer_close_icon = "✗",
         modified_icon = "●",
         left_trunc_marker = "",
         right_trunc_marker = "",
