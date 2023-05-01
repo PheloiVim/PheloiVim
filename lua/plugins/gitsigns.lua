@@ -12,13 +12,13 @@ return {
       },
       delete = {
         hl = "GitSignsDelete",
-        text = "契",
+        text = "",
         numhl = "GitSignsDeleteNr",
         linehl = "GitSignsDeleteLn",
       },
       topdelete = {
         hl = "GitSignsDelete",
-        text = "契",
+        text = "",
         numhl = "GitSignsDeleteNr",
         linehl = "GitSignsDeleteLn",
       },
@@ -29,7 +29,7 @@ return {
         linehl = "GitSignsChangeLn",
       },
     },
-    signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
+    signcolumn = true,
     watch_gitdir = {
       interval = 1000,
       follow_files = true,
@@ -37,14 +37,13 @@ return {
     attach_to_untracked = true,
     current_line_blame_opts = {
       virt_text = true,
-      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+      virt_text_pos = "eol",
       delay = 1000,
     },
     sign_priority = 6,
     update_debounce = 100,
-    status_formatter = nil, -- Use default
+    status_formatter = nil,
     preview_config = {
-      -- Options passed to nvim_open_win
       border = "single",
       style = "minimal",
       relative = "cursor",
