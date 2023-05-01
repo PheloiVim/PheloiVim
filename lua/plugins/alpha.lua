@@ -13,11 +13,11 @@ return {
     }
     dashboard.section.buttons.val = {
       dashboard.button("f", " " .. " Find file", "<cmd>lua require('telescope.builtin').find_files()<cr>"),
-      dashboard.button("t", " " .. " Find text", "<cmd>lua require('telescope.builtin').live_grep()<cr>"),
-      dashboard.button("r", " " .. " Recent files", "<cmd>lua require('telescope.builtin').oldfiles()<cr>"),
+      dashboard.button("t", "󰊄 " .. " Find text", "<cmd>lua require('telescope.builtin').live_grep()<cr>"),
+      dashboard.button("r", " " .. " Recent files", "<cmd>lua require('telescope.builtin').oldfiles()<cr>"),
       dashboard.button("l", "󰒲 " .. " Lazy", "<cmd>Lazy<cr>"),
       dashboard.button("c", " " .. " Config", "<cmd>e $MYVIMRC <cr>"),
-      dashboard.button("q", " " .. " Quit Neovim", "<cmd>qa<cr>"),
+      dashboard.button("q", "󰅙 " .. " Quit Neovim", "<cmd>qa<cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
       button.opts.hl = "AlphaButtons"
