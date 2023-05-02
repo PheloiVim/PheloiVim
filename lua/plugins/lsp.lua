@@ -11,9 +11,9 @@ return {
       opts = {
         ui = {
           icons = {
-            package_installed = " ",
+            package_installed = "󰗠 ",
             package_pending = " ",
-            package_uninstalled = " ",
+            package_uninstalled = " ",
           },
         },
       },
@@ -41,7 +41,7 @@ return {
           blend = 0,
         },
         text = {
-          spinner = "dots",
+          spinner = { "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥" },
           done = "",
         },
         timer = {
