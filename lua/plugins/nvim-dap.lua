@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
+  event = "VeryLazy",
   dependencies = {
     "rcarriga/nvim-dap-ui",
     opts = {
@@ -43,7 +44,6 @@ return {
       },
     },
   },
-  event = "VeryLazy",
   config = function()
     local dap = require "dap"
     local dapui = require "dapui"
