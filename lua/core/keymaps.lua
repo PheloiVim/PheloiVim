@@ -92,9 +92,19 @@ keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
 keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<CR><cr>", opts)
 keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
 
+-- DAP
+keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<F10>", "<cmd>lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<F11>", "<cmd>lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<F12>", "<cmd>lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
+keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
+keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
 -- Toggle Terminal
 M.ToggleTerm = {
-  { "<F5>", "<cmd>ToggleTerm<cr>" },
+  { "<leader>tt", "<cmd>ToggleTerm<cr>" },
   { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
 }
 
