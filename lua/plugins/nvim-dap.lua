@@ -5,8 +5,15 @@ return {
     "rcarriga/nvim-dap-ui",
     opts = {
       expand_lines = true,
+      force_buffers = false,
+      element_mappings = {
+        scopes = {
+          edit = "l",
+        },
+      },
       icons = { expanded = "", collapsed = "", circular = "" },
       mappings = {
+        -- Use a table to apply multiple mappings
         expand = { "<CR>", "<2-LeftMouse>" },
         open = "o",
         remove = "d",
@@ -16,31 +23,43 @@ return {
       },
       layouts = {
         {
-          elements = {
-            { id = "scopes", size = 0.33 },
-            { id = "breakpoints", size = 0.17 },
-            { id = "stacks", size = 0.25 },
-            { id = "watches", size = 0.25 },
-          },
-          size = 0.33,
-          position = "right",
+          elements = { "scopes", "breakpoints", "stacks", "watches" },
+          size = 30,
+          position = "left",
         },
         {
-          elements = {
-            { id = "repl", size = 0.45 },
-            { id = "console", size = 0.55 },
-          },
-          size = 0.27,
+          elements = { "repl", "console" },
+          size = 0.25,
           position = "bottom",
+        },
+      },
+      controls = {
+        enabled = true,
+        -- Display controls in this element
+        element = "repl",
+        icons = {
+          pause = "",
+          play = "",
+          step_into = "",
+          step_over = "",
+          step_out = "",
+          step_back = "",
+          run_last = "",
+          terminate = "",
         },
       },
       floating = {
         max_height = 0.9,
-        max_width = 0.5,
+        max_width = 0.5, -- Floats will be treated as percentage of your screen.
         border = "rounded",
         mappings = {
           close = { "q", "<Esc>" },
         },
+      },
+      windows = { indent = 1 },
+      render = {
+        max_type_length = nil, -- Can be integer or nil.
+        max_value_lines = 100, -- Can be integer or nil.
       },
     },
   },
@@ -56,17 +75,15 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
-    local sign = vim.fn.sign_define
-    sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-    sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-    sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapBreakpoint", { text = "→", texthl = "Error", linehl = "", numhl = "" })
+    vim.fn.sign_define("DapStopped", { text = "→", texthl = "Success", linehl = "", numhl = "" })
 
     -- C/C++, Rust debugger
     dap.adapters.codelldb = {
       type = "server",
       port = "${port}",
       executable = {
-        command = "codelldb",
+        command = "/home/chien/.local/share/nvim/mason/bin/codelldb",
         args = { "--port", "${port}" },
       },
     }
