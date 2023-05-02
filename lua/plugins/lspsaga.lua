@@ -48,6 +48,9 @@ return {
         show_virt_line = false,
         show_code_action = false,
       },
+      lightbulb = {
+        enable = false,
+      },
       outline = {
         win_width = 40,
         keys = {
