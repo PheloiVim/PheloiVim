@@ -33,7 +33,7 @@ return {
       Keyword = "",
       Snippet = "",
       Color = "",
-      File = "",
+      File = "󰈔",
       Reference = "",
       Folder = "",
       EnumMember = "",
