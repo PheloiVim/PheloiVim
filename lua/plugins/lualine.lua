@@ -9,26 +9,17 @@ return {
       end,
     }
 
+    local location = {
+      "location",
+      separator = "|",
+      padding = 2,
+    }
+
     local encoding = {
       "encoding",
       fmt = string.upper,
       padding = 2,
     }
-
-    local git = function()
-      if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
-        return ""
-      end
-
-      local git_status = vim.b.gitsigns_status_dict
-
-      local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
-      local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
-      local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
-      local branch_name = " " .. git_status.head .. " "
-
-      return branch_name .. added .. changed .. removed
-    end
 
     local diagnostic = {
       "diagnostics",
@@ -39,9 +30,22 @@ return {
     local file_type = {
       "filetype",
       icon_only = true,
-      separator = "",
+      separator = "|",
       padding = 1,
     }
+
+    local git = function()
+      if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+        return ""
+      end
+      local git_status = vim.b.gitsigns_status_dict
+      local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
+      local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
+      local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
+      local branch_name = " " .. git_status.head .. " "
+
+      return branch_name .. added .. changed .. removed
+    end
 
     local progress = function()
       local current_line = vim.fn.line "."
@@ -51,12 +55,6 @@ return {
       local index = math.ceil(line_ratio * #chars)
       return " " .. chars[index] .. " "
     end
-
-    local location = {
-      "location",
-      separator = "|",
-      padding = 2,
-    }
 
     local lsp_info = function()
       local buf_clients = vim.lsp.buf_get_clients()
