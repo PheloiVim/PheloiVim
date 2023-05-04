@@ -108,6 +108,7 @@ return {
           "toggleterm",
           "Trouble",
           "alpha",
+          "lazy",
           "lspsagaoutline",
           "dapui_console",
           "dap-repl",
