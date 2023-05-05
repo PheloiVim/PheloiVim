@@ -12,7 +12,7 @@ return {
     return {
       debug = false,
       sources = {
-        formatting.prettier.with {
+        formatting.prettierd.with {
           filetypes = {
             "css",
             "scss",
