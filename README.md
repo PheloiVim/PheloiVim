@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="neovim logo" src="./neovim.svg" width="300px" />
+  <img alt="neovim logo" src="https://i.imgur.com/pzjkcPP.png" />
 </div>
 
 <div align="center">
