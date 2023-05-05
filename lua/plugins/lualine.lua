@@ -114,6 +114,7 @@ return {
           "dapui_stacks",
           "dapui_breakpoints",
           "dapui_scopes",
+          "mason",
         },
         always_divide_middle = true,
       },
