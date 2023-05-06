@@ -89,30 +89,7 @@ return {
     vim.fn.sign_define("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
     -- C/C++, Rust debugger
-    dap.adapters.codelldb = {
-      type = "server",
-      port = "${port}",
-      executable = {
-        command = "/home/chien/.local/share/nvim/mason/bin/codelldb",
-        args = { "--port", "${port}" },
-      },
-    }
-    dap.configurations.cpp = {
-      {
-        name = "Launch file",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-          local fileName = vim.fn.expand "%:t:r"
-          os.execute("mkdir -p " .. "bin")
-          vim.cmd("!clang++ -g % -o bin/" .. fileName)
-          return "${fileDirname}/bin/" .. fileName
-        end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
-        runInTerminal = true,
-        console = "integratedTerminal",
-      },
-    }
+    require "daps.adapters.codelldb"
+    require "daps.settings.cpp"
   end,
 }
