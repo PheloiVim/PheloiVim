@@ -7,7 +7,7 @@ require("dap").configurations.cpp = {
       local fileName = vim.fn.expand "%:t:r"
       os.execute("mkdir -p " .. "debug")
       vim.cmd("!clang++ -g % -o debug/" .. fileName)
-      return "${fileDirname}/bin/" .. fileName
+      return "${fileDirname}/debug/" .. fileName
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
