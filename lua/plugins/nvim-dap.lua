@@ -90,6 +90,7 @@ return {
 
     -- C/C++, Rust debugger
     require "daps.adapters.codelldb"
-    require "daps.settings.cpp"
+    require "daps.languages.cpp"
+    require "daps.languages.c"
   end,
 }
