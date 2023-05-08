@@ -3,7 +3,7 @@ return {
   keys = require("core.keymaps").ToggleTerm,
   opts = {
     size = 15,
-    open_mapping = [[<leader>tt]],
+    open_mapping = [[<C-\>]],
     hide_numbers = true,
     shade_terminals = true,
     shading_factor = 2,
