@@ -58,7 +58,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function(ctx)
     local dir = vim.fn.fnamemodify(ctx.file, ":p:h")
     if vim.fn.isdirectory(dir) == 0 then
