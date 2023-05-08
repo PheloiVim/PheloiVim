@@ -27,6 +27,7 @@ return {
             "handlebars",
           },
         },
+        formatting.taplo,
         formatting.shfmt,
         formatting.stylua,
         formatting.clang_format,
