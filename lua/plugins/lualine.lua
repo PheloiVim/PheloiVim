@@ -18,20 +18,23 @@ return {
     local encoding = {
       "encoding",
       fmt = string.upper,
+      separator = "|",
       padding = 2,
     }
 
-    local diagnostic = {
+    local diagnostics = {
       "diagnostics",
-      symbols = { error = " ", warn = " ", info = " ", hint = " " },
+      symbols = { error = " ", warn = " ", hint = " " },
+      sections = { "error", "warn", "hint" },
+      colored = true,
+      always_visible = true,
       update_in_insert = true,
     }
 
-    local file_type = {
+    local filetype = {
       "filetype",
       icon_only = true,
-      separator = "|",
-      padding = 1,
+      padding = { left = 2 },
     }
 
     local git = function()
@@ -47,6 +50,10 @@ return {
       return branch_name .. added .. changed .. removed
     end
 
+    local spaces = function()
+      return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    end
+
     local progress = function()
       local current_line = vim.fn.line "."
       local total_lines = vim.fn.line "$"
@@ -60,9 +67,9 @@ return {
       local buf_clients = vim.lsp.buf_get_clients()
       local buf_client_names = {}
 
-      local list_registered = function(filetype)
+      local list_registered = function(fileType)
         local null_ls = require "null-ls.sources"
-        local available_sources = null_ls.get_available(filetype)
+        local available_sources = null_ls.get_available(fileType)
         local registered = {}
         for _, source in ipairs(available_sources) do
           for method in pairs(source.methods) do
@@ -73,8 +80,8 @@ return {
         return registered
       end
 
-      local list_formatters = function(filetype)
-        local registered_providers = list_registered(filetype)
+      local list_formatters = function(fileType)
+        local registered_providers = list_registered(fileType)
         return registered_providers[require("null-ls").methods.FORMATTING] or {}
       end
 
@@ -87,8 +94,7 @@ return {
         end
       end
 
-      local supported_formatters = list_formatters(vim.bo.filetype)
-      vim.list_extend(buf_client_names, supported_formatters)
+      vim.list_extend(buf_client_names, list_formatters(vim.bo.filetype))
 
       local unique_client_names = vim.fn.uniq(buf_client_names)
       return "|   LSP: " .. table.concat(unique_client_names, ", ")
@@ -122,8 +128,8 @@ return {
         lualine_a = { mode },
         lualine_b = { "filename" },
         lualine_c = { git },
-        lualine_x = { "searchcount", diagnostic, lsp_info },
-        lualine_y = { location, file_type, encoding },
+        lualine_x = { diagnostics, lsp_info },
+        lualine_y = { location, filetype, encoding, spaces },
         lualine_z = { progress },
       },
     }
