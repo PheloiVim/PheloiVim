@@ -121,6 +121,7 @@ return {
           "dapui_breakpoints",
           "dapui_scopes",
           "mason",
+          "TelescopePrompt",
         },
         always_divide_middle = true,
       },
