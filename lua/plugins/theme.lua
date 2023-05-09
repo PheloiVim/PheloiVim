@@ -3,44 +3,45 @@ return {
   name = "catppuccin",
   lazy = false,
   priority = 1000,
-  config = function()
-    require("catppuccin").setup {
-      flavour = "mocha",
-      term_colors = true,
-      integrations = {
-        lsp_saga = true,
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        telescope = true,
-        hop = true,
-        fidget = true,
-        treesitter = true,
-        mason = true,
-        illuminate = true,
-        lsp_trouble = true,
-        notify = true,
-        native_lsp = {
-          enabled = true,
-          virtual_text = {
-            errors = { "italic" },
-            hints = { "italic" },
-            warnings = { "italic" },
-            information = { "italic" },
-          },
-          underlines = {
-            errors = { "underline" },
-            hints = { "underline" },
-            warnings = { "underline" },
-            information = { "underline" },
-          },
+  opts = {
+    flavour = "mocha",
+    term_colors = true,
+    integrations = {
+      lsp_saga = true,
+      cmp = true,
+      gitsigns = true,
+      nvimtree = true,
+      telescope = true,
+      hop = true,
+      fidget = true,
+      treesitter = true,
+      mason = true,
+      illuminate = true,
+      lsp_trouble = true,
+      notify = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = { "italic" },
+          hints = { "italic" },
+          warnings = { "italic" },
+          information = { "italic" },
         },
-        dap = {
-          enabled = true,
-          enable_ui = true,
+        underlines = {
+          errors = { "underline" },
+          hints = { "underline" },
+          warnings = { "underline" },
+          information = { "underline" },
         },
       },
-    }
+      dap = {
+        enabled = true,
+        enable_ui = true,
+      },
+    },
+  },
+  config = function(_, opts)
+    require("catppuccin").setup(opts)
     vim.cmd.colorscheme "catppuccin"
   end,
 }
