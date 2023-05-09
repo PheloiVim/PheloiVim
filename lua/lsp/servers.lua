@@ -11,10 +11,9 @@ local servers = {
   "rust_analyzer", -- Rust lsp
   "jsonls", -- Json lsp
 }
-local opts = {}
 
 for _, server in pairs(servers) do
-  opts = {
+  local opts = {
     on_attach = require("lsp.handlers").on_attach,
     capabilities = require("lsp.handlers").capabilities,
   }

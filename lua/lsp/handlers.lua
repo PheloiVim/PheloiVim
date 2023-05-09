@@ -61,17 +61,9 @@ M.setup = function()
   vim.diagnostic.config(config)
 end
 
-local lsp_keymaps = function(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-  keymap(bufnr, "n", "K", "<cmd>Lspsaga hover_doc<CR>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
-end
-
-M.on_attach = function(client, bufnr)
+M.on_attach = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
-  lsp_keymaps(bufnr)
 end
 
 return M
