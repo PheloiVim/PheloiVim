@@ -32,7 +32,7 @@ M.setup = function()
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text })
   end
 
-  local config = {
+  vim.diagnostic.config {
     enabled = true,
     virtual_text = {
       prefix = "",
@@ -49,16 +49,6 @@ M.setup = function()
       source = "always",
     },
   }
-
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "single",
-  })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "single",
-    focusable = false,
-    relative = "cursor",
-  })
-  vim.diagnostic.config(config)
 end
 
 M.on_attach = function(client)
