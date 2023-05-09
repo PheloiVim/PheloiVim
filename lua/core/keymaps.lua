@@ -4,7 +4,6 @@ local keymap = vim.keymap.set
 local M = {}
 
 -- Change default leader key to <space>
-keymap("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
 -- NvimTree
@@ -41,8 +40,9 @@ keymap("n", "<C-s>", "<cmd>w<cr>")
 keymap("n", "<C-q>", "<cmd>q<cr>")
 
 -- Comment
-keymap("x", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', opts)
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = "Comment" }, opts)
+-- stylua: ignore
+keymap("x", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', { desc = "Comment" }, opts)
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -57,7 +57,7 @@ keymap("n", "<C-Left>", "<cmd>vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>", opts)
 
 --Toggle Trouble
-keymap("n", "<leader>ld", "<cmd>TroubleToggle<cr>", opts)
+keymap("n", "<leader>ld", "<cmd>TroubleToggle<cr>", { desc = "Diagnostics" }, opts)
 
 -- Format
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{async = true}<cr>", opts)
@@ -65,16 +65,16 @@ keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{async = true}<cr>", opts)
 -- Buffer
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", opts) -- next buffer
 keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", opts) -- previous buffer
-keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
+keymap("n", "<leader>q", "<cmd>bdelete<cr>", { desc = "Delete buffer" }, opts) -- close buffer
 
 -- No hl search
 keymap("n", "<ESC>", "<cmd>nohlsearch<cr>", opts)
 
 -- Telescope
 M.Telescope = {
-  { "<leader>ff", "<cmd>Telescope find_files<cr>" },
-  { "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-  { "<leader>fb", "<cmd>Telescope buffers<cr>" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+  { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
 }
 
 -- Better indenting
@@ -82,15 +82,16 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Toggle relative number
-keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
+keymap("n", "<leader>n", "<cmd>set rnu!<cr>", { desc = "Toggle relative number" }, opts)
 
 -- Lspsaga
-keymap("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", opts)
-keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts)
-keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>", opts)
-keymap("n", "<leader>sb", "<cmd>Lspsaga show_buf_diagnostics<CR>", opts)
-keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<CR><cr>", opts)
-keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<CR><cr>", opts)
+keymap("n", "<leader>lo", "<cmd>Lspsaga outline<cr>", { desc = "Outline" }, opts)
+keymap("n", "<leader>la", "<cmd>Lspsaga code_action<cr>", { desc = "Code action" }, opts)
+keymap("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
+keymap("n", "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<cr>", { desc = "Show buffer diagnostic" }, opts)
+keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "Next diagnostic" }, opts)
+keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "Previous diagnostic" }, opts)
+keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
 
 -- DAP
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
