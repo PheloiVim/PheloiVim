@@ -29,6 +29,7 @@ return {
       colored = true,
       always_visible = true,
       update_in_insert = true,
+      padding = 2,
     }
 
     local filetype = {
@@ -37,22 +38,28 @@ return {
       padding = { left = 2 },
     }
 
-    local git = function()
-      if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
-        return ""
-      end
-      local git_status = vim.b.gitsigns_status_dict
-      local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
-      local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
-      local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
-      local branch_name = " " .. git_status.head .. " "
+    local git = {
+      function()
+        if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+          return ""
+        end
+        local git_status = vim.b.gitsigns_status_dict
+        local added = (git_status.added and git_status.added ~= 0) and ("  " .. git_status.added) or ""
+        local changed = (git_status.changed and git_status.changed ~= 0) and ("  " .. git_status.changed) or ""
+        local removed = (git_status.removed and git_status.removed ~= 0) and ("  " .. git_status.removed) or ""
+        local branch_name = " " .. git_status.head .. " "
 
-      return branch_name .. added .. changed .. removed
-    end
+        return branch_name .. added .. changed .. removed
+      end,
+      padding = 2,
+    }
 
-    local spaces = function()
-      return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-    end
+    local spaces = {
+      function()
+        return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+      end,
+      padding = 2,
+    }
 
     local progress = function()
       local current_line = vim.fn.line "."
@@ -127,9 +134,9 @@ return {
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = { "filename" },
+        lualine_b = { diagnostics },
         lualine_c = { git },
-        lualine_x = { diagnostics, lsp_info },
+        lualine_x = { lsp_info },
         lualine_y = { location, filetype, encoding, spaces },
         lualine_z = { progress },
       },
