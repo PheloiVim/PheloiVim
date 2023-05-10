@@ -129,6 +129,7 @@ return {
           "dapui_scopes",
           "mason",
           "TelescopePrompt",
+          "help",
         },
         always_divide_middle = true,
       },
