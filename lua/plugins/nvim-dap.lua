@@ -1,6 +1,5 @@
 return {
   "mfussenegger/nvim-dap",
-  event = "VeryLazy",
   dependencies = {
     {
       "rcarriga/nvim-dap-ui",
@@ -14,7 +13,6 @@ return {
         },
         icons = { expanded = "", collapsed = "", circular = "" },
         mappings = {
-          -- Use a table to apply multiple mappings
           expand = { "<CR>", "<2-LeftMouse>" },
           open = "o",
           remove = "d",
@@ -25,18 +23,16 @@ return {
         layouts = {
           {
             elements = {
-              { id = "scopes", size = 0.33 },
-              { id = "breakpoints", size = 0.17 },
-              { id = "stacks", size = 0.25 },
-              { id = "watches", size = 0.25 },
+              "scopes",
+              "watches",
+              "stacks",
             },
-            size = 0.33,
+            size = 0.3,
             position = "left",
           },
           {
             elements = {
-              { id = "repl", size = 0.45 },
-              { id = "console", size = 0.55 },
+              "console",
             },
             size = 0.25,
             position = "bottom",
@@ -44,18 +40,7 @@ return {
         },
         controls = {
           enabled = true,
-          -- Display controls in this element
-          element = "repl",
-          icons = {
-            pause = "",
-            play = "",
-            step_into = "",
-            step_over = "",
-            step_out = "",
-            step_back = "",
-            run_last = "",
-            terminate = "",
-          },
+          element = "watches",
         },
         floating = {
           max_height = 0.9,
@@ -68,6 +53,7 @@ return {
         windows = { indent = 1 },
         render = {
           max_type_length = nil, -- Can be integer or nil.
+          indent = 1,
           max_value_lines = 3, -- Can be integer or nil.
         },
       },
