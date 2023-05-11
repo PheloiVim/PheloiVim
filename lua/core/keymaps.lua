@@ -58,9 +58,6 @@ keymap("n", "<C-Down>", "<cmd>resize +2<CR>", opts)
 keymap("n", "<C-Left>", "<cmd>vertical resize +2<CR>", opts)
 keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>", opts)
 
---Toggle Trouble
-keymap("n", "<leader>ld", "<cmd>TroubleToggle<cr>", { desc = "Diagnostics" }, opts)
-
 -- Format
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{async = true}<cr>", opts)
 
