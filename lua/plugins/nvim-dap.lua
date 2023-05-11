@@ -71,7 +71,7 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
-    vim.api.nvim_set_hl(0, "DapStoppedLinehl", { bg = "#555530" })
+    vim.api.nvim_set_hl(0, "DapStoppedLinehl", { default = true, link = "Visual" })
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
     -- stylua: ignore
     vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticSignError", linehl = "DapStoppedLinehl", numhl = "" })
