@@ -1,22 +1,17 @@
 -- Check if we need to reload the file when it changed
 vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-  callback = function()
-    if vim.fn.getcmdwintype() == "" then
-      vim.cmd "checktime"
-    end
-  end,
+  command = "checktime",
 })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  pattern = "*",
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd("VimResized", {
+vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
     vim.cmd "tabdo wincmd ="
   end,
@@ -36,11 +31,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
-    "qf",
+    "PlenaryTestPopup",
     "help",
+    "lspinfo",
     "man",
     "notify",
-    "lspinfo",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "checkhealth",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
@@ -58,11 +58,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd("BufWritePre", {
-  callback = function(ctx)
-    local dir = vim.fn.fnamemodify(ctx.file, ":p:h")
-    if vim.fn.isdirectory(dir) == 0 then
-      vim.fn.mkdir(dir, "p")
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  callback = function(event)
+    if event.match:match "^%w%w+://" then
+      return
     end
+    local file = vim.loop.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
