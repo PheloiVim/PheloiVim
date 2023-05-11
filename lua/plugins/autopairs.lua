@@ -1,6 +1,6 @@
 return {
   "windwp/nvim-autopairs",
-  event = { "InsertEnter", "CmdlineEnter" },
+  event = "InsertEnter",
   opts = {
     enable_check_bracket_line = true,
     check_ts = true,

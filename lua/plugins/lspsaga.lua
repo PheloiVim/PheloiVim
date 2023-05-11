@@ -1,6 +1,6 @@
 return {
   "glepnir/lspsaga.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  event = "VeryLazy",
   opts = function()
     return {
       ui = {

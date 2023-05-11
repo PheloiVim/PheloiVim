@@ -117,7 +117,6 @@ return {
         disabled_filetypes = {
           "NvimTree",
           "toggleterm",
-          "Trouble",
           "alpha",
           "lazy",
           "lspsagaoutline",

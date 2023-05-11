@@ -17,7 +17,6 @@ return {
       treesitter = true,
       mason = true,
       illuminate = true,
-      lsp_trouble = true,
       notify = true,
       native_lsp = {
         enabled = true,
