@@ -2,12 +2,17 @@ return {
   "numToStr/Comment.nvim",
   keys = require("core.keymaps").Comment,
   opts = {
+    padding = true,
+    sticky = true,
+    ignore = nil,
+    mappings = {
+      basic = false,
+      extra = false,
+    },
     pre_hook = function(ctx)
       if vim.bo.filetype == "typescriptreact" then
         local U = require "Comment.utils"
-
         local type = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
-
         local location = nil
         if ctx.ctype == U.ctype.blockwise then
           location = require("ts_context_commentstring.utils").get_cursor_location()
