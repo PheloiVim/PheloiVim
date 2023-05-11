@@ -1,5 +1,6 @@
 return {
   "numToStr/Comment.nvim",
+  keys = require("core.keymaps").Comment,
   opts = {
     pre_hook = function(ctx)
       if vim.bo.filetype == "typescriptreact" then
