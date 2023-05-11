@@ -40,9 +40,11 @@ keymap("n", "<C-s>", "<cmd>w<cr>")
 keymap("n", "<C-q>", "<cmd>q<cr>")
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", { desc = "Comment" }, opts)
--- stylua: ignore
-keymap("x", "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', { desc = "Comment" }, opts)
+M.Comment = {
+  { "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", desc = "Comment" },
+  -- stylua: ignore
+  { "<leader>/", '<ESC><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', desc = "Comment", mode = "x" },
+}
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
