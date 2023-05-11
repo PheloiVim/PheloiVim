@@ -94,6 +94,7 @@ keymap("n", "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<cr>", { desc = "Sho
 keymap("n", "<leader>lj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "Next diagnostic" }, opts)
 keymap("n", "<leader>lk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { desc = "Previous diagnostic" }, opts)
 keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 
 -- DAP
 keymap("n", "<F5>", "<cmd>lua require'dap'.continue()<cr>", opts)
@@ -107,8 +108,8 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Toggle Terminal
 M.ToggleTerm = {
-  { "<leader>tt", "<cmd>ToggleTerm<cr>" },
-  { "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>" },
+  { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "ToggleTerm" },
+  { "<leader>tg", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", desc = "Lazygit" },
 }
 
 M.Hop = {
