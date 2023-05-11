@@ -50,10 +50,12 @@ return {
     local mappings = {
       l = {
         name = "  LSP",
-        i = { "<cmd>LspInfo<cr>", "Info" },
       },
       f = {
         name = "  Telescope",
+      },
+      t = {
+        name = "  ToggleTerm",
       },
     }
     require("which-key").register(mappings, {
