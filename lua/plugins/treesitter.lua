@@ -2,6 +2,9 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
+  dependencies = {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   opts = {
     sync_install = true,
     auto_install = true,
@@ -28,6 +31,10 @@ return {
     },
     indent = {
       enable = true,
+    },
+    context_commentstring = {
+      enable = true,
+      enable_autocmd = false,
     },
   },
   config = function(_, opts)
