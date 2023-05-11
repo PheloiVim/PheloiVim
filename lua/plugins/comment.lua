@@ -2,9 +2,6 @@ return {
   "numToStr/Comment.nvim",
   keys = require("core.keymaps").Comment,
   opts = {
-    padding = true,
-    sticky = true,
-    ignore = nil,
     mappings = {
       basic = false,
       extra = false,
