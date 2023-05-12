@@ -27,12 +27,12 @@ return {
             "handlebars",
           },
         },
-        formatting.taplo,
-        formatting.shfmt,
-        formatting.stylua,
-        formatting.clang_format,
-        formatting.rustfmt,
-        formatting.rome,
+        formatting.taplo, -- TOML
+        formatting.shfmt, -- Bash/Shell
+        formatting.stylua, -- Lua
+        formatting.clang_format, -- C/C++
+        formatting.rustfmt, -- Rust
+        formatting.rome, -- Javascript
       },
     }
   end,
