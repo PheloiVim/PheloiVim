@@ -110,8 +110,9 @@ M.ToggleTerm = {
 }
 
 M.Hop = {
-  { "1", "<cmd>HopWord<cr>" },
-  { "2", "<cmd>HopLine<cr>" },
+  { "<leader>hw", "<cmd>HopWord<cr>", desc = "Hop Word" },
+  { "<leader>hl", "<cmd>HopLine<cr>", desc = "Hop Line" },
+  { "<leader>hp", "<cmd>HopPattern<cr>", desc = "Hop Pattern" },
 }
 
 return M
