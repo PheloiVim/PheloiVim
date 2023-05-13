@@ -2,15 +2,15 @@ return {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim", "packer_bootstrap" },
+        globals = { "vim" },
       },
       workspace = {
-        library = {
-          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-          [vim.fn.stdpath "config" .. "/lua"] = true,
-        },
+        checkThirdParty = false,
         maxPreload = 100000,
         preloadFileSize = 10000,
+      },
+      completion = {
+        callSnippet = "Replace",
       },
     },
   },

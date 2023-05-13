@@ -35,6 +35,8 @@ M.setup = function()
   vim.diagnostic.config {
     enabled = true,
     virtual_text = {
+      spacing = 4,
+      source = "if_many",
       prefix = "",
     },
     signs = {
