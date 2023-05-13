@@ -12,27 +12,12 @@ return {
     return {
       debug = false,
       sources = {
-        formatting.prettierd.with {
-          filetypes = {
-            "css",
-            "scss",
-            "less",
-            "html",
-            "json",
-            "jsonc",
-            "yaml",
-            "markdown",
-            "markdown.mdx",
-            "graphql",
-            "handlebars",
-          },
-        },
+        formatting.prettierd,
         formatting.taplo, -- TOML
         formatting.shfmt, -- Bash/Shell
         formatting.stylua, -- Lua
         formatting.clang_format, -- C/C++
         formatting.rustfmt, -- Rust
-        formatting.rome, -- Javascript
       },
     }
   end,
