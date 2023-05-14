@@ -57,6 +57,12 @@ return {
       t = {
         name = "  ToggleTerm",
       },
+      h = {
+        name = " 󰬏 Hop",
+      },
+      d = {
+        name = "  Dap"
+      }
     }
     require("which-key").register(mappings, {
       mode = "n",
