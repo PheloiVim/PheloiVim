@@ -71,6 +71,7 @@ return {
         },
       },
       symbol_in_winbar = {
+        enable = false,
         separator = "  ",
         show_file = false,
       },

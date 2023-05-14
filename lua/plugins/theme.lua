@@ -9,6 +9,7 @@ return {
     integrations = {
       lsp_saga = true,
       cmp = true,
+      navic = true,
       gitsigns = true,
       nvimtree = true,
       telescope = true,
