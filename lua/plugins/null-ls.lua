@@ -12,12 +12,26 @@ return {
     return {
       debug = false,
       sources = {
-        formatting.prettierd,
+        formatting.prettierd.with {
+          filetypes = {
+            "vue",
+            "css",
+            "scss",
+            "less",
+            "html",
+            "yaml",
+            "markdown",
+            "markdown.mdx",
+            "graphql",
+            "handlebars",
+          },
+        },
         formatting.taplo, -- TOML
         formatting.shfmt, -- Bash/Shell
         formatting.stylua, -- Lua
         formatting.clang_format, -- C/C++
         formatting.rustfmt, -- Rust
+        formatting.rome, -- JavaScript, TypeScript, JSON
       },
     }
   end,
