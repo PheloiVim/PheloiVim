@@ -1,6 +1,6 @@
 return {
   "glepnir/lspsaga.nvim",
-  event = "VeryLazy",
+  event = "LspAttach",
   opts = function()
     return {
       ui = {
@@ -41,6 +41,8 @@ return {
           Unit = { " ", "LspKindUnit" },
           Value = { " ", "LspKindValue" },
         },
+        border = "single",
+        code_action = "",
       },
       diagnostic = {
         on_insert = false,
@@ -49,7 +51,7 @@ return {
         show_code_action = false,
       },
       lightbulb = {
-        enable = false,
+        enable = true,
       },
       outline = {
         win_width = 40,
@@ -72,8 +74,6 @@ return {
       },
       symbol_in_winbar = {
         enable = false,
-        separator = "  ",
-        show_file = false,
       },
     }
   end,
