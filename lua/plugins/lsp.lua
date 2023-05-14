@@ -29,7 +29,7 @@ return {
           "rome",
           "bashls",
           "rust_analyzer",
-          "jsonls",
+          "tsserver",
         },
       },
     },

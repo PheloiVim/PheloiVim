@@ -5,11 +5,10 @@ local servers = {
   "emmet_ls", -- Emmet support
   "cssls", -- CSS lsp
   "tsserver", -- JavaScript, TypeScript lsp
-  "rome", -- JavaScript, TypeScript Linter
+  "rome", -- JavaScript, TypeScript, JSON Linter & Formatter
   "clangd", -- C, C++ lsp
   "bashls", -- Bash lsp
   "rust_analyzer", -- Rust lsp
-  "jsonls", -- Json lsp
 }
 
 for _, server in pairs(servers) do
