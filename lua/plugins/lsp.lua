@@ -26,7 +26,6 @@ return {
           "html",
           "emmet_ls",
           "cssls",
-          "tsserver",
           "rome",
           "bashls",
           "rust_analyzer",
