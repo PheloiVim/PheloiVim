@@ -31,7 +31,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Code Formatting: [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
 - Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- Winbar code outline, code action,...: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
+- Code outline, code action,...: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
 - And more...[plugins here](https://github.com/yeuxacucodon/neovim-config/tree/master/lua/plugins)
 
 ## ⚡️ Requirements
