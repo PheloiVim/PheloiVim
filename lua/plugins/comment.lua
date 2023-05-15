@@ -2,10 +2,6 @@ return {
   "numToStr/Comment.nvim",
   keys = require("core.keymaps").Comment,
   opts = {
-    mappings = {
-      basic = false,
-      extra = false,
-    },
     pre_hook = function(ctx)
       if vim.bo.filetype == "typescriptreact" then
         local U = require "Comment.utils"

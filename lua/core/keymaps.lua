@@ -43,7 +43,7 @@ keymap("n", "<C-q>", "<cmd>q<cr>")
 M.Comment = {
   { "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", desc = "Comment" },
   -- stylua: ignore
-  { "<leader>/", '<esc><cmd>lua require("Comment.api").toggle.blockwise(vim.fn.visualmode())<cr>', desc = "Comment", mode = "x" },
+  { "<leader>/", '<esc><cmd>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<cr>', desc = "Comment", mode = "x" },
 }
 
 -- Better window navigation
