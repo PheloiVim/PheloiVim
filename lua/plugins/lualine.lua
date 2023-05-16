@@ -109,6 +109,7 @@ return {
         return "|   LSP: " .. table.concat(unique_client_names, ", ")
       end,
       color = { fg = "white" },
+      padding = { right = 2 },
     }
 
     return {
