@@ -4,6 +4,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
   opts = {
     sync_install = true,
@@ -35,6 +36,26 @@ return {
     context_commentstring = {
       enable = true,
       enable_autocmd = false,
+    },
+    textobjects = {
+      select = {
+        enable = true,
+      },
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<leader>a"] = "@parameter.inner",
+        },
+        swap_previous = {
+          ["<leader>A"] = "@parameter.inner",
+        },
+      },
+      move = {
+        enable = false,
+      },
+      lsp_interop = {
+        enable = true,
+      },
     },
   },
   config = function(_, opts)
