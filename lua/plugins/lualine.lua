@@ -13,6 +13,7 @@ return {
       "location",
       separator = "|",
       padding = 2,
+      color = { fg = "white" },
     }
 
     local encoding = {
@@ -20,6 +21,7 @@ return {
       fmt = string.upper,
       separator = "|",
       padding = 2,
+      color = { fg = "white" },
     }
 
     local diagnostics = {
@@ -52,6 +54,7 @@ return {
         return branch_name .. added .. changed .. removed
       end,
       padding = 2,
+      color = { fg = "white" },
     }
 
     local spaces = {
@@ -59,6 +62,7 @@ return {
         return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
       end,
       padding = 2,
+      color = { fg = "white" },
     }
 
     local progress = {
@@ -68,42 +72,45 @@ return {
       end,
     }
 
-    local lsp_info = function()
-      local buf_clients = vim.lsp.buf_get_clients()
-      local buf_client_names = {}
+    local lsp_info = {
+      function()
+        local buf_clients = vim.lsp.buf_get_clients()
+        local buf_client_names = {}
 
-      local list_registered = function(fileType)
-        local null_ls = require "null-ls.sources"
-        local available_sources = null_ls.get_available(fileType)
-        local registered = {}
-        for _, source in ipairs(available_sources) do
-          for method in pairs(source.methods) do
-            registered[method] = registered[method] or {}
-            table.insert(registered[method], source.name)
+        local list_registered = function(fileType)
+          local null_ls = require "null-ls.sources"
+          local available_sources = null_ls.get_available(fileType)
+          local registered = {}
+          for _, source in ipairs(available_sources) do
+            for method in pairs(source.methods) do
+              registered[method] = registered[method] or {}
+              table.insert(registered[method], source.name)
+            end
+          end
+          return registered
+        end
+
+        local list_formatters = function(fileType)
+          local registered_providers = list_registered(fileType)
+          return registered_providers[require("null-ls").methods.FORMATTING] or {}
+        end
+
+        if next(buf_clients) == nil then
+          return "No Active LSP"
+        end
+        for _, client in pairs(buf_clients) do
+          if client.name ~= "null-ls" then
+            table.insert(buf_client_names, client.name)
           end
         end
-        return registered
-      end
 
-      local list_formatters = function(fileType)
-        local registered_providers = list_registered(fileType)
-        return registered_providers[require("null-ls").methods.FORMATTING] or {}
-      end
+        vim.list_extend(buf_client_names, list_formatters(vim.bo.filetype))
 
-      if next(buf_clients) == nil then
-        return "No Active LSP"
-      end
-      for _, client in pairs(buf_clients) do
-        if client.name ~= "null-ls" then
-          table.insert(buf_client_names, client.name)
-        end
-      end
-
-      vim.list_extend(buf_client_names, list_formatters(vim.bo.filetype))
-
-      local unique_client_names = vim.fn.uniq(buf_client_names)
-      return "|   LSP: " .. table.concat(unique_client_names, ", ")
-    end
+        local unique_client_names = vim.fn.uniq(buf_client_names)
+        return "|   LSP: " .. table.concat(unique_client_names, ", ")
+      end,
+      color = { fg = "white" },
+    }
 
     return {
       options = {
@@ -132,8 +139,8 @@ return {
       },
       sections = {
         lualine_a = { mode },
-        lualine_b = { diagnostics },
-        lualine_c = { git },
+        lualine_b = { git },
+        lualine_c = { diagnostics },
         lualine_x = { lsp_info },
         lualine_y = { location, filetype, encoding, spaces },
         lualine_z = { progress },
