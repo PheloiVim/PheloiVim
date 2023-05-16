@@ -58,7 +58,7 @@ M.on_attach = function(client, bufnr)
   client.server_capabilities.documentRangeFormattingProvider = false
   if client.server_capabilities.documentSymbolProvider then
     require("nvim-navic").attach(client, bufnr)
-    vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+    vim.opt_local.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
   end
 end
 
