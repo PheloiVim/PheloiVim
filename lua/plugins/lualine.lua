@@ -48,12 +48,35 @@ return {
     }
 
     local diff = {
-      "diff",
-      symbols = {
-        added = " ",
-        removed = " ",
-        modified = " ",
-      },
+      function()
+        if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+          return ""
+        end
+
+        local git_status = vim.b.gitsigns_status_dict
+
+        local added = function()
+          if git_status.added == 0 then
+            return ""
+          end
+          return " " .. git_status.added
+        end
+        local changed = function()
+          if git_status.changed == 0 then
+            return ""
+          end
+          return "  " .. git_status.changed
+        end
+        local removed = function()
+          if git_status.removed == 0 then
+            return ""
+          end
+          return "  " .. git_status.removed
+        end
+
+        return added() .. changed() .. removed()
+      end,
+      color = { fg = "white" },
     }
 
     local spaces = {
