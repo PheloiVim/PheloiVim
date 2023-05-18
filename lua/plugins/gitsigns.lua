@@ -3,33 +3,17 @@ return {
   event = "VeryLazy",
   opts = {
     signs = {
-      add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-      change = {
-        hl = "GitSignsChange",
-        text = "▎",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
-      delete = {
-        hl = "GitSignsDelete",
-        text = "",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      topdelete = {
-        hl = "GitSignsDelete",
-        text = "",
-        numhl = "GitSignsDeleteNr",
-        linehl = "GitSignsDeleteLn",
-      },
-      changedelete = {
-        hl = "GitSignsChange",
-        text = "▎",
-        numhl = "GitSignsChangeNr",
-        linehl = "GitSignsChangeLn",
-      },
+      add = { text = "│" },
+      change = { text = "│" },
+      delete = { text = "_" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
+      untracked = { text = "┆" },
     },
     signcolumn = true,
+    numhl = false, -- Toggle with: Gitsigns toggle_numhl
+    linehl = false, -- Toggle with: Gitsigns toggle_linehl
+    word_diff = false, -- Toggle with: Gitsigns toggle_word_diff
     watch_gitdir = {
       interval = 1000,
       follow_files = true,
@@ -37,8 +21,9 @@ return {
     attach_to_untracked = true,
     current_line_blame_opts = {
       virt_text = true,
-      virt_text_pos = "eol",
+      virt_text_pos = "eog",
       delay = 1000,
+      ignore_whitespace = false,
     },
     sign_priority = 6,
     update_debounce = 100,
@@ -49,6 +34,9 @@ return {
       relative = "cursor",
       row = 0,
       col = 1,
+    },
+    yadm = {
+      enable = false,
     },
   },
 }
