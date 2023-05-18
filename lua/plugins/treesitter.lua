@@ -3,7 +3,6 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring",
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   opts = {
@@ -32,10 +31,6 @@ return {
     },
     indent = {
       enable = true,
-    },
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
     },
     textobjects = {
       select = {
