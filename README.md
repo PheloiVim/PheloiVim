@@ -25,7 +25,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Fast buffer jump: [hop.nvim](https://github.com/phaazon/hop.nvim)
 - Theme: [catppuccin](https://github.com/catppuccin/nvim)
 - Fuzzy searching: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- Faster code commenting: [Comment.nvim](https://github.com/numToStr/Comment.nvim)
+- Faster code commenting: [mini.comment](https://github.com/echasnovski/mini.comment)
 - Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - Language server protocol (LSP) support: [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) & [mason.nvim](https://github.com/williamboman/mason.nvim)
 - Code Formatting: [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
