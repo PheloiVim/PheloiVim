@@ -24,6 +24,7 @@ return {
             "markdown.mdx",
             "graphql",
             "handlebars",
+            "jsonc",
           },
         },
         formatting.taplo, -- TOML
