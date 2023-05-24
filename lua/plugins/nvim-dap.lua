@@ -57,20 +57,23 @@ return {
           max_value_lines = 3, -- Can be integer or nil.
         },
       },
+      config = function(_, opts)
+        local dap = require "dap"
+        local dapui = require "dapui"
+        dapui.setup(opts)
+        dap.listeners.after.event_initialized["dapui_config"] = function()
+          dapui.open()
+        end
+        dap.listeners.before.event_terminated["dapui_config"] = function()
+          dapui.close()
+        end
+        dap.listeners.before.event_exited["dapui_config"] = function()
+          dapui.close()
+        end
+      end,
     },
   },
   config = function()
-    local dap = require "dap"
-    local dapui = require "dapui"
-    dap.listeners.after.event_initialized["dapui_config"] = function()
-      dapui.open()
-    end
-    dap.listeners.before.event_terminated["dapui_config"] = function()
-      dapui.close()
-    end
-    dap.listeners.before.event_exited["dapui_config"] = function()
-      dapui.close()
-    end
     vim.api.nvim_set_hl(0, "DapStoppedLinehl", { default = true, link = "Visual" })
     vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
     -- stylua: ignore
