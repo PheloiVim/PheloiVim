@@ -126,7 +126,7 @@ return {
           diagnostics = "nvim_lsp",
           diagnostics_update_in_insert = true,
           color_icons = true,
-          offsets = { { filetype = "neo-tree", text = "Explorer", padding = 1, separator = true } },
+          offsets = { { filetype = "neo-tree", padding = 0, separator = true, text = "Neo Tree" } },
           show_buffer_icons = true,
           show_buffer_close_icons = true,
           show_close_icon = false,
@@ -221,9 +221,54 @@ return {
       open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
       sort_case_insensitive = false,
       sources = { "filesystem", "buffers", "git_status" },
+      source_selector = {
+        winbar = true,
+        content_layout = "center",
+        sources = {
+          { source = "filesystem", display_name = " File" },
+          { source = "git_status", display_name = "󰊢 Git" },
+        },
+      },
+      window = {
+        width = 35,
+        mappings = {
+          ["<space>"] = false,
+          ["["] = "prev_source",
+          ["]"] = "next_source",
+          ["o"] = "open",
+        },
+      },
+      filesystem = {
+        follow_current_file = true,
+        hijack_netrw_behavior = "open_current",
+        use_libuv_file_watcher = true,
+      },
+      default_component_configs = {
+        indent = { padding = 0, indent_size = 1 },
+        icon = {
+          folder_closed = "",
+          folder_open = "",
+          folder_empty = "",
+          default = "",
+        },
+        modified = { symbol = "" },
+        git_status = {
+          symbols = {
+            added = "",
+            deleted = "",
+            modified = "",
+            renamed = "➜",
+            untracked = "★",
+            ignored = "◌",
+            unstaged = "✗",
+            staged = "✓",
+            conflict = "",
+          },
+        },
+      },
     },
     config = function(_, opts)
-      vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+      vim.g.neo_tree_remove_legacy_commands = true
       require("neo-tree").setup(opts)
     end,
   },
