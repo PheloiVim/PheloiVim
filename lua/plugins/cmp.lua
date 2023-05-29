@@ -9,54 +9,15 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "saadparwaiz1/cmp_luasnip",
+    "onsails/lspkind.nvim",
   },
   config = function()
-    local cmp = require "cmp"
-    local luasnip = require "luasnip"
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
     require("luasnip/loaders/from_vscode").lazy_load()
 
-    local lsp_icons = {
-      Namespace = "",
-      Text = "󰊄",
-      Method = "",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "",
-      Variable = "",
-      Class = "",
-      Interface = "",
-      Module = "",
-      Property = "",
-      Unit = "",
-      Value = "󰠠",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "󰈔",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
-      Table = "",
-      Object = "",
-      Tag = "",
-      Array = "[]",
-      Boolean = "",
-      Number = "",
-      Null = "󰟢",
-      String = "󰅳",
-      Calendar = "",
-      Watch = "",
-      Package = "",
-      Copilot = "",
-    }
-
-    cmp.setup {
+    cmp.setup({
       completion = { completeopt = "menu,menuone,noinsert" },
       snippet = {
         expand = function(args)
@@ -69,10 +30,11 @@ return {
       },
       formatting = {
         fields = { "abbr", "kind" },
-        format = function(_, vim_item)
-          vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
-          return vim_item
-        end,
+        format = lspkind.cmp_format({
+          mode = "text_symbol",
+          maxwidth = 50,
+          ellipsis_char = "...",
+        }),
       },
       sources = {
         { name = "luasnip" },
@@ -85,10 +47,10 @@ return {
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-        ["<TAB>"] = cmp.mapping.confirm { select = true, behavior = cmp.ConfirmBehavior.Replace },
+        ["<TAB>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
         ["<C-e>"] = cmp.mapping.abort(),
       },
-    }
+    })
 
     cmp.setup.cmdline({ "/", "?" }, {
       mapping = cmp.mapping.preset.cmdline(),

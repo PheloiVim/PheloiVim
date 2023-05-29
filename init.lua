@@ -1,33 +1,25 @@
--- Install lazy.nvim
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+require("core.options")
+require("core.autocmds")
+require("core.keymaps")
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  print "Installing lazy.nvim"
-  vim.fn.system {
+  vim.cmd("redraw")
+  vim.api.nvim_echo({ { "  Installing lazy.nvim & plugins ...", "Bold" } }, true, {})
+  vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
-  }
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
-require "core.options"
-require "core.autocmds"
-require "core.keymaps"
-
-require("lazy").setup {
+require("lazy").setup({
   spec = { import = "plugins" },
-  defaults = { lazy = true },
-  ui = {
-    icons = {
-      ft = "",
-      lazy = "󰒲  ",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
+  defaults = { lazy = true, version = false },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -61,4 +53,7 @@ require("lazy").setup {
       },
     },
   },
-}
+  install = {
+    colorscheme = { "tokyonight" },
+  },
+})

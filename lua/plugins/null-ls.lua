@@ -4,15 +4,15 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
-  opts = function()
+  config = function()
     local formatting = require("null-ls").builtins.formatting
     -- local diagnostics = require("null-ls").builtins.diagnostics
     -- local code_actions = require("null-ls").builtins.code_actions
 
-    return {
+    require("null-ls").setup({
       debug = false,
       sources = {
-        formatting.prettierd.with {
+        formatting.prettierd.with({
           filetypes = {
             "vue",
             "css",
@@ -26,7 +26,7 @@ return {
             "handlebars",
             "jsonc",
           },
-        },
+        }),
         formatting.taplo, -- TOML
         formatting.shfmt, -- Bash/Shell
         formatting.stylua, -- Lua
@@ -34,6 +34,6 @@ return {
         formatting.rustfmt, -- Rust
         formatting.rome, -- JavaScript, TypeScript, JSON
       },
-    }
+    })
   end,
 }
