@@ -48,3 +48,6 @@ keymap("v", ">", ">gv", opts)
 
 -- Toggle relative number
 keymap("n", "<leader>n", "<cmd>set rnu!<cr>", { desc = "Toggle relative number" }, opts)
+
+-- Format
+keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
