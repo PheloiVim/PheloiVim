@@ -4,6 +4,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
+        "simrat39/rust-tools.nvim",
+      },
+      {
         "williamboman/mason.nvim",
         opts = {
           ui = {
