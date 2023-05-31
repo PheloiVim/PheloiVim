@@ -233,8 +233,7 @@ return {
         width = 35,
         mappings = {
           ["<space>"] = false,
-          ["["] = "prev_source",
-          ["]"] = "next_source",
+          [">"] = "next_source",
           ["o"] = "open",
         },
       },

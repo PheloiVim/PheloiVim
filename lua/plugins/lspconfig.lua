@@ -5,6 +5,11 @@ return {
     dependencies = {
       {
         "simrat39/rust-tools.nvim",
+        config = function()
+          local rt = require("rust-tools")
+          rt.setup()
+          rt.inlay_hints.enable()
+        end,
       },
       {
         "williamboman/mason.nvim",
