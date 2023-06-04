@@ -36,6 +36,7 @@ return {
             "bashls",
             "rust_analyzer",
             "tsserver",
+            "eslint",
           },
         },
       },

@@ -1,15 +1,16 @@
 return {
+  -- Wakatime
   {
     "wakatime/vim-wakatime",
     event = "VeryLazy",
   },
-
+  -- Comment
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     opts = true,
   },
-
+  -- Telescope
   {
     "nvim-telescope/telescope.nvim",
     keys = {
@@ -107,7 +108,7 @@ return {
       hl(0, "TelescopePromptTitle", { fg = "black", bg = "#FF2D00" })
     end,
   },
-
+  -- Bufferline
   {
     "akinsho/bufferline.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -139,7 +140,7 @@ return {
       }
     end,
   },
-
+  -- Autopairs
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
