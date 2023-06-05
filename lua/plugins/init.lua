@@ -297,6 +297,7 @@ local plugins = {
     end,
   },
 
+  -- Status line
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
