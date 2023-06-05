@@ -22,7 +22,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Status line: [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - File tree explorer: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - Syntax highlighter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- Theme: [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- Theme: [catppuccin](https://github.com/catppuccin/nvim)
 - Fuzzy searching: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - Faster code commenting: [mini.comment](https://github.com/echasnovski/mini.comment)
 - Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -31,7 +31,7 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
 - Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - Code outline, code action,...: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- And more...[plugins here](https://github.com/yeuxacucodon/neovim-config/tree/master/lua/plugins)
+- And more...[plugins here](./lua/plugins/init.lua)
 
 ## ⚡️ Requirements
 
