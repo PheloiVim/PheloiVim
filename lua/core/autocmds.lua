@@ -1,5 +1,5 @@
 local function augroup(name)
-  return vim.api.nvim_create_augroup("neovim_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
 -- Check if we need to reload the file when it changed
@@ -12,16 +12,14 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({ timeout = 100 })
   end,
 })
 
 -- resize splits if window got resized
-vim.api.nvim_create_autocmd({ "VimResized" }, {
+vim.api.nvim_create_autocmd("VimResized", {
   group = augroup("resize_splits"),
-  callback = function()
-    vim.cmd("tabdo wincmd =")
-  end,
+  command = "tabdo wincmd =",
 })
 
 -- go to last loc when opening a buffer
@@ -53,25 +51,16 @@ vim.api.nvim_create_autocmd("FileType", {
     "checkhealth",
     "neotest-summary",
     "neotest-output-panel",
+    "null-ls-info",
   },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-  end,
-})
-
--- wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown" },
   callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
+    vim.opt_local.buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = true, silent = true })
   end,
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup("auto_create_dir"),
   callback = function(event)
     if event.match:match("^%w%w+://") then
