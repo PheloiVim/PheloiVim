@@ -28,7 +28,6 @@ local plugins = {
           enabled = true,
           colored_indent_levels = false,
         },
-
         native_lsp = {
           enabled = true,
           virtual_text = {
@@ -58,6 +57,14 @@ local plugins = {
       require("catppuccin").setup(opts)
       vim.cmd.colorscheme("catppuccin")
     end,
+  },
+
+  -- Todo comment
+  {
+    "folke/todo-comments.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = true,
   },
 
   -- Nvim-surround
