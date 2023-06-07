@@ -134,7 +134,7 @@ local lsp_info = {
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    theme = "catppuccin",
+    theme = "auto",
     globalstatus = true,
     component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },

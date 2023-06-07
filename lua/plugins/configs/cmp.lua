@@ -1,7 +1,34 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
 require("luasnip/loaders/from_vscode").lazy_load()
+
+local lsp_icons = {
+  Text = "󰉿",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰜢",
+  Variable = "󰀫",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "󰑭",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "󰈇",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "󰙅",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "",
+}
 
 cmp.setup({
   completion = { completeopt = "menu,menuone,noinsert" },
@@ -11,16 +38,15 @@ cmp.setup({
     end,
   },
   window = {
-    completion = { border = "solid" },
-    documentation = { border = "solid" },
+    completion = { border = "rounded" },
+    documentation = { border = "rounded" },
   },
   formatting = {
     fields = { "abbr", "kind" },
-    format = lspkind.cmp_format({
-      mode = "text_symbol",
-      maxwidth = 50,
-      ellipsis_char = "...",
-    }),
+    format = function(_, vim_item)
+      vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
+      return vim_item
+    end,
   },
   sources = {
     { name = "luasnip" },

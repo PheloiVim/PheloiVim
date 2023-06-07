@@ -5,60 +5,6 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "MunifTanjim/nui.nvim",
 
-  -- Colorscheme
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      flavour = "mocha",
-      term_colors = true,
-      integrations = {
-        lsp_saga = true,
-        cmp = true,
-        gitsigns = true,
-        telescope = false,
-        fidget = true,
-        treesitter = true,
-        mason = true,
-        illuminate = true,
-        indent_blankline = {
-          neotree = true,
-          enabled = true,
-          colored_indent_levels = false,
-        },
-        native_lsp = {
-          enabled = true,
-          virtual_text = {
-            errors = { "italic" },
-            hints = { "italic" },
-            warnings = { "italic" },
-            information = { "italic" },
-          },
-          underlines = {
-            errors = { "underline" },
-            hints = { "underline" },
-            warnings = { "underline" },
-            information = { "underline" },
-          },
-        },
-        dap = {
-          enabled = true,
-          enable_ui = true,
-        },
-        navic = {
-          enabled = true,
-          custom_bg = "NONE",
-        },
-      },
-    },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin")
-    end,
-  },
-
   -- Todo comment
   {
     "folke/todo-comments.nvim",
@@ -217,7 +163,6 @@ local plugins = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "onsails/lspkind.nvim",
     },
     config = function()
       require("plugins.configs.cmp")
