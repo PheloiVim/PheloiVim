@@ -5,6 +5,16 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "MunifTanjim/nui.nvim",
 
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd.colorscheme("tokyonight-night")
+    end,
+  },
+
   -- Todo comment
   {
     "folke/todo-comments.nvim",
@@ -273,6 +283,10 @@ local plugins = {
 -- lazy.nvim config
 local opts = {
   defaults = { lazy = true, version = false },
+  dev = {
+    path = "~/Workspace",
+    patterns = { "yeuxacucodon" },
+  },
   performance = {
     rtp = {
       disabled_plugins = {
