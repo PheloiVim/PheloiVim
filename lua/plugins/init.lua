@@ -10,7 +10,7 @@ local plugins = {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = true,
+    opts = {},
   },
 
   -- Nvim-surround
@@ -32,7 +32,7 @@ local plugins = {
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
-    opts = true,
+    opts = {},
   },
 
   -- Bufferline
@@ -48,6 +48,7 @@ local plugins = {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "williamboman/mason.nvim",
+      { "folke/neodev.nvim", opts = {} },
     },
     config = function()
       require("plugins.configs.lspconfig")
