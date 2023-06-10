@@ -249,7 +249,7 @@ local plugins = {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = {
-      { "<C-e>", "<cmd>Neotree<cr>" },
+      { "<F2>", "<cmd>Neotree<cr>" },
     },
     dependencies = {
       "nvim-tree/nvim-web-devicons",
