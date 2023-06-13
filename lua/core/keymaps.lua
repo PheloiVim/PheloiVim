@@ -37,7 +37,7 @@ keymap("n", "<C-Right>", "<cmd>vertical resize -2<CR>", opts)
 -- Buffer
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", opts) -- next buffer
 keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", opts) -- previous buffer
-keymap("n", "<leader>q", "<cmd>bdelete<cr>", { desc = "Delete buffer" }, opts) -- close buffer
+keymap("n", "<leader>q", "<cmd>bdelete<cr>", opts) -- close buffer
 
 -- No hl search
 keymap("n", "<ESC>", "<cmd>nohlsearch<cr>", opts)
@@ -47,7 +47,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Toggle relative number
-keymap("n", "<leader>n", "<cmd>set rnu!<cr>", { desc = "Toggle relative number" }, opts)
+keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
 
 -- Format
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
