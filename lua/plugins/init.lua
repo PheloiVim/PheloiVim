@@ -129,6 +129,7 @@ local plugins = {
   {
     "j-hui/fidget.nvim",
     event = "VeryLazy",
+    enabled = false,
     opts = {
       window = {
         blend = 0,
