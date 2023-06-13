@@ -5,6 +5,7 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "MunifTanjim/nui.nvim",
 
+  -- Colorscheme
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -30,12 +31,6 @@ local plugins = {
     config = function()
       require("nvim-surround").setup()
     end,
-  },
-
-  -- Wakatime
-  {
-    "wakatime/vim-wakatime",
-    event = "VeryLazy",
   },
 
   -- Comment
