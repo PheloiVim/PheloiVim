@@ -38,7 +38,8 @@ local options = {
   wrap = true,
 }
 
-vim.opt.spelllang:append("cjk") -- disable spellchecking for asian characters (VIM algorithm does not support it)
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
 vim.opt.shortmess:append("c") -- don't show redundant messages from ins-completion-menu
 vim.opt.shortmess:append("I") -- don't show the default intro message
 vim.opt.whichwrap:append("<,>,[,],h,l")
