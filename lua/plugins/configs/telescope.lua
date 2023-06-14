@@ -66,7 +66,6 @@ local opts = {
 }
 
 require("telescope").setup(opts)
-require("telescope").load_extension("fzf")
 
 local hl = vim.api.nvim_set_hl
 local mainColor = "#0F1211"
