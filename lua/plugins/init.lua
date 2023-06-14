@@ -91,6 +91,15 @@ local plugins = {
     },
   },
 
+  -- Autoinstall LSP
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
+    opts = {
+      ensure_installed = require("lsp.servers"),
+    },
+  },
+
   -- LSP icon in winbar
   {
     "SmiteshP/nvim-navic",
