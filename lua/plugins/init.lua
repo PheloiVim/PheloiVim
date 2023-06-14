@@ -288,10 +288,6 @@ local plugins = {
 -- lazy.nvim config
 local opts = {
   defaults = { lazy = true, version = false },
-  dev = {
-    path = "~/Workspace",
-    patterns = { "yeuxacucodon" },
-  },
   performance = {
     rtp = {
       disabled_plugins = {
