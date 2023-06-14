@@ -47,7 +47,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Toggle relative number
-keymap("n", "<leader>n", "<cmd>set rnu!<cr>", opts)
+keymap("n", "<leader>n", "<cmd>set relativenumber!<cr>", opts)
 
 -- Format
 keymap("n", "<C-f>", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Toggle spell cherker
+keymap("n", "<leader>sp", "<cmd>set spell!<cr>", opts)
