@@ -63,28 +63,3 @@ cmp.setup({
     ["<C-e>"] = cmp.mapping.abort(),
   },
 })
-
-cmp.setup.cmdline({ "/", "?" }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  formatting = { fields = { "abbr" } },
-  completion = { completeopt = "menu,menuone,noinsert,noselect" },
-  window = {
-    completion = { border = "solid" },
-  },
-  sources = {
-    { name = "buffer" },
-  },
-})
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  formatting = { fields = { "abbr" } },
-  window = {
-    completion = { border = "solid" },
-  },
-  completion = { completeopt = "menu,menuone,noinsert,noselect" },
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-})

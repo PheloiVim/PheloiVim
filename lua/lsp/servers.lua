@@ -10,6 +10,7 @@ local servers = {
   "rust_analyzer", -- Rust lsp
   "jsonls",
   "eslint",
+  "tailwindcss",
 }
 
 return servers
