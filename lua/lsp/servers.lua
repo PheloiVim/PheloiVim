@@ -11,6 +11,7 @@ local servers = {
   "jsonls",
   "eslint",
   "tailwindcss",
+  "jdtls",
 }
 
 return servers

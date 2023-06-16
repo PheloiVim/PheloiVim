@@ -9,7 +9,16 @@ require("null-ls").setup({
     formatting.taplo, -- TOML
     formatting.shfmt, -- Bash/Shell
     formatting.stylua, -- Lua
-    formatting.clang_format, -- C/C++
+    formatting.clang_format.with({
+      filetypes = {
+        "c",
+        "cpp",
+        "cs",
+        "cuda",
+        "proto",
+      },
+    }), -- C/C++
     formatting.rustfmt, -- Rust
+    formatting.google_java_format, -- Java
   },
 })
