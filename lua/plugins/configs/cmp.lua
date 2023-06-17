@@ -42,24 +42,27 @@ cmp.setup({
     documentation = { border = "rounded" },
   },
   formatting = {
-    fields = { "abbr", "kind" },
+    fields = { "abbr", "kind", "menu" },
     format = function(_, vim_item)
       vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
       return vim_item
     end,
   },
   sources = {
-    { name = "luasnip" },
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-    { name = "path" },
+    { name = "nvim_lsp", priority = 1000 },
+    { name = "luasnip", priority = 750 },
+    { name = "buffer", priority = 500 },
+    { name = "path", priority = 250 },
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-    ["<C-j>"] = cmp.mapping.select_next_item(),
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<TAB>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-    ["<C-e>"] = cmp.mapping.abort(),
+    ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+    ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+    ["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
+    ["<TAB>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
   },
 })

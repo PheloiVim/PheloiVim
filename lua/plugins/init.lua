@@ -7,12 +7,13 @@ local plugins = {
 
   -- Colorscheme
   {
-    "folke/tokyonight.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
-      vim.cmd.colorscheme("tokyonight-night")
+      require("plugins.configs.catppuccin")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 
@@ -21,7 +22,23 @@ local plugins = {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {},
+    config = function()
+      require("todo-comments").setup({
+        keywords = {
+          FIX = {
+            icon = " ",
+            color = "error",
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+          },
+          TODO = { icon = " ", color = "info" },
+          HACK = { icon = " ", color = "warning" },
+          WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+          PERF = { icon = "󰠰 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = "󱞁 ", color = "hint", alt = { "INFO" } },
+          TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        },
+      })
+    end,
   },
 
   -- Nvim-surround
@@ -44,7 +61,9 @@ local plugins = {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    opts = require("plugins.configs.bufferline"),
+    opts = function()
+      require("plugins.configs.bufferline")
+    end,
   },
 
   -- Enable LSP support
@@ -103,7 +122,6 @@ local plugins = {
   -- LSP icon in winbar
   {
     "SmiteshP/nvim-navic",
-    event = "VeryLazy",
     opts = {
       highlight = true,
       separator = "   ",
@@ -161,13 +179,18 @@ local plugins = {
     opts = require("plugins.configs.lspsaga"),
   },
 
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+  },
+
   -- Auto completion
   {
     "hrsh7th/nvim-cmp",
-    event = { "InsertEnter", "CmdlineEnter" },
+    event = "InsertEnter",
     dependencies = {
-      "L3MON4D3/LuaSnip",
-      "rafamadriz/friendly-snippets",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
