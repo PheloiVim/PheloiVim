@@ -1,4 +1,4 @@
-return {
+require("lspsaga").setup({
   ui = {
     kind = {
       File = { "󰈔 ", "LspKindFile" },
@@ -71,4 +71,4 @@ return {
   symbol_in_winbar = {
     enable = false,
   },
-}
+})

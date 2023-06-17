@@ -54,14 +54,22 @@ local plugins = {
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
-    opts = {},
+    config = function()
+      require("mini.comment").setup()
+    end,
   },
 
   -- Bufferline
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
-    opts = function()
+    dependencies = {
+      {
+        "catppuccin/nvim",
+        name = "catppuccin",
+      },
+    },
+    config = function()
       require("plugins.configs.bufferline")
     end,
   },
@@ -176,9 +184,12 @@ local plugins = {
   {
     "nvimdev/lspsaga.nvim",
     event = "VeryLazy",
-    opts = require("plugins.configs.lspsaga"),
+    config = function()
+      require("plugins.configs.lspsaga")
+    end,
   },
 
+  -- Snippets
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -228,20 +239,23 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
     opts = {
-      show_current_context_start = false,
+      show_trailing_blankline_indent = false,
+      use_treesitter = true,
       char = "▏",
       context_char = "▏",
-      colored_indent_levels = true,
-      show_trailing_blankline_indent = false,
-      show_first_indent_level = true,
-      use_treesitter = true,
       show_current_context = true,
       buftype_exclude = { "terminal", "nofile" },
       filetype_exclude = {
-        "neo-tree",
         "help",
-        "lazy",
+        "startify",
+        "aerial",
         "alpha",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "neo-tree",
+        "Trouble",
       },
     },
   },
@@ -263,7 +277,9 @@ local plugins = {
   {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
-    opts = require("plugins.configs.gitsigns"),
+    config = function()
+      require("plugins.configs.gitsigns")
+    end,
   },
 
   -- Neo-tree

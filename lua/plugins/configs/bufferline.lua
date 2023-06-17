@@ -1,4 +1,4 @@
-return {
+require("bufferline").setup({
   options = {
     numbers = "none",
     left_mouse_command = "buffer %d",
@@ -23,4 +23,4 @@ return {
     always_show_bufferline = true,
   },
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
-}
+})
