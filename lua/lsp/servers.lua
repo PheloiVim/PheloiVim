@@ -8,10 +8,13 @@ local servers = {
   "clangd", -- C, C++ lsp
   "bashls", -- Bash lsp
   "rust_analyzer", -- Rust lsp
-  "jsonls",
+  "jsonls", -- JSON
   "eslint",
   "tailwindcss",
-  "jdtls",
+  "jdtls", -- Java
+  "intelephense", -- PHP
+  "psalm", -- PHP linter
+  "lemminx", -- XML
 }
 
 return servers
