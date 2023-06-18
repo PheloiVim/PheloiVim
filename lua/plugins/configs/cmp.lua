@@ -38,8 +38,8 @@ cmp.setup({
     end,
   },
   window = {
-    completion = { border = "rounded" },
-    documentation = { border = "rounded" },
+    completion = { border = "single" },
+    documentation = { border = "single" },
   },
   formatting = {
     fields = { "abbr", "kind", "menu" },
