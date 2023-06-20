@@ -314,6 +314,17 @@ local plugins = {
     },
   },
 
+  -- Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    keys = {
+      { "<F5>", "<cmd>ToggleTerm<cr>" },
+    },
+    config = function()
+      require("plugins.configs.toggleterm")
+    end,
+  },
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
