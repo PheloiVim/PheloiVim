@@ -13,7 +13,6 @@ local servers = {
   "tailwindcss",
   "jdtls", -- Java
   "intelephense", -- PHP
-  "psalm", -- PHP linter
   "lemminx", -- XML
 }
 
