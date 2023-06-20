@@ -20,6 +20,6 @@ require("null-ls").setup({
     }), -- C/C++
     formatting.rustfmt, -- Rust
     formatting.google_java_format, -- Java
-    formatting.phpcbf,
+    formatting.phpcsfixer,
   },
 })
