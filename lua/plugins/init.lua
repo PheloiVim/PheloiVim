@@ -306,6 +306,14 @@ local plugins = {
     end,
   },
 
+  -- Better diagnostics navigation
+  {
+    "folke/trouble.nvim",
+    keys = {
+      { "<leader>ld", "<cmd>TroubleToggle<cr>" },
+    },
+  },
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
