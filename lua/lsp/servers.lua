@@ -9,10 +9,9 @@ local servers = {
   "bashls", -- Bash lsp
   "rust_analyzer", -- Rust lsp
   "jsonls", -- JSON
-  "eslint",
-  "tailwindcss",
+  "eslint", -- ESlint
+  "tailwindcss", -- Tailwind
   "jdtls", -- Java
-  "intelephense", -- PHP
   "lemminx", -- XML
 }
 
