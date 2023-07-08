@@ -11,8 +11,8 @@ local servers = {
   "jsonls", -- JSON
   "eslint", -- ESlint
   "tailwindcss", -- Tailwind
-  "jdtls", -- Java
   "lemminx", -- XML
+  "gopls",
 }
 
 return servers

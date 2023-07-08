@@ -25,7 +25,6 @@ local diagnostics = {
   symbols = { error = " ", warn = " ", hint = " " },
   sections = { "error", "warn", "hint" },
   colored = true,
-  always_visible = true,
   update_in_insert = true,
   padding = 2,
 }
@@ -45,10 +44,12 @@ local branch = {
 
 local diff = {
   function()
+    ---@diagnostic disable-next-line: undefined-field
     if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
       return ""
     end
 
+    ---@diagnostic disable-next-line: undefined-field
     local git_status = vim.b.gitsigns_status_dict
 
     local added = function()
@@ -70,7 +71,7 @@ local diff = {
       return "  " .. git_status.removed
     end
 
-    return added() .. changed() .. removed()
+    return vim.o.columns > 100 and added() .. changed() .. removed() or ""
   end,
   color = { fg = "white" },
 }
@@ -92,7 +93,7 @@ local progress = {
 
 local lsp_info = {
   function()
-    local buf_clients = vim.lsp.buf_get_clients()
+    local buf_clients = vim.lsp.get_active_clients()
     local buf_client_names = {}
 
     local list_registered = function(fileType)
@@ -125,7 +126,8 @@ local lsp_info = {
     vim.list_extend(buf_client_names, list_formatters(vim.bo.filetype))
 
     local unique_client_names = vim.fn.uniq(buf_client_names)
-    return "|   LSP: " .. table.concat(unique_client_names, ", ")
+    return vim.o.columns > 150 and "|   LSP: " .. table.concat(unique_client_names, ", ")
+      or #vim.lsp.get_active_clients() .. " LSP Active"
   end,
   color = { fg = "white" },
   padding = { right = 2 },
