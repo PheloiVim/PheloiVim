@@ -1,9 +1,11 @@
-name: Lua Linting
+name: lint
 
 on:
-  push:
-    branches: ["main"]
   pull_request:
+    branches:
+      - "master"
+    paths:
+      - "lua/**"
 
 jobs:
   lua-linter:
