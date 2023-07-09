@@ -6,8 +6,8 @@ return {
   },
   config = function()
     local formatting = require("null-ls").builtins.formatting
-    local diagnostics = require("null-ls").builtins.diagnostics
-    local code_actions = require("null-ls").builtins.code_actions
+    -- local diagnostics = require("null-ls").builtins.diagnostics
+    -- local code_actions = require("null-ls").builtins.code_actions
 
     require("null-ls").setup {
       debug = false,
