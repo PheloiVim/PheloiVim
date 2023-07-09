@@ -10,12 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - uses: leafo/gh-actions-lua@v8
-      - uses: leafo/gh-actions-luarocks@v4
-
-      - name: Use luacheck
-        run: luarocks install luacheck
-
-      - name: Run luacheck
-        run: make lint-lua
+      - uses: lunarmodules/luacheck@v1
