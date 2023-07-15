@@ -3,7 +3,17 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    { "folke/neodev.nvim", opts = {} },
+    "nvim-neotest/neotest",
+    {
+      "folke/neodev.nvim",
+      opts = {
+        library = {
+          enabled = true,
+          plugins = { "neotest", "nvim-treesitter", "plenary.nvim" },
+          types = true,
+        },
+      },
+    },
   },
   config = function()
     require "lsp"
