@@ -6,7 +6,10 @@ return {
   opts = {
     adapters = {
       ["neotest-go"] = {
-        args = { "-tags=integration" },
+        experimental = {
+          test_table = false,
+        },
+        args = { "-tags=integration", "-count=1", "-timeout=60s" },
       },
     },
     status = { virtual_text = true },
