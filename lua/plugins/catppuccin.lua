@@ -15,6 +15,9 @@ return {
       markdown = true,
       mason = true,
       neotree = true,
+      leap = true,
+      neotest = true,
+      notify = true,
       navic = {
         enabled = true,
         custom_bg = "NONE",

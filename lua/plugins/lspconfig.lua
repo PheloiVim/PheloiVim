@@ -3,13 +3,12 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
-    "nvim-neotest/neotest",
     {
       "folke/neodev.nvim",
       opts = {
         library = {
           enabled = true,
-          plugins = { "neotest", "nvim-treesitter", "plenary.nvim" },
+          plugins = true,
           types = true,
         },
       },
