@@ -1,6 +1,6 @@
 return {
   "simrat39/rust-tools.nvim",
-  ft = { "rs", "Cargo.toml" },
+  event = "VeryLazy",
   config = function()
     local rt = require "rust-tools"
     rt.setup {
