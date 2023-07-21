@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  config = function()
+  opts = function()
     local mode = {
       "mode",
       fmt = function(str) return "-- " .. str .. " --" end,
@@ -119,7 +119,7 @@ return {
       padding = { right = 2 },
     }
 
-    require("lualine").setup {
+    return {
       options = {
         icons_enabled = true,
         theme = "auto",

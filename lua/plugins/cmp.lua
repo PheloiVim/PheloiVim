@@ -1,13 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "saadparwaiz1/cmp_luasnip",
-  },
-  config = function()
+  opts = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
     require("luasnip/loaders/from_vscode").lazy_load()
@@ -39,15 +32,14 @@ return {
       Operator = "󰆕",
       TypeParameter = "",
     }
-
-    cmp.setup {
+    return {
       completion = { completeopt = "menu,menuone,noinsert" },
       snippet = {
         expand = function(args) luasnip.lsp_expand(args.body) end,
       },
       window = {
-        completion = { border = "single" },
-        documentation = { border = "single" },
+        completion = { border = "rounded" },
+        documentation = { border = "rounded" },
       },
       formatting = {
         fields = { "abbr", "kind", "menu" },

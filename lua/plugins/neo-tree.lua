@@ -1,14 +1,12 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  keys = {
-    { "<F2>", "<cmd>Neotree<cr>" },
-  },
+  branch = "v3.x",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
-  config = function()
-    local opts = {
+  opts = function()
+    return {
       close_if_last_window = true,
       popup_border_style = "rounded",
       enable_git_status = true,
@@ -33,7 +31,9 @@ return {
         },
       },
       filesystem = {
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
       },
@@ -61,8 +61,5 @@ return {
         },
       },
     }
-
-    vim.g.neo_tree_remove_legacy_commands = true
-    require("neo-tree").setup(opts)
   end,
 }
