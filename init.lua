@@ -15,6 +15,14 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy.nvim config
 require("lazy").setup {
+  ui = {
+    icons = {
+      ft = "",
+      lazy = "󰂠 ",
+      loaded = "",
+      not_loaded = "",
+    },
+  },
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
@@ -32,6 +40,7 @@ require("lazy").setup {
     -- import/override with your plugins
     { import = "plugins" },
   },
+
   defaults = { lazy = true, version = false },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true },
