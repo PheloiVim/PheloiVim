@@ -2,50 +2,23 @@ return {
   "hrsh7th/nvim-cmp",
   opts = function()
     local cmp = require "cmp"
-    local luasnip = require "luasnip"
-    require("luasnip/loaders/from_vscode").lazy_load()
+    local defaults = require "cmp.config.default"()
+    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
 
-    local lsp_icons = {
-      Text = "󰉿",
-      Method = "󰆧",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "󰜢",
-      Variable = "󰀫",
-      Class = "󰠱",
-      Interface = "",
-      Module = "",
-      Property = "󰜢",
-      Unit = "󰑭",
-      Value = "󰎠",
-      Enum = "",
-      Keyword = "󰌋",
-      Snippet = "",
-      Color = "󰏘",
-      File = "󰈙",
-      Reference = "󰈇",
-      Folder = "󰉋",
-      EnumMember = "",
-      Constant = "󰏿",
-      Struct = "󰙅",
-      Event = "",
-      Operator = "󰆕",
-      TypeParameter = "",
-    }
     return {
       completion = { completeopt = "menu,menuone,noinsert" },
       snippet = {
-        expand = function(args) luasnip.lsp_expand(args.body) end,
+        expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
       window = {
         completion = { border = "rounded" },
         documentation = { border = "rounded" },
       },
       formatting = {
-        fields = { "abbr", "kind", "menu" },
-        format = function(_, vim_item)
-          vim_item.kind = string.format("%s %s", lsp_icons[vim_item.kind], vim_item.kind)
-          return vim_item
+        format = function(_, item)
+          local icons = require("lazyvim.config").icons.kinds
+          if icons[item.kind] then item.kind = icons[item.kind] .. item.kind end
+          return item
         end,
       },
       sources = {
@@ -65,6 +38,12 @@ return {
         ["<C-e>"] = cmp.mapping { i = cmp.mapping.abort(), c = cmp.mapping.close() },
         ["<TAB>"] = cmp.mapping.confirm { select = false, behavior = cmp.ConfirmBehavior.Replace },
       },
+      experimental = {
+        ghost_text = {
+          hl_group = "CmpGhostText",
+        },
+      },
+      sorting = defaults.sorting,
     }
   end,
 }
