@@ -4,7 +4,14 @@ return {
   opts = function()
     local mode = {
       "mode",
-      fmt = function(str) return "-- " .. str .. " --" end,
+      fmt = function() return " " end,
+    }
+
+    local filename = {
+      "filename",
+      symbols = {
+        modified = "",
+      },
     }
 
     local location = {
@@ -34,14 +41,14 @@ return {
     local filetype = {
       "filetype",
       icon_only = true,
-      padding = { left = 2 },
+      padding = { left = 1 },
     }
 
     local branch = {
       "branch",
       icon = { "", color = { fg = "orange" } },
       color = { fg = "white" },
-      padding = 2,
+      padding = 1,
     }
 
     local diff = {
@@ -122,7 +129,7 @@ return {
     return {
       options = {
         icons_enabled = true,
-        theme = "auto",
+        theme = "tokyonight",
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -143,11 +150,11 @@ return {
         always_divide_middle = true,
       },
       sections = {
-        lualine_a = { mode },
-        lualine_b = { branch, diff },
-        lualine_c = { diagnostics },
-        lualine_x = { lsp_info },
-        lualine_y = { location, filetype, encoding, spaces },
+        lualine_a = { mode }, -- nvim mode
+        lualine_b = { branch, diff }, -- git
+        lualine_c = { filetype, filename }, -- file
+        lualine_x = { diagnostics, lsp_info }, -- lsp
+        lualine_y = { location, encoding, spaces },
         lualine_z = { progress },
       },
     }
