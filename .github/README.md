@@ -16,22 +16,6 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 
 ⚠️ This config is only for the **lastest Neovim stable release**. If you are having an older neovim version, you should update neovim via package manager or download the lastest version from [Neovim official repository](https://github.com/neovim/neovim).
 
-## ✨ Detail
-
-- Plugin management: [lazy.nvim](https://github.com/folke/lazy.nvim)
-- Status line: [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- File tree explorer: [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- Syntax highlighter: [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- Fuzzy searching: [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- Faster code commenting: [mini.comment](https://github.com/echasnovski/mini.comment)
-- Code, snippets, nvim commands completion: [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) & [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
-- Language server protocol (LSP) support: [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) & [mason.nvim](https://github.com/williamboman/mason.nvim)
-- Code Formatting: [null-ls.nvim](https://github.com/jose-elias-alvarez/null-ls.nvim)
-- Faster matching pair insertion and jump: [nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-- Git integration: [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- Code outline, code action,...: [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)
-- And more...[plugins here](./lua/plugins/)
-
 ## ⚡️ Requirements
 
 - Neovim
@@ -41,3 +25,9 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - XClip (X11) or wl-clipboar (Wayland) for system clipboard support on Linux
 - fd for telescope
 - ripgrep for telescope
+
+## ⚙️ Install
+
+```bash
+git clone https://github.com/yeuxacucodon/neovim-config.git ~/.config/nvim
+```
