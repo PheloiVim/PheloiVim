@@ -1,9 +1,10 @@
 return {
   "hrsh7th/nvim-cmp",
   opts = function()
+    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require "cmp"
     local defaults = require "cmp.config.default"()
-    vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+    require("luasnip/loaders/from_vscode").lazy_load()
 
     return {
       completion = { completeopt = "menu,menuone,noinsert" },
@@ -21,11 +22,11 @@ return {
           return item
         end,
       },
-      sources = {
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "buffer", priority = 750 },
-        { name = "path", priority = 500 },
-        { name = "luasnip", priority = 250 },
+      sources = cmp.config.sources {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
       },
       mapping = {
         ["<Up>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select },
