@@ -88,44 +88,6 @@ return {
       fmt = function() return "%P/%L" end,
     }
 
-    local lsp_info = {
-      function()
-        local buf_clients = vim.lsp.get_active_clients()
-        local buf_client_names = {}
-
-        local list_registered = function(fileType)
-          local null_ls = require "null-ls.sources"
-          local available_sources = null_ls.get_available(fileType)
-          local registered = {}
-          for _, source in ipairs(available_sources) do
-            for method in pairs(source.methods) do
-              registered[method] = registered[method] or {}
-              table.insert(registered[method], source.name)
-            end
-          end
-          return registered
-        end
-
-        local list_formatters = function(fileType)
-          local registered_providers = list_registered(fileType)
-          return registered_providers[require("null-ls").methods.FORMATTING] or {}
-        end
-
-        if next(buf_clients) == nil then return "No Active LSP" end
-        for _, client in pairs(buf_clients) do
-          if client.name ~= "null-ls" then table.insert(buf_client_names, client.name) end
-        end
-
-        vim.list_extend(buf_client_names, list_formatters(vim.bo.filetype))
-
-        local unique_client_names = vim.fn.uniq(buf_client_names)
-        return vim.o.columns > 150 and "|   LSP: " .. table.concat(unique_client_names, ", ")
-          or #vim.lsp.get_active_clients() .. " LSP Active"
-      end,
-      color = { fg = "white" },
-      padding = { right = 2 },
-    }
-
     return {
       options = {
         icons_enabled = true,
@@ -153,7 +115,7 @@ return {
         lualine_a = { mode }, -- nvim mode
         lualine_b = { branch, diff }, -- git
         lualine_c = { filetype, filename }, -- file
-        lualine_x = { diagnostics, lsp_info }, -- lsp
+        lualine_x = { diagnostics }, -- lsp
         lualine_y = { location, encoding, spaces },
         lualine_z = { progress },
       },
