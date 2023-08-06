@@ -31,3 +31,6 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 ```bash
 git clone https://github.com/yeuxacucodon/neovim-config.git ~/.config/nvim
 ```
+
+## 📷 Screenshot
+![image](./neovim.png)
