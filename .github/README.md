@@ -33,4 +33,4 @@ git clone https://github.com/yeuxacucodon/neovim-config.git ~/.config/nvim
 ```
 
 ## 📷 Screenshot
-![image](./neovim.png)
+![image](.github/neovim.png)
