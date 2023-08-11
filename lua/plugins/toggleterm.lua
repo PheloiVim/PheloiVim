@@ -6,5 +6,6 @@ return {
   opts = {
     open_mapping = [[<F2>]],
     size = 15,
+    shell = "fish",
   },
 }
