@@ -12,8 +12,8 @@ return {
         expand = function(args) require("luasnip").lsp_expand(args.body) end,
       },
       window = {
-        completion = { border = "rounded" },
-        documentation = { border = "rounded" },
+        completion = { border = "solid" },
+        documentation = { border = "solid" },
       },
       formatting = {
         format = function(_, item)
