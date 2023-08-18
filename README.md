@@ -14,7 +14,9 @@
 
 This repository hosts my Neovim configuration for Linux. It's a minimal configuration with Lua and easy to customize and extend the config. You can clone this repository and use it but not good. A good configuration is personal, you should make your own unique config files.
 
-⚠️ This config is only for the **lastest Neovim stable release**. If you are having an older neovim version, you should update neovim via package manager or download the lastest version from [Neovim official repository](https://github.com/neovim/neovim).
+> **Note**
+> This config is only for the **lastest Neovim stable release**. If you are having an older neovim version, you should update neovim via package manager or download the lastest version from [Neovim official repository](https://github.com/neovim/neovim).
+
 
 ## ⚡️ Requirements
 
@@ -33,4 +35,4 @@ git clone https://github.com/yeuxacucodon/neovim-config.git ~/.config/nvim
 ```
 
 ## 📷 Screenshot
-![image](./neovim.png)
+![](./neovim.png)
