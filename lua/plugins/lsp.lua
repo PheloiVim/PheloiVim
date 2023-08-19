@@ -5,6 +5,9 @@ return {
       denols = {
         setup = {},
       },
+      bashls = {
+        setup = {},
+      },
     },
   },
 }
