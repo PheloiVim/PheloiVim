@@ -1,7 +1,6 @@
 vim.opt.whichwrap:append "<>[]hl"
 vim.opt.relativenumber = false
 vim.opt.numberwidth = 2
-vim.b.autoformat = false
 vim.opt.guicursor = "n-v-c-i:block"
 vim.opt.breakindent = true
 vim.opt.writebackup = false
