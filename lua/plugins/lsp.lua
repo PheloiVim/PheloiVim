@@ -9,6 +9,12 @@ return {
       bashls = {
         setup = {},
       },
+      cssls = {
+        setup = {},
+      },
+      html = {
+        setup = {},
+      },
     },
   },
 }
