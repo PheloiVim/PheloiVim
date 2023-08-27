@@ -15,6 +15,9 @@ return {
       html = {
         setup = {},
       },
+      csharp_ls = {
+        setup = {},
+      },
     },
   },
 }
