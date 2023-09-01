@@ -15,14 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- lazy.nvim config
 require("lazy").setup {
-  ui = {
-    icons = {
-      ft = "",
-      lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },

@@ -15,7 +15,7 @@ return {
       html = {
         setup = {},
       },
-      csharp_ls = {
+      omnisharp = {
         setup = {},
       },
     },
