@@ -3,9 +3,6 @@ return {
   opts = {
     autoformat = false,
     servers = {
-      denols = {
-        setup = {},
-      },
       bashls = {
         setup = {},
       },
