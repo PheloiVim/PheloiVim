@@ -1,11 +1,6 @@
 return {
   {
-    "rcarriga/nvim-notify",
-    enabled = false,
-  },
-
-  {
-    "catppuccin",
+    "folke/tokyonight.nvim",
     enabled = false,
   },
 }
