@@ -6,7 +6,6 @@ return {
   opts = {
     adapters = {
       ["neotest-jest"] = {
-        args = { "-tags=integration" },
       },
     },
   },
