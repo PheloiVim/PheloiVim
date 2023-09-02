@@ -1,6 +1,6 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "catppuccin",
     enabled = false,
   },
 }

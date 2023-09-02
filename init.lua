@@ -36,7 +36,7 @@ require("lazy").setup {
   },
 
   defaults = { lazy = true, version = false },
-  install = { colorscheme = { "catppuccin", "habamax" } },
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true },
 
   performance = {
