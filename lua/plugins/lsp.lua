@@ -3,18 +3,10 @@ return {
   opts = {
     autoformat = false,
     servers = {
-      bashls = {
-        setup = {},
-      },
-      cssls = {
-        setup = {},
-      },
-      html = {
-        setup = {},
-      },
-      omnisharp = {
-        setup = {},
-      },
+      bashls = {},
+      cssls = {},
+      html = {},
+      omnisharp = {},
     },
     diagnostics = {
       update_in_insert = true,
