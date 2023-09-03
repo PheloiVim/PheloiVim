@@ -6,9 +6,9 @@ vim.opt.writebackup = false
 vim.opt.backup = false
 vim.opt.virtualedit = "block"
 
-vim.cmd [[
-  filetype plugin indent off
-]]
+-- vim.cmd [[
+--   filetype plugin indent off
+-- ]]
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
