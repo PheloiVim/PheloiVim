@@ -1,6 +1,6 @@
 vim.opt.relativenumber = false
 vim.opt.numberwidth = 2
-vim.opt.guicursor = "i:block"
+-- vim.opt.guicursor = "i:block"
 vim.opt.breakindent = true
 vim.opt.writebackup = false
 vim.opt.backup = false
