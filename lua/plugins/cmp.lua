@@ -10,16 +10,17 @@ return {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       require("luasnip/loaders/from_vscode").lazy_load()
+      local cmp = require("cmp")
       opts.window = {
         completion = { border = "solid" },
         documentation = { border = "solid" },
       }
-      opts.mapping = require("cmp").mapping.preset.insert {
-        ["<C-j>"] = require("cmp").mapping.select_next_item { behavior = require("cmp").SelectBehavior.Insert },
-        ["<C-k>"] = require("cmp").mapping.select_prev_item { behavior = require("cmp").SelectBehavior.Insert },
-        ["<C-u>"] = require("cmp").mapping.scroll_docs(-4),
-        ["<C-d>"] = require("cmp").mapping.scroll_docs(4),
-        ["<TAB>"] = require("cmp").mapping.confirm { select = true },
+      opts.mapping = cmp.mapping.preset.insert {
+        ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+        ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<TAB>"] = cmp.mapping.confirm { select = true },
       }
     end,
   },
