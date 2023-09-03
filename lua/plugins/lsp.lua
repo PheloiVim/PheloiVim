@@ -16,5 +16,8 @@ return {
         setup = {},
       },
     },
+    diagnostics = {
+      update_in_insert = true,
+    },
   },
 }

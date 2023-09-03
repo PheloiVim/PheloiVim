@@ -1,4 +1,3 @@
-vim.opt.whichwrap:append "<>[]hl"
 vim.opt.relativenumber = false
 vim.opt.numberwidth = 2
 vim.opt.guicursor = "i:block"
