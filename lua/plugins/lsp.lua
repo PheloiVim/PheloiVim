@@ -7,7 +7,6 @@ return {
       cssls = {},
       html = {},
       omnisharp = {},
-      emmet_ls = {},
     },
     diagnostics = {
       update_in_insert = true,
