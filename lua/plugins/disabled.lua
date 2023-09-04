@@ -1,6 +1,6 @@
 return {
   {
-    "catppuccin",
+    "folke/persistence.nvim",
     enabled = false,
   },
 
@@ -10,17 +10,37 @@ return {
   },
 
   {
-    "echasnovski/mini.indentscope",
-    enabled = false,
-  },
-
-  {
-    "folke/persistence.nvim",
+    "dstein64/vim-startuptime",
     enabled = false,
   },
 
   {
     "folke/flash.nvim",
+    enabled = false,
+  },
+
+  {
+    "catppuccin",
+    enabled = false,
+  },
+
+  {
+    "echasnovski/mini.indentscope",
+    enabled = false,
+  },
+
+  {
+    "nvim-pack/nvim-spectre",
+    enabled = false,
+  },
+
+  {
+    "rcarriga/nvim-notify",
+    enabled = false,
+  },
+
+  {
+    "folke/noice.nvim",
     enabled = false,
   },
 }
