@@ -1,44 +1,45 @@
-# Functions
-# prototype
-snippet proto
-	${1:class_name}.prototype.${2:method_name} = function(${3}) {
-		${0:${VISUAL}}
-	};
 # Function
 snippet fun "function"
 	function ${1:function_name}(${2}) {
 		${0:${VISUAL}}
 	}
+
 # Asynchronous Function
 snippet asf "async function"
 	async function ${1:function_name}(${2}) {
 		${0:${VISUAL}}
 	}
+
 # Anonymous Function
 snippet anf "" w
 	function(${1}) {
 		${0:${VISUAL}}
 	}
+
 # Anonymous Function assigned to variable
 snippet vaf
 	var ${1:function_name} = function(${2}) {
 		${0:${VISUAL}}
 	};
+
 # Function assigned to variable
 snippet vf
 	var ${1:function_name} = function $1(${2}) {
 		${0:${VISUAL}}
 	};
+
 # Immediate function
 snippet (f
 	(function(${1}) {
 		${0:${VISUAL}}
 	}(${2}));
+
 # Minify safe iife
 snippet ;fe
 	;(function(${1}) {
 		${0:${VISUAL}}
 	}(${2}))
+
 # self-defining function
 snippet sdf
 	var ${1:function_name} = function (${2:argument}) {
@@ -48,12 +49,14 @@ snippet sdf
 			${0:${VISUAL}}
 		};
 	};
+
 # Flow control
 # if
 snippet if "if (condition) { ... }"
 	if (${1:true}) {
 		${0:${VISUAL}}
 	}
+
 # if ... else
 snippet ife "if (condition) { ... } else { ... }"
 	if (${1:true}) {
@@ -61,9 +64,11 @@ snippet ife "if (condition) { ... } else { ... }"
 	} else {
 		${2}
 	}
+
 # tertiary conditional
 snippet ter Ternary: `condition ? true : false`
 	$1 ? $2: $0
+
 # switch
 snippet switch
 	switch (${1:expression}) {
@@ -74,16 +79,19 @@ snippet switch
 		default:
 			${2}
 	}
+
 snippet case "case 'xyz': ... break"
 	case '${1:case}':
 		${0:${VISUAL}}
 		break;
+
 snippet try "try { ... } catch(e) { ... }"
 	try {
 		${0:${VISUAL}}
 	} catch (${1:e}) {
 		${2:/* handle error */}
 	}
+
 snippet tryf "try { ... } catch(e) { ... } finally { ... }"
 	try {
 		${0:${VISUAL}}
@@ -92,9 +100,11 @@ snippet tryf "try { ... } catch(e) { ... } finally { ... }"
 	} finally {
 		${3:/* be executed regardless of the try / catch result*/}
 	}
+
 # throw Error
 snippet terr
 	throw new Error('${1:error message}')
+
 # return
 snippet ret
 	return ${0:result};
@@ -102,36 +112,44 @@ snippet for "for (...) {...}"
 	for (let ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
 		${0:${VISUAL}}
 	}
+
 snippet forr "reversed for (...) {...}"
 	for (let ${2:i} = ${1:Things.length} - 1; $2 >= 0; $2--) {
 		${0:${VISUAL}}
 	}
+
 snippet wh "(condition) { ... }"
 	while (${1:true}) {
 		${0:${VISUAL}}
 	}
+
 snippet wht "(true) { ... }"
 	while (true) {
 		${0:${VISUAL}}
 	}
+
 snippet do "do { ... } while (condition)"
 	do {
 		${0:${VISUAL}}
 	} while ($1);
+
 # For in loop
 snippet fori
 	for (let ${1:prop} in ${2:object}) {
 		${0:$2[$1]}
 	}
+
 # Objects
 # Object Method
 snippet :f
 	${1:method_name}: function (${2:attribute}) {
 		${0:${VISUAL}}
 	},
+
 # hasOwnProperty
 snippet has
 	hasOwnProperty(${0})
+
 # singleton
 snippet sing
 	function ${1:Singleton} (${2:argument}) {
@@ -355,8 +373,6 @@ snippet sym
 	const ${1} = Symbol('${0}');
 snippet ed
 	export default ${0}
-snippet ${
-	\${${1}}${0}
 snippet as "async"
 	async ${0}
 snippet aw "await"
