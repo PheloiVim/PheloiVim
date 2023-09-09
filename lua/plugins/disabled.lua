@@ -25,11 +25,6 @@ return {
   },
 
   {
-    "echasnovski/mini.indentscope",
-    enabled = false,
-  },
-
-  {
     "nvim-pack/nvim-spectre",
     enabled = false,
   },
