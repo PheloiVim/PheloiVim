@@ -5,6 +5,7 @@ return {
       "c_sharp",
       "css",
       "scss",
+      "zig",
     })
   end,
 }
