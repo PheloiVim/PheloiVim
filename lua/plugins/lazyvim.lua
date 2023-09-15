@@ -1,15 +1,6 @@
 return {
-  {
-    "SmiteshP/nvim-navic",
-    opts = {
-      highlight = true,
-    },
-  },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "tokyonight-moon",
-    },
+  "LazyVim/LazyVim",
+  opts = {
+    colorscheme = "tokyonight-storm",
   },
 }
