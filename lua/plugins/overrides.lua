@@ -72,15 +72,6 @@ return {
   },
 
   {
-    "folke/noice.nvim",
-    opts = {
-      cmdline = {
-        view = "cmdline",
-      },
-    },
-  },
-
-  {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
@@ -204,6 +195,11 @@ return {
 
   {
     "goolord/alpha-nvim",
+    enabled = false,
+  },
+
+  {
+    "rcarriga/nvim-notify",
     enabled = false,
   },
 }
