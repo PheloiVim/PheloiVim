@@ -193,11 +193,6 @@ return {
   },
 
   {
-    "folke/flash.nvim",
-    enabled = false,
-  },
-
-  {
     "catppuccin",
     enabled = false,
   },
