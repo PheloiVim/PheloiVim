@@ -99,7 +99,7 @@ return {
     opts = function(_, opts)
       local mode = {
         "mode",
-        fmt = function() return " " end,
+        fmt = function(mode) return "-- " .. mode .. " --" end,
       }
 
       local branch = {
