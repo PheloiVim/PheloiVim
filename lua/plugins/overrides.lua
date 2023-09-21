@@ -46,10 +46,10 @@ return {
         ["<TAB>"] = cmp.mapping.confirm({ select = true }),
       })
       opts.sources = cmp.config.sources({
-        { name = "nvim_lsp", keyword_length = 2, priority = 1000 },
-        { name = "luasnip", keyword_length = 2, priority = 750 },
-        { name = "buffer", keyword_length = 2, priority = 500 },
-        { name = "path", keyword_length = 2, priority = 250 },
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "path", priority = 500 },
+        { name = "buffer", priority = 250 },
       })
     end,
   },
@@ -135,11 +135,6 @@ return {
 
   {
     "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
     opts = {
       auto_clean_after_session_restore = true,
       close_if_last_window = true,
@@ -156,12 +151,10 @@ return {
   {
     "nvim-neotest/neotest",
     dependencies = {
-      "nvim-neotest/neotest-jest",
       "Issafalcon/neotest-dotnet",
     },
     opts = {
       adapters = {
-        ["neotest-jest"] = {},
         ["neotest-dotnet"] = {},
       },
     },
