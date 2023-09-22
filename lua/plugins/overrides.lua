@@ -138,6 +138,7 @@ return {
     opts = {
       auto_clean_after_session_restore = true,
       close_if_last_window = true,
+      popup_border_style = "rounded",
       window = {
         width = 30,
         mappings = {
