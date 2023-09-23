@@ -1,5 +1,5 @@
 -- Auto toggle relative number
-vim.api.nvim_create_autocmd({ "InsertEnter", "CmdLineEnter" }, {
+vim.api.nvim_create_autocmd("CmdLineEnter", {
   callback = function()
     local exclude = { "neo-tree" }
     local buf = vim.api.nvim_get_current_buf()
@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd({ "InsertEnter", "CmdLineEnter" }, {
     vim.opt.relativenumber = false
   end,
 })
-vim.api.nvim_create_autocmd({ "InsertLeave", "CmdLineLeave" }, {
+vim.api.nvim_create_autocmd("CmdLineLeave", {
   callback = function()
     local exclude = { "neo-tree" }
     local buf = vim.api.nvim_get_current_buf()
