@@ -28,6 +28,17 @@ return {
   },
 
   {
+    "folke/flash.nvim",
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        },
+      },
+    },
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       require("luasnip.loaders.from_snipmate").lazy_load()
