@@ -14,20 +14,16 @@ require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-
   defaults = {
     lazy = true,
     version = false,
   },
-
   install = {
     colorscheme = { "catppuccin" },
   },
-
   checker = {
     enabled = true,
   },
-
   ui = {
     icons = {
       ft = "",
@@ -36,7 +32,6 @@ require("lazy").setup({
       not_loaded = "",
     },
   },
-
   performance = {
     rtp = {
       disabled_plugins = {
