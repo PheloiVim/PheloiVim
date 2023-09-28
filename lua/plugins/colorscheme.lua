@@ -3,6 +3,20 @@ return {
   name = "catppuccin",
   lazy = false,
   priority = 1000,
-  opts = {},
-  config = function() vim.cmd.colorscheme("catppuccin") end,
+  opts = {
+    integrations = {
+      indent_blankline = {
+        enabled = true,
+        colored_indent_levels = true,
+      },
+      navic = {
+        enabled = true,
+        custom_bg = "NONE",
+      },
+    },
+  },
+  config = function(_, opts)
+    require("catppuccin").setup(opts)
+    vim.cmd.colorscheme("catppuccin")
+  end,
 }

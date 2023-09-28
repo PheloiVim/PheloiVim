@@ -7,6 +7,12 @@ M.diagnostics = {
   Info = " ",
 }
 
+M.git = {
+  added = " ",
+  modified = " ",
+  removed = " ",
+}
+
 M.kinds = {
   Array = " ",
   Boolean = " ",
