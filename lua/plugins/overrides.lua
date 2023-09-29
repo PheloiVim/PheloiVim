@@ -130,7 +130,9 @@ return {
         bashls = {},
         cssls = {},
         html = {},
-        tsserver = {},
+        omnisharp = {
+          enable_ms_build_load_projects_on_demand = true,
+        },
       },
       diagnostics = {
         update_in_insert = true,
