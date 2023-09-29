@@ -1,5 +1,4 @@
 vim.opt.numberwidth = 2
-vim.opt.guicursor = "i:block"
 vim.opt.writebackup = false
 vim.opt.backup = false
 vim.opt.virtualedit = "block"
