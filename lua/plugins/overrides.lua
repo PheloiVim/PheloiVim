@@ -6,8 +6,6 @@ return {
         "c_sharp",
         "css",
         "scss",
-        "html",
-        "tsx",
       })
     end,
   },
@@ -17,6 +15,19 @@ return {
     opts = {
       presets = {
         lsp_doc_border = true,
+      },
+    },
+  },
+
+  {
+    "catppuccin",
+    opts = {
+      integrations = {
+        symbols_outline = true,
+        telescope = {
+          enabled = true,
+          style = "nvchad",
+        },
       },
     },
   },
