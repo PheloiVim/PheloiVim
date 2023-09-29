@@ -3,10 +3,12 @@ return {
     "nvim-treesitter",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        "c_sharp",
         "css",
         "scss",
       })
+      opts.highlight = {
+        additional_vim_regex_highlighting = false,
+      }
     end,
   },
 
@@ -22,7 +24,17 @@ return {
   {
     "catppuccin",
     opts = {
+      term_colors = true,
       integrations = {
+        indent_blankline = {
+          enabled = true,
+          colored_indent_levels = true,
+        },
+        markdown = true,
+        dap = {
+          enabled = true,
+          enable_ui = true, -- enable nvim-dap-ui
+        },
         symbols_outline = true,
         telescope = {
           enabled = true,
@@ -121,7 +133,7 @@ return {
         bashls = {},
         cssls = {},
         html = {},
-        omnisharp = {},
+        tsserver = {},
       },
       diagnostics = {
         update_in_insert = true,
@@ -132,6 +144,7 @@ return {
   {
     "bufferline.nvim",
     opts = {
+      highlights = require("catppuccin.groups.integrations.bufferline").get(),
       options = {
         always_show_bufferline = true,
       },
