@@ -6,9 +6,6 @@ return {
         "css",
         "scss",
       })
-      opts.highlight = {
-        additional_vim_regex_highlighting = false,
-      }
     end,
   },
 
