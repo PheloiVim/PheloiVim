@@ -1,6 +1,4 @@
 return {
-  { "Hoffs/omnisharp-extended-lsp.nvim", lazy = true },
-
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",

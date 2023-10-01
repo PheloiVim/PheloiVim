@@ -11,6 +11,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.test.core" },
+    { import = "lazyvim.plugins.extras.lang.omnisharp" },
     { import = "lazyvim.plugins.extras.linting.nvim-lint" },
     { import = "lazyvim.plugins.extras.formatting.conform" },
     { import = "lazyvim.plugins.extras.lang.docker" },
