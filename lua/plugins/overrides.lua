@@ -135,6 +135,9 @@ return {
           enable_ms_build_load_projects_on_demand = true,
         },
       },
+      inlay_hints = {
+        enabled = true,
+      },
       diagnostics = {
         update_in_insert = true,
       },
@@ -182,7 +185,9 @@ return {
 
       local spaces = {
         function()
-          return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+          return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", {
+            scope = "local",
+          })
         end,
         padding = 1.5,
       }
@@ -246,6 +251,17 @@ return {
     opts = {
       adapters = {
         ["neotest-dotnet"] = {},
+      },
+    },
+  },
+
+  {
+    "rust-tools.nvim",
+    opts = {
+      tools = {
+        inlay_hints = {
+          auto = false,
+        },
       },
     },
   },
