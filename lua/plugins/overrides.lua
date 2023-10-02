@@ -145,9 +145,6 @@ return {
     "bufferline.nvim",
     opts = {
       highlights = require("catppuccin.groups.integrations.bufferline").get(),
-      options = {
-        always_show_bufferline = true,
-      },
     },
   },
 
@@ -217,14 +214,8 @@ return {
             hint = icons.diagnostics.Hint,
           },
         },
-        {
-          function()
-            return require("nvim-navic").get_location()
-          end,
-          cond = function()
-            return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-          end,
-        },
+        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+        { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
       }
       opts.sections.lualine_y = { spaces }
       opts.sections.lualine_z = { progress }
