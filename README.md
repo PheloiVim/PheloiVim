@@ -23,8 +23,8 @@ This repository hosts my Neovim configuration for Linux. It's a minimal configur
 - Git
 - GCC
 - XClip (X11) or wl-clipboar (Wayland) for system clipboard support on Linux
-- [fd](https://github.com/sharkdp/fd )
-- [ripgrep](https://github.com/BurntSushi/ripgrep )
+- [fd](https://github.com/sharkdp/fd)
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 ## ⚙️ Install
 
