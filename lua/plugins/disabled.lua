@@ -10,22 +10,7 @@ return {
   },
 
   {
-    "vim-startuptime",
-    enabled = false,
-  },
-
-  {
     "tokyonight.nvim",
-    enabled = false,
-  },
-
-  {
-    "nvim-spectre",
-    enabled = false,
-  },
-
-  {
-    "mini.indentscope",
     enabled = false,
   },
 

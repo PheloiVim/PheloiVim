@@ -24,6 +24,7 @@ return {
     opts = {
       term_colors = true,
       integrations = {
+        mini = true,
         indent_blankline = {
           enabled = true,
           colored_indent_levels = true,
