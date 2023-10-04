@@ -33,4 +33,9 @@ return {
     "neoconf.nvim",
     enabled = false,
   },
+
+  {
+    "alpha-nvim",
+    enabled = false,
+  },
 }

@@ -44,25 +44,8 @@ return {
 
   {
     "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-    keys = {
-      {
-        "<leader>fp",
-        function()
-          require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root })
-        end,
-        desc = "Find Plugin File",
-      },
-    },
     opts = {
       defaults = {
-        layout_strategy = "horizontal",
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
         winblend = 0,
@@ -82,17 +65,6 @@ return {
     opts = {
       region_check_events = "InsertEnter,CursorMoved",
       delete_check_events = "TextChanged,InsertLeave",
-    },
-  },
-
-  {
-    "flash.nvim",
-    opts = {
-      modes = {
-        search = {
-          enabled = false,
-        },
-      },
     },
   },
 
@@ -263,6 +235,13 @@ return {
           auto = false,
         },
       },
+    },
+  },
+
+  {
+    "nvim-navic",
+    opts = {
+      separator = " > ",
     },
   },
 }
