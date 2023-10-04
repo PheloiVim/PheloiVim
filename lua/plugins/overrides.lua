@@ -178,23 +178,6 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
         always_divide_middle = true,
-        disabled_filetypes = {
-          winbar = {
-            "neo-tree",
-          },
-        },
-      }
-      opts.winbar = {
-        lualine_a = {
-          {
-            function()
-              return require("nvim-navic").get_location()
-            end,
-            cond = function()
-              return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-            end,
-          },
-        },
       }
       opts.sections.lualine_a = { mode }
       opts.sections.lualine_b = { branch }
