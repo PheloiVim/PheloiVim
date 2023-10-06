@@ -8,6 +8,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "lazyvim.plugins.extras.vscode" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     { import = "lazyvim.plugins.extras.test.core" },
@@ -31,14 +32,6 @@ require("lazy").setup({
   },
   install = { colorscheme = { "catppuccin", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
-  ui = {
-    icons = {
-      ft = "",
-      lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
-    },
-  },
   performance = {
     rtp = {
       -- disable some rtp plugins
