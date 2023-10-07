@@ -5,11 +5,6 @@ return {
   },
 
   {
-    "friendly-snippets",
-    enabled = false,
-  },
-
-  {
     "tokyonight.nvim",
     enabled = false,
   },
