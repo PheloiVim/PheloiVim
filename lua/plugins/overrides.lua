@@ -70,6 +70,17 @@ return {
     opts = function(_, opts)
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load() -- Fix tab not work
+
+      opts.window = {
+        completion = {
+          border = "rounded",
+          winhighlight = "Normal:CmpPmenu",
+        },
+        documentation = {
+          border = "rounded",
+          winhighlight = "Normal:CmpDocumentation",
+        },
+      }
       opts.mapping = cmp.mapping.preset.insert({
         ["<TAB>"] = cmp.mapping.confirm({ select = true }),
       })
