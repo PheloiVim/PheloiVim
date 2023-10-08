@@ -5,7 +5,6 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "css",
         "scss",
-        "c_sharp",
       })
     end,
   },
@@ -20,26 +19,38 @@ return {
   },
 
   {
-    "catppuccin",
+    "tokyonight.nvim",
     opts = {
-      term_colors = true,
-      integrations = {
-        mini = true,
-        indent_blankline = {
-          enabled = true,
-          colored_indent_levels = true,
-        },
-        markdown = true,
-        dap = {
-          enabled = true,
-          enable_ui = true, -- enable nvim-dap-ui
-        },
-        symbols_outline = true,
-        telescope = {
-          enabled = true,
-          style = "nvchad",
-        },
-      },
+      on_highlights = function(hl, c)
+        local prompt = "#2d3149"
+        hl.TelescopeNormal = {
+          bg = c.bg_dark,
+          fg = c.fg_dark,
+        }
+        hl.TelescopeBorder = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+        hl.TelescopePromptNormal = {
+          bg = prompt,
+        }
+        hl.TelescopePromptBorder = {
+          bg = prompt,
+          fg = prompt,
+        }
+        hl.TelescopePromptTitle = {
+          bg = prompt,
+          fg = prompt,
+        }
+        hl.TelescopePreviewTitle = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+        hl.TelescopeResultsTitle = {
+          bg = c.bg_dark,
+          fg = c.bg_dark,
+        }
+      end,
     },
   },
 
@@ -55,43 +66,12 @@ return {
   },
 
   {
-    "LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
-
-  {
-    "LuaSnip",
-    opts = {
-      region_check_events = "InsertEnter,CursorMoved",
-      delete_check_events = "TextChanged,InsertLeave",
-    },
-  },
-
-  {
     "nvim-cmp",
     opts = function(_, opts)
-      require("luasnip.loaders.from_snipmate").lazy_load()
       local cmp = require("cmp")
-      opts.window = {
-        completion = cmp.config.window.bordered({
-          border = "rounded",
-        }),
-        documentation = cmp.config.window.bordered({
-          border = "rounded",
-        }),
-      }
+      require("luasnip.loaders.from_vscode").lazy_load() -- Fix tab not work
       opts.mapping = cmp.mapping.preset.insert({
-        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-d>"] = cmp.mapping.scroll_docs(4),
         ["<TAB>"] = cmp.mapping.confirm({ select = true }),
-      })
-      opts.sources = cmp.config.sources({
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
-        { name = "path", priority = 500 },
-        { name = "buffer", priority = 250 },
       })
     end,
   },
@@ -104,9 +84,6 @@ return {
         bashls = {},
         cssls = {},
         html = {},
-        omnisharp = {
-          enable_ms_build_load_projects_on_demand = true,
-        },
       },
       inlay_hints = {
         enabled = true,
@@ -114,13 +91,6 @@ return {
       diagnostics = {
         update_in_insert = true,
       },
-    },
-  },
-
-  {
-    "bufferline.nvim",
-    opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
     },
   },
 

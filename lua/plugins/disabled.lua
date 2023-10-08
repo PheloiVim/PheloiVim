@@ -5,7 +5,7 @@ return {
   },
 
   {
-    "tokyonight.nvim",
+    "catppuccin",
     enabled = false,
   },
 
@@ -16,6 +16,11 @@ return {
 
   {
     "alpha-nvim",
+    enabled = false,
+  },
+
+  {
+    "mini.indentscope",
     enabled = false,
   },
 }
