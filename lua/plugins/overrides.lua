@@ -222,4 +222,13 @@ return {
       depth_limit = 0,
     },
   },
+
+  {
+    "edgy.nvim",
+    opts = {
+      animate = {
+        enabled = false,
+      },
+    },
+  },
 }
