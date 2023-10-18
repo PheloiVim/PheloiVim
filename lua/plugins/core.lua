@@ -102,6 +102,7 @@ return {
         bashls = {},
         cssls = {},
         html = {},
+        dartls = {},
       },
       inlay_hints = {
         enabled = true,
@@ -165,6 +166,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "css",
         "scss",
+        "dart",
       })
     end,
   },
