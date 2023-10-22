@@ -19,3 +19,11 @@ vim.api.nvim_create_autocmd("CmdLineLeave", {
     vim.opt.relativenumber = true
   end,
 })
+
+-- Auto disable word wrap for Markdown
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = false
+  end,
+})

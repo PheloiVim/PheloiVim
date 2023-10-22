@@ -166,6 +166,9 @@ return {
         "css",
         "scss",
       })
+      opts.highlight = {
+        disalbe = { "markdown" },
+      }
     end,
   },
 
