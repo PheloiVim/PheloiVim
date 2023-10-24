@@ -31,7 +31,3 @@ This repository hosts my Neovim configuration based on [LazyVim](https://github.
 ```bash
 git clone https://github.com/2giosangmitom/neovim-config.git ~/.config/nvim
 ```
-
-## 📷 Screenshot
-
-![](https://i.imgur.com/v1JX5u4.png)
