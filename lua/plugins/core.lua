@@ -84,15 +84,15 @@ return {
           fg = c.bg_dark,
         }
         hl.TelescopePromptNormal = {
-          bg = "#2d3149",
+          bg = c.bg,
         }
         hl.TelescopePromptBorder = {
-          bg = "#2d3149",
-          fg = "#2d3149",
+          bg = c.bg,
+          fg = c.bg,
         }
         hl.TelescopePromptTitle = {
-          bg = "#2d3149",
-          fg = "#2d3149",
+          bg = c.bg,
+          fg = c.bg,
         }
         hl.TelescopePreviewTitle = {
           bg = c.bg_dark,
