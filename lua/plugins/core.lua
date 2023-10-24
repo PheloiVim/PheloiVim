@@ -73,8 +73,8 @@ return {
   {
     "tokyonight.nvim",
     opts = {
+      style = "night",
       on_highlights = function(hl, c)
-        local prompt = "#2d3149"
         hl.TelescopeNormal = {
           bg = c.bg_dark,
           fg = c.fg_dark,
@@ -84,15 +84,15 @@ return {
           fg = c.bg_dark,
         }
         hl.TelescopePromptNormal = {
-          bg = prompt,
+          bg = "#2d3149",
         }
         hl.TelescopePromptBorder = {
-          bg = prompt,
-          fg = prompt,
+          bg = "#2d3149",
+          fg = "#2d3149",
         }
         hl.TelescopePromptTitle = {
-          bg = prompt,
-          fg = prompt,
+          bg = "#2d3149",
+          fg = "#2d3149",
         }
         hl.TelescopePreviewTitle = {
           bg = c.bg_dark,
@@ -225,6 +225,11 @@ return {
 
   {
     "nvim-treesitter-context",
+    enabled = false,
+  },
+
+  {
+    "nvim-spectre",
     enabled = false,
   },
 }
