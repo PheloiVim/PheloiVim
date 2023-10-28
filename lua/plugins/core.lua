@@ -1,12 +1,5 @@
 return {
   {
-    "trouble.nvim",
-    opts = {
-      use_diagnostic_signs = true,
-    },
-  },
-
-  {
     "rust-tools.nvim",
     opts = {
       tools = {
@@ -154,7 +147,6 @@ return {
       defaults = {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
-        winblend = 0,
       },
     },
   },
@@ -221,6 +213,11 @@ return {
 
   {
     "nvim-spectre",
+    enabled = false,
+  },
+
+  {
+    "vim-illuminate",
     enabled = false,
   },
 }
