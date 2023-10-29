@@ -14,43 +14,32 @@ return {
     "lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
-      local mode = {
-        "mode",
-        fmt = function(mode)
-          return "-- " .. mode .. " --"
-        end,
+      opts.sections.lualine_a = {
+        {
+          "mode",
+          fmt = function(mode)
+            return " " .. mode
+          end,
+        },
       }
-
-      local branch = {
-        "branch",
-        icon = "",
-        padding = 1.5,
+      opts.sections.lualine_y = {
+        {
+          function()
+            return "Tab size: "
+              .. vim.api.nvim_get_option_value("shiftwidth", {
+                scope = "local",
+              })
+          end,
+        },
       }
-
-      local spaces = {
-        function()
-          return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", {
-            scope = "local",
-          })
-        end,
-        padding = 1.5,
+      opts.sections.lualine_z = {
+        {
+          "progress",
+          fmt = function()
+            return "%P/%L"
+          end,
+        },
       }
-
-      local progress = {
-        "progress",
-        fmt = function()
-          return "%P/%L"
-        end,
-      }
-
-      opts.options = {
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
-      }
-      opts.sections.lualine_a = { mode }
-      opts.sections.lualine_b = { branch }
-      opts.sections.lualine_y = { spaces }
-      opts.sections.lualine_z = { progress }
     end,
   },
 
