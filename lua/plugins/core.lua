@@ -86,6 +86,7 @@ return {
         bashls = {},
         cssls = {},
         html = {},
+        volar = {},
       },
       inlay_hints = {
         enabled = true,
@@ -161,6 +162,8 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "css",
         "scss",
+        "vue",
+        "nix",
       })
     end,
   },
