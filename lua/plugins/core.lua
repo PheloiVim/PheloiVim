@@ -165,6 +165,9 @@ return {
         "vue",
         "nix",
         "xml",
+        "kotlin",
+        "groovy",
+        "java",
       })
     end,
   },
