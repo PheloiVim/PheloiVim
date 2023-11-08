@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   cmd = {
     "TSBufDisable",
     "TSBufEnable",
@@ -26,6 +29,7 @@ return {
     { "<bs>", desc = "Decrement selection", mode = "x" },
   },
   opts = {
+    context_commentstring = { enable = true, enable_autocmd = false },
     ensure_installed = {
       "lua",
       "bash",
