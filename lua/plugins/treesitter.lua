@@ -21,18 +21,50 @@ return {
     require("lazy.core.loader").add_to_rtp(plugin)
     require("nvim-treesitter.query_predicates")
   end,
+  keys = {
+    { "<c-space>", desc = "Increment selection" },
+    { "<bs>", desc = "Decrement selection", mode = "x" },
+  },
   opts = {
-    ensure_installed = { "lua" },
+    ensure_installed = {
+      "lua",
+      "bash",
+      "c",
+      "diff",
+      "html",
+      "javascript",
+      "jsdoc",
+      "json",
+      "jsonc",
+      "luadoc",
+      "luap",
+      "markdown",
+      "markdown_inline",
+      "python",
+      "query",
+      "regex",
+      "toml",
+      "tsx",
+      "typescript",
+      "vim",
+      "vimdoc",
+      "yaml",
+    },
     highlight = {
       enable = true,
       use_languagetree = true,
-      disable = function(_, bufnr)
-        return vim.b[bufnr].large_buf
-      end,
+      disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
     },
     indent = { enable = true },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        scope_incremental = false,
+        node_decremental = "<bs>",
+      },
+    },
   },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
-  end,
+  config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
 }
