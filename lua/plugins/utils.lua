@@ -1,8 +1,4 @@
 return {
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    opts = {},
-  },
+	-- library used by other plugins
+	"nvim-lua/plenary.nvim",
 }
