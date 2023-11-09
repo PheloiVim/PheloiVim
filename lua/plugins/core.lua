@@ -1,26 +1,8 @@
 return {
   {
-    "catppuccin",
+    "tokyonight.nvim",
     opts = {
-      flavour = "mocha",
-      integrations = {
-        telescope = {
-          enabled = true,
-          style = "nvchad",
-        },
-      },
-      custom_highlights = function(colors)
-        return {
-          PmenuSel = { fg = colors.black, bg = colors.yellow },
-        }
-      end,
-    },
-  },
-
-  {
-    "bufferline.nvim",
-    opts = {
-      highlights = require("catppuccin.groups.integrations.bufferline").get(),
+      style = "night",
     },
   },
 
@@ -40,7 +22,7 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       opts.options = {
-        theme = "catppuccin",
+        theme = "tokyonight",
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
@@ -48,9 +30,7 @@ return {
       opts.sections.lualine_a = {
         {
           "mode",
-          fmt = function(mode)
-            return " " .. mode
-          end,
+          fmt = function(mode) return " " .. mode end,
         },
       }
       opts.sections.lualine_y = {
@@ -66,9 +46,7 @@ return {
       opts.sections.lualine_z = {
         {
           "progress",
-          fmt = function()
-            return "%P/%L"
-          end,
+          fmt = function() return "%P/%L" end,
         },
       }
     end,
@@ -118,17 +96,13 @@ return {
 
   {
     "LuaSnip",
-    keys = function()
-      return {}
-    end,
+    keys = function() return {} end,
     opts = {
       history = true,
       delete_check_events = "TextChanged",
       region_check_events = "CursorMoved",
     },
-    config = function(_, opts)
-      require("luasnip").config.setup(opts)
-    end,
+    config = function(_, opts) require("luasnip").config.setup(opts) end,
   },
 
   {
@@ -137,7 +111,6 @@ return {
       local cmp = require("cmp")
       local border_opts = {
         border = "rounded",
-        winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,CursorLine:PmenuSel",
       }
 
       opts.preselect = cmp.PreselectMode.None
