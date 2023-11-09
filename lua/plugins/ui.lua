@@ -187,7 +187,33 @@ return {
   },
 
   {
-    "nvim-tree/nvim-web-devicons",
-    "MunifTanjim/nui.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    event = { "BufReadPost", "VeryLazy" },
+    main = "ibl",
+    opts = {
+      indent = { char = "┇" },
+      scope = { show_start = false, show_end = false },
+      exclude = {
+        buftypes = {
+          "nofile",
+          "terminal",
+        },
+        filetypes = {
+          "help",
+          "startify",
+          "aerial",
+          "alpha",
+          "dashboard",
+          "lazy",
+          "neogitstatus",
+          "NvimTree",
+          "neo-tree",
+          "Trouble",
+        },
+      },
+    },
   },
+
+  "nvim-tree/nvim-web-devicons",
+  "MunifTanjim/nui.nvim",
 }
