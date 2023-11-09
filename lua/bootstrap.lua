@@ -1,12 +1,12 @@
 local M = {}
 
-M.echo = function(str)
+local function echo(str)
   vim.cmd("redraw")
   vim.api.nvim_echo({ { str, "Bold" } }, true, {})
 end
 
 M.lazy = function(install_path)
-  M.echo("  Installing lazy.nvim & plugins ...")
+  echo("  Installing lazy.nvim & plugins ...")
   vim.fn.system({
     "git",
     "clone",

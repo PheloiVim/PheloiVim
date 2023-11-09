@@ -44,7 +44,6 @@ return {
       "luap",
       "markdown",
       "markdown_inline",
-      "python",
       "query",
       "regex",
       "toml",
@@ -53,6 +52,10 @@ return {
       "vim",
       "vimdoc",
       "yaml",
+      "go",
+      "rust",
+      "gomod",
+      "gosum",
     },
     highlight = {
       enable = true,
