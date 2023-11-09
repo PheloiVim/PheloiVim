@@ -4,7 +4,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("config.keymaps")
-require("config.options")
-require("config.autocmds")
-require("config.lazy")
+local modules = {
+  "config.keymaps",
+  "config.options",
+  "config.autocmds",
+  "config.lazy",
+}
+
+for _, module in ipairs(modules) do
+  local ok, err = pcall(require, module)
+  if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
+end
