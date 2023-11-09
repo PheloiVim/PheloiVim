@@ -1,5 +1,30 @@
 return {
   {
+    "catppuccin",
+    opts = {
+      flavour = "mocha",
+      integrations = {
+        telescope = {
+          enabled = true,
+          style = "nvchad",
+        },
+      },
+      custom_highlights = function(colors)
+        return {
+          PmenuSel = { fg = colors.black, bg = colors.yellow },
+        }
+      end,
+    },
+  },
+
+  {
+    "bufferline.nvim",
+    opts = {
+      highlights = require("catppuccin.groups.integrations.bufferline").get(),
+    },
+  },
+
+  {
     "rust-tools.nvim",
     opts = {
       tools = {
@@ -14,6 +39,12 @@ return {
     "lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)
+      opts.options = {
+        theme = "catppuccin",
+        globalstatus = true,
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+      }
       opts.sections.lualine_a = {
         {
           "mode",
@@ -41,42 +72,6 @@ return {
         },
       }
     end,
-  },
-
-  {
-    "tokyonight.nvim",
-    opts = {
-      style = "night",
-      on_highlights = function(hl, c)
-        hl.TelescopeNormal = {
-          bg = c.bg_dark,
-          fg = c.fg_dark,
-        }
-        hl.TelescopeBorder = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-        hl.TelescopePromptNormal = {
-          bg = c.bg,
-        }
-        hl.TelescopePromptBorder = {
-          bg = c.bg,
-          fg = c.bg,
-        }
-        hl.TelescopePromptTitle = {
-          bg = c.bg,
-          fg = c.bg,
-        }
-        hl.TelescopePreviewTitle = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-        hl.TelescopeResultsTitle = {
-          bg = c.bg_dark,
-          fg = c.bg_dark,
-        }
-      end,
-    },
   },
 
   {
@@ -122,36 +117,55 @@ return {
   },
 
   {
-    "L3MON4D3/LuaSnip",
+    "LuaSnip",
     keys = function()
       return {}
+    end,
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+      region_check_events = "CursorMoved",
+    },
+    config = function(_, opts)
+      require("luasnip").config.setup(opts)
     end,
   },
 
   {
     "nvim-cmp",
     opts = function(_, opts)
-      local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
-
-      local luasnip = require("luasnip")
       local cmp = require("cmp")
+      local border_opts = {
+        border = "rounded",
+        winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,CursorLine:PmenuSel",
+      }
 
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.confirm()
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
-          elseif has_words_before() then
-            cmp.complete()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
+      opts.preselect = cmp.PreselectMode.None
+
+      opts.duplicates = {
+        nvim_lsp = 1,
+        luasnip = 1,
+        cmp_tabnine = 1,
+        buffer = 1,
+        path = 1,
+      }
+
+      opts.window = {
+        completion = cmp.config.window.bordered(border_opts),
+        documentation = cmp.config.window.bordered(border_opts),
+      }
+
+      opts.mapping = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<Tab>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
+      })
+
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip", priority = 750 },
+        { name = "buffer", priority = 500 },
+        { name = "path", priority = 250 },
       })
     end,
   },
@@ -196,75 +210,5 @@ return {
         sorting_strategy = "ascending",
       },
     },
-  },
-
-  {
-    "vim-startuptime",
-    enabled = false,
-  },
-
-  {
-    "catppuccin",
-    enabled = false,
-  },
-
-  {
-    "dashboard-nvim",
-    enabled = false,
-  },
-
-  {
-    "mini.surround",
-    enabled = false,
-  },
-
-  {
-    "mini.ai",
-    enabled = false,
-  },
-
-  {
-    "mini.indentscope",
-    enabled = false,
-  },
-
-  {
-    "neodev.nvim",
-    enabled = false,
-  },
-
-  {
-    "persistence.nvim",
-    enabled = false,
-  },
-
-  {
-    "neoconf.nvim",
-    enabled = false,
-  },
-
-  {
-    "nvim-notify",
-    enabled = false,
-  },
-
-  {
-    "nvim-ts-autotag",
-    enabled = false,
-  },
-
-  {
-    "nvim-treesitter-context",
-    enabled = false,
-  },
-
-  {
-    "nvim-spectre",
-    enabled = false,
-  },
-
-  {
-    "vim-illuminate",
-    enabled = false,
   },
 }
