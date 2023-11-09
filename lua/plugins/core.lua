@@ -1,12 +1,5 @@
 return {
   {
-    "tokyonight.nvim",
-    opts = {
-      style = "night",
-    },
-  },
-
-  {
     "rust-tools.nvim",
     opts = {
       tools = {
