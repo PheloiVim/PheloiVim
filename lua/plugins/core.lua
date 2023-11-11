@@ -102,11 +102,6 @@ return {
     "nvim-cmp",
     opts = function(_, opts)
       local cmp = require("cmp")
-      local border_opts = {
-        border = "rounded",
-      }
-
-      opts.preselect = cmp.PreselectMode.None
 
       opts.duplicates = {
         nvim_lsp = 1,
@@ -114,11 +109,6 @@ return {
         cmp_tabnine = 1,
         buffer = 1,
         path = 1,
-      }
-
-      opts.window = {
-        completion = cmp.config.window.bordered(border_opts),
-        documentation = cmp.config.window.bordered(border_opts),
       }
 
       opts.mapping = cmp.mapping.preset.insert({
@@ -134,6 +124,15 @@ return {
         { name = "path", priority = 250 },
       })
     end,
+  },
+
+  {
+    "which-key.nvim",
+    opts = {
+      window = {
+        border = "rounded",
+      },
+    },
   },
 
   {
