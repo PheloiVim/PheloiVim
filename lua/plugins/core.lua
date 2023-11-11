@@ -42,6 +42,13 @@ return {
           fmt = function() return "%P/%L" end,
         },
       }
+
+      vim.list_extend(opts.extensions, {
+        "mason",
+        "trouble",
+        "quickfix",
+        "nvim-dap-ui",
+      })
     end,
   },
 
@@ -159,6 +166,7 @@ return {
       },
     },
   },
+
   {
     "mason.nvim",
     opts = function(_, opts)
