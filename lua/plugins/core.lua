@@ -58,8 +58,15 @@ return {
       servers = {
         bashls = {},
         cssls = {},
-        html = {},
+        html = {
+          init_options = {
+            provideFormatter = false,
+          },
+        },
         volar = {},
+        tailwindcss = {
+          filetypes_exclude = { "markdown" },
+        },
       },
       inlay_hints = {
         enabled = true,
