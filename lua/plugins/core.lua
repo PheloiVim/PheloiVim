@@ -201,15 +201,6 @@ return {
   },
 
   {
-    "mini.animate",
-    opts = {
-      cursor = {
-        enable = false,
-      },
-    },
-  },
-
-  {
     "telescope.nvim",
     opts = {
       defaults = {
