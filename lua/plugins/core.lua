@@ -183,6 +183,33 @@ return {
   },
 
   {
+    "noice.nvim",
+    opts = {
+      presets = {
+        lsp_doc_border = true,
+      },
+    },
+  },
+
+  {
+    "aerial.nvim",
+    opts = {
+      layout = {
+        min_width = 30,
+      },
+    },
+  },
+
+  {
+    "mini.animate",
+    opts = {
+      cursor = {
+        enable = false,
+      },
+    },
+  },
+
+  {
     "telescope.nvim",
     opts = {
       defaults = {
