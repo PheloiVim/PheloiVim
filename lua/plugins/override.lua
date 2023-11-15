@@ -11,6 +11,17 @@ return {
   },
 
   {
+    "neo-tree.nvim",
+    opts = {
+      window = {
+        mappings = {
+          ["l"] = "open",
+        },
+      },
+    },
+  },
+
+  {
     "lualine.nvim",
     event = "VeryLazy",
     opts = function(_, opts)

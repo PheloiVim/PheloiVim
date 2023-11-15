@@ -9,5 +9,5 @@ return {
   { "nvim-ts-autotag", enabled = false },
   { "dashboard-nvim", enabled = false },
   { "persistence.nvim", enabled = false },
-  { "neo-tree.nvim", enabled = false },
+  { "nvim-spectre", enabled = false },
 }
