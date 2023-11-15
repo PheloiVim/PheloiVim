@@ -177,26 +177,6 @@ return {
       presets = {
         lsp_doc_border = true,
       },
-      lsp = {
-        progress = {
-          enabled = false,
-        },
-      },
-    },
-  },
-
-  {
-    "j-hui/fidget.nvim",
-    event = "VeryLazy",
-    opts = {},
-  },
-
-  {
-    "aerial.nvim",
-    opts = {
-      layout = {
-        min_width = 30,
-      },
     },
   },
 
