@@ -91,17 +91,6 @@ return {
   },
 
   {
-    "neo-tree.nvim",
-    opts = {
-      window = {
-        mappings = {
-          ["l"] = "open",
-        },
-      },
-    },
-  },
-
-  {
     "LuaSnip",
     keys = function() return {} end,
     opts = {
