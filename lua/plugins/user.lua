@@ -9,11 +9,12 @@ return {
   {
     "NeogitOrg/neogit",
     cmd = "Neogit",
+    keys = {
+      { "<leader>gnt", "<cmd>Neogit<CR>", desc = "Open Neogit Tab Page" },
+      { "<leader>gnc", "<cmd>Neogit commit<CR>", desc = "Open Neogit Commit Page" },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "sindrets/diffview.nvim",
-      "ibhagwan/fzf-lua",
     },
     opts = {
       disable_hint = true,
