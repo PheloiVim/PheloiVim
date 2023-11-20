@@ -128,14 +128,7 @@ return {
       opts.mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-        ["<Tab>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-      })
-
-      opts.sources = cmp.config.sources({
-        { name = "nvim_lsp", priority = 1000 },
-        { name = "luasnip", priority = 750 },
-        { name = "buffer", priority = 500 },
-        { name = "path", priority = 250 },
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       })
     end,
   },
@@ -157,28 +150,7 @@ return {
         "scss",
         "vue",
         "nix",
-        "xml",
-        "kotlin",
-        "groovy",
-        "java",
       })
-    end,
-  },
-
-  {
-    "conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        java = { "google-java-format" },
-      },
-    },
-  },
-
-  {
-    "mason.nvim",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "google-java-format" })
     end,
   },
 

@@ -10,4 +10,6 @@ return {
   { "dashboard-nvim", enabled = false },
   { "persistence.nvim", enabled = false },
   { "nvim-spectre", enabled = false },
+  { "vim-illuminate", enabled = false },
+  { "nvim-treesitter-textobjects", enabled = false },
 }
