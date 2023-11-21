@@ -12,4 +12,5 @@ return {
   { "nvim-spectre", enabled = false },
   { "vim-illuminate", enabled = false },
   { "nvim-treesitter-textobjects", enabled = false },
+  { "nvim-notify", enabled = false },
 }
