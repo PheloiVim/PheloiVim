@@ -59,6 +59,8 @@ return {
         "trouble",
         "quickfix",
         "nvim-dap-ui",
+        "toggleterm",
+        "man",
       })
     end,
   },
