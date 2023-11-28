@@ -27,3 +27,11 @@ This repository hosts my **Neovim** configuration based on [LazyVim](https://git
 ```bash
 git clone https://github.com/2giosangmitom/neovim-config.git ~/.config/nvim
 ```
+
+## 📷 Some screenshots
+
+![telescope](./screenshots/telescope.png)
+
+![normal](./screenshots/normal.png)
+
+![dap](./screenshots/dap.png)
