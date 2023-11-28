@@ -35,3 +35,9 @@ git clone https://github.com/2giosangmitom/neovim-config.git ~/.config/nvim
 ![normal](./screenshots/normal.png)
 
 ![dap](./screenshots/dap.png)
+
+![neotree](./screenshots/neotree.png)
+
+![neogit](./screenshots/neogit.png)
+
+![flash.nvim](./screenshots/flash.png)
