@@ -9,7 +9,7 @@
 
 This repository hosts my **Neovim** configuration based on [LazyVim](https://github.com/LazyVim/LazyVim) for Linux. It's a minimal configuration with **Lua** and easy to customize and extend the configuration. You can clone this repository and use it but not good. A good configuration is personal, you should make your own unique configuration.
 
-> **Note**
+> [!NOTE]
 > This config is only for the **lastest Neovim stable release**. If you are having an older Neovim version, you should update Neovim via package manager or download the latest version from [Official repository](https://github.com/neovim/neovim).
 
 ## ⚡️ Requirements
