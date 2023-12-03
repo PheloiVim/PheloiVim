@@ -92,15 +92,20 @@ return {
 
   {
     "mason.nvim",
-    opts = {
-      ui = {
+    opts = function(_, opts)
+      opts.ui = {
         icons = {
           package_installed = "󰗠 ",
           package_pending = " ",
           package_uninstalled = " ",
         },
-      },
-    },
+      }
+
+      vim.list_extend(opts.ensure_installed, {
+        "actionlint",
+        "golangci-lint",
+      })
+    end,
   },
 
   {
@@ -171,6 +176,16 @@ return {
       defaults = {
         layout_config = { prompt_position = "top" },
         sorting_strategy = "ascending",
+      },
+    },
+  },
+
+  {
+    "nvim-lint",
+    opts = {
+      linters_by_ft = {
+        yaml = { "actionlint" },
+        go = { "golangcilint" },
       },
     },
   },
