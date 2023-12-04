@@ -124,14 +124,6 @@ return {
     opts = function(_, opts)
       local cmp = require("cmp")
 
-      opts.duplicates = {
-        nvim_lsp = 1,
-        luasnip = 1,
-        cmp_tabnine = 1,
-        buffer = 1,
-        path = 1,
-      }
-
       opts.mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
