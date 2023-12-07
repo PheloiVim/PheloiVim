@@ -76,6 +76,7 @@ return {
             provideFormatter = false,
           },
         },
+        nil_ls = {},
         volar = {},
         tailwindcss = {
           filetypes_exclude = { "markdown" },
