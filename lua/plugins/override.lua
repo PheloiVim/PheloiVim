@@ -26,7 +26,6 @@ return {
     event = "VeryLazy",
     opts = function(_, opts)
       opts.options = {
-        theme = "tokyonight",
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },

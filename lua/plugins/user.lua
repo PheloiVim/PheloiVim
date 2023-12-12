@@ -35,4 +35,20 @@ return {
       direction = "horizontal",
     },
   },
+
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    event = "VeryLazy",
+    opts = {
+      disabled_filetypes = { "qf", "netrw", "NvimTree", "lazy", "mason", "oil", "neo-tree" },
+    },
+  },
+
+  {
+    "epwalsh/obsidian.nvim",
+    ft = "markdown",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
 }
