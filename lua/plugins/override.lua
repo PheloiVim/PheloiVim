@@ -182,4 +182,20 @@ return {
       },
     },
   },
+
+  {
+    "aerial.nvim",
+    opts = {
+      layout = {
+        width = 40,
+      },
+    },
+  },
+
+  {
+    "vim-illuminate",
+    opts = {
+      filetypes_denylist = { "lazy", "aerial", "mason", "trouble", "Trouble" },
+    },
+  },
 }
