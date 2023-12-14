@@ -104,6 +104,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "actionlint",
         "golangci-lint",
+        "shellcheck",
       })
     end,
   },
@@ -178,6 +179,7 @@ return {
       linters_by_ft = {
         yaml = { "actionlint" },
         go = { "golangcilint" },
+        sh = { "shellcheck" },
       },
     },
   },
