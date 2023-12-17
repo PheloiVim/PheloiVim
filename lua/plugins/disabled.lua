@@ -7,4 +7,6 @@ return {
   { "dashboard-nvim", enabled = false },
   { "persistence.nvim", enabled = false },
   { "nvim-treesitter-context", enabled = false },
+  { "nvim-notify", enabled = false },
+  { "neodev.nvim", enabled = false },
 }
