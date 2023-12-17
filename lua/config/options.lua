@@ -16,7 +16,6 @@ vim.opt.listchars = {
   precedes = "«",
   nbsp = "×",
 }
-
 vim.g.autoformat = false
 
 -- disable some default providers
