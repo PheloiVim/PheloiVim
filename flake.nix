@@ -3,15 +3,14 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs";
 
   outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem
-      (system:
-        let pkgs = nixpkgs.legacyPackages.${system}; in {
-          devShell = pkgs.mkShell {
-            buildInputs = [
-              pkgs.stylua
-            ];
-          };
-          formatter = pkgs.nixpkgs-fmt;
-        }
-      );
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = nixpkgs.legacyPackages.${system}; in {
+        devShell = pkgs.mkShell {
+          buildInputs = [
+            pkgs.stylua
+          ];
+        };
+        formatter = pkgs.nixpkgs-fmt;
+      }
+    );
 }
