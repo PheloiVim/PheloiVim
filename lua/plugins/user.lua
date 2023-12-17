@@ -37,11 +37,8 @@ return {
   },
 
   {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    event = "VeryLazy",
-    opts = {
-      disabled_filetypes = { "qf", "netrw", "lazy", "mason", "oil", "neo-tree" },
-    },
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = {},
   },
 }
