@@ -18,6 +18,9 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = { colorscheme = "catppuccin" } },
     { import = "plugins" },
   },
+  change_detection = {
+    notify = false,
+  },
   ui = {
     icons = {
       loaded = "",
