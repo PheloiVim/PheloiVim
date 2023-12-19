@@ -13,7 +13,6 @@
             nodejs_21
             rustc
             cargo
-            clippy
           ];
         };
         formatter = pkgs.nixpkgs-fmt;
