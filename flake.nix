@@ -13,6 +13,7 @@
             nodejs_21
             rustc
             cargo
+            dotnet-sdk_8
           ];
         };
         formatter = pkgs.nixpkgs-fmt;
