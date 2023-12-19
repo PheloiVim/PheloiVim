@@ -77,9 +77,6 @@ return {
         },
         nil_ls = {},
         volar = {},
-        tailwindcss = {
-          filetypes_exclude = { "markdown" },
-        },
       },
       inlay_hints = {
         enabled = true,
