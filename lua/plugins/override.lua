@@ -92,9 +92,9 @@ return {
     opts = function(_, opts)
       opts.ui = {
         icons = {
-          package_installed = "󰗠 ",
-          package_pending = " ",
-          package_uninstalled = " ",
+          package_installed = "✓",
+          package_uninstalled = "✗",
+          package_pending = "⟳",
         },
       }
 
@@ -122,6 +122,15 @@ return {
     opts = function(_, opts)
       local cmp = require("cmp")
 
+      opts.window = {
+        completion = {
+          border = "rounded",
+        },
+        documentation = {
+          border = "rounded",
+        },
+      }
+
       opts.mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -148,7 +157,36 @@ return {
         "vue",
         "nix",
       })
+      opts.textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          keymaps = {
+            ["ak"] = { query = "@block.outer", desc = "around block" },
+            ["ik"] = { query = "@block.inner", desc = "inside block" },
+            ["ac"] = { query = "@class.outer", desc = "around class" },
+            ["ic"] = { query = "@class.inner", desc = "inside class" },
+            ["a?"] = { query = "@conditional.outer", desc = "around conditional" },
+            ["i?"] = { query = "@conditional.inner", desc = "inside conditional" },
+            ["af"] = { query = "@function.outer", desc = "around function " },
+            ["if"] = { query = "@function.inner", desc = "inside function " },
+            ["al"] = { query = "@loop.outer", desc = "around loop" },
+            ["il"] = { query = "@loop.inner", desc = "inside loop" },
+            ["aa"] = { query = "@parameter.outer", desc = "around argument" },
+            ["ia"] = { query = "@parameter.inner", desc = "inside argument" },
+          },
+        },
+      }
     end,
+  },
+
+  {
+    "bufferline.nvim",
+    opts = {
+      options = {
+        always_show_bufferline = true,
+      },
+    },
   },
 
   {
@@ -169,7 +207,13 @@ return {
     "telescope.nvim",
     opts = {
       defaults = {
-        layout_config = { prompt_position = "top" },
+        layout_config = {
+          prompt_position = "top",
+          horizontal = {
+            preview_cutoff = 80,
+            width = 0.9,
+          },
+        },
         sorting_strategy = "ascending",
       },
     },
@@ -199,6 +243,19 @@ return {
     "vim-illuminate",
     opts = {
       filetypes_denylist = { "lazy", "aerial", "mason", "trouble", "Trouble" },
+    },
+  },
+
+  {
+    "catppuccin",
+    opts = {
+      show_end_of_buffer = true,
+      term_colors = true,
+      integrations = {
+        telescope = {
+          style = "nvchad",
+        },
+      },
     },
   },
 }
