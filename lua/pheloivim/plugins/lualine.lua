@@ -1,7 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = "nvim-tree/nvim-web-devicons",
   opts = {
     options = {
       icons_enabled = true,
@@ -11,6 +11,7 @@ return {
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
     },
+    extensions = { "quickfix", "lazy", "nvim-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man" },
     sections = {
       lualine_a = {
         {
@@ -22,6 +23,28 @@ return {
       },
       lualine_b = {
         { "branch", icon = require("pheloivim.icons").git.branch },
+      },
+      lualine_c = {
+        {
+          "diagnostics",
+          symbols = {
+            error = require("pheloivim.icons").diagnostics.Error,
+            warn = require("pheloivim.icons").diagnostics.Warn,
+            info = require("pheloivim.icons").diagnostics.Info,
+            hint = require("pheloivim.icons").diagnostics.Hint,
+          },
+        },
+        { "filetype", icon_only = true, padding = { left = 1, right = 0 } },
+        {
+          "filename",
+          path = 1,
+          symbols = {
+            modified = "",
+            readonly = "󰌾",
+            unnamed = "[No Name]",
+            newfile = "[New]",
+          },
+        },
       },
       lualine_x = {
         {
@@ -40,6 +63,24 @@ return {
                 removed = gitsigns.removed,
               }
             end
+          end,
+        },
+      },
+      lualine_y = {
+        {
+          function()
+            return "Tab size: "
+              .. vim.api.nvim_get_option_value("shiftwidth", {
+                scope = "local",
+              })
+          end,
+        },
+      },
+      lualine_z = {
+        {
+          "progress",
+          fmt = function()
+            return "%P/%L"
           end,
         },
       },

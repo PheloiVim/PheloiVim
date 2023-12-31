@@ -38,6 +38,17 @@ return {
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
+        hover = {
+          enabled = true,
+        },
+        signature = {
+          enabled = true,
+        },
+        message = {
+          enabled = true,
+          view = "mini",
+          opts = {},
+        },
       },
       routes = {
         {
@@ -58,6 +69,11 @@ return {
         long_message_to_split = true,
         inc_rename = true,
         lsp_doc_border = true,
+      },
+      views = {
+        notify = {
+          merge = true,
+        },
       },
     },
     keys = {
