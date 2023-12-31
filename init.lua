@@ -2,6 +2,7 @@ local modules = {
   "pheloivim.bootstrap",
   "pheloivim.config.options",
   "pheloivim.config.keymaps",
+  "pheloivim.config.autocmds",
   "pheloivim.config.lazy",
 }
 

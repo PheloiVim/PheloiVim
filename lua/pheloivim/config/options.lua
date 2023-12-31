@@ -58,7 +58,6 @@ local config = {
     infercase = true,
     hidden = true,
     copyindent = true,
-    cmdheight = 0,
     foldenable = true,
     numberwidth = 2,
     completeopt = { "menu", "menuone", "noselect" },
