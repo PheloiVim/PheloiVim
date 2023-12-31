@@ -5,6 +5,14 @@ return {
   keys = {
     { "<leader>e", "<cmd>NvimTreeToggle<cr>" },
   },
+  init = function()
+    if vim.fn.argc(-1) == 1 then
+      local stat = vim.loop.fs_stat(vim.fn.argv(0))
+      if stat and stat.type == "directory" then
+        require("nvim-tree")
+      end
+    end
+  end,
   opts = {
     view = {
       width = 40,
@@ -13,6 +21,30 @@ return {
     },
     on_attach = function(bufnr)
       local api = require("nvim-tree.api")
+
+      vim.keymap.set(
+        "n",
+        "E",
+        api.tree.expand_all,
+        { desc = "Expand all", buffer = bufnr, noremap = true, silent = true, nowait = true }
+      )
+
+      vim.keymap.set(
+        "n",
+        "C",
+        api.tree.collapse_all,
+        { desc = "Collapse all", buffer = bufnr, noremap = true, silent = true, nowait = true }
+      )
+
+      vim.keymap.set("n", "<Tab>", function()
+        local node = api.tree.get_node_under_cursor()
+        if node.nodes ~= nil then
+          api.node.open.edit()
+        else
+          api.node.open.vertical()
+        end
+        api.tree.focus()
+      end, { desc = "Vsplit Preview", buffer = bufnr, noremap = true, silent = true, nowait = true })
 
       vim.keymap.set("n", "l", function()
         local node = api.tree.get_node_under_cursor()
