@@ -14,30 +14,53 @@ return {
     end
   end,
   opts = {
+    disable_netrw = true,
+    sync_root_with_cwd = false,
     view = {
       width = 40,
       number = true,
       relativenumber = true,
     },
+    renderer = {
+      add_trailing = false,
+      group_empty = false,
+      highlight_git = false,
+      full_name = false,
+      highlight_opened_files = "none",
+      root_folder_label = ":t",
+      indent_width = 2,
+      indent_markers = {
+        enable = false,
+        inline_arrows = true,
+        icons = {
+          corner = "└",
+          edge = "│",
+          item = "│",
+          none = " ",
+        },
+      },
+    },
+    diagnostics = {
+      enable = true,
+      show_on_dirs = false,
+      show_on_open_dirs = true,
+      debounce_delay = 50,
+      severity = {
+        min = vim.diagnostic.severity.HINT,
+        max = vim.diagnostic.severity.ERROR,
+      },
+    },
     on_attach = function(bufnr)
       local api = require("nvim-tree.api")
       api.config.mappings.default_on_attach(bufnr)
 
-      vim.keymap.set(
-        "n",
-        "E",
-        api.tree.expand_all,
-        { desc = "Expand all", buffer = bufnr, noremap = true, silent = true, nowait = true }
-      )
+      local function map(mode, l, r, desc)
+        vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc, noremap = true, silent = true, nowait = true })
+      end
 
-      vim.keymap.set(
-        "n",
-        "C",
-        api.tree.collapse_all,
-        { desc = "Collapse all", buffer = bufnr, noremap = true, silent = true, nowait = true }
-      )
-
-      vim.keymap.set("n", "<Tab>", function()
+      map("n", "E", api.tree.expand_all, "Expand all")
+      map("n", "C", api.tree.collapse_all, "Collapse all")
+      map("n", "<Tab>", function()
         local node = api.tree.get_node_under_cursor()
         if node.nodes ~= nil then
           api.node.open.edit()
@@ -45,9 +68,8 @@ return {
           api.node.open.vertical()
         end
         api.tree.focus()
-      end, { desc = "Vsplit Preview", buffer = bufnr, noremap = true, silent = true, nowait = true })
-
-      vim.keymap.set("n", "l", function()
+      end, "Vsplit Preview")
+      map("n", "l", function()
         local node = api.tree.get_node_under_cursor()
         if node.nodes ~= nil then
           api.node.open.edit()
@@ -55,7 +77,7 @@ return {
           api.node.open.edit()
           api.tree.close()
         end
-      end, { desc = "Edit or open", buffer = bufnr, noremap = true, silent = true, nowait = true })
+      end, "Edit or open")
     end,
   },
 }
