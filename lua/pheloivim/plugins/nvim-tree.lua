@@ -18,19 +18,15 @@ return {
     sync_root_with_cwd = false,
     view = {
       width = 40,
-      number = true,
-      relativenumber = true,
     },
     renderer = {
-      add_trailing = false,
-      group_empty = false,
-      highlight_git = false,
-      full_name = false,
-      highlight_opened_files = "none",
-      root_folder_label = ":t",
+      add_trailing = true,
+      group_empty = true,
+      highlight_git = true,
+      full_name = true,
       indent_width = 2,
       indent_markers = {
-        enable = false,
+        enable = true,
         inline_arrows = true,
         icons = {
           corner = "└",
@@ -68,6 +64,7 @@ return {
           api.node.open.vertical()
         end
         api.tree.focus()
+        api.tree.close()
       end, "Vsplit Preview")
       map("n", "l", function()
         local node = api.tree.get_node_under_cursor()
@@ -75,7 +72,6 @@ return {
           api.node.open.edit()
         else
           api.node.open.edit()
-          api.tree.close()
         end
       end, "Edit or open")
     end,
