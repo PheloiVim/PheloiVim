@@ -14,6 +14,7 @@
             rustc
             cargo
             dotnet-sdk_8
+            go
           ];
         };
         formatter = pkgs.nixpkgs-fmt;
