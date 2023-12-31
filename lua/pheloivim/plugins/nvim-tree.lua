@@ -3,7 +3,7 @@ return {
   cmd = "NvimTreeToggle",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>e", "<cmd>NvimTreeToggle<cr>" },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "nvim-tree" },
   },
   init = function()
     if vim.fn.argc(-1) == 1 then
