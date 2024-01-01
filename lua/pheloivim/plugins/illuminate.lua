@@ -11,7 +11,7 @@ return {
       "NvimTree",
       "Trouble",
       "trouble",
-      "qf"
+      "qf",
     },
   },
   config = function(_, opts)
