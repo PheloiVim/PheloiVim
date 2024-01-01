@@ -49,16 +49,7 @@ return {
     },
   },
   opts = {
-    adapters = {
-      -- delve = {
-      --   type = "server",
-      --   port = "${port}",
-      --   executable = {
-      --     command = "dlv",
-      --     args = {},
-      --   },
-      -- },
-    },
+    adapters = {},
     configurations = {},
   },
   config = function(_, opts)
