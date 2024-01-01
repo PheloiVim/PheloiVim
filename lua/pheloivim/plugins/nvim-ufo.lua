@@ -1,9 +1,25 @@
 return {
   "kevinhwang91/nvim-ufo",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile", "BufWritePost", "InsertEnter" },
   dependencies = "kevinhwang91/promise-async",
   opts = {
-    provider_selector = function() return { "treesitter", "indent" } end,
+    provider_selector = function(_, filetype, buftype)
+      local function handleFallbackException(bufnr, err, providerName)
+        if type(err) == "string" and err:match("UfoFallbackException") then
+          return require("ufo").getFolds(bufnr, providerName)
+        else
+          return require("promise").reject(err)
+        end
+      end
+
+      return (filetype == "" or buftype == "nofile") and "indent" -- only use indent until a file is opened
+        or function(bufnr)
+          return require("ufo")
+            .getFolds(bufnr, "lsp")
+            :catch(function(err) return handleFallbackException(bufnr, err, "treesitter") end)
+            :catch(function(err) return handleFallbackException(bufnr, err, "indent") end)
+        end
+    end,
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (" 󰁂 %d "):format(endLnum - lnum)
@@ -36,6 +52,8 @@ return {
     vim.opt.foldlevel = 99
     vim.opt.foldlevelstart = 99
     vim.opt.foldenable = true
+    vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+    vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
     require("ufo").setup(opts)
   end,
