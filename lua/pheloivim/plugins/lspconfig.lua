@@ -9,6 +9,7 @@ return {
       { "folke/neodev.nvim", opts = {} },
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "ray-x/lsp_signature.nvim",
     },
     opts = {
       diagnostics = {
@@ -60,6 +61,26 @@ return {
         table.insert(ensure_installed, server)
         server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
+          on_attach = function(client, bufnr)
+            local function map(mode, l, r, desc)
+              vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+            end
+            map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", "Code action")
+            map("n", "<leader>cp", "<cmd>Lspsaga peek_definition<cr>", "Peek definition")
+            map("n", "gd", "<cmd>Lspsaga goto_definition<cr>", "Go to definition")
+            map("n", "K", "<cmd>Lspsaga hover_doc<cr>", "Hover")
+            map("n", "<leader>cr", "<cmd>Lspsaga rename<cr>", "Rename")
+
+            require("lsp_signature").on_attach({
+              bind = true,
+              handler_opts = {
+                border = "rounded",
+              },
+            }, bufnr)
+
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
         }, server_opts)
         require("lspconfig")[server].setup(server_opts)
       end
@@ -74,13 +95,6 @@ return {
   {
     "nvimdev/lspsaga.nvim",
     event = { "LspAttach", "VeryLazy" },
-    keys = {
-      { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
-      { "<leader>cp", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
-      { "gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to definition" },
-      { "K", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
-      { "<leader>cr", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
-    },
     opts = {
       ui = {
         code_action = "",
