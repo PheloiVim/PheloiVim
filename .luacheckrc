@@ -1,7 +1,4 @@
----@diagnostic disable
--- vim: ft=lua tw=80
-
-std.globals = {
+globals = {
   "vim",
 }
 
