@@ -27,18 +27,14 @@ return {
     opts = function()
       local cmp = require("cmp")
       local lsnip_ok, luasnip = pcall(require, "luasnip")
-      if not lsnip_ok then
-        return
-      end
+      if not lsnip_ok then return end
 
       return {
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
         snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
+          expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -58,9 +54,7 @@ return {
         formatting = {
           format = function(_, item)
             local icons = require("pheloivim.icons").kinds
-            if icons[item.kind] then
-              item.kind = icons[item.kind] .. item.kind
-            end
+            if icons[item.kind] then item.kind = icons[item.kind] .. item.kind end
             return item
           end,
         },

@@ -16,9 +16,7 @@ return {
       lualine_a = {
         {
           "mode",
-          fmt = function(mode)
-            return " " .. mode
-          end,
+          fmt = function(mode) return " " .. mode end,
         },
       },
       lualine_b = {
@@ -79,9 +77,7 @@ return {
       lualine_z = {
         {
           "progress",
-          fmt = function()
-            return "%P/%L"
-          end,
+          fmt = function() return "%P/%L" end,
         },
       },
     },

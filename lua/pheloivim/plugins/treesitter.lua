@@ -22,9 +22,7 @@ return {
       highlight = { enable = true },
       indent = {
         enable = true,
-        disable = function(_, bufnr)
-          return vim.b[bufnr].large_buf
-        end,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
       },
       ensure_installed = {
         "astro",
@@ -63,8 +61,6 @@ return {
         "hcl",
       },
     },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
+    config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
   },
 }

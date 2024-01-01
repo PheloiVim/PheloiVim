@@ -62,9 +62,7 @@ return {
         server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
           on_attach = function(client, bufnr)
-            local function map(mode, l, r, desc)
-              vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-            end
+            local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc }) end
             map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", "Code action")
             map("n", "<leader>cp", "<cmd>Lspsaga peek_definition<cr>", "Peek definition")
             map("n", "gd", "<cmd>Lspsaga goto_definition<cr>", "Go to definition")
@@ -86,9 +84,7 @@ return {
       end
 
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
-      if have_mason then
-        mlsp.setup({ ensure_installed = ensure_installed })
-      end
+      if have_mason then mlsp.setup({ ensure_installed = ensure_installed }) end
     end,
   },
 

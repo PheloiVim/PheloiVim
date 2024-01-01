@@ -7,9 +7,7 @@ function M.resolve_package(source_name)
 
   return Optional.of_nilable(source_name):map(function(package_name)
     local ok, pkg = pcall(registry.get_package, package_name)
-    if ok then
-      return pkg
-    end
+    if ok then return pkg end
   end)
 end
 
@@ -24,9 +22,7 @@ function M.install_package(package_name)
       pkg:install({ version = version }):once(
         "closed",
         vim.schedule_wrap(function()
-          if pkg:is_installed() then
-            vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name))
-          end
+          if pkg:is_installed() then vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name)) end
         end)
       )
     end

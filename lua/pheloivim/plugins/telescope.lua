@@ -6,9 +6,7 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
       enabled = vim.fn.executable("make") == 1,
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
+      config = function() require("telescope").load_extension("fzf") end,
     },
   },
   keys = {
@@ -45,9 +43,7 @@ return {
           table.insert(wins, 1, vim.api.nvim_get_current_win())
           for _, win in ipairs(wins) do
             local buf = vim.api.nvim_win_get_buf(win)
-            if vim.bo[buf].buftype == "" then
-              return win
-            end
+            if vim.bo[buf].buftype == "" then return win end
           end
           return 0
         end,
