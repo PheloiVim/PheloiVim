@@ -27,10 +27,16 @@ return {
           },
           segments = {
             {
-              text = { builtin.foldfunc },
+              text = { builtin.foldfunc, "  " },
             },
             {
-              text = { "  ", builtin.lnumfunc, " " },
+              sign = {
+                name = { ".*" },
+              },
+              auto = true,
+            },
+            {
+              text = { builtin.lnumfunc, "  " },
             },
             {
               sign = {
