@@ -3,7 +3,6 @@ return {
   event = { "BufReadPost", "BufNewFile", "BufWritePost" },
   opts = {
     check_ts = true,
-    ts_config = { java = false },
     fast_wrap = {
       map = "<M-e>",
       chars = { "{", "[", "(", '"', "'" },
