@@ -26,12 +26,7 @@ function M.install_package(package_name)
   M.resolve_package(source):if_present(function(pkg)
     if not pkg:is_installed() then
       vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name))
-      pkg:install({ version = version }):once(
-        "closed",
-        vim.schedule_wrap(function()
-          if pkg:is_installed() then vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name)) end
-        end)
-      )
+      pkg:install({ version = version })
     end
   end)
 end
