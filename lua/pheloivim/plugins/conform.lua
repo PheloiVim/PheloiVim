@@ -20,8 +20,8 @@ return {
     local formatters = {}
 
     for _, list_formatters in pairs(opts.formatters_by_ft) do
-      for _, v in ipairs(list_formatters) do
-        table.insert(formatters, v)
+      for _, fmt in ipairs(list_formatters) do
+        table.insert(formatters, fmt)
       end
     end
 

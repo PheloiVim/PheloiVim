@@ -60,3 +60,9 @@ vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap
 vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
+
+-- quickfix
+vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
+vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
+vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
+vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
