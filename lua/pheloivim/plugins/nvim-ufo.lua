@@ -1,7 +1,66 @@
 return {
   "kevinhwang91/nvim-ufo",
   event = { "BufReadPost", "BufNewFile", "BufWritePost", "InsertEnter" },
-  dependencies = "kevinhwang91/promise-async",
+  dependencies = {
+    "kevinhwang91/promise-async",
+    {
+      "luukvbaal/statuscol.nvim",
+      opts = function()
+        local builtin = require("statuscol.builtin")
+        return {
+          relculright = true,
+          bt_ignore = { "nofile", "prompt", "terminal", "packer" },
+          ft_ignore = {
+            "NvimTree",
+            "dapui_watches",
+            "dap-repl",
+            "dapui_console",
+            "dapui_stacks",
+            "dapui_breakpoints",
+            "dapui_scopes",
+            "help",
+            "vim",
+            "Trouble",
+            "noice",
+            "lazy",
+            "toggleterm",
+          },
+          segments = {
+            {
+              text = { builtin.foldfunc },
+            },
+            {
+              text = { "  ", builtin.lnumfunc, " " },
+            },
+            {
+              sign = {
+                namespace = { "gitsign.*" },
+                maxwidth = 1,
+                colwidth = 1,
+              },
+            },
+          },
+        }
+      end,
+    },
+  },
+  init = function()
+    vim.o.foldcolumn = "auto"
+    vim.o.foldlevel = 99
+    vim.o.foldlevelstart = 99
+    vim.o.foldnestmax = 0
+    vim.o.foldenable = true
+    vim.o.foldmethod = "indent"
+
+    vim.opt.fillchars = {
+      fold = " ",
+      foldopen = "",
+      foldsep = " ",
+      foldclose = "",
+      stl = " ",
+      eob = " ",
+    }
+  end,
   opts = {
     provider_selector = function() return { "treesitter", "indent" } end,
     fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
