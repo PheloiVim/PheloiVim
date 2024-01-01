@@ -23,13 +23,12 @@ return {
 
         map("n", "]h", gs.next_hunk, "Next Hunk")
         map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-        map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map({ "n", "v" }, "<leader>ghs", "<cmd>Gitsigns stage_hunk<CR>", "Stage Hunk")
+        map({ "n", "v" }, "<leader>ghr", "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
         map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-        map("n", "<leader>ghd", gs.diffthis, "Diff This")
       end,
     },
   },
@@ -48,5 +47,21 @@ return {
     opts = {
       disable_hint = true,
     },
+  },
+
+  {
+    "sindrets/diffview.nvim",
+    keys = {
+      { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Open diff" },
+      { "<leader>gdc", "<cmd>tabclose<cr>", desc = "Close diff" },
+    },
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewToggleFiles",
+      "DiffviewFocusFiles",
+      "DiffviewRefresh",
+      "DiffviewFileHistory",
+    },
+    opts = {},
   },
 }
