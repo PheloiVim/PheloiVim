@@ -9,7 +9,6 @@ return {
       { "folke/neodev.nvim", opts = {} },
       { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
       "ray-x/lsp_signature.nvim",
     },
     opts = {
@@ -56,10 +55,8 @@ return {
         opts.capabilities or {}
       )
 
-      local ensure_installed = {} ---@type string[]
-
       for server, server_opts in pairs(opts.servers) do
-        table.insert(ensure_installed, server)
+        require("pheloivim.utils").install_package(server)
         server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
           on_attach = function(client, bufnr)
@@ -83,9 +80,6 @@ return {
         }, server_opts)
         require("lspconfig")[server].setup(server_opts)
       end
-
-      local have_mason, mlsp = pcall(require, "mason-lspconfig")
-      if have_mason then mlsp.setup({ ensure_installed = ensure_installed }) end
     end,
   },
 
