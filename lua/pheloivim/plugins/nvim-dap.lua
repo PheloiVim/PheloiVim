@@ -47,18 +47,21 @@ return {
         enabled_commands = true,
       },
     },
-    {
-      "jay-babu/mason-nvim-dap.nvim",
-      dependencies = "mason.nvim",
-      cmd = { "DapInstall", "DapUninstall" },
-      opts = {
-        automatic_installation = true,
-        handlers = {},
-        ensure_installed = {},
-      },
-    },
   },
-  config = function()
+  opts = {
+    adapters = {
+      -- delve = {
+      --   type = "server",
+      --   port = "${port}",
+      --   executable = {
+      --     command = "dlv",
+      --     args = {},
+      --   },
+      -- },
+    },
+    configurations = {},
+  },
+  config = function(_, opts)
     local icons = require("pheloivim.icons")
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -68,6 +71,15 @@ return {
         "Dap" .. name,
         { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
       )
+    end
+
+    for adapter, adapter_opts in pairs(opts.adapters) do
+      require("pheloivim.utils").install_package(adapter)
+      require("dap").adapters[adapter] = adapter_opts
+    end
+
+    for lang, config in pairs(opts.configurations) do
+      require("dap").configurations[lang] = config
     end
   end,
 }
