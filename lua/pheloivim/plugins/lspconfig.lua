@@ -6,8 +6,6 @@ return {
       { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
     },
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       "williamboman/mason.nvim",
       "ray-x/lsp_signature.nvim",
     },
@@ -23,20 +21,7 @@ return {
           prefix = "●",
         },
       },
-      servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        },
-      },
+      servers = {},
     },
     config = function(_, opts)
       for name, icon in pairs(require("pheloivim.icons").diagnostics) do

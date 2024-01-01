@@ -18,7 +18,7 @@ return {
   opts = {
     window = {
       backdrop = 1,
-      width = function() return math.min(120, vim.o.columns * 0.75) end,
+      width = function() return math.min(120, vim.opt.columns * 0.75) end,
       height = 0.9,
       options = {
         number = false,

@@ -2,9 +2,7 @@ return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPost", "BufNewFile", "BufWritePost" },
   opts = {
-    linters_by_ft = {
-      go = { "golangcilint" },
-    },
+    linters_by_ft = {},
   },
   config = function(_, opts)
     local lint = require("lint")

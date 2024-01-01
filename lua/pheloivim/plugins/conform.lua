@@ -1,7 +1,6 @@
 return {
   "stevearc/conform.nvim",
   cmd = "ConformInfo",
-  dependencies = { "mason.nvim" },
   keys = {
     {
       "<leader>cf",
@@ -10,9 +9,7 @@ return {
     },
   },
   opts = {
-    formatters_by_ft = {
-      lua = { "stylua" },
-    },
+    formatters_by_ft = {},
   },
   config = function(_, opts)
     local formatters = {}
