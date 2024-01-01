@@ -9,7 +9,7 @@ return {
         local builtin = require("statuscol.builtin")
         return {
           relculright = true,
-          bt_ignore = { "nofile", "prompt", "terminal", "packer" },
+          bt_ignore = { "nofile", "prompt", "terminal", "lazy" },
           ft_ignore = {
             "NvimTree",
             "dapui_watches",
