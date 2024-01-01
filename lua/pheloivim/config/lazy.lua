@@ -3,6 +3,8 @@ require("lazy").setup({
     { import = "pheloivim.plugins" },
     { import = "pheloivim.pack.lua" },
     { import = "pheloivim.pack.bash" },
+    { import = "pheloivim.pack.prettier" },
+    { import = "pheloivim.pack.yaml" },
   },
   change_detection = {
     enabled = false,

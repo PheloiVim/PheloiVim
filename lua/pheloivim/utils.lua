@@ -6,11 +6,13 @@ function M.resolve_package(source_name)
   local name_to_package = {
     golangcilint = "golangci-lint",
     lua_ls = "lua-language-server",
+    yamlls = "yaml-language-server",
   }
   local registry = require("mason-registry")
   local Optional = require("mason-core.optional")
+  local p = name_to_package[source_name] or source_name
 
-  return Optional.of_nilable(name_to_package[source_name] or source_name):map(function(package_name)
+  return Optional.of_nilable(p):map(function(package_name)
     local ok, pkg = pcall(registry.get_package, package_name)
     if ok then return pkg end
   end)
