@@ -1,5 +1,5 @@
 {
-  description = "Neovim config based on LazyVim";
+  description = "Neovim config";
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
@@ -15,6 +15,7 @@
             cargo
             dotnet-sdk_8
             go
+            stylua
           ];
         };
         formatter = pkgs.nixpkgs-fmt;
