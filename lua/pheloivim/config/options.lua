@@ -52,7 +52,6 @@ local config = {
     infercase = true,
     hidden = true,
     copyindent = true,
-    foldenable = true,
     numberwidth = 2,
     completeopt = { "menu", "menuone", "noselect" },
     shortmess = vim.opt.shortmess + { W = true, I = true, c = true, C = true },
