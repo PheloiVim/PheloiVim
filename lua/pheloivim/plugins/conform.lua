@@ -12,16 +12,10 @@ return {
     formatters_by_ft = {},
   },
   config = function(_, opts)
-    local formatters = {}
-
     for _, list_formatters in pairs(opts.formatters_by_ft) do
       for _, fmt in ipairs(list_formatters) do
-        table.insert(formatters, fmt)
+        require("pheloivim.utils").install_package(fmt)
       end
-    end
-
-    for _, fmt in pairs(formatters) do
-      require("pheloivim.utils").install_package(fmt)
     end
 
     require("conform").setup(opts)
