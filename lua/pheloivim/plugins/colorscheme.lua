@@ -1,12 +1,10 @@
 return {
-  "folke/tokyonight.nvim",
+  "EdenEast/nightfox.nvim",
   lazy = false,
   priority = 1000,
-  opts = {
-    style = "storm",
-  },
+  opts = {},
   config = function(_, opts)
-    require("tokyonight").setup(opts)
-    vim.cmd.colorscheme("tokyonight")
+    require("nightfox").setup(opts)
+    vim.cmd.colorscheme("duskfox")
   end,
 }
