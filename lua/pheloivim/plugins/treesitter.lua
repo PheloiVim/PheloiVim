@@ -5,6 +5,10 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     { "windwp/nvim-ts-autotag", opts = { enable_close_on_slash = false } },
   },
+  keys = {
+    { "<c-space>", desc = "Increment selection" },
+    { "<bs>", desc = "Decrement selection", mode = "x" },
+  },
   cmd = {
     "TSBufDisable",
     "TSBufEnable",
