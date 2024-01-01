@@ -1,1 +1,1 @@
-<h1>PheloiVim</h1>
+<h1 align="center">PheloiVim</h1>
