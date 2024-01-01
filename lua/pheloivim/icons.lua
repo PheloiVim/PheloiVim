@@ -58,4 +58,11 @@ return {
     Value = " ",
     Variable = "󰀫 ",
   },
+  dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = " ",
+    BreakpointCondition = " ",
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = ".>",
+  },
 }

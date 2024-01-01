@@ -1,6 +1,7 @@
 local M = {}
 
--- resolve mason package
+---@param source_name string
+---@return Optional
 function M.resolve_package(source_name)
   local registry = require("mason-registry")
   local Optional = require("mason-core.optional")
@@ -11,7 +12,7 @@ function M.resolve_package(source_name)
   end)
 end
 
--- install mason package
+---@param package_name string
 function M.install_package(package_name)
   local p = require("mason-core.package")
   local source, version = p.Parse(package_name)

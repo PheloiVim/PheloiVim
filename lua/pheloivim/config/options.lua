@@ -55,6 +55,9 @@ local config = {
     numberwidth = 2,
     completeopt = { "menu", "menuone", "noselect" },
     shortmess = vim.opt.shortmess + { W = true, I = true, c = true, C = true },
+    foldlevel = 99,
+    foldlevelstart = 99,
+    foldenable = true,
   },
   g = {
     mapleader = " ",

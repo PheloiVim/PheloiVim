@@ -7,6 +7,7 @@ return {
     },
     dependencies = {
       { "folke/neodev.nvim", opts = {} },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "ray-x/lsp_signature.nvim",
