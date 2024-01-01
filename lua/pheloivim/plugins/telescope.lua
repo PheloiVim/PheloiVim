@@ -1,20 +1,13 @@
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
-  dependencies = {
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      enabled = vim.fn.executable("make") == 1,
-      config = function()
-        require("pheloivim.utils").on_load("telescope.nvim", function() require("telescope").load_extension("fzf") end)
-      end,
-    },
-  },
   keys = {
     { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find text" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+  },
+  dependencies = {
+    { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable("make") == 1, build = "make" },
   },
   opts = {
     defaults = {
@@ -39,13 +32,10 @@ return {
         return 0
       end,
     },
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
-      },
-    },
   },
+  config = function(_, opts)
+    local telescope = require("telescope")
+    telescope.setup(opts)
+    telescope.load_extension("fzf")
+  end,
 }
