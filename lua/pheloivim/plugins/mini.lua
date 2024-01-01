@@ -49,21 +49,27 @@ return {
   },
 
   {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
+    "echasnovski/mini.indentscope",
+    event = { "BufReadPost", "BufNewFile", "BufWritePost" },
     opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
+      symbol = "│",
+      options = { try_as_border = true },
     },
-  },
-
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    opts = {
-      enable_autocmd = false,
-    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "help",
+          "NvimTree",
+          "Trouble",
+          "trouble",
+          "lazy",
+          "mason",
+          "notify",
+          "toggleterm",
+        },
+        ---@diagnostic disable-next-line: inject-field
+        callback = function() vim.b.miniindentscope_disable = true end,
+      })
+    end,
   },
 }
