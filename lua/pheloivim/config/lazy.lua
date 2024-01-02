@@ -1,10 +1,7 @@
 require("lazy").setup({
   spec = {
     { import = "pheloivim.plugins" },
-    { import = "pheloivim.pack.lua" },
-    { import = "pheloivim.pack.bash" },
-    { import = "pheloivim.pack.prettier" },
-    { import = "pheloivim.pack.yaml" },
+    { import = "pheloivim.pack" },
   },
   change_detection = {
     enabled = false,
