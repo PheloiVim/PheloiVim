@@ -10,11 +10,9 @@ local function resolve_package(package_name)
   end)
 end
 
-function M.install_formatter(fmt_name)
-  local fmt_to_package = {}
+function M.install_formatter(formatter_package_name)
   local p = require("mason-core.package")
-  local package_name = fmt_to_package[fmt_name] or fmt_name
-  local source, version = p.Parse(package_name)
+  local source, version = p.Parse(formatter_package_name)
 
   resolve_package(source):if_present(function(pkg)
     if not pkg:is_installed() then
@@ -24,17 +22,25 @@ function M.install_formatter(fmt_name)
   end)
 end
 
-function M.install_linter(linter_name)
-  local linter_to_package = {
-    golangcilint = "golangci-lint",
-  }
+function M.install_linter(linter_package_name)
   local p = require("mason-core.package")
-  local package_name = linter_to_package[linter_name] or linter_name
-  local source, version = p.Parse(package_name)
+  local source, version = p.Parse(linter_package_name)
 
   resolve_package(source):if_present(function(pkg)
     if not pkg:is_installed() then
       vim.notify(("[pheloivim-mason] installing %s linter"):format(pkg.name))
+      pkg:install({ version = version })
+    end
+  end)
+end
+
+function M.install_dap(adapter_package_name)
+  local p = require("mason-core.package")
+  local source, version = p.Parse(adapter_package_name)
+
+  resolve_package(source):if_present(function(pkg)
+    if not pkg:is_installed() then
+      vim.notify(("[pheloivim-mason] installing %s adapter"):format(pkg.name))
       pkg:install({ version = version })
     end
   end)
