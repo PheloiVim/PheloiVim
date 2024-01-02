@@ -1,11 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
   keys = {
-    {
-      "<leader>dB",
-      function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
-      desc = "Breakpoint Condition",
-    },
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end, desc = "Continue" },
     { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
@@ -40,6 +35,16 @@ return {
       end,
     },
     {
+      "jay-babu/mason-nvim-dap.nvim",
+      dependencies = "mason.nvim",
+      cmd = { "DapInstall", "DapUninstall" },
+      opts = {
+        automatic_installation = true,
+        handlers = {},
+        ensure_installed = {},
+      },
+    },
+    {
       "theHamsta/nvim-dap-virtual-text",
       opts = {
         commented = true,
@@ -48,11 +53,7 @@ return {
       },
     },
   },
-  opts = {
-    adapters = {},
-    configurations = {},
-  },
-  config = function(_, opts)
+  config = function()
     local icons = require("pheloivim.icons")
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
@@ -62,15 +63,6 @@ return {
         "Dap" .. name,
         { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
       )
-    end
-
-    for adapter, adapter_opts in pairs(opts.adapters) do
-      require("pheloivim.utils").install_package(adapter)
-      require("dap").adapters[adapter] = adapter_opts
-    end
-
-    for lang, config in pairs(opts.configurations) do
-      require("dap").configurations[lang] = config
     end
   end,
 }
