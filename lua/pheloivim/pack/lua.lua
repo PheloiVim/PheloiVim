@@ -42,9 +42,9 @@ return {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
       require("pheloivim.utils").install_linter("luacheck")
-      opts.linters_by_ft = {
+      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
         lua = { "luacheck" },
-      }
+      })
     end,
   },
 }
