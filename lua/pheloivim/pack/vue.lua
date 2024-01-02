@@ -1,1 +1,2 @@
 -- TODO: add vue
+return {}

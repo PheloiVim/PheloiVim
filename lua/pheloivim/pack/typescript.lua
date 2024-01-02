@@ -1,1 +1,2 @@
--- TODO: add typescript
+-- TODO: add support for typescript
+return {}
