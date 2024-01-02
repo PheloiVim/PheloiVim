@@ -5,6 +5,7 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "ray-x/lsp_signature.nvim",
+      { "williamboman/mason-lspconfig.nvim", cmd = { "LspInstall", "LspUninstall" }, opts = {} },
     },
     opts = {
       diagnostics = {
@@ -18,7 +19,9 @@ return {
           prefix = "●",
         },
       },
-      servers = {},
+      servers = {
+        lua_ls = {}
+      },
     },
     config = function(_, opts)
       for name, icon in pairs(require("pheloivim.icons").diagnostics) do
@@ -37,8 +40,10 @@ return {
         opts.capabilities or {}
       )
 
+      local ensure_installed = {} ---@type string[]
       for server, server_opts in pairs(opts.servers) do
-        require("pheloivim.utils").install_package(server)
+        vim.list_extend(ensure_installed, { server })
+
         server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
           on_attach = function(_, bufnr)
@@ -60,6 +65,9 @@ return {
         }, server_opts)
         require("lspconfig")[server].setup(server_opts)
       end
+
+      local have_mason, mlsp = pcall(require, "mason-lspconfig")
+      if have_mason then mlsp.setup({ ensure_installed = ensure_installed }) end
     end,
   },
 
