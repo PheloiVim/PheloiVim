@@ -15,19 +15,21 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
+    opts = function(_, opts)
+      require("pheloivim.utils").install_formatter("shfmt")
+      opts.formatters_by_ft = {
         sh = { "shfmt" },
-      },
-    },
+      }
+    end,
   },
 
   {
     "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
+    opts = function(_, opts)
+      require("pheloivim.utils").install_linter("shellcheck")
+      opts.linters_by_ft = {
         sh = { "shellcheck" },
-      },
-    },
+      }
+    end,
   },
 }

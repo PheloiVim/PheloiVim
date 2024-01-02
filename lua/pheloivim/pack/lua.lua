@@ -30,19 +30,21 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
+    opts = function(_, opts)
+      require("pheloivim.utils").install_formatter("stylua")
+      opts.formatters_by_ft = {
         lua = { "stylua" },
-      },
-    },
+      }
+    end,
   },
 
   {
     "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
+    opts = function(_, opts)
+      require("pheloivim.utils").install_linter("luacheck")
+      opts.linters_by_ft = {
         lua = { "luacheck" },
-      },
-    },
+      }
+    end,
   },
 }

@@ -1,7 +1,8 @@
 return {
   "stevearc/conform.nvim",
-  opts = {
-    formatters_by_ft = {
+  opts = function(_, opts)
+    require("pheloivim.utils").install_formatter("prettier")
+    opts.formatters_by_ft = {
       javascript = { "prettier" },
       javascriptreact = { "prettier" },
       typescript = { "prettier" },
@@ -17,6 +18,6 @@ return {
       markdown = { "prettier" },
       graphql = { "prettier" },
       handlebars = { "prettier" },
-    },
-  },
+    }
+  end,
 }
