@@ -19,9 +19,7 @@ return {
           prefix = "●",
         },
       },
-      servers = {
-        lua_ls = {}
-      },
+      servers = {},
     },
     config = function(_, opts)
       for name, icon in pairs(require("pheloivim.icons").diagnostics) do
