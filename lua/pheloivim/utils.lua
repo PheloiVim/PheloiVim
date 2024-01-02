@@ -1,31 +1,40 @@
 local M = {}
 
----@param source_name string
----@return Optional
-function M.resolve_package(source_name)
-  local name_to_package = {
-    golangcilint = "golangci-lint",
-    lua_ls = "lua-language-server",
-    yamlls = "yaml-language-server",
-  }
+local function resolve_package(package_name)
   local registry = require("mason-registry")
   local Optional = require("mason-core.optional")
-  local p = name_to_package[source_name] or source_name
 
-  return Optional.of_nilable(p):map(function(package_name)
-    local ok, pkg = pcall(registry.get_package, package_name)
+  return Optional.of_nilable(package_name):map(function(source_name)
+    local ok, pkg = pcall(registry.get_package, source_name)
     if ok then return pkg end
   end)
 end
 
----@param package_name string
-function M.install_package(package_name)
+function M.install_formatter(fmt_name)
+  local fmt_to_package = {}
   local p = require("mason-core.package")
+  local package_name = fmt_to_package[fmt_name] or fmt_name
   local source, version = p.Parse(package_name)
 
-  M.resolve_package(source):if_present(function(pkg)
+  resolve_package(source):if_present(function(pkg)
     if not pkg:is_installed() then
-      vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name))
+      vim.notify(("[pheloivim-mason] installing %s formatter"):format(pkg.name))
+      pkg:install({ version = version })
+    end
+  end)
+end
+
+function M.install_linter(linter_name)
+  local linter_to_package = {
+    golangcilint = "golangci-lint",
+  }
+  local p = require("mason-core.package")
+  local package_name = linter_to_package[linter_name] or linter_name
+  local source, version = p.Parse(package_name)
+
+  resolve_package(source):if_present(function(pkg)
+    if not pkg:is_installed() then
+      vim.notify(("[pheloivim-mason] installing %s linter"):format(pkg.name))
       pkg:install({ version = version })
     end
   end)
