@@ -1,7 +1,7 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "8ae1dedd988eb56441b7858bd1e8554dfadaa46d" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "9cc6e7d6dc69408de20fee6bad42a93cdb11dbc6" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "90149d11708d38037e340bf7a668e1a79217680d" },
   "bufferline.nvim": { "branch": "main", "commit": "e48ce1805697e4bb97bc171c081e849a65859244" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "5af77f54de1b16c34b23cba810150689a3a90312" },
@@ -24,7 +24,7 @@
   "mini.bufremove": { "branch": "main", "commit": "020243bfed8c8b941f2c20626faf3ea39c0c0e1b" },
   "neoconf.nvim": { "branch": "main", "commit": "64437787dba70fce50dad7bfbb97d184c5bc340f" },
   "neodev.nvim": { "branch": "main", "commit": "2a8630847dbb93455936156c0689678e4eaee319" },
-  "neogit": { "branch": "master", "commit": "f2315fde7e6d154661dea91f8f8595adb0f44308" },
+  "neogit": { "branch": "master", "commit": "18366c64b0997167a1832056c4c0e1ac30da6e62" },
   "neoscroll.nvim": { "branch": "master", "commit": "be4ebf855a52f71ca4338694a5696675d807eff9" },
   "neotest": { "branch": "master", "commit": "6aa6e4529a4a125b49c48541b97ba146ceee2441" },
   "nightfox.nvim": { "branch": "main", "commit": "fcf699bef2b2731c840a5746113c3dd31a9cb813" },
