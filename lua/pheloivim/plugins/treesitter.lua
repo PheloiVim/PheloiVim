@@ -84,7 +84,7 @@ return {
         },
       },
     },
-    ensure_installed = { "diff", "query", "vim", "regex" },
+    ensure_installed = { "diff", "query", "vim", "regex", "markdown", "markdown_inline" },
   },
   config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
 }
