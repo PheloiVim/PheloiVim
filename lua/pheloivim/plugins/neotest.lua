@@ -24,6 +24,7 @@ return {
       quickfix = {
         open = function() vim.cmd("copen") end,
       },
+      adapters = {},
     },
     config = function(_, opts)
       local neotest_ns = vim.api.nvim_create_namespace("neotest")

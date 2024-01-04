@@ -60,8 +60,9 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      require("pheloivim.utils").install_formatter("goimports")
-      require("pheloivim.utils").install_formatter("gofumpt")
+      for _, fmt in ipairs({ "goimports", "gofumpt" }) do
+        require("pheloivim.utils").install_formatter(fmt)
+      end
 
       opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
         go = { "goimports", "gofumpt" },
@@ -83,8 +84,15 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    optional = true,
     dependencies = { "leoluz/nvim-dap-go", opts = {} },
     opts = function() require("pheloivim.utils").install_dap("delve") end,
+  },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/neotest-go",
+    },
+    opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-go") }) end,
   },
 }
