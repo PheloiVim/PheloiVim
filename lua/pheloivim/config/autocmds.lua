@@ -40,7 +40,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
-    "PlenaryTestPopup",
     "help",
     "lspinfo",
     "man",
@@ -48,8 +47,6 @@ vim.api.nvim_create_autocmd("FileType", {
     "qf",
     "query",
     "spectre_panel",
-    "startuptime",
-    "tsplayground",
     "neotest-output",
     "checkhealth",
     "neotest-summary",
