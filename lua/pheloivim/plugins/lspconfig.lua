@@ -20,6 +20,10 @@ return {
         },
       },
       servers = {},
+      -- you can do any additional lsp server setup here
+      -- return true if you don't want this server to be setup with lspconfig
+      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
+      setup = {},
     },
     config = function(_, opts)
       for name, icon in pairs(require("pheloivim.icons").diagnostics) do
@@ -38,21 +42,36 @@ return {
         opts.capabilities or {}
       )
 
-      local ensure_installed = {} ---@type string[]
-      for server, server_opts in pairs(opts.servers) do
-        vim.list_extend(ensure_installed, { server })
+      local function setup(server)
+        local function load_mapping(map_table, bufnr)
+          for mode, keymaps in pairs(map_table) do
+            for key, keymap_opts in pairs(keymaps) do
+              vim.keymap.set(mode, key, keymap_opts.cmd, { buffer = bufnr, desc = keymap_opts.desc })
+            end
+          end
+        end
 
-        server_opts = vim.tbl_deep_extend("force", {
-          capabilities = vim.deepcopy(capabilities),
+        local mapping = {
+          n = {
+            ["<leader>ca"] = { cmd = "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
+            ["<leader>cp"] = { cmd = "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
+            ["gd"] = { cmd = "<cmd>Lspsaga peek_definition<cr>", desc = "Go to definition" },
+            ["K"] = { cmd = "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
+            ["<leader>cr"] = { cmd = "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+            ["<leader>cl"] = { cmd = "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+          },
+        }
+
+        if opts.servers[server].keys then
+          for mode, keymaps in pairs(opts.servers[server].keys) do
+            mapping[mode] = vim.tbl_deep_extend("force", mapping[mode], keymaps)
+          end
+        end
+
+        local server_opts = vim.tbl_deep_extend("force", {
+          capabilities = capabilities,
           on_attach = function(_, bufnr)
-            local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc }) end
-            map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", "Code action")
-            map("n", "<leader>cp", "<cmd>Lspsaga peek_definition<cr>", "Peek definition")
-            map("n", "gd", "<cmd>Lspsaga goto_definition<cr>", "Go to definition")
-            map("n", "K", "<cmd>Lspsaga hover_doc<cr>", "Hover")
-            map("n", "<leader>cr", "<cmd>Lspsaga rename<cr>", "Rename")
-            map("n", "<leader>cl", "<cmd>LspInfo<cr>", "Lsp Info")
-
+            load_mapping(mapping, bufnr)
             require("lsp_signature").on_attach({
               bind = true,
               handler_opts = {
@@ -60,8 +79,22 @@ return {
               },
             }, bufnr)
           end,
-        }, server_opts)
+        }, opts.servers[server] or {})
+
+        if opts.setup[server] then
+          if opts.setup[server](server, server_opts) then return end
+        elseif opts.setup["*"] then
+          if opts.setup["*"](server, server_opts) then return end
+        end
+
         require("lspconfig")[server].setup(server_opts)
+      end
+
+      local ensure_installed = {} ---@type string[]
+      -- Setup server
+      for server, _ in pairs(opts.servers) do
+        vim.list_extend(ensure_installed, { server })
+        setup(server)
       end
 
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
