@@ -15,7 +15,6 @@
             cargo
             dotnet-sdk_8
             go
-            stylua
           ];
         };
         formatter = pkgs.nixpkgs-fmt;
