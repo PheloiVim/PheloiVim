@@ -82,10 +82,9 @@ return {
         lualine_y = {
           {
             function()
-              return "Tab size: "
-                .. vim.api.nvim_get_option_value("shiftwidth", {
-                  scope = "local",
-                })
+              return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", {
+                scope = "local",
+              })
             end,
           },
         },
