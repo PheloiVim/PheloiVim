@@ -1,23 +1,7 @@
-vim.opt.viewoptions:remove("curdir")
-vim.opt.shortmess:append({ s = true, I = true })
-vim.opt.backspace:append({ "nostop" })
-
--- disable some default providers
-for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
-end
-
 local config = {
   opt = {
     backup = false,
-    fillchars = {
-      eob = " ",
-      fold = " ",
-      foldopen = "",
-      foldsep = " ",
-      foldclose = "",
-      stl = " ",
-    },
+    fillchars = { eob = " ", stl = " " },
     breakindent = true,
     wildmode = "longest:full,full",
     wildmenu = true,
@@ -85,4 +69,13 @@ for scope, table in pairs(config) do
   for setting, value in pairs(table) do
     vim[scope][setting] = value
   end
+end
+
+vim.opt.viewoptions:remove("curdir")
+vim.opt.shortmess:append({ s = true, I = true })
+vim.opt.backspace:append({ "nostop" })
+
+-- disable some default providers
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
 end
