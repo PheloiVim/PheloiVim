@@ -11,4 +11,5 @@ cache = true
 ignore = {
   "631", -- max_line_length
   "212/_.*", -- unused argument, for vars with "_" prefix
+  "613", -- trailing white space
 }
