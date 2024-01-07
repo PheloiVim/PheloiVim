@@ -25,6 +25,7 @@ local config = {
     timeoutlen = 500,
     tabstop = 2,
     splitbelow = true,
+    list = true,
     splitright = true,
     splitkeep = "screen",
     spelllang = { "en" },
@@ -50,7 +51,7 @@ local config = {
     ignorecase = true,
     showcmd = false,
     ruler = false,
-    laststatus = 0,
+    laststatus = 3,
     infercase = true,
     hidden = true,
     copyindent = true,
@@ -62,6 +63,7 @@ local config = {
     maplocalleader = "\\",
     loaded_netrw = 1,
     loaded_netrwPlugin = 1,
+    markdown_recommended_style = 0,
   },
 }
 

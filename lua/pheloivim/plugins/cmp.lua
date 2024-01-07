@@ -2,7 +2,7 @@ return {
   {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+    dependencies = "rafamadriz/friendly-snippets",
     opts = {
       history = true,
       delete_check_events = "TextChanged",
@@ -22,6 +22,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
     },
     opts = function()
       local cmp = require("cmp")

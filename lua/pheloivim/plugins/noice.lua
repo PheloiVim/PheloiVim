@@ -33,16 +33,12 @@ return {
         progress = {
           enabled = false,
         },
-        hover = {
-          enabled = true,
-        },
         signature = {
           enabled = false,
         },
         message = {
           enabled = true,
           view = "mini",
-          opts = {},
         },
       },
       routes = {
