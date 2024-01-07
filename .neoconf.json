@@ -2,7 +2,8 @@
   "neodev": {
     "library": {
       "enabled": true,
-      "plugins": true
+      "plugins": "nvim-dap-ui",
+      "types": true
     }
   },
   "neoconf": {

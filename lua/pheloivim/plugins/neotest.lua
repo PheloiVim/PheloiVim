@@ -2,6 +2,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     keys = {
+      ---@diagnostic disable-next-line: missing-fields
       { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug Nearest" },
     },
   },
