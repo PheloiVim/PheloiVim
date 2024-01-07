@@ -46,6 +46,17 @@ return {
     },
     opts = {
       disable_hint = true,
+      signs = { section = { "", "" }, item = { "", "" } },
+      disable_commit_confirmation = true,
+      integrations = { diffview = true },
+    },
+  },
+
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = "LazyGit",
+    keys = {
+      { "<leader>gl", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
   },
 

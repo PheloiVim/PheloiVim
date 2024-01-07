@@ -8,21 +8,16 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        ---@type lspconfig.options.tsserver
         tsserver = {
           settings = {
-            ---@diagnostic disable-next-line
             typescript = {
-              ---@diagnostic disable-next-line
               format = {
                 indentSize = vim.o.shiftwidth,
                 convertTabsToSpaces = vim.o.expandtab,
                 tabSize = vim.o.tabstop,
               },
             },
-            ---@diagnostic disable-next-line
             javascript = {
-              ---@diagnostic disable-next-line
               format = {
                 indentSize = vim.o.shiftwidth,
                 convertTabsToSpaces = vim.o.expandtab,

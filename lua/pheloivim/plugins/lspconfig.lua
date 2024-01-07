@@ -115,6 +115,11 @@ return {
       code_action = {
         show_server_name = true,
       },
+      lightbulb = {
+        enable_in_insert = true,
+        virtual_text = true,
+        sign = false,
+      },
     },
   },
 

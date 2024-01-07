@@ -6,12 +6,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   command = "checktime",
 })
 
--- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight_yank"),
-  callback = function() vim.highlight.on_yank() end,
-})
-
 -- resize splits if window got resized
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   group = augroup("resize_splits"),
@@ -40,6 +34,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
+    "PlenaryTestPopup",
     "help",
     "lspinfo",
     "man",
@@ -47,11 +42,12 @@ vim.api.nvim_create_autocmd("FileType", {
     "qf",
     "query",
     "spectre_panel",
+    "startuptime",
+    "tsplayground",
     "neotest-output",
     "checkhealth",
     "neotest-summary",
     "neotest-output-panel",
-    "NvimTree",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
