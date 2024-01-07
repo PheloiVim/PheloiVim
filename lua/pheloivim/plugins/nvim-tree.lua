@@ -7,6 +7,7 @@ return {
   },
   init = function()
     if vim.fn.argc(-1) == 1 then
+      ---@diagnostic disable-next-line: param-type-mismatch
       local stat = vim.loop.fs_stat(vim.fn.argv(0))
       if stat and stat.type == "directory" then require("nvim-tree") end
     end
@@ -48,9 +49,7 @@ return {
       local api = require("nvim-tree.api")
       api.config.mappings.default_on_attach(bufnr)
 
-      local function map(mode, l, r, desc)
-        vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc, noremap = true, silent = true, nowait = true })
-      end
+      local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc, noremap = true, silent = true, nowait = true }) end
 
       map("n", "E", api.tree.expand_all, "Expand all")
       map("n", "C", api.tree.collapse_all, "Collapse all")
