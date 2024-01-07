@@ -35,7 +35,6 @@ return {
 
   {
     "mfussenegger/nvim-dap",
-    optional = true,
     opts = function()
       require("pheloivim.utils").install_dap("js-debug-adapter")
       local dap = require("dap")
@@ -79,7 +78,7 @@ return {
   {
     "vuki656/package-info.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
-    opts = {},
     event = "BufRead package.json",
+    opts = {},
   },
 }
