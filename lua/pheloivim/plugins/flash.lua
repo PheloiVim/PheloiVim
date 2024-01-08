@@ -1,5 +1,4 @@
 return {
-  -- Phe loi z ae
   "folke/flash.nvim",
   event = "VeryLazy",
   opts = {},

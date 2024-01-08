@@ -8,6 +8,7 @@ return {
       "trouble",
       "qf",
       "lazy",
+      "dashboard"
     },
   },
   config = function(_, opts) require("illuminate").configure(opts) end,
