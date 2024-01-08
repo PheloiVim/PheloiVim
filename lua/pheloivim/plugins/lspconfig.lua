@@ -43,6 +43,7 @@ return {
       )
 
       local function setup(server)
+        -- Setup keymaps
         local function load_mapping(map_table, bufnr)
           for mode, keymaps in pairs(map_table) do
             for key, keymap_opts in pairs(keymaps) do
@@ -82,9 +83,7 @@ return {
         }, opts.servers[server] or {})
 
         if opts.setup[server] then
-          if opts.setup[server](server, server_opts) then return end
-        elseif opts.setup["*"] then
-          if opts.setup["*"](server, server_opts) then return end
+          if opts.setup[server](server_opts) then return end
         end
 
         require("lspconfig")[server].setup(server_opts)

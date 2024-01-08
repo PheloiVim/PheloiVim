@@ -34,6 +34,15 @@ return {
   },
 
   {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+        rust = { "rustfmt" },
+      })
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
@@ -86,7 +95,12 @@ return {
         },
       },
       setup = {
-        rust_analyzer = function(_, opts) vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts) end,
+        rust_analyzer = function(opts)
+          vim.g.rustaceanvim = {
+            server = vim.tbl_deep_extend("force", {}, opts),
+          }
+          return true
+        end,
       },
     },
   },

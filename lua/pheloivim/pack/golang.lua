@@ -12,21 +12,22 @@ return {
   },
 
   {
+    "ray-x/go.nvim",
+    ft = { "go", "gomod" },
+    event = { "CmdlineEnter" },
+    opts = {},
+  },
+
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "ray-x/guihua.lua",
-      {
-        "ray-x/go.nvim",
-        event = { "BufReadPost", "BufNewFile", "BufWritePost" },
-        ft = { "go", "gomod" },
-        opts = { lsp_cfg = false },
+    },
+    opts = {
+      servers = {
+        gopls = {},
       },
     },
-    opts = function(_, opts)
-      opts.servers = vim.tbl_deep_extend("force", opts.servers, {
-        gopls = require("go.lsp").config(),
-      })
-    end,
   },
 
   {
@@ -54,5 +55,17 @@ return {
       "nvim-neotest/neotest-go",
     },
     opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-go") }) end,
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = function(_, opts)
+      require("pheloivim.utils").install_linter("golangci-lint")
+      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+        go = { "golangcilint" },
+        gomod = { "golangcilint" },
+        gowork = { "golangcilint" },
+      })
+    end,
   },
 }
