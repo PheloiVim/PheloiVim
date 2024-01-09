@@ -48,16 +48,14 @@ return {
         },
         lualine_x = {
           {
+            ---@diagnostic disable-next-line: undefined-field
             require("noice").api.status.mode.get,
+            ---@diagnostic disable-next-line: undefined-field
             cond = require("noice").api.status.mode.has,
           },
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-          },
-          {
-            require("lazy.status").updates,
-            cond = require("lazy.status").has_updates,
           },
           {
             "diff",
