@@ -30,6 +30,18 @@ return {
       if not lsnip_ok then return end
 
       return {
+        preselect = cmp.PreselectMode.None,
+        duplicates = {
+          nvim_lsp = 1,
+          luasnip = 1,
+          cmp_tabnine = 1,
+          buffer = 1,
+          path = 1,
+        },
+        window = {
+          completion = cmp.config.window.bordered({ border = "rounded" }),
+          documentation = cmp.config.window.bordered({ border = "rounded" }),
+        },
         completion = {
           completeopt = "menu,menuone,noinsert",
         },
