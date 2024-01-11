@@ -90,4 +90,17 @@ return {
     },
     opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-jest"), require("neotest-vitest") }) end,
   },
+
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      require("pheloivim.utils").install_package("prettier")
+      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+        javascript = { { "biome", "prettier" } },
+        javascriptreact = { { "biome", "prettier" } },
+        typescript = { { "biome", "prettier" } },
+        typescriptreact = { { "biome", "prettier" } },
+      })
+    end,
+  },
 }

@@ -12,4 +12,14 @@ return {
       },
     },
   },
+
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      require("pheloivim.utils").install_package("prettier")
+      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+        graphql = { "prettier" },
+      })
+    end,
+  },
 }

@@ -1,35 +1,21 @@
 return {
+  "b0o/SchemaStore.nvim",
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "yaml" }) end,
   },
 
   {
-    "b0o/SchemaStore.nvim",
-    opts = {},
-  },
-
-  {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
+    opts = function(_, opts)
+      opts.servers = vim.tbl_deep_extend("force", opts.servers, {
         yamlls = {
-          capabilities = {
-            textDocument = {
-              foldingRange = {
-                dynamicRegistration = false,
-                lineFoldingOnly = true,
-              },
-            },
-          },
-          on_new_config = function(new_config)
-            new_config.settings.yaml.schemas =
-              vim.tbl_deep_extend("force", new_config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
-          end,
           settings = {
             redhat = { telemetry = { enabled = false } },
             yaml = {
               keyOrdering = false,
+              schemas = require("schemastore").yaml.schemas(),
               format = {
                 enable = true,
               },
@@ -44,8 +30,8 @@ return {
             },
           },
         },
-      },
-    },
+      })
+    end,
   },
 
   {
@@ -54,6 +40,16 @@ return {
       require("pheloivim.utils").install_package("actionlint")
       opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
         yaml = { "actionlint" },
+      })
+    end,
+  },
+
+  {
+    "stevearc/conform.nvim",
+    opts = function(_, opts)
+      require("pheloivim.utils").install_package("prettier")
+      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+        yaml = { "prettier" },
       })
     end,
   },
