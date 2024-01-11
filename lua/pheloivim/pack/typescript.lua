@@ -81,4 +81,13 @@ return {
     event = "BufRead package.json",
     opts = {},
   },
+
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest",
+    },
+    opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-jest"), require("neotest-vitest") }) end,
+  },
 }

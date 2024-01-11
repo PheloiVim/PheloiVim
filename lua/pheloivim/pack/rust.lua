@@ -96,6 +96,7 @@ return {
       },
       setup = {
         rust_analyzer = function(opts)
+          require("pheloivim.utils").install_package("codelldb")
           vim.g.rustaceanvim = {
             server = vim.tbl_deep_extend("force", {}, opts),
           }
