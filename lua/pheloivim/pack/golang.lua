@@ -34,7 +34,7 @@ return {
     "stevearc/conform.nvim",
     opts = function(_, opts)
       for _, fmt in ipairs({ "goimports", "gofumpt" }) do
-        require("pheloivim.utils").install_formatter(fmt)
+        require("pheloivim.utils").install_package(fmt)
       end
 
       opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
@@ -58,7 +58,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
-      require("pheloivim.utils").install_linter("golangci-lint")
+      require("pheloivim.utils").install_package("golangci-lint")
       opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
         go = { "golangcilint" },
         gomod = { "golangcilint" },

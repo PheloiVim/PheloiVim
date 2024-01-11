@@ -10,37 +10,13 @@ local function resolve_package(package_name)
   end)
 end
 
-function M.install_formatter(formatter_package_name)
+function M.install_package(package_name)
   local p = require("mason-core.package")
-  local source, version = p.Parse(formatter_package_name)
+  local source, version = p.Parse(package_name)
 
   resolve_package(source):if_present(function(pkg)
     if not pkg:is_installed() then
-      vim.notify(("[pheloivim-mason] installing %s formatter"):format(pkg.name))
-      pkg:install({ version = version })
-    end
-  end)
-end
-
-function M.install_linter(linter_package_name)
-  local p = require("mason-core.package")
-  local source, version = p.Parse(linter_package_name)
-
-  resolve_package(source):if_present(function(pkg)
-    if not pkg:is_installed() then
-      vim.notify(("[pheloivim-mason] installing %s linter"):format(pkg.name))
-      pkg:install({ version = version })
-    end
-  end)
-end
-
-function M.install_dap(adapter_package_name)
-  local p = require("mason-core.package")
-  local source, version = p.Parse(adapter_package_name)
-
-  resolve_package(source):if_present(function(pkg)
-    if not pkg:is_installed() then
-      vim.notify(("[pheloivim-mason] installing %s adapter"):format(pkg.name))
+      vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name))
       pkg:install({ version = version })
     end
   end)

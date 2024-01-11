@@ -17,7 +17,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
-      require("pheloivim.utils").install_linter("hadolint")
+      require("pheloivim.utils").install_package("hadolint")
       opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
         dockerfile = { "hadolint" },
       })

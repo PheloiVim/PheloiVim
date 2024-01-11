@@ -31,7 +31,7 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      require("pheloivim.utils").install_formatter("stylua")
+      require("pheloivim.utils").install_package("stylua")
       opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
         lua = { "stylua" },
       })
@@ -41,7 +41,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
-      require("pheloivim.utils").install_linter("luacheck")
+      require("pheloivim.utils").install_package("luacheck")
       opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
         lua = { "luacheck" },
       })

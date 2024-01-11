@@ -7,7 +7,7 @@ return {
   {
     "stevearc/conform.nvim",
     opts = function(_, opts)
-      require("pheloivim.utils").install_formatter("csharpier")
+      require("pheloivim.utils").install_package("csharpier")
 
       opts.formatters_by_ft = {
         cs = { "csharpier" },
