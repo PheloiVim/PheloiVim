@@ -26,6 +26,7 @@ return {
       d = { name = " debug" },
       t = { name = "󰙨 test" },
       g = { name = "󰊢 git", h = "hunks", n = "neogit", d = "diff" },
+      p = { name = " packages" },
     },
   },
   config = function(_, opts)

@@ -1,5 +1,5 @@
 -- lazy.nvim
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>", { silent = true, noremap = true, desc = "lazy.nvim" })
+vim.keymap.set("n", "<leader>pl", "<cmd>Lazy<cr>", { silent = true, noremap = true, desc = "lazy.nvim" })
 
 -- better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
