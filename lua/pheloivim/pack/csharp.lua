@@ -1,18 +1,21 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "csharpier" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "c_sharp" }) end,
   },
 
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("csharpier")
-
-      opts.formatters_by_ft = {
+    opts = {
+      formatters_by_ft = {
         cs = { "csharpier" },
-      }
-    end,
+      },
+    },
   },
 
   {

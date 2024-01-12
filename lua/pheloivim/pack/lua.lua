@@ -1,5 +1,10 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "luacheck", "stylua" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "lua", "luadoc" }) end,
   },
@@ -30,21 +35,19 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("stylua")
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+    opts = {
+      formatters_by_ft = {
         lua = { "stylua" },
-      })
-    end,
+      },
+    },
   },
 
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("luacheck")
-      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+    opts = {
+      linters_by_ft = {
         lua = { "luacheck" },
-      })
-    end,
+      },
+    },
   },
 }

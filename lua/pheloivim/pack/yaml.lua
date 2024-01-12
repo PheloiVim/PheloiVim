@@ -2,6 +2,11 @@ return {
   "b0o/SchemaStore.nvim",
 
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "actionlint" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "yaml" }) end,
   },
@@ -36,21 +41,10 @@ return {
 
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("actionlint")
-      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+    opts = {
+      linters_by_ft = {
         yaml = { "actionlint" },
-      })
-    end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("prettier")
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
-        yaml = { "prettier" },
-      })
-    end,
+      },
+    },
   },
 }
