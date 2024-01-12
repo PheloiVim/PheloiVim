@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "shellcheck", "shfmt" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "shellcheck", "shfmt" }) end,
   },
 
   {
