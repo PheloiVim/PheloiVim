@@ -1,5 +1,10 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "js-debug-adapter" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "typescript", "tsx", "javascript", "jsdoc" }) end,
   },
@@ -8,27 +13,8 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        tsserver = {
-          settings = {
-            typescript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
-              },
-            },
-            javascript = {
-              format = {
-                indentSize = vim.o.shiftwidth,
-                convertTabsToSpaces = vim.o.expandtab,
-                tabSize = vim.o.tabstop,
-              },
-            },
-            completions = {
-              completeFunctionCalls = true,
-            },
-          },
-        },
+        tsserver = {},
+        denols = {},
       },
     },
   },
@@ -36,7 +22,6 @@ return {
   {
     "mfussenegger/nvim-dap",
     opts = function()
-      require("pheloivim.utils").install_package("js-debug-adapter")
       local dap = require("dap")
       if not dap.adapters["pwa-node"] then
         require("dap").adapters["pwa-node"] = {
@@ -89,18 +74,5 @@ return {
       "nvim-neotest/neotest-jest",
     },
     opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-jest"), require("neotest-vitest") }) end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("prettier")
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
-        javascript = { { "biome", "prettier" } },
-        javascriptreact = { { "biome", "prettier" } },
-        typescript = { { "biome", "prettier" } },
-        typescriptreact = { { "biome", "prettier" } },
-      })
-    end,
   },
 }

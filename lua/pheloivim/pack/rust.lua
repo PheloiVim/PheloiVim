@@ -1,10 +1,14 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "codelldb" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "rust", "toml" }) end,
   },
 
-  -- Extend auto completion
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -18,7 +22,6 @@ return {
         },
       },
     },
-    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
       opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
@@ -29,7 +32,7 @@ return {
 
   {
     "mrcjkb/rustaceanvim",
-    version = "^3", -- Recommended
+    version = "^3",
     ft = { "rust" },
   },
 
@@ -96,7 +99,6 @@ return {
       },
       setup = {
         rust_analyzer = function(opts)
-          require("pheloivim.utils").install_package("codelldb")
           vim.g.rustaceanvim = {
             server = vim.tbl_deep_extend("force", {}, opts),
           }

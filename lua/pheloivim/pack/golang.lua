@@ -1,5 +1,10 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "goimports", "gofumpt", "delve", "golangci-lint" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
@@ -32,21 +37,16 @@ return {
 
   {
     "stevearc/conform.nvim",
-    opts = function(_, opts)
-      for _, fmt in ipairs({ "goimports", "gofumpt" }) do
-        require("pheloivim.utils").install_package(fmt)
-      end
-
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
+    opts = {
+      formatters_by_ft = {
         go = { "goimports", "gofumpt" },
-      })
-    end,
+      },
+    },
   },
 
   {
     "mfussenegger/nvim-dap",
     dependencies = { "leoluz/nvim-dap-go", opts = {} },
-    opts = function() require("pheloivim.utils").install_package("delve") end,
   },
 
   {
@@ -57,13 +57,12 @@ return {
 
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("golangci-lint")
-      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+    opts = {
+      linters_by_ft = {
         go = { "golangcilint" },
         gomod = { "golangcilint" },
         gowork = { "golangcilint" },
-      })
-    end,
+      },
+    },
   },
 }

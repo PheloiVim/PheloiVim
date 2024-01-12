@@ -1,5 +1,10 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "hadolint" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "dockerfile" }) end,
   },
@@ -16,11 +21,10 @@ return {
 
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("hadolint")
-      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+    opts = {
+      linters_by_ft = {
         dockerfile = { "hadolint" },
-      })
-    end,
+      },
+    },
   },
 }

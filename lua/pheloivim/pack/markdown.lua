@@ -1,17 +1,21 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "markdownlint" }) end,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "markdown", "markdown_inline" }) end,
   },
 
   {
     "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("markdownlint")
-      opts.linters_by_ft = vim.tbl_deep_extend("force", opts.linters_by_ft, {
+    opts = {
+      linters_by_ft = {
         markdown = { "markdownlint" },
-      })
-    end,
+      },
+    },
   },
 
   {
@@ -46,16 +50,6 @@ return {
         require("headlines").setup(opts)
         require("headlines").refresh()
       end)
-    end,
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = function(_, opts)
-      require("pheloivim.utils").install_package("prettier")
-      opts.formatters_by_ft = vim.tbl_deep_extend("force", opts.formatters_by_ft, {
-        markdown = { "prettier" },
-      })
     end,
   },
 }
