@@ -1,19 +1,12 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "goimports", "gofumpt", "delve", "golangci-lint" }) end,
+    opts = function(_, opts) opts.ensure_installed = vim.list_extend(opts.ensure_installed, { "delve", "golangci-lint" }) end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "go",
-        "gomod",
-        "gowork",
-        "gosum",
-      })
-    end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "go", "gomod", "gowork", "gosum" }) end,
   },
 
   {
@@ -21,25 +14,15 @@ return {
     ft = { "go", "gomod" },
     event = { "CmdlineEnter" },
     opts = {},
+    build = function() require("go.install").update_all_sync() end,
   },
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "ray-x/guihua.lua",
-    },
+    dependencies = "ray-x/guihua.lua",
     opts = {
       servers = {
         gopls = {},
-      },
-    },
-  },
-
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        go = { "goimports", "gofumpt" },
       },
     },
   },
