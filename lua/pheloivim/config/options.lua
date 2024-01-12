@@ -1,3 +1,6 @@
+--- ### Options
+---@module "pheloivim.config.options"
+
 local config = {
   opt = {
     backup = false,
@@ -19,10 +22,12 @@ local config = {
     fileencoding = "utf-8",
     wrap = false,
     virtualedit = "block",
-    updatetime = 300,
+    updatetime = 100,
     undofile = true,
+    redrawtime = 1500,
     title = true,
-    timeoutlen = 500,
+    timeoutlen = 200,
+    ttimeoutlen = 10,
     tabstop = 2,
     splitbelow = true,
     list = true,

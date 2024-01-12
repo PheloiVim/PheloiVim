@@ -18,13 +18,12 @@ return {
       },
       on_attach = function(bufnr)
         local gs = require("gitsigns")
-
         local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc }) end
-
-        map("n", "]h", gs.next_hunk, "Next Hunk")
-        map("n", "[h", gs.prev_hunk, "Prev Hunk")
-        map({ "n", "v" }, "<leader>ghs", "<cmd>Gitsigns stage_hunk<CR>", "Stage Hunk")
-        map({ "n", "v" }, "<leader>ghr", "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk")
+        map("n", "]h", gs.next_hunk, "Next hunk")
+        map("n", "[h", gs.prev_hunk, "Prev hunk")
+        map("n", "<leader>ghb", function() gs.blameline({ full = true }) end, "Blame line")
+        map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Stage hunk")
+        map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset hunk")
         map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
         map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
         map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")

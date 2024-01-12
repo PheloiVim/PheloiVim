@@ -3,14 +3,11 @@ return {
   cmd = "NvimTreeToggle",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "nvim-tree" },
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle explorer" },
   },
   init = function()
-    if vim.fn.argc(-1) == 1 then
-      ---@diagnostic disable-next-line: param-type-mismatch
-      local stat = vim.loop.fs_stat(vim.fn.argv(0))
-      if stat and stat.type == "directory" then require("nvim-tree") end
-    end
+    local stat = vim.loop.fs_stat(vim.api.nvim_buf_get_name(0))
+    if stat and stat.type == "directory" then require("nvim-tree") end
   end,
   opts = {
     disable_netrw = true,

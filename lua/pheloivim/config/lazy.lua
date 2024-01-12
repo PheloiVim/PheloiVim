@@ -1,7 +1,10 @@
+--- ### `lazy.nvim` config
+---@module "pheloivim.config.lazy"
+
 require("lazy").setup({
   spec = {
-    { import = "pheloivim.plugins" },
-    { import = "pheloivim.pack" },
+    { import = "pheloivim.plugins" }, -- import default plugins
+    { import = "pheloivim.pack" }, -- import extra config (language, tools)
   },
   ui = {
     icons = {
@@ -10,7 +13,7 @@ require("lazy").setup({
     },
   },
   defaults = {
-    lazy = true,
+    lazy = true, -- lazy load all plugins
     version = false, -- always use the latest git commit
   },
   install = { colorscheme = { "tokyonight" } },
