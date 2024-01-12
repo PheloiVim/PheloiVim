@@ -46,7 +46,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = { "leoluz/nvim-dap-go", opts = {} },
-    opts = function() require("pheloivim.utils").install_dap("delve") end,
+    opts = function() require("pheloivim.utils").install_package("delve") end,
   },
 
   {

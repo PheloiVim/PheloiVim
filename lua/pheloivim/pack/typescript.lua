@@ -36,7 +36,7 @@ return {
   {
     "mfussenegger/nvim-dap",
     opts = function()
-      require("pheloivim.utils").install_dap("js-debug-adapter")
+      require("pheloivim.utils").install_package("js-debug-adapter")
       local dap = require("dap")
       if not dap.adapters["pwa-node"] then
         require("dap").adapters["pwa-node"] = {
