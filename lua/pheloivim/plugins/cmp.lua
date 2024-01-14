@@ -8,10 +8,6 @@ return {
       delete_check_events = "TextChanged",
       region_check_events = "CursorMoved",
     },
-    config = function(_, opts)
-      require("luasnip").config.setup(opts)
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
   },
 
   {
@@ -28,6 +24,8 @@ return {
       local cmp = require("cmp")
       local lsnip_ok, luasnip = pcall(require, "luasnip")
       if not lsnip_ok then return end
+      local lspkind_ok, lspkind = pcall(require, "lspkind")
+      require("luasnip.loaders.from_vscode").lazy_load()
 
       return {
         preselect = cmp.PreselectMode.None,
@@ -64,16 +62,11 @@ return {
           { name = "path", priority = 250 },
         }),
         formatting = {
-          format = function(_, item)
-            local icons = require("pheloivim.icons").kinds
-            if icons[item.kind] then item.kind = icons[item.kind] .. item.kind end
-            return item
-          end,
+          fields = { "abbr", "menu", "kind" },
+          format = lspkind_ok and lspkind.cmp_format(),
         },
         experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
+          ghost_text = true,
         },
       }
     end,

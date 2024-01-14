@@ -3,7 +3,6 @@ return {
   event = "VeryLazy",
   dependencies = "nvim-tree/nvim-web-devicons",
   opts = function()
-    local icons = require("pheloivim.icons").diagnostics
     return {
       options = {
         icons_enabled = true,
@@ -26,13 +25,22 @@ return {
         },
         lualine_c = {
           {
-            "diagnostics",
+            "diff",
             symbols = {
-              error = icons.Error,
-              warn = icons.Warn,
-              info = icons.Info,
-              hint = icons.Hint,
+              added = require("pheloivim.icons").git.added,
+              modified = require("pheloivim.icons").git.modified,
+              removed = require("pheloivim.icons").git.removed,
             },
+            source = function()
+              local gitsigns = vim.b.gitsigns_status_dict
+              if gitsigns then
+                return {
+                  added = gitsigns.added,
+                  modified = gitsigns.changed,
+                  removed = gitsigns.removed,
+                }
+              end
+            end,
           },
           { "filetype", icon_only = true, padding = { left = 1, right = 0 } },
           {
@@ -47,34 +55,22 @@ return {
           },
         },
         lualine_x = {
-          {
-            ---@diagnostic disable-next-line: undefined-field
-            require("noice").api.status.mode.get,
-            ---@diagnostic disable-next-line: undefined-field
-            cond = require("noice").api.status.mode.has,
-          },
+          -- {
+          --   require("noice").api.status.mode.get,
+          --   cond = require("noice").api.status.mode.has,
+          -- },
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
           },
           {
-            "diff",
+            "diagnostics",
             symbols = {
-              added = require("pheloivim.icons").git.added,
-              modified = require("pheloivim.icons").git.modified,
-              removed = require("pheloivim.icons").git.removed,
+              error = "● ",
+              warn = "● ",
+              info = "● ",
+              hint = "● ",
             },
-            source = function()
-              ---@diagnostic disable-next-line: undefined-field
-              local gitsigns = vim.b.gitsigns_status_dict
-              if gitsigns then
-                return {
-                  added = gitsigns.added,
-                  modified = gitsigns.changed,
-                  removed = gitsigns.removed,
-                }
-              end
-            end,
           },
         },
         lualine_y = {

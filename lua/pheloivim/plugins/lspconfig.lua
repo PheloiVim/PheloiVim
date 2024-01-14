@@ -4,7 +4,6 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePost" },
     dependencies = {
       "williamboman/mason.nvim",
-      "ray-x/lsp_signature.nvim",
       { "williamboman/mason-lspconfig.nvim", cmd = { "LspInstall", "LspUninstall" }, opts = {} },
     },
     opts = {
@@ -20,16 +19,33 @@ return {
         },
       },
       servers = {},
-      -- you can do any additional lsp server setup here
-      -- return true if you don't want this server to be setup with lspconfig
-      ---@type table<string, fun(server:string, opts:_.lspconfig.options):boolean?>
       setup = {},
+      capabilities = {
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = true,
+              resolveSupport = {
+                properties = { "documentation", "detail", "additionalTextEdits" },
+              },
+              documentationFormat = { "markdown", "plaintext" },
+              preselectSupport = true,
+              insertReplaceSupport = true,
+              labelDetailsSupport = true,
+              deprecatedSupport = true,
+              commitCharactersSupport = true,
+              tagSupport = { valueSet = { 1 } },
+            },
+          },
+        },
+      },
     },
     config = function(_, opts)
-      for name, icon in pairs(require("pheloivim.icons").diagnostics) do
+      for _, name in ipairs({ "Error", "Warn", "Hint", "Info" }) do
         name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+        vim.fn.sign_define(name, { text = " ", texthl = name, numhl = "" })
       end
+
       vim.diagnostic.config(opts.diagnostics)
       require("lspconfig.ui.windows").default_options.border = "rounded"
 
@@ -43,7 +59,6 @@ return {
       )
 
       local function setup(server)
-        -- Setup keymaps
         local function load_mapping(map_table, bufnr)
           for mode, keymaps in pairs(map_table) do
             for key, keymap_opts in pairs(keymaps) do
@@ -71,15 +86,7 @@ return {
 
         local server_opts = vim.tbl_deep_extend("force", {
           capabilities = capabilities,
-          on_attach = function(_, bufnr)
-            load_mapping(mapping, bufnr)
-            require("lsp_signature").on_attach({
-              bind = true,
-              handler_opts = {
-                border = "rounded",
-              },
-            }, bufnr)
-          end,
+          on_attach = function(_, bufnr) load_mapping(mapping, bufnr) end,
         }, opts.servers[server] or {})
 
         if opts.setup[server] then
@@ -90,7 +97,6 @@ return {
       end
 
       local ensure_installed = {} ---@type string[]
-      -- Setup server
       for server, _ in pairs(opts.servers) do
         vim.list_extend(ensure_installed, { server })
         setup(server)
