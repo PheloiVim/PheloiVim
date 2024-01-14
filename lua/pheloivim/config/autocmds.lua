@@ -52,6 +52,7 @@ autocmd("FileType", {
       silent = true,
       nowait = true,
     })
+    vim.opt_local.buflisted = false
   end,
 })
 
