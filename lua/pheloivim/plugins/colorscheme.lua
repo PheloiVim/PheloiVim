@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     ---@type "tokyonight" | "catppuccin" | "nightfox" | "duskfox"
-    local theme = "tokyonight"
+    local theme = "nightfox"
     vim.cmd.colorscheme(theme)
   end,
 })
@@ -10,7 +10,7 @@ return {
   {
     "folke/tokyonight.nvim",
     name = "tokyonight",
-    lazy = false,
+    lazy = true,
     opts = {
       ---@type "storm" | "moon" | "night" | "day"
       style = "moon",
@@ -65,7 +65,7 @@ return {
   {
     "EdenEast/nightfox.nvim",
     name = "nightfox",
-    lazy = true,
+    lazy = false,
     opts = {},
   },
 }

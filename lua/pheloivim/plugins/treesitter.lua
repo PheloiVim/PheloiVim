@@ -94,6 +94,7 @@ return {
         added[lang] = true
         return true
       end, opts.ensure_installed)
+      require("nvim-treesitter.install").compilers = { "clang" }
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
