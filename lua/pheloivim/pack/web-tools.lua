@@ -29,6 +29,7 @@ return {
         typescript = { { "biome", "prettier" } },
         typescriptreact = { { "biome", "prettier" } },
         markdown = { "prettier" },
+        vue = { "prettier" },
         yaml = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },

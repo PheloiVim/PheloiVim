@@ -86,7 +86,12 @@ return {
 
         local server_opts = vim.tbl_deep_extend("force", {
           capabilities = capabilities,
-          on_attach = function(_, bufnr) load_mapping(mapping, bufnr) end,
+          on_attach = function(client, bufnr)
+            if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
+              if client.name == "tsserver" then client.stop() end
+            end
+            load_mapping(mapping, bufnr)
+          end,
         }, opts.servers[server] or {})
 
         if opts.setup[server] then
