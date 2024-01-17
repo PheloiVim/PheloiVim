@@ -1,8 +1,8 @@
 <h1 align="center">PheloiVim</h1>
 
 <div align="center"><p>
-    <a href="https://github.com/neovim/neovim/releases/latest">
-      <img alt="Latest release" src="https://img.shields.io/github/v/release/2giosangmitom/PheloiVim?style=for-the-badge&logo=neovim&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41&include_prerelease&sort=semver" />
+    <a href="https://github.com/neovim/neovim">
+      <img alt="Latest release" src="https://img.shields.io/github/v/release/neovim/neovim?style=for-the-badge&logo=neovim&color=C9CBFF&logoColor=57A143&labelColor=302D41&include_prerelease&sort=semver" />
     </a>
     <a href="https://github.com/2giosangmitom/PheloiVim/pulse">
       <img alt="Last commit" src="https://img.shields.io/github/last-commit/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41"/>
