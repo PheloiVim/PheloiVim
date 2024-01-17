@@ -75,6 +75,9 @@ return {
             ["K"] = { cmd = "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
             ["<leader>cr"] = { cmd = "<cmd>Lspsaga rename<cr>", desc = "Rename" },
             ["<leader>cl"] = { cmd = "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+            ["]d"] = { cmd = "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next diagnostic" },
+            ["[d"] = { cmd = "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "Previous diagnostic" },
+            ["<leader>co"] = { cmd = "<cmd>Lspsaga outline<cr>", desc = "Code outline" },
           },
         }
 
