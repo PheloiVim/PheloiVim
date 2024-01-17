@@ -6,16 +6,20 @@
 
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system}; in {
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+        packages = with pkgs; [
+          stylua
+          nodejs_21
+          rustc
+          cargo
+          dotnet-sdk_8
+          go
+        ];
+      in
+      {
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            stylua
-            nodejs_21
-            rustc
-            cargo
-            dotnet-sdk_8
-            go
-          ];
+          buildInputs = packages;
         };
         formatter = pkgs.nixpkgs-fmt;
       }
