@@ -22,7 +22,7 @@ return {
       local registry = require("mason-registry")
       local Optional = require("mason-core.optional")
       local p = require("mason-core.package")
-      local source, version = p.Parse(package_name)
+      local source = p.Parse(package_name)
 
       Optional.of_nilable(source)
         :map(function(source_name)
@@ -31,20 +31,15 @@ return {
         end)
         :if_present(function(pkg)
           if not pkg:is_installed() then
-            vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name))
-            pkg
-              :install({
-                version = version,
-              })
-              :once(
-                "closed",
-                vim.schedule_wrap(function()
-                  if pkg:is_installed() then vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name)) end
-                end)
-              )
+            vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name), vim.log.levels.INFO)
+            pkg:install():once(
+              "closed",
+              vim.schedule_wrap(function()
+                if pkg:is_installed() then vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name), vim.log.levels.INFO) end
+              end)
+            )
           end
         end)
-        :or_else(function(pkg) vim.notify(("[pheloivim-mason] %s is not exist"):format(pkg.name)) end)
     end
 
     local added = {}
