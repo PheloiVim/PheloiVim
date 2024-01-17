@@ -42,3 +42,4 @@ This repository hosts my **Neovim** configuration for Linux. It's a minimal conf
 # Screenshots
 
 ![dashboard](./screenshots/dashboard.png)
+![lazy](./screenshots/lazy.png)
