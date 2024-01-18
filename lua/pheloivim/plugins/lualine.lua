@@ -55,10 +55,10 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   require("noice").api.status.mode.get,
-          --   cond = require("noice").api.status.mode.has,
-          -- },
+          {
+            require("noice").api.status.mode.get,
+            cond = require("noice").api.status.mode.has,
+          },
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
