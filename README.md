@@ -30,14 +30,11 @@ This repository hosts my **Neovim** configuration for Linux. It's a minimal conf
 
 ## ⚡️ Requirements
 
-- Neovim
-- A Nerd font
 - Git
-- GCC
-- XClip (X11) or wl-clipboar (Wayland) for system clipboard support on Linux
+- GCC, Clang
+- XClip (X11) or wl-clipboar (Wayland) for system clipboard support
 - Nerd font
-- [fd](https://github.com/sharkdp/fd)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- Other tools: node, npm, unzip, go, wget, curl, ripgrep, fd
 
 # Screenshots
 
