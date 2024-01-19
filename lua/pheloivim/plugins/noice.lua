@@ -25,6 +25,9 @@ return {
     },
     opts = {
       lsp = {
+        hover = {
+          enabled = false,
+        },
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
@@ -34,7 +37,7 @@ return {
           enabled = false,
         },
         signature = {
-          enabled = true,
+          enabled = false,
         },
         message = {
           enabled = true,
@@ -60,6 +63,11 @@ return {
         long_message_to_split = true,
         inc_rename = false,
         lsp_doc_border = true,
+      },
+      views = {
+        notify = {
+          merge = true,
+        },
       },
     },
     keys = {

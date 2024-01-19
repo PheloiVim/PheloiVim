@@ -4,6 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePost" },
     dependencies = {
       "williamboman/mason.nvim",
+      { "ray-x/lsp_signature.nvim", opts = {} },
       { "williamboman/mason-lspconfig.nvim", cmd = { "LspInstall", "LspUninstall" }, opts = {} },
     },
     opts = {
