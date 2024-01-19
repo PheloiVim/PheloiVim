@@ -31,7 +31,11 @@ return {
     },
     build = ":TSUpdate",
     opts = {
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+        disable = function(_, bufnr) return vim.b[bufnr].large_buf end,
+      },
       autotag = { enable = true },
       incremental_selection = {
         enable = true,
@@ -102,7 +106,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    enabled = true,
     opts = { mode = "cursor", max_lines = 3 },
   },
 }
