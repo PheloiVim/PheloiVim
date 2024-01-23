@@ -42,6 +42,15 @@ return {
         max = vim.diagnostic.severity.ERROR,
       },
     },
+    git = {
+      enable = true,
+      ignore = false,
+      timeout = 500,
+    },
+    filters = {
+      dotfiles = false,
+      custom = { "^.git$" },
+    },
     on_attach = function(bufnr)
       local api = require("nvim-tree.api")
       api.config.mappings.default_on_attach(bufnr)

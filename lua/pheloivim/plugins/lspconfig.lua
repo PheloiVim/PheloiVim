@@ -11,12 +11,19 @@ return {
       diagnostics = {
         underline = true,
         update_in_insert = true,
-        signs = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = require("pheloivim.icons").diagnostics.Error,
+            [vim.diagnostic.severity.WARN] = require("pheloivim.icons").diagnostics.Warn,
+            [vim.diagnostic.severity.HINT] = require("pheloivim.icons").diagnostics.Hint,
+            [vim.diagnostic.severity.INFO] = require("pheloivim.icons").diagnostics.Info,
+          },
+        },
         severity_sort = true,
         virtual_text = {
           spacing = 4,
           source = "if_many",
-          prefix = "●",
+          prefix = "",
         },
       },
       servers = {},
@@ -42,9 +49,9 @@ return {
       },
     },
     config = function(_, opts)
-      for _, name in ipairs({ "Error", "Warn", "Hint", "Info" }) do
+      for name, icon in pairs(require("pheloivim.icons").diagnostics) do
         name = "DiagnosticSign" .. name
-        vim.fn.sign_define(name, { text = " ", texthl = name, numhl = "" })
+        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
 
       vim.diagnostic.config(opts.diagnostics)
@@ -93,6 +100,10 @@ return {
           on_attach = function(client, bufnr)
             if require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd()) then
               if client.name == "tsserver" then client.stop() end
+            end
+
+            if require("lspconfig").util.root_pattern("package.json")(vim.fn.getcwd()) then
+              if client.name == "denols" then client.stop() end
             end
             load_mapping(mapping, bufnr)
           end,

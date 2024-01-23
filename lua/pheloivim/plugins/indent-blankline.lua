@@ -4,7 +4,7 @@ return {
   main = "ibl",
   opts = {
     indent = { char = "▏" },
-    scope = { show_start = false, show_end = false },
+    scope = { enabled = false },
     exclude = {
       buftypes = {
         "nofile",
@@ -17,6 +17,8 @@ return {
         "neogitstatus",
         "NvimTree",
         "Trouble",
+        "toggleterm",
+        "mason",
       },
     },
   },
