@@ -2,11 +2,6 @@ return {
   "b0o/SchemaStore.nvim",
 
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "actionlint" }) end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "yaml" }) end,
   },
@@ -37,14 +32,5 @@ return {
         },
       })
     end,
-  },
-
-  {
-    "mfussenegger/nvim-lint",
-    opts = {
-      linters_by_ft = {
-        yaml = { "actionlint" },
-      },
-    },
   },
 }
