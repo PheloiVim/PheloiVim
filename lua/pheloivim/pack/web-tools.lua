@@ -31,6 +31,7 @@ return {
         markdown = { "prettier" },
         vue = { "prettier" },
         yaml = { "prettier" },
+        astro = { "prettier" },
         css = { "prettier" },
         scss = { "prettier" },
         html = { "prettier" },
