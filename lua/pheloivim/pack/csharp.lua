@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "csharpier" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format" }) end,
   },
 
   {
@@ -13,7 +13,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        cs = { "csharpier" },
+        cs = { "clang_format" },
       },
     },
   },
