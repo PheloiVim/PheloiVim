@@ -52,7 +52,6 @@ return {
           keys = {
             n = {
               ["K"] = { cmd = "<cmd>RustLsp hover actions<cr>", desc = "Rust hover" },
-              ["<leader>cR"] = { cmd = function() vim.cmd.RustLsp("codeAction") end, desc = "Code Action (Rust)" },
               ["<leader>dr"] = { cmd = function() vim.cmd.RustLsp("debuggables") end, desc = "Run Debuggables (Rust)" },
             },
           },

@@ -129,7 +129,7 @@ return {
 
   {
     "nvimdev/lspsaga.nvim",
-    event = { "LspAttach", "VeryLazy" },
+    event = "LspAttach",
     opts = {
       ui = {
         code_action = "",
@@ -151,6 +151,12 @@ return {
   {
     "piersolenski/wtf.nvim",
     cmd = { "WtfSearch", "Wtf" },
+    opts = {},
+  },
+
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
     opts = {},
   },
 }

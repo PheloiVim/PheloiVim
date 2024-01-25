@@ -1,4 +1,6 @@
 return {
+  "Hoffs/omnisharp-extended-lsp.nvim",
+
   {
     "williamboman/mason.nvim",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format" }) end,
@@ -20,7 +22,6 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = "Hoffs/omnisharp-extended-lsp.nvim",
     opts = {
       servers = {
         omnisharp = {

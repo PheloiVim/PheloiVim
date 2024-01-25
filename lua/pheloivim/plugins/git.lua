@@ -35,7 +35,6 @@ return {
   {
     "NeogitOrg/neogit",
     cmd = "Neogit",
-    ft = { "diff" },
     keys = {
       { "<leader>gnt", "<cmd>Neogit<cr>", desc = "Open Neogit Tab Page" },
       { "<leader>gnc", "<cmd>Neogit commit<cr>", desc = "Open Neogit Commit Page" },

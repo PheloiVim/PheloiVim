@@ -6,7 +6,7 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "c", "cpp", "cmake" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "cpp", "c", "objc", "cuda", "proto", "cmake" }) end,
   },
 
   {

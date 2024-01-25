@@ -75,9 +75,3 @@ autocmd("BufWritePre", {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
-
-autocmd("WinScrolled", {
-  desc = "Refresh indent blankline on window scroll",
-  group = augroup("indent_blankline_refresh_scroll", { clear = true }),
-  callback = function() pcall(vim.cmd.IndentBlanklineRefresh) end,
-})
