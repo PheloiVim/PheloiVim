@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
-  keys = "<leader>",
+  keys = { "<leader>", "z", "d", "c", "v", "g", "]", "[", "y" },
   opts = {
     plugins = {
       marks = false,

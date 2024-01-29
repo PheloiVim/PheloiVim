@@ -39,9 +39,6 @@ map("i", ";", ";<c-g>u")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- Toggle options
-map("n", "<leader>ul", "<cmd>set rnu!<cr>", { desc = "Toggle relative line numbers" })
-
 -- Windows
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
 map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })

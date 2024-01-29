@@ -14,6 +14,11 @@ return {
     opts = {
       servers = {
         tsserver = {
+          settings = {
+            completions = {
+              completeFunctionCalls = true,
+            },
+          },
           root_dir = require("lspconfig.util").root_pattern("package.json", "tsconfig.json"),
         },
         denols = {
