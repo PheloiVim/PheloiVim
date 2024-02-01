@@ -1,3 +1,16 @@
+local function getFmt()
+  local biome = vim.fs.find({ "biome.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+  local prettier = vim.fs.find({ ".prettierignore", ".prettierrc" }, { upward = true })[1]
+
+  if biome then
+    return { "biome" }
+  elseif prettier then
+    return { "prettier" }
+  else
+    return { { "biome", "prettier" } }
+  end
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -22,12 +35,12 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        json = { { "biome", "prettier" } },
-        jsonc = { { "biome", "prettier" } },
-        javascript = { { "biome", "prettier" } },
-        javascriptreact = { { "biome", "prettier" } },
-        typescript = { { "biome", "prettier" } },
-        typescriptreact = { { "biome", "prettier" } },
+        json = getFmt(),
+        jsonc = getFmt(),
+        javascript = getFmt(),
+        javascriptreact = getFmt(),
+        typescript = getFmt(),
+        typescriptreact = getFmt(),
         markdown = { "prettier" },
         vue = { "prettier" },
         yaml = { "prettier" },
