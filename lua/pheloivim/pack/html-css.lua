@@ -10,7 +10,6 @@ return {
       servers = {
         html = {},
         cssls = {},
-        emmet_ls = {},
       },
     },
   },
