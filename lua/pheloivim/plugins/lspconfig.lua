@@ -115,6 +115,13 @@ return {
 
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
       if have_mason then mlsp.setup({ ensure_installed = ensure_installed }) end
+
+      local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
+      local configs = require("lspconfig.configs")
+      local def = rawget(configs, "tsserver")
+      def.document_config.on_new_config = require("lspconfig.util").add_hook_before(def.document_config.on_new_config, function(config)
+        if is_deno then config.enabled = false end
+      end)
     end,
   },
 
