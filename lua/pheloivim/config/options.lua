@@ -1,6 +1,3 @@
---- ### Options
----@module "pheloivim.config.options"
-
 local config = {
   opt = {
     backup = false,

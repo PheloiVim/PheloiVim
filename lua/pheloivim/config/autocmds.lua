@@ -1,6 +1,3 @@
---- ### Auto commands
----@module "pheloivim.config.autocmds"
-
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 

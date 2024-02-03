@@ -1,6 +1,3 @@
---- ### `lazy.nvim` config
----@module "pheloivim.config.lazy"
-
 require("lazy").setup({
   spec = {
     { import = "pheloivim.plugins" }, -- import default plugins

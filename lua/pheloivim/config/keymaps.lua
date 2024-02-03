@@ -1,6 +1,3 @@
---- ### Keymaps
----@module "pheloivim.config.keymaps"
-
 local map = vim.keymap.set
 
 -- lazy.nvim
