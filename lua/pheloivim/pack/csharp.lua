@@ -3,7 +3,7 @@ return {
 
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format", "netcoredbg" }) end,
   },
 
   {
@@ -45,5 +45,19 @@ return {
     "nvim-neotest/neotest",
     dependencies = "Issafalcon/neotest-dotnet",
     opts = function(_, opts) vim.list_extend(opts.adapters, { require("neotest-dotnet") }) end,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    opts = function()
+      local dap = require("dap")
+      if not dap.adapters["netcoredbg"] then
+        require("dap").adapters["netcoredbg"] = {
+          type = "executable",
+          command = require("mason-registry").get_package("netcoredbg"):get_install_path() .. "/netcoredbg",
+          args = { "--interpreter=vscode" },
+        }
+      end
+    end,
   },
 }
