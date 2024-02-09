@@ -8,6 +8,7 @@ return {
       delete_check_events = "TextChanged",
       region_check_events = "CursorMoved",
     },
+    config = function(_, opts) require("luasnip").config.setup(opts) end,
   },
 
   {

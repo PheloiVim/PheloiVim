@@ -58,6 +58,18 @@ return {
           args = { "--interpreter=vscode" },
         }
       end
+      for _, language in ipairs({ "cs", "fsharp", "vb" }) do
+        if not dap.configurations[language] then
+          dap.configurations[language] = {
+            {
+              type = "coreclr",
+              name = "launch - netcoredbg",
+              request = "launch",
+              program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file") end,
+            },
+          }
+        end
+      end
     end,
   },
 }
