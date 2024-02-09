@@ -65,11 +65,22 @@ return {
               type = "coreclr",
               name = "launch - netcoredbg",
               request = "launch",
+              ---@diagnostic disable-next-line: redundant-parameter
               program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file") end,
             },
           }
         end
       end
     end,
+  },
+
+  {
+    "iabdelkareem/csharp.nvim",
+    ft = "cs",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "Tastyep/structlog.nvim",
+    },
+    opts = {},
   },
 }
