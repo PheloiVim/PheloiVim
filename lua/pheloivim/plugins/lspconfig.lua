@@ -185,7 +185,7 @@ return {
   },
 
   {
-    "lewis6991/hover.nvim", -- See (#45)
+    "lewis6991/hover.nvim",
     event = "LspAttach",
     opts = {
       init = function()
