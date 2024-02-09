@@ -31,6 +31,7 @@ local config = {
     splitright = true,
     splitkeep = "screen",
     spelllang = { "en" },
+    spell = true,
     smartcase = true,
     smartindent = true,
     sidescrolloff = 8,

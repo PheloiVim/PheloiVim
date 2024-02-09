@@ -53,16 +53,6 @@ autocmd("FileType", {
   end,
 })
 
-autocmd("FileType", {
-  desc = "Wrap and check for spell in text filetypes",
-  group = augroup("wrap_spell", { clear = true }),
-  pattern = { "gitcommit", "markdown" },
-  callback = function()
-    vim.opt_local.wrap = true
-    vim.opt_local.spell = true
-  end,
-})
-
 autocmd("BufWritePre", {
   desc = "Auto create dir when saving a file, in case some intermediate directory does not exist",
   group = augroup("auto_create_dir", { clear = true }),

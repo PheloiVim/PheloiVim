@@ -62,8 +62,8 @@ return {
         if not dap.configurations[language] then
           dap.configurations[language] = {
             {
-              type = "coreclr",
-              name = "launch - netcoredbg",
+              type = "netcoredbg",
+              name = "Launch file",
               request = "launch",
               ---@diagnostic disable-next-line: redundant-parameter
               program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file") end,

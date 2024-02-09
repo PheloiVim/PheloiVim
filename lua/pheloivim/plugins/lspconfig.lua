@@ -4,7 +4,15 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePost" },
     dependencies = {
       "williamboman/mason.nvim",
-      { "ray-x/lsp_signature.nvim", opts = {} },
+      {
+        "ray-x/lsp_signature.nvim",
+        opts = {
+          bind = true, -- This is mandatory, otherwise border config won't get registered.
+          handler_opts = {
+            border = "rounded",
+          },
+        },
+      },
       { "williamboman/mason-lspconfig.nvim", cmd = { "LspInstall", "LspUninstall" }, opts = {} },
     },
     opts = {
@@ -80,7 +88,7 @@ return {
             ["<leader>ca"] = { cmd = "<cmd>Lspsaga code_action<cr>", desc = "Code action" },
             ["<leader>cp"] = { cmd = "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
             ["gd"] = { cmd = "<cmd>Lspsaga peek_definition<cr>", desc = "Go to definition" },
-            ["K"] = { cmd = "<cmd>Lspsaga hover_doc<cr>", desc = "Hover" },
+            ["K"] = { cmd = require("hover").hover, desc = "Hover" },
             ["<leader>cr"] = { cmd = "<cmd>Lspsaga rename<cr>", desc = "Rename" },
             ["<leader>cl"] = { cmd = "<cmd>LspInfo<cr>", desc = "Lsp Info" },
             ["]d"] = { cmd = "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "Next diagnostic" },
@@ -166,5 +174,31 @@ return {
     "j-hui/fidget.nvim",
     event = "LspAttach",
     opts = {},
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = {
+      sources = {},
+    },
+  },
+
+  {
+    "lewis6991/hover.nvim", -- See (#45)
+    event = "LspAttach",
+    opts = {
+      init = function()
+        require("hover.providers.lsp")
+        require("hover.providers.gh")
+        require("hover.providers.gh_user")
+        -- require('hover.providers.jira')
+        require("hover.providers.man")
+        require("hover.providers.dictionary")
+      end,
+      preview_opts = {
+        border = "rounded",
+      },
+    },
   },
 }
