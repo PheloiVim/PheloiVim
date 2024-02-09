@@ -52,4 +52,10 @@ return {
       end)
     end,
   },
+
+  {
+    "ellisonleao/glow.nvim",
+    cmd = "Glow",
+    opts = {},
+  },
 }

@@ -116,17 +116,22 @@ return {
       local have_mason, mlsp = pcall(require, "mason-lspconfig")
       if have_mason then mlsp.setup({ ensure_installed = ensure_installed }) end
 
-      local is_deno = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")
-      local is_node = require("lspconfig.util").root_pattern("package.json")
-      local function disable(server, condition)
+      -- Auto disable denols or tsserver
+      local is_deno = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+      local is_node = vim.fs.find({ "package.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+      local function disable(server)
         local configs = require("lspconfig.configs")
         local def = rawget(configs, server)
-        def.document_config.on_new_config = require("lspconfig.util").add_hook_before(def.document_config.on_new_config, function(config, root_dir)
-          if condition(root_dir, config) then config.enabled = false end
-        end)
+        def.document_config.on_new_config = require("lspconfig.util").add_hook_before(
+          def.document_config.on_new_config,
+          function(config) config.enabled = false end
+        )
       end
-      disable("tsserver", is_deno)
-      disable("denols", is_node)
+      if is_deno then
+        disable("tsserver")
+      elseif is_node then
+        disable("denols")
+      end
     end,
   },
 
