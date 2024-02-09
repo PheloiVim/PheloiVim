@@ -1,9 +1,60 @@
+---@param config {args?:string[]|fun():string[]?}
+local function get_args(config)
+  local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
+  config = vim.deepcopy(config)
+  ---@cast args string[]
+  config.args = function()
+    local new_args = vim.fn.input("Run with args: ", table.concat(args, " ")) --[[@as string]]
+    return vim.split(vim.fn.expand(new_args) --[[@as string]], " ")
+  end
+  return config
+end
+
 return {
   "mfussenegger/nvim-dap",
+  dependencies = {
+    {
+      "rcarriga/nvim-dap-ui",
+      keys = {
+        { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
+        { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = { "n", "v" } },
+      },
+      opts = {},
+      config = function(_, opts)
+        -- setup dap config by VsCode launch.json file
+        -- require("dap.ext.vscode").load_launchjs()
+        local dap = require("dap")
+        local dapui = require("dapui")
+        dapui.setup(opts)
+        dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}) end
+        dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
+        dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
+      end,
+    },
+
+    -- virtual text for the debugger
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      opts = {},
+    },
+
+    -- mason.nvim integration
+    {
+      "jay-babu/mason-nvim-dap.nvim",
+      dependencies = "mason.nvim",
+      cmd = { "DapInstall", "DapUninstall" },
+      opts = {
+        automatic_installation = true,
+        handlers = {},
+        ensure_installed = {},
+      },
+    },
+  },
   keys = {
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Breakpoint Condition" },
     { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end, desc = "Continue" },
+    { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
     { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
     { "<leader>dg", function() require("dap").goto_() end, desc = "Go to line (no execute)" },
     { "<leader>di", function() require("dap").step_into() end, desc = "Step Into" },
@@ -18,88 +69,7 @@ return {
     { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
-  dependencies = {
-    {
-      "rcarriga/nvim-dap-ui",
-      keys = {
-        { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
-        { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = { "n", "v" } },
-      },
-      opts = {
-        auto_open = true,
-        icons = { expanded = "", collapsed = "", circular = "" },
-        config = {
-          mappings = {
-            expand = { "<CR>", "<2-LeftMouse>" },
-            open = "o",
-            remove = "d",
-            edit = "e",
-            repl = "r",
-            toggle = "t",
-          },
-          layouts = {
-            {
-              elements = {
-                { id = "scopes", size = 0.33 },
-                { id = "breakpoints", size = 0.17 },
-                { id = "stacks", size = 0.25 },
-                { id = "watches", size = 0.25 },
-              },
-              size = 0.33,
-              position = "right",
-            },
-            {
-              elements = {
-                { id = "repl", size = 0.45 },
-                { id = "console", size = 0.55 },
-              },
-              size = 0.27,
-              position = "bottom",
-            },
-          },
-          controls = {
-            enabled = true,
-            -- Display controls in this element
-            element = "repl",
-            icons = {
-              pause = "",
-              play = "",
-              step_into = "",
-              step_over = "",
-              step_out = "",
-              step_back = "",
-              run_last = "",
-              terminate = "",
-            },
-          },
-          floating = {
-            max_height = 0.9,
-            max_width = 0.5, -- Floats will be treated as percentage of your screen.
-            border = "rounded",
-            mappings = {
-              close = { "q", "<Esc>" },
-            },
-          },
-        },
-      },
-      config = function(_, opts)
-        local dap = require("dap")
-        local dapui = require("dapui")
-        dapui.setup(opts)
-        dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}) end
-        dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
-        dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
-      end,
-    },
-    {
-      "theHamsta/nvim-dap-virtual-text",
-      opts = {
-        commented = true,
-        enabled = true,
-        enabled_commands = true,
-      },
-    },
-  },
+
   config = function()
     local icons = require("pheloivim.icons")
     vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
