@@ -66,7 +66,8 @@ return {
               name = "Launch file",
               request = "launch",
               ---@diagnostic disable-next-line: redundant-parameter
-              program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/", "file") end,
+              program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file") end,
+              cwd = "${workspaceFolder}",
             },
           }
         end
