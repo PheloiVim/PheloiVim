@@ -73,6 +73,36 @@ return {
             color = { fg = "orange" },
           },
           { "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } },
+          {
+            function()
+              local linters = require("lint").get_running()
+              if #linters == 0 then return "󰦕 " end
+              return "󱉶 " .. table.concat(linters, ", ")
+            end,
+            color = { fg = "pink" },
+          },
+          {
+            function()
+              local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+              local formatters = require("conform").list_formatters(0)
+
+              local available_formatters = {}
+              for _, fmt in ipairs(formatters) do
+                if fmt.available then table.insert(available_formatters, fmt.name) end
+              end
+
+              local client_names = {}
+              for _, client in ipairs(clients) do
+                table.insert(client_names, client.name)
+              end
+
+              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ") or "No Active Client"
+              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ") or "No Active Formatter"
+
+              return "[" .. pretty_list_clients .. "]" .. "[" .. pretty_list_formatters .. "]"
+            end,
+            color = { fg = "pink" },
+          },
         },
         lualine_y = {
           { function() return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) end },
