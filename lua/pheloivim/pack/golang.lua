@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "delve", "golangci-lint" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "delve", "golangci-lint", "goimports", "gofumpt" }) end,
   },
 
   {
@@ -10,19 +10,48 @@ return {
   },
 
   {
-    "ray-x/go.nvim",
-    ft = { "go", "gomod" },
-    event = { "CmdlineEnter" },
-    opts = {},
-    build = function() require("go.install").update_all_sync() end,
-  },
-
-  {
     "neovim/nvim-lspconfig",
     dependencies = "ray-x/guihua.lua",
     opts = {
       servers = {
-        gopls = {},
+        gopls = {
+          keys = {
+            n = {
+              ["<leader>td"] = { cmd = function() require("dap-go").debug_test() end, desc = "Debug Nearest (Go)" },
+            },
+          },
+          gofumpt = true,
+          codelenses = {
+            gc_details = false,
+            generate = true,
+            regenerate_cgo = true,
+            run_govulncheck = true,
+            test = true,
+            tidy = true,
+            upgrade_dependency = true,
+            vendor = true,
+          },
+          hints = {
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            constantValues = true,
+            functionTypeParameters = true,
+            parameterNames = true,
+            rangeVariableTypes = true,
+          },
+          analyses = {
+            fieldalignment = true,
+            nilness = true,
+            unusedparams = true,
+            unusedwrite = true,
+            useany = true,
+          },
+          usePlaceholders = true,
+          completeUnimported = true,
+          staticcheck = true,
+          semanticTokens = true,
+        },
       },
     },
   },
@@ -45,6 +74,16 @@ return {
         go = { "golangcilint" },
         gomod = { "golangcilint" },
         gowork = { "golangcilint" },
+      },
+    },
+  },
+
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        go = { "goimports", "gofumpt" },
       },
     },
   },
