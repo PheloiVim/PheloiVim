@@ -2,8 +2,21 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   dependencies = "nvim-tree/nvim-web-devicons",
+  init = function()
+    vim.g.lualine_laststatus = vim.o.laststatus
+    if vim.fn.argc(-1) > 0 then
+      -- set an empty statusline till lualine loads
+      vim.o.statusline = " "
+    else
+      -- hide the statusline on the starter page
+      vim.o.laststatus = 0
+    end
+  end,
   opts = function()
     local icons = require("pheloivim.icons").diagnostics
+    vim.o.laststatus = vim.g.lualine_laststatus
+    local lualine_require = require("lualine_require")
+    lualine_require.require = require
 
     return {
       options = {
@@ -14,13 +27,21 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
-      extensions = { "quickfix", "lazy", "nvim-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man" },
+      extensions = { "quickfix", "lazy", "nvim-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man", "oil", "fugitive" },
       sections = {
-        lualine_a = { { "mode", fmt = function(mode) return " " .. mode end } },
-        lualine_b = {
-          { "branch", icon = require("pheloivim.icons").git.branch },
+        lualine_a = {
+          { "mode", fmt = function() return " " end },
         },
+        lualine_b = {},
         lualine_c = {
+          { "branch", icon = require("pheloivim.icons").git.branch, color = { fg = "pink" } },
+          { "filetype", icon_only = true, padding = { left = 1, right = 0 } },
+          {
+            function() return vim.fn.expand("%:~:.") end,
+            color = function()
+              if vim.bo.modified then return { fg = "orange" } end
+            end,
+          },
           {
             "diff",
             symbols = {
@@ -39,14 +60,17 @@ return {
               end
             end,
           },
-          { "filetype", icon_only = true, padding = { left = 1, right = 0 } },
-          { "filename", path = 1, symbols = { modified = "", readonly = "󰌾", unnamed = "[No Name]", newfile = "[New]" } },
         },
         lualine_x = {
-          { require("noice").api.status.mode.get, cond = require("noice").api.status.mode.has },
+          {
+            function() return require("noice").api.status.mode.get() end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+            color = { fg = "orange" },
+          },
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+            color = { fg = "orange" },
           },
           { "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } },
         },
@@ -56,6 +80,14 @@ return {
         lualine_z = {
           { "progress", fmt = function() return "%P/%L" end },
         },
+      },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
     }
   end,
