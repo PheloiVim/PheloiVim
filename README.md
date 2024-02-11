@@ -1,15 +1,15 @@
-# PheloiVim - Neovim Configuration
+# PheloiVim - Neovim Configuration 🍻
 
 [![GitHub stars](https://img.shields.io/github/stars/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/2giosangmitom/PheloiVim.svg?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/network)
+[![GitHub forks](https://img.shields.io/github/forks/2giosangmitom/PheloiVim.svg?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/forks)
 [![GitHub license](https://img.shields.io/github/license/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/blob/master/LICENSE)
 [![Github issues](https://img.shields.io/github/issues/2giosangmitom/PheloiVim?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/issues)
-[![Github last commit](https://img.shields.io/github/last-commit/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/commits/master/)
+[![Github last commit](https://img.shields.io/github/last-commit/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/graphs/commit-activity)
 ![Repo size](https://img.shields.io/github/repo-size/2giosangmitom/PheloiVim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41)
 
 ![Screenshot](./screenshots/dashboard.png)
 
-## Introduction 🚀
+## Introduction 🍇
 
 Welcome to PheloiVim, a Neovim configuration tailored to enhance your editing experience! This configuration is meticulously crafted to offer a powerful, efficient, and highly customizable environment for all your editing needs.
 
