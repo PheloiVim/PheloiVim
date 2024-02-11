@@ -1,16 +1,5 @@
 # PheloiVim - Neovim Configuration
 
-<!--toc:start-->
-
-- [PheloiVim - Neovim Configuration](#pheloivim-neovim-configuration)
-  - [Introduction 🚀](#introduction-🚀)
-  - [Features ✨](#features)
-  - [Getting Started 🚀](#getting-started-🚀)
-  - [Contributing 🤝](#contributing-🤝)
-  - [Credits 🙌](#credits-🙌)
-  - [License 📄](#license-📄)
-  <!--toc:end-->
-
 [![GitHub stars](https://img.shields.io/github/stars/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/2giosangmitom/PheloiVim.svg?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/network)
 [![GitHub license](https://img.shields.io/github/license/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/blob/master/LICENSE)
