@@ -1,6 +1,5 @@
 return {
   "ThePrimeagen/harpoon",
-  cmd = { "Harpoon" },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
