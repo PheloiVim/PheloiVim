@@ -18,7 +18,7 @@ return {
     defaults = {
       b = { name = "󰓩 Buffer" },
       c = { name = " Code" },
-      f = { name = "󰈔 Find" },
+      f = { name = "󰈔 Find/File" },
       s = { name = " Search", n = "Noice" },
       u = { name = "󰓩 UI" },
       w = { name = " Windows" },
