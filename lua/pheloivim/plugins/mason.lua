@@ -31,13 +31,8 @@ return {
         end)
         :if_present(function(pkg)
           if not pkg:is_installed() then
-            vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name), vim.log.levels.INFO)
-            pkg:install():once(
-              "closed",
-              vim.schedule_wrap(function()
-                if pkg:is_installed() then vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name), vim.log.levels.INFO) end
-              end)
-            )
+            vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name), vim.log.levels.INFO, { title = "PheloiVim" })
+            pkg:install():once("closed", function() vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name), vim.log.levels.INFO) end)
           end
         end)
     end

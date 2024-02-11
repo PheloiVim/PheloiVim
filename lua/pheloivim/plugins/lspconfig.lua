@@ -176,13 +176,13 @@ return {
     opts = {},
   },
 
-  -- {
-  --   "nvimtools/none-ls.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     sources = {},
-  --   },
-  -- },
+  {
+    "nvimtools/none-ls.nvim",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      sources = {},
+    },
+  },
 
   {
     "lewis6991/hover.nvim",

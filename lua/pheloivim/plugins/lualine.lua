@@ -93,7 +93,7 @@ return {
 
               local client_names = {}
               for _, client in ipairs(clients) do
-                table.insert(client_names, client.name)
+                if client.name ~= "null-ls" then table.insert(client_names, client.name) end
               end
 
               local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ") or "No Active Client"
