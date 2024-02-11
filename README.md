@@ -1,11 +1,24 @@
 # PheloiVim - Neovim Configuration
 
+<!--toc:start-->
+
+- [PheloiVim - Neovim Configuration](#pheloivim-neovim-configuration)
+  - [Introduction 🚀](#introduction-🚀)
+  - [Features ✨](#features)
+  - [Getting Started 🚀](#getting-started-🚀)
+  - [Contributing 🤝](#contributing-🤝)
+  - [Credits 🙌](#credits-🙌)
+  - [License 📄](#license-📄)
+  <!--toc:end-->
+
 [![GitHub stars](https://img.shields.io/github/stars/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=c69ff5&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/2giosangmitom/PheloiVim.svg?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/network)
 [![GitHub license](https://img.shields.io/github/license/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=ee999f&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/blob/master/LICENSE)
 [![Github issues](https://img.shields.io/github/issues/2giosangmitom/PheloiVim?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/issues)
 [![Github last commit](https://img.shields.io/github/last-commit/2giosangmitom/PheloiVim?style=for-the-badge&logo=starship&color=8bd5ca&logoColor=D9E0EE&labelColor=302D41)](https://github.com/2giosangmitom/PheloiVim/commits/master/)
 ![Repo size](https://img.shields.io/github/repo-size/2giosangmitom/PheloiVim?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41)
+
+![Screenshot](./screenshots/dashboard.png)
 
 ## Introduction 🚀
 
@@ -28,9 +41,9 @@ Welcome to PheloiVim, a Neovim configuration tailored to enhance your editing ex
 
 1. **Clone the Repository**: Clone this repository to your local machine:
 
-    ```bash
-    git clone https://github.com/2giosangmitom/PheloiVim.git ~/.config/nvim
-    ```
+```bash
+git clone https://github.com/2giosangmitom/PheloiVim.git ~/.config/nvim
+```
 
 2. **Explore**: Take some time to explore the included plugins and their features. Refer to their respective documentation for detailed usage instructions.
 
