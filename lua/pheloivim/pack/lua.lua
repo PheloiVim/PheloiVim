@@ -15,11 +15,11 @@ return {
       { "folke/neodev.nvim", opts = {} },
       { "folke/neoconf.nvim", opts = {} },
     },
-    opts = {
-      servers = {
-        lua_ls = {},
-      },
-    },
+    opts = function(_, opts)
+      opts.servers = vim.tbl_deep_extend("force", opts.servers, {
+        lua_ls = require("lsp-zero").nvim_lua_ls(),
+      })
+    end,
   },
 
   {

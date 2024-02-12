@@ -56,6 +56,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
+      "hrsh7th/cmp-nvim-lsp",
       { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
     },
     opts = {
