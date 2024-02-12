@@ -80,13 +80,14 @@ return {
         -- Setup keymaps
         lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" } })
         local default_keymaps = {
-          { "<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code Action" },
-          { "<leader>cd", function() vim.cmd("Lspsaga peek_definition") end, "Peek Definition" },
-          { "<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP Rename" },
-          { "<leader>co", function() vim.cmd("Lspsaga outline") end, "Code Outline" },
-          { "]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next Diagnostic" },
-          { "[d", function() vim.cmd("Lspsaga diagnostic_jump_prev") end, "Previous Diagnostic" },
+          { "<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action" },
+          { "<leader>cd", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition" },
+          { "<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP rename" },
+          { "<leader>co", function() vim.cmd("Lspsaga outline") end, "Code outline" },
+          { "]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next diagnostic" },
+          { "[d", function() vim.cmd("Lspsaga diagnostic_jump_prev") end, "Previous diagnostic" },
           { "<leader>cl", function() vim.cmd("LspInfo") end, "Lsp Info" },
+          { "gd", function() vim.cmd("Lspsaga goto_definition") end, "Go to definition" },
         }
         for _, opt in ipairs(default_keymaps) do
           vim.keymap.set("n", opt[1], opt[2], { buffer = bufnr, desc = opt[3] })
