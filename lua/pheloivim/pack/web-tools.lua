@@ -59,6 +59,15 @@ return {
   {
     "rest-nvim/rest.nvim",
     dependencies = "nvim-lua/plenary.nvim",
-    config = function() require("rest-nvim").setup({}) end,
+    ft = "http",
+    keys = {
+      { "<leader>ta", function() require("rest-nvim").run() end, desc = "Test API" },
+    },
+    config = function() require("rest-nvim").setup() end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "http" }) end,
   },
 }

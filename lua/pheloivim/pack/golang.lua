@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "delve", "golangci-lint", "goimports", "gofumpt", "gomodifytags", "impl" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "golangci-lint", "goimports", "gofumpt", "gomodifytags", "impl" }) end,
   },
 
   {
@@ -11,15 +11,12 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    dependencies = "ray-x/guihua.lua",
     opts = {
       servers = {
         gopls = {
-          keys = {
-            n = {
-              ["<leader>td"] = { cmd = function() require("dap-go").debug_test() end, desc = "Debug Nearest (Go)" },
-            },
-          },
+          on_attach = function()
+            vim.keymap.set("n", "<leader>tD", function() require("dap-go").debug_test() end, { desc = "Debug Nearest (Go)" })
+          end,
           gofumpt = true,
           codelenses = {
             gc_details = false,
@@ -59,6 +56,11 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = { "leoluz/nvim-dap-go", opts = {} },
+  },
+
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "delve" }) end,
   },
 
   {

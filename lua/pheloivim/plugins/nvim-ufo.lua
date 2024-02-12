@@ -16,5 +16,17 @@ return {
   opts = {
     provider_selector = function() return { "treesitter", "indent" } end,
   },
-  config = function(_, opts) require("ufo").setup(opts) end,
+  config = function(_, opts)
+    require("ufo").setup(opts)
+    require("lsp-zero").set_server_config({
+      capabilities = {
+        textDocument = {
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+          },
+        },
+      },
+    })
+  end,
 }
