@@ -5,6 +5,10 @@ return {
     { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find text" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+    { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
+    { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
+    { "<leader>sm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
   },
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable("make") == 1, build = "make" },
