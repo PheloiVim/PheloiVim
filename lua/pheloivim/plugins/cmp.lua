@@ -31,6 +31,7 @@ return {
     opts = function()
       local cmp = require("cmp")
       local cmp_action = require("lsp-zero").cmp_action()
+      require("lsp-zero").extend_cmp()
       local lsnip_ok, luasnip = pcall(require, "luasnip")
       if not lsnip_ok then return end
       local lspkind_ok, lspkind = pcall(require, "lspkind")
