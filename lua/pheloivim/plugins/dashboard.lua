@@ -30,7 +30,7 @@ return {
           { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
           { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
           { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
-          { action = "NvimTreeToggle", desc = " Nvim Tree", icon = " ", key = "e" },
+          { action = "Neotree toggle", desc = " NeoTree", icon = " ", key = "e" },
           { action = "qa", desc = " Quit", icon = " ", key = "q" },
         },
         footer = function()
