@@ -27,7 +27,7 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
-      extensions = { "quickfix", "lazy", "nvim-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man", "oil", "fugitive" },
+      extensions = { "quickfix", "lazy", "neo-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man", "oil", "fugitive" },
       sections = {
         lualine_a = {
           { "mode", fmt = function() return " " end },

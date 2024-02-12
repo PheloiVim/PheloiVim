@@ -1,3 +1,7 @@
 {
-	"diagnostics.disable": ["undefined-field"]
+	"diagnostics.disable": ["undefined-field"],
+	"runtime.version": "LuaJIT",
+	"diagnostics.globals": ["vim"],
+	"workspace.checkThirdParty": false,
+	"workspace.library": ["$VIMRUNTIME", "./lua"]
 }
