@@ -50,14 +50,23 @@ return {
   },
 
   {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    init = function()
+      -- Disable automatic setup, we are doing it manually
+      vim.g.lsp_zero_extend_cmp = 0
+      vim.g.lsp_zero_extend_lspconfig = 0
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile", "BufWritePost" },
+    event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
       "hrsh7th/cmp-nvim-lsp",
-      { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
     },
     opts = {
       servers = {},
@@ -65,6 +74,8 @@ return {
     },
     config = function(_, opts)
       local lsp_zero = require("lsp-zero")
+      lsp_zero.extend_lspconfig()
+
       lsp_zero.on_attach(function(_, bufnr)
         -- Setup keymaps
         lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" } })
