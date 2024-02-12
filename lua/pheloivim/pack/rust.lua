@@ -1,10 +1,5 @@
 return {
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "codelldb" }) end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "rust", "toml" }) end,
   },
@@ -49,12 +44,10 @@ return {
     opts = {
       servers = {
         rust_analyzer = {
-          keys = {
-            n = {
-              ["K"] = { cmd = "<cmd>RustLsp hover actions<cr>", desc = "Rust hover" },
-              ["<leader>dR"] = { cmd = function() vim.cmd.RustLsp("debuggables") end, desc = "Run Debuggables (Rust)" },
-            },
-          },
+          on_attach = function(_, bufnr)
+            vim.keymap.set("n", "K", function() vim.cmd("RustLsp hover actions") end, { buffer = bufnr, desc = "Rust hover" })
+            vim.keymap.set("n", "<leader>dR", function() vim.cmd.RustLsp("debuggables") end, { buffer = bufnr, desc = "Run Debuggables (Rust)" })
+          end,
           settings = {
             ["rust-analyzer"] = {
               checkOnSave = {
@@ -95,5 +88,10 @@ return {
     "nvim-neotest/neotest",
     dependencies = "mrcjkb/rustaceanvim",
     opts = function(_, opts) vim.list_extend(opts.adapters, { require("rustaceanvim.neotest") }) end,
+  },
+
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "codelldb" }) end,
   },
 }

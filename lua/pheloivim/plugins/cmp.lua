@@ -1,5 +1,11 @@
 return {
   {
+    "onsails/lspkind.nvim",
+    opts = {},
+    config = function(_, opts) require("lspkind").init(opts) end,
+  },
+
+  {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     dependencies = "rafamadriz/friendly-snippets",

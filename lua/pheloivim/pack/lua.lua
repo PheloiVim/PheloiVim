@@ -13,22 +13,11 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "folke/neodev.nvim", opts = {} },
-      { "folke/neoconf.nvim", cmd = "Neoconf", opts = {} },
+      { "folke/neoconf.nvim", opts = {} },
     },
     opts = {
       servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-            },
-          },
-        },
+        lua_ls = {},
       },
     },
   },

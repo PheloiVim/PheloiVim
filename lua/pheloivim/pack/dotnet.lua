@@ -3,7 +3,7 @@ return {
 
   {
     "williamboman/mason.nvim",
-    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format", "netcoredbg" }) end,
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "clang-format" }) end,
   },
 
   {
@@ -28,11 +28,6 @@ return {
           handlers = {
             ["textDocument/definition"] = function(...) return require("omnisharp_extended").handler(...) end,
           },
-          keys = {
-            n = {
-              ["gd"] = { cmd = function() require("omnisharp_extended").telescope_lsp_definitions() end, desc = "Goto Definition" },
-            },
-          },
           enable_ms_build_load_projects_on_demand = true,
           enable_roslyn_analyzers = true,
           organize_imports_on_format = true,
@@ -49,31 +44,8 @@ return {
   },
 
   {
-    "mfussenegger/nvim-dap",
-    opts = function()
-      local dap = require("dap")
-      if not dap.adapters["netcoredbg"] then
-        require("dap").adapters["netcoredbg"] = {
-          type = "executable",
-          command = vim.fn.exepath("netcoredbg"),
-          args = { "--interpreter=vscode" },
-        }
-      end
-      for _, language in ipairs({ "cs", "fsharp", "vb" }) do
-        if not dap.configurations[language] then
-          dap.configurations[language] = {
-            {
-              type = "netcoredbg",
-              name = "Launch file",
-              request = "launch",
-              ---@diagnostic disable-next-line: redundant-parameter
-              program = function() return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/", "file") end,
-              cwd = "${workspaceFolder}",
-            },
-          }
-        end
-      end
-    end,
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = function(_, opts) vim.list_extend(opts.ensure_installed, { "coreclr" }) end,
   },
 
   {
