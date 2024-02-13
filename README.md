@@ -14,7 +14,7 @@
 Welcome to PheloiVim, a Neovim configuration tailored to enhance your editing experience! This configuration is meticulously crafted to offer a powerful, efficient, and highly customizable environment for all your editing needs.
 
 > [!NOTE]
-> This config is only for the **lastest Neovim stable release**. If you are having an older Neovim version, you should update Neovim via package manager or download the latest version from [Official repository](https://github.com/neovim/neovim).
+> This configuration is only for the **latest Neovim stable release**. If you are having an older Neovim version, you should update Neovim via package manager or download the latest version from [Official repository](https://github.com/neovim/neovim).
 
 ## Features ✨
 
