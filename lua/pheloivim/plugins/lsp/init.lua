@@ -57,6 +57,7 @@ return {
       "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      { "VidocqH/lsp-lens.nvim", opts = {} },
     },
     opts = {
       servers = {},
@@ -127,10 +128,5 @@ return {
         utils.disable("denols")
       end
     end,
-  },
-
-  {
-    "VidocqH/lsp-lens.nvim",
-    opts = {},
   },
 }

@@ -19,7 +19,6 @@ return {
       desc = "Buffer explorer",
     },
   },
-  deactivate = function() vim.cmd("Neotree close") end,
   init = function()
     if vim.fn.argc(-1) == 1 then
       local stat = vim.loop.fs_stat(vim.fn.argv(0))
@@ -34,43 +33,16 @@ return {
     open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
     filesystem = {
       bind_to_cwd = false,
-      follow_current_file = { enabled = true },
+      follow_current_file = { enabled = false },
       use_libuv_file_watcher = true,
-      hijack_netrw_behavior = "open_current",
-    },
-    commands = {
-      parent_or_close = function(state)
-        local node = state.tree:get_node()
-        if (node.type == "directory" or node:has_children()) and node:is_expanded() then
-          state.commands.toggle_node(state)
-        else
-          require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
-        end
-      end,
-      child_or_open = function(state)
-        local node = state.tree:get_node()
-        if node.type == "directory" or node:has_children() then
-          if not node:is_expanded() then -- if unexpanded, expand
-            state.commands.toggle_node(state)
-          else -- if expanded and has children, select the next child
-            require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
-          end
-        else -- if not a directory just open it
-          state.commands.open(state)
-        end
-      end,
     },
     window = {
       mappings = {
         ["<space>"] = false, -- disable space until we figure out which-key disabling
-        h = "parent_or_close",
-        l = "child_or_open",
+        l = "open",
       },
     },
     default_component_configs = {
-      container = {
-        enable_character_fade = true,
-      },
       indent = {
         with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
         indent_size = 2,
@@ -84,13 +56,4 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require("neo-tree").setup(opts)
-    vim.api.nvim_create_autocmd("TermClose", {
-      pattern = "*lazygit",
-      callback = function()
-        if package.loaded["neo-tree.sources.git_status"] then require("neo-tree.sources.git_status").refresh() end
-      end,
-    })
-  end,
 }
