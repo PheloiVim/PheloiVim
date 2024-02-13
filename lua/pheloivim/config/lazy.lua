@@ -9,6 +9,9 @@ require("lazy").setup({
       not_loaded = "",
     },
   },
+  install = {
+    colorscheme = { "tokyonight" },
+  },
   defaults = {
     lazy = true, -- lazy load all plugins
     version = false, -- always use the latest git commit

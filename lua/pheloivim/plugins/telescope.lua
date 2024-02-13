@@ -5,6 +5,7 @@ return {
     { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find text" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    { "<leader>fu", "<cmd>Telescope undo<CR>", desc = "Find undos" },
     { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
     { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
@@ -12,6 +13,7 @@ return {
   },
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable("make") == 1, build = "make" },
+    "debugloop/telescope-undo.nvim",
   },
   opts = {
     defaults = {
@@ -32,5 +34,6 @@ return {
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("fzf")
+    telescope.load_extension("undo")
   end,
 }

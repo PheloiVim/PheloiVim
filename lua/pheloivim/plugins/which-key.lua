@@ -2,22 +2,15 @@ return {
   "folke/which-key.nvim",
   keys = { "<leader>", "z", "d", "c", "v", "g", "]", "[", "y", "\\" },
   opts = {
-    plugins = {
-      marks = false,
-      spelling = true,
-      registers = false,
-    },
     window = {
       border = "rounded",
-      position = "bottom",
-      winblend = 0,
     },
     show_help = false,
     show_keys = false,
     icons = { group = "" },
     defaults = {
       b = { name = "󰓩 Buffer" },
-      c = { name = " Code" },
+      c = { name = " Code", R = "Refactor" },
       f = { name = "󰈔 Find/File" },
       s = { name = " Search", n = "Noice" },
       u = { name = "󰓩 UI" },
@@ -32,6 +25,6 @@ return {
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.register(opts.defaults, { prefix = "<leader>" })
+    wk.register(opts.defaults, { prefix = "<leader>", mode = { "n", "v" } })
   end,
 }

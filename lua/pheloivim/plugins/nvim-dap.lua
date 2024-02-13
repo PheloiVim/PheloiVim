@@ -21,8 +21,6 @@ return {
       },
       opts = {},
       config = function(_, opts)
-        -- setup dap config by VsCode launch.json file
-        -- require("dap.ext.vscode").load_launchjs()
         local dap = require("dap")
         local dapui = require("dapui")
         dapui.setup(opts)
@@ -35,7 +33,18 @@ return {
     -- virtual text for the debugger
     {
       "theHamsta/nvim-dap-virtual-text",
-      opts = {},
+      opts = {
+        commented = true,
+        enabled = true,
+        enabled_commands = true,
+      },
+    },
+
+    {
+      "Weissle/persistent-breakpoints.nvim",
+      opts = {
+        load_breakpoints_event = { "BufReadPost" },
+      },
     },
 
     -- mason.nvim integration
@@ -51,8 +60,9 @@ return {
     },
   },
   keys = {
-    { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Breakpoint Condition" },
-    { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    { "<leader>dB", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end, desc = "Conditional Breakpoint" },
+    { "<leader>dd", function() require("persistent-breakpoints.api").clear_all_breakpoints() end, desc = "Clear Breakpoints" },
+    { "<leader>db", function() require("persistent-breakpoints.api").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
     { "<leader>dc", function() require("dap").continue() end, desc = "Continue" },
     { "<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args" },
     { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },

@@ -40,16 +40,6 @@ return {
   },
 
   {
-    "ray-x/lsp_signature.nvim",
-    opts = {
-      bind = true,
-      handler_opts = {
-        border = "rounded",
-      },
-    },
-  },
-
-  {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v3.x",
     init = function()
@@ -137,5 +127,10 @@ return {
         utils.disable("denols")
       end
     end,
+  },
+
+  {
+    "VidocqH/lsp-lens.nvim",
+    opts = {},
   },
 }

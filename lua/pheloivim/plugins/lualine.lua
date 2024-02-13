@@ -39,7 +39,7 @@ return {
           {
             function() return vim.fn.expand("%:~:.") end,
             color = function()
-              if vim.bo.modified then return { fg = "orange" } end
+              if vim.bo.modified then return { fg = "pink" } end
             end,
           },
           {
