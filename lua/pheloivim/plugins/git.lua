@@ -36,8 +36,7 @@ return {
     "NeogitOrg/neogit",
     cmd = "Neogit",
     keys = {
-      { "<leader>gnt", "<cmd>Neogit<cr>", desc = "Open Neogit Tab Page" },
-      { "<leader>gnc", "<cmd>Neogit commit<cr>", desc = "Open Neogit Commit Page" },
+      { "<leader>gn", function() vim.cmd("Neogit") end, desc = "Neogit" },
     },
     dependencies = "nvim-lua/plenary.nvim",
     opts = {
@@ -59,8 +58,8 @@ return {
   {
     "sindrets/diffview.nvim",
     keys = {
-      { "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "Open diff" },
-      { "<leader>gdc", "<cmd>tabclose<cr>", desc = "Close diff" },
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open diff" },
+      { "<leader>gr", "<cmd>DiffviewRefresh<cr>", desc = "Refresh diff" },
     },
     cmd = {
       "DiffviewOpen",

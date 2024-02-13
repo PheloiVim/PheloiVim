@@ -92,6 +92,7 @@ return {
       ensure_installed = { "diff", "query", "vim", "regex" },
     },
     config = function(_, opts)
+      -- Remove duplicates
       local added = {}
       opts.ensure_installed = vim.tbl_filter(function(lang)
         if added[lang] then return false end

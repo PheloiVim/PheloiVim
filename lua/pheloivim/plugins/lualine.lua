@@ -50,6 +50,7 @@ return {
               removed = require("pheloivim.icons").git.removed,
             },
             source = function()
+              ---@diagnostic disable-next-line: undefined-field
               local gitsigns = vim.b.gitsigns_status_dict
               if gitsigns then
                 return {
@@ -63,7 +64,9 @@ return {
         },
         lualine_x = {
           {
+            ---@diagnostic disable-next-line: undefined-field
             function() return require("noice").api.status.mode.get() end,
+            ---@diagnostic disable-next-line: undefined-field
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = { fg = "orange" },
           },

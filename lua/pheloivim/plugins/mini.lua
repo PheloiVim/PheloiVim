@@ -54,11 +54,12 @@ return {
           "dashboard",
           "lazy",
           "neogitstatus",
-          "NvimTree",
+          "neo-tree",
           "Trouble",
           "toggleterm",
           "mason",
         },
+        ---@diagnostic disable-next-line: inject-field
         callback = function() vim.b.miniindentscope_disable = true end,
       })
     end,

@@ -37,6 +37,7 @@ return {
         end)
     end
 
+    -- Remove duplicates
     local added = {}
     opts.ensure_installed = vim.tbl_filter(function(tool)
       if added[tool] then return false end

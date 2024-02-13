@@ -7,7 +7,7 @@ return {
 
   {
     "nvimtools/none-ls.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "LspAttach",
     opts = {
       sources = {},
     },

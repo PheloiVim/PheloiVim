@@ -6,7 +6,7 @@ return {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
     { "<leader>fu", "<cmd>Telescope undo<CR>", desc = "Find undos" },
-    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits" },
+    { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Commits history" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Status" },
     { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
     { "<leader>sm", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },

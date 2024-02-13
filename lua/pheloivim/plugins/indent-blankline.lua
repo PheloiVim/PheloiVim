@@ -15,7 +15,7 @@ return {
         "dashboard",
         "lazy",
         "neogitstatus",
-        "NvimTree",
+        "neo-tree",
         "Trouble",
         "toggleterm",
         "mason",

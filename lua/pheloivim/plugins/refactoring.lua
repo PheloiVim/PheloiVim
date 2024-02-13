@@ -20,7 +20,6 @@ return {
     { "<leader>cRI", mode = { "x", "n" }, function() vim.cmd("Refactor inline_func") end, desc = "Inline function" },
     { "<leader>cRb", function() vim.cmd("Refactor extract_block") end, desc = "Extract block" },
     { "<leader>cRB", function() vim.cmd("Refactor extract_block_to_file") end, desc = "Extract block to file" },
-    { "<leader>cRs", mode = { "n", "x" }, function() require("refactoring").select_refactor() end, desc = "Select refactor" },
   },
   cmd = "Refactor",
 }

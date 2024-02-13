@@ -12,10 +12,10 @@ return {
     unstaged = "✗",
   },
   diagnostics = {
-    Error = " ",
-    Warn = " ",
-    Hint = " ",
-    Info = " ",
+    error = " ",
+    warn = " ",
+    hint = " ",
+    info = " ",
   },
   dap = {
     Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },

@@ -41,7 +41,7 @@ autocmd("FileType", {
 autocmd("FileType", {
   desc = "Close some file type with q",
   group = augroup("close_with_q", { clear = true }),
-  pattern = { "help", "nofile", "qf", "startuptime" },
+  pattern = { "help", "nofile", "qf", "diffview", "notify" },
   callback = function(args)
     vim.keymap.set("n", "q", "<cmd>close<cr>", {
       desc = "Close window",
