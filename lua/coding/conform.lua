@@ -30,6 +30,7 @@ return {
       c = { "clang_format" },
       cpp = { "clang_format" },
       sh = { "shfmt" },
+      toml = { "taplo" },
       cs = { "clang_format" },
       go = { "goimports", "gofumpt" },
       rust = { "rustfmt" },
