@@ -32,8 +32,7 @@ return {
       },
     },
   },
-  config = function(_, opts)
-    require("bufferline").setup(opts)
+  init = function()
     -- Fix bufferline when restoring a session
     vim.api.nvim_create_autocmd("BufAdd", {
       callback = function()
@@ -41,4 +40,5 @@ return {
       end,
     })
   end,
+  config = function(_, opts) require("bufferline").setup(opts) end,
 }

@@ -62,16 +62,14 @@ return {
         },
         lualine_x = {
           {
-            ---@diagnostic disable-next-line: undefined-field
             function() return require("noice").api.status.mode.get() end,
-            ---@diagnostic disable-next-line: undefined-field
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-            color = { fg = "orange" },
+            color = { fg = "pink" },
           },
           {
             function() return "  " .. require("dap").status() end,
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-            color = { fg = "orange" },
+            color = { fg = "pink" },
           },
           { "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } },
           {

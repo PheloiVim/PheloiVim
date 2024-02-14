@@ -31,10 +31,8 @@ return {
     popup_border_style = "rounded",
     close_if_last_window = true,
     sources = { "filesystem" },
-    open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf" },
     filesystem = {
       bind_to_cwd = false,
-      follow_current_file = { enabled = false },
       use_libuv_file_watcher = true,
     },
     window = {
@@ -45,11 +43,7 @@ return {
     },
     default_component_configs = {
       indent = {
-        with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-        with_markers = true,
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
+        padding = 0,
       },
       git_status = {
         symbols = require("pheloivim.icons").git,
