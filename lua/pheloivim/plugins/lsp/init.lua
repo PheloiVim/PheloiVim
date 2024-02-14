@@ -54,7 +54,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
-      "ray-x/lsp_signature.nvim",
       "nvimdev/lspsaga.nvim",
       "hrsh7th/cmp-nvim-lsp",
       { "VidocqH/lsp-lens.nvim", opts = {} },
