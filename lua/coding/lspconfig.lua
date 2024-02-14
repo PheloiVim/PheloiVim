@@ -13,7 +13,7 @@ return {
       lua_ls = {},
       astro = {},
       bashls = {},
-      omnisharp = {
+      omnisharp = { -- C#
         handlers = {
           ["textDocument/definition"] = function(...) return require("omnisharp_extended").handler(...) end,
         },
@@ -23,6 +23,7 @@ return {
         enable_import_completion = true,
       },
       graphql = {},
+      nil_ls = {}, -- Nix
       gopls = {
         on_attach = function()
           vim.keymap.set(
