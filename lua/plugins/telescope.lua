@@ -8,7 +8,11 @@ return {
     { "<leader>fu", function() vim.cmd("Telescope undo") end, desc = "Find undos" },
     { "<leader>gh", function() vim.cmd("Telescope git_commits") end, desc = "Commits history" },
     { "<leader>gs", function() vim.cmd("Telescope git_status") end, desc = "Status" },
-    { "<leader>sb", function() vim.cmd("Telescope current_buffer_fuzzy_find") end, desc = "Buffer" },
+    {
+      "<leader>sb",
+      function() vim.cmd("Telescope current_buffer_fuzzy_find") end,
+      desc = "Buffer",
+    },
     { "<leader>sm", function() vim.cmd("Telescope man_pages") end, desc = "Man Pages" },
   },
   dependencies = {

@@ -5,7 +5,12 @@ return {
       "rcarriga/nvim-dap-ui",
       keys = {
         { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
-        { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = { "n", "v" } },
+        {
+          "<leader>de",
+          function() require("dapui").eval() end,
+          desc = "Eval",
+          mode = { "n", "v" },
+        },
       },
       opts = {},
       config = function(_, opts)
@@ -42,15 +47,31 @@ return {
       cmd = { "DapInstall", "DapUninstall" },
       opts = {
         automatic_installation = true,
-        handlers = {},
-        ensure_installed = {},
+        ensure_installed = {
+          "bash",
+          "codelldb",
+          "coreclr",
+          "delve",
+        },
       },
     },
   },
   keys = {
-    { "<leader>dB", function() require("persistent-breakpoints.api").set_conditional_breakpoint() end, desc = "Conditional Breakpoint" },
-    { "<leader>dd", function() require("persistent-breakpoints.api").clear_all_breakpoints() end, desc = "Clear Breakpoints" },
-    { "<leader>db", function() require("persistent-breakpoints.api").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+    {
+      "<leader>dB",
+      function() require("persistent-breakpoints.api").set_conditional_breakpoint() end,
+      desc = "Conditional Breakpoint",
+    },
+    {
+      "<leader>dd",
+      function() require("persistent-breakpoints.api").clear_all_breakpoints() end,
+      desc = "Clear Breakpoints",
+    },
+    {
+      "<leader>db",
+      function() require("persistent-breakpoints.api").toggle_breakpoint() end,
+      desc = "Toggle Breakpoint",
+    },
     { "<leader>dc", function() require("dap").continue() end, desc = "Continue" },
     { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
     { "<leader>dg", function() require("dap").goto_() end, desc = "Go to line (no execute)" },
@@ -73,7 +94,10 @@ return {
 
     for name, sign in pairs(icons.dap) do
       sign = type(sign) == "table" and sign or { sign }
-      vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] })
+      vim.fn.sign_define(
+        "Dap" .. name,
+        { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+      )
     end
   end,
 }

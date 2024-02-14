@@ -8,7 +8,7 @@ return {
   -- Common configuration presets for options, mappings, and autocommands
   {
     "echasnovski/mini.basics",
-    event = "VimEnter",
+    event = { "BufReadPre" },
     opts = {
       options = {
         -- Basic options ('number', 'ignorecase', and many more)
@@ -58,7 +58,8 @@ return {
         function()
           local bd = require("mini.bufremove").delete
           if vim.bo.modified then
-            local choice = vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+            local choice =
+              vim.fn.confirm(("Save changes to %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
             if choice == 1 then -- Yes
               vim.cmd.write()
               bd(0)
@@ -71,7 +72,11 @@ return {
         end,
         desc = "Delete Buffer",
       },
-      { "<leader>bD", function() require("mini.bufremove").delete(0, true) end, desc = "Delete Buffer (Force)" },
+      {
+        "<leader>bD",
+        function() require("mini.bufremove").delete(0, true) end,
+        desc = "Delete Buffer (Force)",
+      },
     },
   },
 

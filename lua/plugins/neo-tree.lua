@@ -16,7 +16,12 @@ return {
     },
     {
       "<leader>E",
-      function() require("neo-tree.command").execute({ toggle = true, dir = require("utils").root_dir(".git") }) end,
+      function()
+        require("neo-tree.command").execute({
+          toggle = true,
+          dir = require("utils").root_dir(".git"),
+        })
+      end,
       desc = "Neotree (root)",
     },
   },

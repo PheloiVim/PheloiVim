@@ -11,8 +11,166 @@ return {
   opts = {
     servers = {
       lua_ls = {},
+      astro = {},
+      bashls = {},
+      omnisharp = {
+        handlers = {
+          ["textDocument/definition"] = function(...)
+            return require("omnisharp_extended").handler(...)
+          end,
+        },
+        enable_ms_build_load_projects_on_demand = true,
+        enable_roslyn_analyzers = true,
+        organize_imports_on_format = true,
+        enable_import_completion = true,
+      },
+      gopls = {
+        on_attach = function()
+          vim.keymap.set(
+            "n",
+            "<leader>tD",
+            function() require("dap-go").debug_test() end,
+            { desc = "Debug Nearest (Go)" }
+          )
+        end,
+        gofumpt = true,
+        codelenses = {
+          gc_details = false,
+          generate = true,
+          regenerate_cgo = true,
+          run_govulncheck = true,
+          test = true,
+          tidy = true,
+          upgrade_dependency = true,
+          vendor = true,
+        },
+        hints = {
+          assignVariableTypes = true,
+          compositeLiteralFields = true,
+          compositeLiteralTypes = true,
+          constantValues = true,
+          functionTypeParameters = true,
+          parameterNames = true,
+          rangeVariableTypes = true,
+        },
+        analyses = {
+          fieldalignment = true,
+          nilness = true,
+          unusedparams = true,
+          unusedwrite = true,
+          useany = true,
+        },
+        usePlaceholders = true,
+        completeUnimported = true,
+        staticcheck = true,
+        semanticTokens = true,
+      },
+      html = {},
+      clangd = {},
+      dockerls = {},
+      docker_compose_language_service = {},
+      cssls = {},
+      yamlls = {
+        -- Have to add this for yamlls to understand that we support line folding
+        capabilities = {
+          textDocument = {
+            foldingRange = {
+              dynamicRegistration = false,
+              lineFoldingOnly = true,
+            },
+          },
+        },
+        -- lazy-load schemastore when needed
+        on_new_config = function(new_config)
+          new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+            "force",
+            new_config.settings.yaml.schemas or {},
+            require("schemastore").yaml.schemas()
+          )
+        end,
+        settings = {
+          redhat = { telemetry = { enabled = false } },
+          yaml = {
+            keyOrdering = false,
+            format = {
+              enable = true,
+            },
+            validate = true,
+            schemaStore = {
+              -- Must disable built-in schemaStore support to use
+              -- schemas from SchemaStore.nvim plugin
+              enable = false,
+              -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+              url = "",
+            },
+          },
+        },
+      },
+      volar = {},
+      tailwindcss = {},
+      jsonls = {
+        -- lazy-load schemastore when needed
+        on_new_config = function(new_config)
+          new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+          vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+        end,
+        settings = {
+          json = {
+            format = {
+              enable = true,
+            },
+            validate = { enable = true },
+          },
+        },
+      },
+      rust_analyzer = {
+        on_attach = function(_, bufnr)
+          vim.keymap.set(
+            "n",
+            "K",
+            function() vim.cmd("RustLsp hover actions") end,
+            { buffer = bufnr, desc = "Rust hover" }
+          )
+          vim.keymap.set(
+            "n",
+            "<leader>dR",
+            function() vim.cmd.RustLsp("debuggables") end,
+            { buffer = bufnr, desc = "Run Debuggables (Rust)" }
+          )
+        end,
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy",
+            },
+          },
+        },
+      },
+      taplo = {
+        keys = {
+          n = {
+            ["K"] = {
+              cmd = function()
+                if vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+                  require("crates").show_popup()
+                else
+                  vim.cmd("Lspsaga hover_doc")
+                end
+              end,
+              desc = "Show Crate Documentation",
+            },
+          },
+        },
+      },
     },
-    setup = {},
+    setup = {
+      rust_analyzer = function(opts)
+        vim.g.rustaceanvim = {
+          server = vim.tbl_deep_extend("force", {}, opts),
+        }
+        return true
+      end,
+    },
   },
   config = function(_, opts)
     local lsp_zero = require("lsp-zero")
@@ -20,7 +178,10 @@ return {
 
     lsp_zero.on_attach(function(_, bufnr)
       -- Setup keymaps
-      lsp_zero.default_keymaps({ buffer = bufnr, exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" } })
+      lsp_zero.default_keymaps({
+        buffer = bufnr,
+        exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" },
+      })
       local default_keymaps = {
         { "<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action" },
         { "<leader>cd", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition" },
@@ -66,8 +227,10 @@ return {
 
     -- Auto disable denols or tsserver
     local utils = require("utils")
-    local is_deno = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
-    local is_node = vim.fs.find({ "package.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+    local is_deno =
+      vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+    local is_node =
+      vim.fs.find({ "package.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
     if is_deno then
       utils.disable("tsserver")
     elseif is_node then

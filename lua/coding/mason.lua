@@ -6,7 +6,18 @@ return {
     { "<leader>pm", "<cmd>Mason<cr>", desc = "Mason" },
   },
   opts = {
-    ensure_installed = {},
+    ensure_installed = {
+      "shellcheck",
+      "shfmt",
+      "stylua",
+      "clang-format",
+      "golangci-lint",
+      "goimports",
+      "gofumpt",
+      "gomodifytags",
+      "impl",
+      "sqlfluff",
+    },
     ui = {
       icons = {
         package_installed = "✓",
@@ -32,7 +43,15 @@ return {
         :if_present(function(pkg)
           if not pkg:is_installed() then
             vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name), vim.log.levels.INFO)
-            pkg:install():once("closed", function() vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name), vim.log.levels.INFO) end)
+            pkg:install():once(
+              "closed",
+              function()
+                vim.notify(
+                  ("[pheloivim-mason] %s was installed"):format(pkg.name),
+                  vim.log.levels.INFO
+                )
+              end
+            )
           end
         end)
     end

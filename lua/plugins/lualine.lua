@@ -27,7 +27,18 @@ return {
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
-      extensions = { "quickfix", "lazy", "neo-tree", "mason", "trouble", "nvim-dap-ui", "toggleterm", "man", "oil", "fugitive" },
+      extensions = {
+        "quickfix",
+        "lazy",
+        "neo-tree",
+        "mason",
+        "trouble",
+        "nvim-dap-ui",
+        "toggleterm",
+        "man",
+        "oil",
+        "fugitive",
+      },
       sections = {
         lualine_a = {
           { "mode", fmt = function() return " " end },
@@ -52,18 +63,22 @@ return {
             source = function()
               ---@diagnostic disable-next-line: undefined-field
               local gitsigns = vim.b.gitsigns_status_dict
-              if gitsigns then return {
-                added = gitsigns.added,
-                modified = gitsigns.changed,
-                removed = gitsigns.removed,
-              } end
+              if gitsigns then
+                return {
+                  added = gitsigns.added,
+                  modified = gitsigns.changed,
+                  removed = gitsigns.removed,
+                }
+              end
             end,
           },
         },
         lualine_x = {
           {
             function() return require("noice").api.status.mode.get() end,
-            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+            cond = function()
+              return package.loaded["noice"] and require("noice").api.status.mode.has()
+            end,
             color = { fg = "pink" },
           },
           {
@@ -71,7 +86,15 @@ return {
             cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
             color = { fg = "pink" },
           },
-          { "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } },
+          {
+            "diagnostics",
+            symbols = {
+              error = icons.error,
+              warn = icons.warn,
+              info = icons.info,
+              hint = icons.hint,
+            },
+          },
           {
             function()
               local linters = require("lint").get_running()
@@ -95,8 +118,11 @@ return {
                 if client.name ~= "null-ls" then table.insert(client_names, client.name) end
               end
 
-              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ") or "No Active Client"
-              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ") or "No Active Formatter"
+              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ")
+                or "No Active Client"
+              local pretty_list_formatters = #available_formatters ~= 0
+                  and table.concat(available_formatters, ", ")
+                or "No Active Formatter"
 
               return "[" .. pretty_list_clients .. "]" .. "[" .. pretty_list_formatters .. "]"
             end,
@@ -104,7 +130,12 @@ return {
           },
         },
         lualine_y = {
-          { function() return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) end },
+          {
+            function()
+              return "Tab size: "
+                .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" })
+            end,
+          },
         },
         lualine_z = {
           { "progress", fmt = function() return "%P/%L" end },

@@ -1,7 +1,14 @@
 return {
   "mfussenegger/nvim-lint",
   opts = {
-    linters_by_ft = {},
+    linters_by_ft = {
+      sh = { "shellcheck" },
+      go = { "golangcilint" },
+      gomod = { "golangcilint" },
+      gowork = { "golangcilint" },
+      dockerfile = { "hadolint" },
+      sql = { "sqlfluff" },
+    },
   },
   config = function(_, opts)
     local lint = require("lint")
