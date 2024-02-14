@@ -1,14 +1,14 @@
 return {
   -- Better text-objects
-  { "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
+  { "echasnovski/mini.ai", keys = { "a", "i" }, opts = {} },
 
   -- Go forward/backward with square brackets
-  { "echasnovski/mini.bracketed", event = "VeryLazy", opts = {} },
+  { "echasnovski/mini.bracketed", keys = { "[", "]" }, opts = {} },
 
   -- Common configuration presets for options, mappings, and autocommands
   {
     "echasnovski/mini.basics",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "VimEnter",
     opts = {
       options = {
         -- Basic options ('number', 'ignorecase', and many more)
@@ -78,7 +78,7 @@ return {
   -- Indent line
   {
     "echasnovski/mini.indentscope",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {},
     init = function()
       vim.api.nvim_create_autocmd("FileType", {

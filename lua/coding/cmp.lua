@@ -1,11 +1,5 @@
 return {
   {
-    "onsails/lspkind.nvim",
-    opts = {},
-    config = function(_, opts) require("lspkind").init(opts) end,
-  },
-
-  {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
     dependencies = "rafamadriz/friendly-snippets",
@@ -22,6 +16,7 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
+      "onsails/lspkind.nvim",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
