@@ -1,5 +1,5 @@
 return {
-    "ellisonleao/glow.nvim",
-    cmd = "Glow",
-    opts = {},
-  }
+  "ellisonleao/glow.nvim",
+  cmd = "Glow",
+  opts = {},
+}
