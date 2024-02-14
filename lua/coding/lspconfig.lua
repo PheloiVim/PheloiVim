@@ -15,9 +15,7 @@ return {
       bashls = {},
       omnisharp = {
         handlers = {
-          ["textDocument/definition"] = function(...)
-            return require("omnisharp_extended").handler(...)
-          end,
+          ["textDocument/definition"] = function(...) return require("omnisharp_extended").handler(...) end,
         },
         enable_ms_build_load_projects_on_demand = true,
         enable_roslyn_analyzers = true,
@@ -83,11 +81,8 @@ return {
         },
         -- lazy-load schemastore when needed
         on_new_config = function(new_config)
-          new_config.settings.yaml.schemas = vim.tbl_deep_extend(
-            "force",
-            new_config.settings.yaml.schemas or {},
-            require("schemastore").yaml.schemas()
-          )
+          new_config.settings.yaml.schemas =
+            vim.tbl_deep_extend("force", new_config.settings.yaml.schemas or {}, require("schemastore").yaml.schemas())
         end,
         settings = {
           redhat = { telemetry = { enabled = false } },
@@ -242,10 +237,8 @@ return {
 
     -- Auto disable denols or tsserver
     local utils = require("utils")
-    local is_deno =
-      vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
-    local is_node =
-      vim.fs.find({ "package.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+    local is_deno = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+    local is_node = vim.fs.find({ "package.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
     if is_deno then
       utils.disable("tsserver")
     elseif is_node then

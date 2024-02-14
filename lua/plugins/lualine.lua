@@ -76,9 +76,7 @@ return {
         lualine_x = {
           {
             function() return require("noice").api.status.mode.get() end,
-            cond = function()
-              return package.loaded["noice"] and require("noice").api.status.mode.has()
-            end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = { fg = "pink" },
           },
           {
@@ -118,10 +116,8 @@ return {
                 if client.name ~= "null-ls" then table.insert(client_names, client.name) end
               end
 
-              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ")
-                or "No Active Client"
-              local pretty_list_formatters = #available_formatters ~= 0
-                  and table.concat(available_formatters, ", ")
+              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ") or "No Active Client"
+              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ")
                 or "No Active Formatter"
 
               return "[" .. pretty_list_clients .. "]" .. "[" .. pretty_list_formatters .. "]"
@@ -131,10 +127,7 @@ return {
         },
         lualine_y = {
           {
-            function()
-              return "Tab size: "
-                .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" })
-            end,
+            function() return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) end,
           },
         },
         lualine_z = {

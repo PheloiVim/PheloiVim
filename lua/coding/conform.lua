@@ -1,11 +1,7 @@
 local function getFmt()
   local biome = vim.fs.find({ "biome.json" }, { upward = true, stop = vim.loop.os_homedir() })[1]
-  local prettier = vim.fs.find(
-    { ".prettierignore", ".prettierrc" },
-    { upward = true, stop = vim.loop.os_homedir() }
-  )[1]
-  local deno =
-    vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+  local prettier = vim.fs.find({ ".prettierignore", ".prettierrc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
+  local deno = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = vim.loop.os_homedir() })[1]
 
   if biome then
     return { "biome" }
