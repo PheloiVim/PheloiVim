@@ -17,6 +17,15 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "onsails/lspkind.nvim",
+      {
+        "Saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        opts = {
+          src = {
+            cmp = { enabled = true },
+          },
+        },
+      },
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
@@ -63,6 +72,7 @@ return {
           { name = "buffer" },
           { name = "path" },
           { name = "nvim_lua" },
+          { name = "crates" },
         }),
         formatting = {
           fields = { "abbr", "menu", "kind" },

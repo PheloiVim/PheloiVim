@@ -16,6 +16,9 @@ return {
     dependencies = {
       "nvim-neotest/neotest-go",
       "mrcjkb/rustaceanvim",
+      "Issafalcon/neotest-dotnet",
+      "marilari88/neotest-vitest",
+      "nvim-neotest/neotest-jest",
     },
     keys = {
       {
@@ -64,6 +67,9 @@ return {
           args = { "-tags=integration" },
         },
         ["rustaceanvim.neotest"] = {},
+        ["neotest-dotnet"] = {},
+        ["neotest-jest"] = {},
+        ["neotest-vitest"] = {},
       },
     },
     config = function(_, opts)

@@ -80,6 +80,13 @@ return {
         "jsonc",
         "vue",
         "sql",
+        "graphql",
+        "rust",
+        "toml",
+        "typescript",
+        "tsx",
+        "javascript",
+        "jsdoc",
       },
     },
     config = function(_, opts)

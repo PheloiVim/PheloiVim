@@ -8,15 +8,18 @@ return {
   opts = {
     ensure_installed = {
       "shellcheck",
+      "hadolint",
       "shfmt",
       "stylua",
       "clang-format",
       "golangci-lint",
       "goimports",
       "gofumpt",
+      "nix",
       "gomodifytags",
       "impl",
       "sqlfluff",
+      "prettier",
     },
     ui = {
       icons = {

@@ -1,5 +1,7 @@
 return {
   "johmsalas/text-case.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  keys = {
+    { "ga", mode = "v", desc = "Text case" },
+  },
   opts = {},
 }

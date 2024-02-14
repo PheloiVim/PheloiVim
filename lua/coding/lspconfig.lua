@@ -24,6 +24,7 @@ return {
         organize_imports_on_format = true,
         enable_import_completion = true,
       },
+      graphql = {},
       gopls = {
         on_attach = function()
           vim.keymap.set(
@@ -106,7 +107,7 @@ return {
           },
         },
       },
-      volar = {},
+      volar = {}, -- Vue.js
       tailwindcss = {},
       jsonls = {
         -- lazy-load schemastore when needed
@@ -144,6 +145,20 @@ return {
               command = "clippy",
             },
           },
+        },
+      },
+      tsserver = {
+        settings = {
+          completions = {
+            completeFunctionCalls = true,
+          },
+        },
+      },
+      denols = {},
+      biome = {},
+      eslint = {
+        settings = {
+          workingDirectory = { mode = "auto" },
         },
       },
       taplo = {

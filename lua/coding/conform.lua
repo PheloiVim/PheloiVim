@@ -31,6 +31,8 @@ return {
     },
     formatters_by_ft = {
       lua = { "stylua" },
+      c = { "clang_format" },
+      cpp = { "clang_format" },
       sh = { "shfmt" },
       cs = { "clang_format" },
       go = { "goimports", "gofumpt" },
