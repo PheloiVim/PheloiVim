@@ -1,5 +1,5 @@
 return {
   "johmsalas/text-case.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
   opts = {},
 }
