@@ -11,6 +11,7 @@ vim.opt.tabstop = 2
 vim.opt.splitkeep = "screen"
 vim.opt.sidescrolloff = 8
 vim.opt.termguicolors = true
+vim.opt.list = false
 vim.opt.scrolloff = 4
 vim.opt.confirm = true
 vim.opt.expandtab = true
