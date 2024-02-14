@@ -3,7 +3,11 @@ return {
   cmd = "TroubleToggle",
   opts = { use_diagnostic_signs = true },
   keys = {
-    { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics" },
+    {
+      "<leader>xd",
+      function() vim.cmd("TroubleToggle document_diagnostics") end,
+      desc = "Document Diagnostics",
+    },
     {
       "<leader>xD",
       "<cmd>TroubleToggle workspace_diagnostics<cr>",

@@ -7,7 +7,7 @@ return {
     { "<leader>fr", function() vim.cmd("Telescope oldfiles") end, desc = "Recent" },
     { "<leader>fu", function() vim.cmd("Telescope undo") end, desc = "Find undos" },
     { "<leader>gh", function() vim.cmd("Telescope git_commits") end, desc = "Commits history" },
-    { "<leader>gs", function() vim.cmd("Telescope git_status") end, desc = "Status" },
+    { "<leader>gS", function() vim.cmd("Telescope git_status") end, desc = "Status (Telescope)" },
     {
       "<leader>sb",
       function() vim.cmd("Telescope current_buffer_fuzzy_find") end,

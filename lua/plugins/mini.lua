@@ -1,14 +1,14 @@
 return {
   -- Better text-objects
-  { "echasnovski/mini.ai", keys = { "a", "i" }, opts = {} },
+  { "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
 
   -- Go forward/backward with square brackets
-  { "echasnovski/mini.bracketed", keys = { "[", "]" }, opts = {} },
+  { "echasnovski/mini.bracketed", event = "VeryLazy", opts = {} },
 
   -- Common configuration presets for options, mappings, and autocommands
   {
     "echasnovski/mini.basics",
-    event = { "BufReadPre" },
+    event = "VimEnter",
     opts = {
       options = {
         -- Basic options ('number', 'ignorecase', and many more)
