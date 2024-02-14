@@ -7,11 +7,6 @@ return {
       -- Go
       nls.builtins.code_actions.gomodifytags,
       nls.builtins.code_actions.impl,
-
-      -- Nix
-      nls.builtins.code_actions.statix,
-      nls.builtins.formatting.alejandra,
-      nls.builtins.diagnostics.deadnix,
     })
   end,
 }
