@@ -6,7 +6,7 @@ return {
     "nvimdev/lspsaga.nvim",
     "hrsh7th/cmp-nvim-lsp",
     { "VidocqH/lsp-lens.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} },
+    "folke/neodev.nvim",
   },
   opts = {
     servers = {
