@@ -70,6 +70,7 @@ return {
         "dockerfile",
         "http",
         "yaml",
+        "nix",
         "c_sharp",
         "go",
         "gomod",
