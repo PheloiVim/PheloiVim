@@ -31,10 +31,10 @@ return {
           enabled = false,
         },
         hover = {
-          enabled = true,
+          enabled = false,
         },
         signature = {
-          enabled = true,
+          enabled = false,
         },
         message = {
           enabled = true,
