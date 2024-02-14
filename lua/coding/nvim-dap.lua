@@ -1,10 +1,10 @@
 return {
   "mfussenegger/nvim-dap",
   dependencies = {
+    { "leoluz/nvim-dap-go", opts = {} },
+
     {
       "rcarriga/nvim-dap-ui",
-      { "leoluz/nvim-dap-go", opts = {} },
-
       keys = {
         { "<leader>du", function() require("dapui").toggle({}) end, desc = "Dap UI" },
         {
