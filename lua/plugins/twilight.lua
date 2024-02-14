@@ -1,7 +1,7 @@
 return {
   "folke/twilight.nvim",
   keys = {
-    { "<leader>ut", "<cmd>Twilight<cr>", desc = "Toggle Twilight" },
+    { "<leader>ut", function() vim.cmd("Twilight") end, desc = "Toggle Twilight" },
   },
   cmd = {
     "Twilight",
