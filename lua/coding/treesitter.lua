@@ -53,7 +53,7 @@ return {
           enable = true,
         },
       },
-      ensure_installed = { "diff", "query", "vim", "regex", "lua" },
+      ensure_installed = { "diff", "query", "vim", "regex", "lua", "markdown", "markdown_inline" },
     },
     config = function(_, opts)
       require("nvim-treesitter.install").compilers = { "clang" }
