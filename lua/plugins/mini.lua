@@ -39,7 +39,7 @@ return {
 
         -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
         -- Supply empty string to not create these mappings.
-        option_toggle_prefix = [[\]],
+        option_toggle_prefix = "<leader>u",
 
         -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
         move_with_alt = false,

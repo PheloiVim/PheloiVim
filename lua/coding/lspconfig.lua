@@ -15,7 +15,7 @@ return {
       lua_ls = {},
       astro = {},
       bashls = {},
-      omnisharp = { -- C#
+      omnisharp = {
         handlers = {
           ["textDocument/definition"] = function(...) return require("omnisharp_extended").handler(...) end,
         },
