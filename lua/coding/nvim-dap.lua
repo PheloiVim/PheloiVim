@@ -1,5 +1,43 @@
 return {
   "mfussenegger/nvim-dap",
+  opts = function()
+    local dap = require("dap")
+    if not dap.adapters["pwa-node"] then
+      require("dap").adapters["pwa-node"] = {
+        type = "server",
+        host = "localhost",
+        port = "${port}",
+        executable = {
+          command = "node",
+          args = {
+            require("mason-registry").get_package("js-debug-adapter"):get_install_path()
+              .. "/js-debug/src/dapDebugServer.js",
+            "${port}",
+          },
+        },
+      }
+    end
+    for _, language in ipairs({ "typescript", "javascript", "typescriptreact", "javascriptreact" }) do
+      if not dap.configurations[language] then
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            request = "launch",
+            name = "Launch file",
+            program = "${file}",
+            cwd = "${workspaceFolder}",
+          },
+          {
+            type = "pwa-node",
+            request = "attach",
+            name = "Attach",
+            processId = require("dap.utils").pick_process,
+            cwd = "${workspaceFolder}",
+          },
+        }
+      end
+    end
+  end,
   dependencies = {
     { "leoluz/nvim-dap-go", opts = {} },
 
@@ -45,10 +83,10 @@ return {
     -- mason.nvim integration
     {
       "jay-babu/mason-nvim-dap.nvim",
-      dependencies = "mason.nvim",
       cmd = { "DapInstall", "DapUninstall" },
       opts = {
         automatic_installation = true,
+        handlers = {}, -- Automatic Setup
         ensure_installed = {
           "bash",
           "codelldb",
@@ -90,7 +128,6 @@ return {
     { "<leader>dt", function() require("dap").terminate() end, desc = "Terminate" },
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
-
   config = function()
     local icons = require("pheloivim.icons")
     for name, sign in pairs(icons.dap) do

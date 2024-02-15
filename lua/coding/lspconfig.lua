@@ -146,11 +146,30 @@ return {
         },
       },
       tsserver = {
-        settings = {
-          completions = {
-            completeFunctionCalls = true,
-          },
-        },
+        on_attach = function()
+          vim.keymap.set(
+            "n",
+            "<leader>cO",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = { only = { "source.organizeImports.ts" }, diagnostics = {} },
+              })
+            end,
+            { desc = "Organize Imports" }
+          )
+          vim.keymap.set(
+            "n",
+            "<leader>cd",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = { only = { "source.removeUnused.ts" }, diagnostics = {} },
+              })
+            end,
+            { desc = "Remove Unused Imports" }
+          )
+        end,
       },
       denols = {},
       biome = {},
@@ -197,7 +216,7 @@ return {
       })
       local default_keymaps = {
         { "<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action" },
-        { "<leader>cd", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition" },
+        { "<leader>cp", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition" },
         { "<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP rename" },
         { "<leader>co", function() vim.cmd("Lspsaga outline") end, "Code outline" },
         { "]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next diagnostic" },
