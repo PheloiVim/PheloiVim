@@ -19,9 +19,9 @@ return {
   },
   dap = {
     Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
-    Breakpoint = " ",
-    BreakpointCondition = " ",
+    Breakpoint = { " ", "DiagnosticInfo" },
+    BreakpointCondition = { " ", "DiagnosticInfo" },
     BreakpointRejected = { " ", "DiagnosticError" },
-    LogPoint = ".>",
+    LogPoint = { ".>", "DiagnosticInfo" },
   },
 }
