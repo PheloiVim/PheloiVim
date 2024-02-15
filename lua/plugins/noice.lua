@@ -20,7 +20,7 @@ return {
   -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
   {
     "folke/noice.nvim",
-    event = "VeryLazy",
+    event = "VimEnter",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",

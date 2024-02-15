@@ -22,6 +22,4 @@ map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
 -- Quick fix
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location list" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix list" })
-map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
 map("n", "<leader>xc", ":cexpr []<cr>", { desc = "Clear list" })

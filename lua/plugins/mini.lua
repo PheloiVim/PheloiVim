@@ -3,7 +3,16 @@ return {
   { "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
 
   -- Go forward/backward with square brackets
-  { "echasnovski/mini.bracketed", event = "VeryLazy", opts = {} },
+  {
+    "echasnovski/mini.bracketed",
+    event = "VeryLazy",
+    opts = {
+      -- Supply empty string `''` to not create mappings.
+      diagnostic = {
+        suffix = "",
+      },
+    },
+  },
 
   -- Common configuration presets for options, mappings, and autocommands
   {
