@@ -14,14 +14,21 @@
 Welcome to PheloiVim, a Neovim configuration tailored to enhance your editing experience! This configuration is meticulously crafted to offer a powerful, efficient, and highly customizable environment for all your editing needs.
 
 > [!NOTE]
-> This configuration is only for the **latest Neovim stable release**. If you are having an older Neovim version, you should update Neovim via package manager or download the latest version from [Official repository](https://github.com/neovim/neovim).
+> This Neovim configuration is maintained for Linux. Some installation commands may vary for other operating systems.
 
 ## Features ✨
 
-- **Clean and Minimalist**: Enjoy a clutter-free interface designed for maximum productivity.
+- **Clean and minimalist**: Enjoy a clutter-free interface designed for maximum productivity.
 - **Customizable**: Tailor every aspect of Neovim to match your preferences and workflow.
-- **Lazy Loading with lazy.nvim**: Efficiently manage plugins loading to optimize startup time.
-- **Efficient Keybindings**: Streamline your editing workflow with intuitive and efficient keybindings.
+- **Plugin management with `lazy.nvim`**: This configuration uses `lazy.nvim` as a plugin manager, allowing plugins to be loaded only when needed, which reduces startup time and memory usage.
+- **Efficient keybindings**: Streamline your editing workflow with intuitive and efficient keybindings.
+- **LSP integration**: Utilizes Language Server Protocol (LSP) integration for language-specific features such as code completion, hover information, and diagnostics for supported languages.
+- **Treesitter syntax highlighting**: Leverages `Treesitter` for improved syntax highlighting.
+- **Git integration**: Provides seamless Git integration for version control operations directly within Neovim.
+- **Fuzzy finder**: Integrated fuzzy finder with `Telescope` for quick file search and navigation.
+- **Completion engine**: Configured with completion engines like `nvim-cmp` for intelligent code completion.
+- **Debugging with `nvim-dap`**: Integrated debugging capabilities using `nvim-dap` for debugging support across various languages and platforms.
+- **Extensive plugin collection**: This configuration includes over 90 plugins covering a wide range of functionalities.
 
 ## Getting Started 🚀
 
