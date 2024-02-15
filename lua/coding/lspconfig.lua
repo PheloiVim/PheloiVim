@@ -8,7 +8,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "williamboman/mason.nvim",
     { "VidocqH/lsp-lens.nvim", opts = {} },
-    "folke/neodev.nvim",
+    { "folke/neodev.nvim", opts = {} },
   },
   opts = {
     servers = {
