@@ -241,22 +241,25 @@ return {
     })
 
     -- Setup server
-    local function setup(server, server_opts)
-      if opts.setup[server] then
-        if opts.setup[server](server_opts) then return end
-      end
-
-      require("lspconfig")[server].setup(server_opts)
-    end
-
     local ensure_installed = {} ---@type string[]
+    local handlers = { lsp_zero.default_setup }
     for server, server_opts in pairs(opts.servers) do
       vim.list_extend(ensure_installed, { server })
-      setup(server, server_opts)
+      if opts.setup[server] then
+        if opts.setup[server](server_opts) then
+          handlers = vim.tbl_deep_extend("force", handlers, {
+            [server] = lsp_zero.noop,
+          })
+        end
+      else
+        handlers = vim.tbl_deep_extend("force", handlers, {
+          [server] = function() require("lspconfig")[server].setup(server_opts) end,
+        })
+      end
     end
-
     require("mason-lspconfig").setup({
       ensure_installed = ensure_installed,
+      handlers = handlers,
     })
 
     -- Auto disable denols or tsserver
