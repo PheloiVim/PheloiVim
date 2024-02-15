@@ -4,7 +4,9 @@ return {
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "nvimdev/lspsaga.nvim",
+    "VonHeikemen/lsp-zero.nvim",
     "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
     { "VidocqH/lsp-lens.nvim", opts = {} },
     "folke/neodev.nvim",
   },
@@ -220,7 +222,6 @@ return {
     })
 
     -- Setup server
-    local ensure_installed = {} ---@type string[]
     local function setup(server, server_opts)
       if opts.setup[server] then
         if opts.setup[server](server_opts) then return end
@@ -228,10 +229,13 @@ return {
 
       require("lspconfig")[server].setup(server_opts)
     end
+
+    local ensure_installed = {} ---@type string[]
     for server, server_opts in pairs(opts.servers) do
       vim.list_extend(ensure_installed, { server })
       setup(server, server_opts)
     end
+
     require("mason-lspconfig").setup({
       ensure_installed = ensure_installed,
     })
