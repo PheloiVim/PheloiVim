@@ -31,6 +31,7 @@ return {
       if stat and stat.type == "directory" then require("neo-tree") end
     end
   end,
+  deactivate = function() vim.cmd([[Neotree close]]) end,
   opts = {
     auto_clean_after_session_restore = true,
     popup_border_style = "rounded",
@@ -39,11 +40,42 @@ return {
     filesystem = {
       bind_to_cwd = false,
       use_libuv_file_watcher = true,
+      follow_current_file = { enabled = true },
+      hijack_netrw_behavior = "open_current",
+    },
+    event_handlers = {
+      {
+        event = "neo_tree_buffer_enter",
+        handler = function(_) vim.opt_local.signcolumn = "auto" end,
+      },
     },
     window = {
       mappings = {
         ["<space>"] = false, -- disable space until we figure out which-key disabling
-        l = "open",
+        h = function(state)
+          local node = state.tree:get_node()
+          if node:has_children() and node:is_expanded() then
+            state.commands.toggle_node(state)
+          else
+            require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
+          end
+        end,
+        l = function(state)
+          local node = state.tree:get_node()
+          if node:has_children() then
+            if not node:is_expanded() then -- if unexpanded, expand
+              state.commands.toggle_node(state)
+            else -- if expanded and has children, seleect the next child
+              if node.type == "file" then
+                state.commands.open(state)
+              else
+                require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
+              end
+            end
+          else -- if has no children
+            state.commands.open(state)
+          end
+        end,
       },
     },
     default_component_configs = {
@@ -55,4 +87,21 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+
+    -- Refresh Neo-Tree sources when closing lazygit
+    vim.api.nvim_create_autocmd("TermClose", {
+      pattern = "*lazygit",
+      callback = function()
+        local manager_ok, manager = pcall(require, "neo-tree.sources.manager")
+        if manager_ok then
+          for _, source in ipairs({ "filesystem", "git_status", "diagnostics" }) do
+            local module = "neo-tree.sources." .. source
+            if package.loaded[module] then manager.refresh(require(module).name) end
+          end
+        end
+      end,
+    })
+  end,
 }
