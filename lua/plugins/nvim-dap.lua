@@ -128,7 +128,7 @@ return {
     { "<leader>dw", function() require("dap.ui.widgets").hover() end, desc = "Widgets" },
   },
   config = function()
-    local icons = require("pheloivim.icons")
+    local icons = require("icons")
     for name, sign in pairs(icons.dap) do
       vim.fn.sign_define("Dap" .. name, { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] })
     end

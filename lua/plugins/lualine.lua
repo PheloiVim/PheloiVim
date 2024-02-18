@@ -13,7 +13,7 @@ return {
     end
   end,
   opts = function()
-    local icons = require("pheloivim.icons")
+    local icons = require("icons")
     vim.o.laststatus = vim.g.lualine_laststatus
     local lualine_require = require("lualine_require")
     lualine_require.require = require

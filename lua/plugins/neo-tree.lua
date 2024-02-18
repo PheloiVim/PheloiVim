@@ -83,7 +83,7 @@ return {
         padding = 0,
       },
       git_status = {
-        symbols = require("pheloivim.icons").git,
+        symbols = require("icons").git,
       },
     },
   },

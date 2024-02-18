@@ -214,7 +214,7 @@ return {
     end)
 
     -- Use icons in the sign column
-    lsp_zero.set_sign_icons(require("pheloivim.icons").diagnostics)
+    lsp_zero.set_sign_icons(require("icons").diagnostics)
 
     -- Disable formatting capabilities
     lsp_zero.set_server_config({
