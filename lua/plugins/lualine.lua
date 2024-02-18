@@ -41,7 +41,7 @@ return {
       },
       sections = {
         lualine_a = {
-          { "mode", fmt = function() return " " end },
+          { "mode", fmt = function(mode) return " " .. mode end },
         },
         lualine_b = {},
         lualine_c = {
