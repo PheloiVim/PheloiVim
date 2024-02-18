@@ -13,7 +13,7 @@ return {
     end
   end,
   opts = function()
-    local icons = require("pheloivim.icons").diagnostics
+    local icons = require("pheloivim.icons")
     vim.o.laststatus = vim.g.lualine_laststatus
     local lualine_require = require("lualine_require")
     lualine_require.require = require
@@ -26,6 +26,7 @@ return {
         globalstatus = true,
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
+        disabled_filetypes = { statusline = { "dashboard" } },
       },
       extensions = {
         "quickfix",
@@ -45,21 +46,10 @@ return {
         },
         lualine_b = {},
         lualine_c = {
-          { "branch", icon = require("pheloivim.icons").git.branch, color = { fg = "pink" } },
-          { "filetype", icon_only = true, padding = { left = 1, right = 0 } },
-          {
-            function() return vim.fn.expand("%:~:.") end,
-            color = function()
-              if vim.bo.modified then return { fg = "pink" } end
-            end,
-          },
+          { "branch", icon = icons.git.branch, color = { fg = "pink" } },
           {
             "diff",
-            symbols = {
-              added = require("pheloivim.icons").git.added,
-              modified = require("pheloivim.icons").git.modified,
-              removed = require("pheloivim.icons").git.removed,
-            },
+            symbols = icons.git,
             source = function()
               ---@diagnostic disable-next-line: undefined-field
               local gitsigns = vim.b.gitsigns_status_dict
@@ -75,7 +65,16 @@ return {
         },
         lualine_x = {
           {
+            ---@diagnostic disable-next-line: undefined-field
+            function() return require("noice").api.status.command.get() end,
+            ---@diagnostic disable-next-line: undefined-field
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
+            color = { fg = "pink" },
+          },
+          {
+            ---@diagnostic disable-next-line: undefined-field
             function() return require("noice").api.status.mode.get() end,
+            ---@diagnostic disable-next-line: undefined-field
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = { fg = "pink" },
           },
@@ -86,12 +85,7 @@ return {
           },
           {
             "diagnostics",
-            symbols = {
-              error = icons.error,
-              warn = icons.warn,
-              info = icons.info,
-              hint = icons.hint,
-            },
+            symbols = icons.diagnostics,
           },
           {
             function()
