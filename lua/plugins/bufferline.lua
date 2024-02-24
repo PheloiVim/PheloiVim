@@ -2,14 +2,14 @@ return {
   "akinsho/bufferline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   keys = {
-    { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
-    { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
-    { "<leader>bo", "<Cmd>BufferLineCloseOthers<CR>", desc = "Delete other buffers" },
-    { "<leader>br", "<Cmd>BufferLineCloseRight<CR>", desc = "Delete buffers to the right" },
-    { "<leader>bl", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete buffers to the left" },
+    { "<leader>bp", function() vim.cmd("BufferLineTogglePin") end, desc = "Toggle pin" },
+    { "<leader>bP", function() vim.cmd("BufferLineGroupClose ungrouped") end, desc = "Delete non-pinned buffers" },
+    { "<leader>bo", function() vim.cmd("BufferLineCloseOthers") end, desc = "Delete other buffers" },
+    { "<leader>br", function() vim.cmd("BufferLineCloseRight") end, desc = "Delete buffers to the right" },
+    { "<leader>bl", function() vim.cmd("BufferLineCloseLeft") end, desc = "Delete buffers to the left" },
     { "<leader>bt", function() vim.cmd("tabclose") end, desc = "Close tab" },
-    { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" },
-    { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+    { "<S-h>", function() vim.cmd("BufferLineCyclePrev") end, desc = "Prev buffer" },
+    { "<S-l>", function() vim.cmd("BufferLineCycleNext") end, desc = "Next buffer" },
   },
   opts = {
     options = {
