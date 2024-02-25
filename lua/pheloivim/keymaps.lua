@@ -7,10 +7,6 @@ map("n", "<leader>ps", function() require("lazy").sync() end, { desc = "Lazy syn
 map("n", "<leader>pu", function() require("lazy").update() end, { desc = "Lazy update" })
 map("n", "<leader>pc", function() require("lazy").check() end, { desc = "Lazy check for update" })
 
--- better up/down
-map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
 -- Clear search with <ESC>
 map("n", "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
 
