@@ -24,7 +24,7 @@ return {
         basic = true,
 
         -- Extra UI features ('winblend', 'cmdheight=0', ...)
-        extra_ui = true,
+        extra_ui = false,
 
         -- Presets for window borders ('single', 'double', ...)
         win_borders = "rounded",
