@@ -37,9 +37,9 @@ Welcome to PheloiVim, a Neovim configuration tailored to enhance your editing ex
 
 1. **Clone the Repository**: Clone this repository to your local machine:
 
-```bash
-git clone --depth 1 https://github.com/2giosangmitom/PheloiVim.git ~/.config/nvim
-```
+   ```bash
+   git clone --depth 1 https://github.com/2giosangmitom/PheloiVim.git ~/.config/nvim
+   ```
 
 2. **Explore**: Take some time to explore the included plugins and their features. Refer to their respective documentation for detailed usage instructions.
 
