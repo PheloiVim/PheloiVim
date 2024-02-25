@@ -15,17 +15,9 @@ return {
       lua_ls = {},
       astro = {},
       bashls = {},
-      omnisharp = {
-        handlers = {
-          ["textDocument/definition"] = function(...) return require("omnisharp_extended").handler(...) end,
-        },
-        enable_ms_build_load_projects_on_demand = true,
-        enable_roslyn_analyzers = true,
-        organize_imports_on_format = true,
-        enable_import_completion = true,
-      },
       graphql = {},
       nil_ls = {}, -- Nix
+      omnisharp = {},
       gopls = {
         on_attach = function()
           vim.keymap.set("n", "<leader>tD", function() require("dap-go").debug_test() end, { desc = "Debug Nearest (Go)" })
@@ -186,6 +178,7 @@ return {
         }
         return true
       end,
+      omnisharp = function() return true end,
     },
   },
   config = function(_, opts)
