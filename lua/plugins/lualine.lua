@@ -98,24 +98,30 @@ return {
           {
             function()
               local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-              local formatters = require("conform").list_formatters(0)
-
-              local available_formatters = {}
-              for _, fmt in ipairs(formatters) do
-                if fmt.available then table.insert(available_formatters, fmt.name) end
-              end
-
               local client_names = {}
               for _, client in ipairs(clients) do
                 if client.name ~= "null-ls" then table.insert(client_names, client.name) end
               end
 
-              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ") or "No Active Client"
-              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ") or "No Active Formatter"
-
-              return "[" .. pretty_list_clients .. "]" .. "[" .. pretty_list_formatters .. "]"
+              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ")
+              return "[" .. pretty_list_clients .. "]"
             end,
             color = { fg = "pink" },
+            padding = 0,
+          },
+          {
+            function()
+              local formatters = require("conform").list_formatters(0)
+              local available_formatters = {}
+              for _, fmt in ipairs(formatters) do
+                if fmt.available then table.insert(available_formatters, fmt.name) end
+              end
+
+              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ")
+              return "[" .. pretty_list_formatters .. "]"
+            end,
+            color = { fg = "pink" },
+            padding = 0,
           },
         },
         lualine_y = {
