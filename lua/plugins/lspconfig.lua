@@ -16,7 +16,6 @@ return {
       astro = {},
       bashls = {},
       graphql = {},
-      nil_ls = {}, -- Nix
       omnisharp = {},
       gopls = {
         on_attach = function()
