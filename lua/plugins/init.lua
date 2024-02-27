@@ -9,4 +9,7 @@ end
 
 require("pheloivim").init()
 
-return {}
+return {
+	{ "folke/lazy.nvim", version = "*" },
+	{ "PheloiVim/PheloiVim", priority = 10000, lazy = false },
+}
