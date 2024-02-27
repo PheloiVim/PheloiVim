@@ -11,5 +11,5 @@ require("pheloivim").init()
 
 return {
   { "folke/lazy.nvim", version = "*" },
-  { "PheloiVim/PheloiVim", priority = 10000, lazy = false },
+  { "PheloiVim/PheloiVim", priority = 10000, lazy = false, config = true },
 }

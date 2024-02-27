@@ -17,9 +17,14 @@ function M.init()
 
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
   if plugin then vim.opt.rtp:append(plugin.dir) end
+end
+
+local config = {}
+function M.setup(opts)
+  config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
   -- load modules
-  for module, enabled in pairs(defaults.modules) do
+  for module, enabled in pairs(config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
       if not ok then error(("Error loading module `%s`...\n\n%s"):format(module, err)) end
@@ -28,7 +33,7 @@ function M.init()
 
   -- load colorscheme
   vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function() vim.cmd.colorscheme(defaults.colorscheme) end,
+    callback = function() vim.cmd.colorscheme(config.colorscheme) end,
   })
 end
 
