@@ -46,10 +46,19 @@ vim.opt.foldcolumn = "1" -- show fold column
 vim.opt.foldenable = true -- enable fold for nvim-ufo
 vim.opt.foldlevel = 99 -- set high fold level for nvim-ufo
 vim.opt.foldlevelstart = 99 -- start with all code unfolded
+vim.opt.foldmethod = "expr"
 vim.opt.history = 100 -- number of commands to remember in a history table
 vim.opt.preserveindent = true -- preserve indent structure as much as possible
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true }) -- disable search count wrap and startup messages
 vim.opt.smoothscroll = true -- enable smooth scroll in neovim 0.10
 vim.opt.hlsearch = true -- highlight search
 vim.opt.swapfile = false -- disable swap
-vim.opt.numberwidth = 2 -- width of gutter
+vim.opt.numberwidth = 2
+
+-- disable some default providers
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+  vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
