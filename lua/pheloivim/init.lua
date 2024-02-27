@@ -26,6 +26,7 @@ function M.init()
     end
   end
 
+  -- load colorscheme
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function() vim.cmd.colorscheme(defaults.colorscheme) end,
   })
