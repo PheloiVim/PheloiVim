@@ -50,7 +50,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.history = 100 -- number of commands to remember in a history table
 vim.opt.preserveindent = true -- preserve indent structure as much as possible
 vim.opt.shortmess:append({ W = true, I = true, c = true, C = true }) -- disable search count wrap and startup messages
-vim.opt.smoothscroll = true -- enable smooth scroll in neovim 0.10
+vim.opt.smoothscroll = true -- enable smooth scroll in neovim 0.10 (:h smoothscroll)
 vim.opt.hlsearch = true -- highlight search
 vim.opt.swapfile = false -- disable swap
 vim.opt.numberwidth = 2
