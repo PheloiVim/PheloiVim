@@ -36,6 +36,10 @@ return {
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig()
 
+      -- Use icons in the sign column
+      lsp_zero.set_sign_icons(require("icons").diagnostic)
+
+      -- Diagnostic
       vim.diagnostic.config(opts.diagnostic)
 
       -- Setup server
