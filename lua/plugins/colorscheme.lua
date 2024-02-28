@@ -5,5 +5,8 @@ return {
   priority = 1000,
   opts = {
     flavour = "mocha",
+    integrations = {
+      cmp = true,
+    },
   },
 }
