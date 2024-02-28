@@ -1,6 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 
--- Auto create dir when saving a file, in case some intermediate directory does not exist
+-- Auto create directory when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = augroup("auto_create_dir", { clear = true }),
   callback = function(event)
@@ -32,4 +32,11 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd("tabdo wincmd =")
     vim.cmd("tabnext " .. current_tab)
   end,
+})
+
+-- Don't list quickfix buffers
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("dont_list_qf", { clear = true }),
+  pattern = "qf",
+  callback = function() vim.opt_local.buflisted = false end,
 })
