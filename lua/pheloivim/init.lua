@@ -3,6 +3,9 @@ local M = {}
 local defaults = {
   colorscheme = "catppuccin",
   mapleader = " ",
+  close_with_q = {
+    "help",
+  },
   modules = {
     options = true, -- pheloivim.options
     keymaps = true, -- pheloivim.keymaps
@@ -23,6 +26,7 @@ function M.init()
   local opts = require("lazy.core.plugin").values(plugin, "opts")
   config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
+  -- load modules
   for module, enabled in pairs(config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
@@ -30,14 +34,25 @@ function M.init()
     end
   end
 
+  -- leader key
   vim.g.mapleader = config.mapleader
 end
 
 function M.setup()
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-      -- load colorscheme
+      -- load theme
       vim.cmd.colorscheme(config.colorscheme)
+    end,
+  })
+
+  -- close some filetypes with <q>
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
+    pattern = config.close_with_q,
+    callback = function(event)
+      vim.bo[event.buf].buflisted = false
+      vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
     end,
   })
 end
