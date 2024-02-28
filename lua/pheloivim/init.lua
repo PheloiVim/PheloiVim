@@ -4,6 +4,7 @@ local defaults = {
   colorscheme = "catppuccin",
   mapleader = " ",
   wrap_spell = { "markdown", "gitcommit" },
+  root_patterns = { ".git" },
   close_with_q = {
     "help",
     "qf",
@@ -17,7 +18,8 @@ local defaults = {
     autocmds = true, -- pheloivim.autocmds
   },
 }
-local config = {}
+
+M.config = {}
 
 M.did_init = false
 function M.init()
@@ -29,10 +31,10 @@ function M.init()
 
   -- force setup during initialization
   local opts = require("lazy.core.plugin").values(plugin, "opts")
-  config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
+  M.config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
   -- load modules
-  for module, enabled in pairs(config.modules) do
+  for module, enabled in pairs(M.config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
       if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
@@ -40,21 +42,21 @@ function M.init()
   end
 
   -- leader key
-  vim.g.mapleader = config.mapleader
+  vim.g.mapleader = M.config.mapleader
 end
 
 function M.setup()
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
       -- load theme
-      vim.cmd.colorscheme(config.colorscheme)
+      vim.cmd.colorscheme(M.config.colorscheme)
     end,
   })
 
   -- close some filetypes with <q>
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
-    pattern = config.close_with_q,
+    pattern = M.config.close_with_q,
     callback = function(event)
       vim.bo[event.buf].buflisted = false
       vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
@@ -64,7 +66,7 @@ function M.setup()
   -- auto enable wrap and spell in some filetypes
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
-    pattern = config.wrap_spell,
+    pattern = M.config.wrap_spell,
     callback = function()
       vim.opt_local.wrap = true
       vim.opt_local.spell = true

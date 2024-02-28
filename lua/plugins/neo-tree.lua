@@ -17,7 +17,7 @@ return {
       function()
         require("neo-tree.command").execute({
           toggle = true,
-          dir = require("utils.fs").root_dir(".git"),
+          dir = require("utils.fs").root_dir(),
         })
       end,
       desc = "Neotree (root)",
