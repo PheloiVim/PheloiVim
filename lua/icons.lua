@@ -11,4 +11,10 @@ return {
     conflict = "",
     branch = "",
   },
+  diagnostic = {
+    error = "",
+    hint = "󰌵",
+    info = "󰋼",
+    warn = "",
+  },
 }
