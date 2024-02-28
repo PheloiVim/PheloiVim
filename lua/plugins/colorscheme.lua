@@ -1,8 +1,9 @@
 return {
-  "AstroNvim/astrotheme",
+  "catppuccin/nvim",
+  name = "catppuccin",
   lazy = false,
   priority = 1000,
   opts = {
-    style = "astrodark",
+    flavour = "mocha",
   },
 }

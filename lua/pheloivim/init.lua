@@ -1,7 +1,7 @@
 local M = {}
 
 local defaults = {
-  colorscheme = "astrotheme",
+  colorscheme = "catppuccin",
   mapleader = " ",
   modules = {
     options = true, -- pheloivim.options
