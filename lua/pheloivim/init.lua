@@ -2,7 +2,6 @@ local M = {}
 
 local defaults = {
   colorscheme = "astrotheme",
-  mapleader = " ",
   modules = {
     options = true, -- pheloivim.options
     keymaps = true, -- pheloivim.keymaps
@@ -17,11 +16,12 @@ function M.init()
 
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
   if plugin then vim.opt.rtp:append(plugin.dir) end
+
+  vim.g.mapleader = " "
 end
 
-local config = {}
 function M.setup(opts)
-  config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
+  local config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
   -- load modules
   for module, enabled in pairs(config.modules) do
