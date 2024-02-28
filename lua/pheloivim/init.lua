@@ -3,8 +3,13 @@ local M = {}
 local defaults = {
   colorscheme = "catppuccin",
   mapleader = " ",
+  wrap_spell = { "markdown", "gitcommit" },
   close_with_q = {
     "help",
+    "qf",
+    "man",
+    "lspinfo",
+    "checkhealth",
   },
   modules = {
     options = true, -- pheloivim.options
@@ -53,6 +58,16 @@ function M.setup()
     callback = function(event)
       vim.bo[event.buf].buflisted = false
       vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
+    end,
+  })
+
+  -- auto enable wrap and spell in some filetypes
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
+    pattern = config.wrap_spell,
+    callback = function()
+      vim.opt_local.wrap = true
+      vim.opt_local.spell = true
     end,
   })
 end
