@@ -1,5 +1,6 @@
 local M = {}
 
+---@param server string
 function M.disable(server)
   local configs = require("lspconfig.configs")
   local def = rawget(configs, server)

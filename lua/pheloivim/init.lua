@@ -21,11 +21,7 @@ local defaults = {
 
 M.config = {}
 
-M.did_init = false
 function M.init()
-  if M.did_init then return end
-  M.did_init = true
-
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
   if plugin then vim.opt.rtp:append(plugin.dir) end
 
@@ -47,10 +43,7 @@ end
 
 function M.setup()
   vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-      -- load theme
-      vim.cmd.colorscheme(M.config.colorscheme)
-    end,
+    callback = function() vim.cmd.colorscheme(M.config.colorscheme) end,
   })
 
   -- close some filetypes with <q>
