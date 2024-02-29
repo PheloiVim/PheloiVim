@@ -29,6 +29,7 @@ return {
       map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
       map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
       map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk")
+      map("n", "<leader>ud", gs.toggle_deleted, "Toggle deleted")
     end,
   },
 }
