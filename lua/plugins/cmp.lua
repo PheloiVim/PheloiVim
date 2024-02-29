@@ -42,7 +42,7 @@ return {
         },
         confirm_opts = {
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
+          select = true,
         },
         snippet = {
           expand = function(args) luasnip.lsp_expand(args.body) end,
