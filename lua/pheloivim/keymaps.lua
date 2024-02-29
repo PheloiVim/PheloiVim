@@ -3,6 +3,9 @@ local map = vim.keymap.set
 -- Save file with Ctrl+s
 map("n", "<C-s>", vim.cmd.w, { desc = "Save file" })
 
+-- Disable <Space> for which-key
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
@@ -28,5 +31,15 @@ map("i", "<C-k>", "<Up>", { desc = "Move up" })
 -- Resize with arrows
 map("n", "<C-Up>", function() vim.cmd("resize +2") end, { desc = "Increase window height" })
 map("n", "<C-Down>", function() vim.cmd("resize -2") end, { desc = "Decrease window height" })
-map("n", "<C-Left>", function() vim.cmd("vertical resize -2") end, { desc = "Decrease window width" })
-map("n", "<C-Right>", function() vim.cmd("vertical resize +2") end, { desc = "Increase window width" })
+map(
+  "n",
+  "<C-Left>",
+  function() vim.cmd("vertical resize -2") end,
+  { desc = "Decrease window width" }
+)
+map(
+  "n",
+  "<C-Right>",
+  function() vim.cmd("vertical resize +2") end,
+  { desc = "Increase window width" }
+)
