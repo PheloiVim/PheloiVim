@@ -7,6 +7,7 @@ return {
     flavour = "mocha",
     integrations = {
       cmp = true,
+      neotree = true,
       native_lsp = {
         enabled = true,
         virtual_text = {
