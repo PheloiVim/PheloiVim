@@ -19,8 +19,10 @@ return {
       x = { name = " Diagnostics/Quickfix" },
       d = { name = " Debug" },
       t = { name = "󰙨 Test" },
+      T = { name = " Terminal" },
       g = { name = "󰊢 Git", h = "Hunks" },
       p = { name = " Packages" },
+      n = { name = " Notifications" },
     },
   },
   config = function(_, opts)
