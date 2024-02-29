@@ -31,7 +31,6 @@ return {
       servers = {
         lua_ls = {},
       },
-      inlay_hint = true,
       setup = {},
     },
     config = function(_, opts)
@@ -44,13 +43,13 @@ return {
       -- Diagnostic
       vim.diagnostic.config(opts.diagnostic)
 
-      lsp_zero.on_attach(function(client, bufnr)
+      lsp_zero.on_attach(function(_, bufnr)
         -- Setup keymaps
         lsp_zero.default_keymaps({
           buffer = bufnr,
           exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" },
         })
-        local function map(l, r, desc) vim.keymap.set("n", l, r, { buffer = bufnr, desc }) end
+        local function map(l, r, desc) vim.keymap.set("n", l, r, { buffer = bufnr, desc = desc }) end
         map("<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action")
         map("<leader>cp", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition")
         map("<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP rename")
@@ -58,12 +57,6 @@ return {
         map("]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next diagnostic")
         map("[d", function() vim.cmd("Lspsaga diagnostic_jump_prev") end, "Previous diagnostic")
         map("gd", function() vim.cmd("Lspsaga goto_definition") end, "Go to definition")
-        map("<leader>li", function() vim.cmd("LspInfo") end, "Lsp Info")
-
-        -- Inlay hint
-        if client.supports_method("textDocument/inlayHint") then
-          vim.lsp.inlay_hint.enable(0, opts.inlay_hint)
-        end
       end)
 
       -- Setup server
