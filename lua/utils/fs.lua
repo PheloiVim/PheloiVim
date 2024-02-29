@@ -1,13 +1,12 @@
 local M = {}
 
--- return root directory
--- `root_patterns` can be configured in `opts` of PheloiVim
+--- Retrieves the root directory of the current project.
+--- This function determines the root directory of the current project by searching for
+--- predefined root patterns within the file system hierarchy.
+--- @return string | nil: The root directory path of the current project.
 function M.root_dir()
   local root_dir = vim.fs.dirname(
-    vim.fs.find(
-      require("pheloivim").config.root_patterns,
-      { upward = true, stop = vim.uv.os_homedir() }
-    )[1]
+    vim.fs.find(require("pheloivim").config.root_patterns, { upward = true, stop = vim.uv.os_homedir() })[1]
   )
   return root_dir
 end

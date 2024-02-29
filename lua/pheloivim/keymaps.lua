@@ -31,15 +31,5 @@ map("i", "<C-k>", "<Up>", { desc = "Move up" })
 -- Resize with arrows
 map("n", "<C-Up>", function() vim.cmd("resize +2") end, { desc = "Increase window height" })
 map("n", "<C-Down>", function() vim.cmd("resize -2") end, { desc = "Decrease window height" })
-map(
-  "n",
-  "<C-Left>",
-  function() vim.cmd("vertical resize -2") end,
-  { desc = "Decrease window width" }
-)
-map(
-  "n",
-  "<C-Right>",
-  function() vim.cmd("vertical resize +2") end,
-  { desc = "Increase window width" }
-)
+map("n", "<C-Left>", function() vim.cmd("vertical resize -2") end, { desc = "Decrease window width" })
+map("n", "<C-Right>", function() vim.cmd("vertical resize +2") end, { desc = "Increase window width" })
