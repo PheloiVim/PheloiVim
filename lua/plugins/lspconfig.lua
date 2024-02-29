@@ -50,49 +50,15 @@ return {
           buffer = bufnr,
           exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" },
         })
-        vim.keymap.set(
-          "n",
-          "<leader>ca",
-          function() vim.cmd("Lspsaga code_action") end,
-          { desc = "Code action" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>cp",
-          function() vim.cmd("Lspsaga peek_definition") end,
-          { desc = "Peek definition" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>cr",
-          function() vim.cmd("Lspsaga rename") end,
-          { desc = "LSP rename" }
-        )
-        vim.keymap.set(
-          "n",
-          "<leader>co",
-          function() vim.cmd("Lspsaga outline") end,
-          { desc = "Code outline" }
-        )
-        vim.keymap.set(
-          "n",
-          "]d",
-          function() vim.cmd("Lspsaga diagnostic_jump_next") end,
-          { desc = "Next diagnostic" }
-        )
-        vim.keymap.set(
-          "n",
-          "[d",
-          function() vim.cmd("Lspsaga diagnostic_jump_prev") end,
-          { desc = "Previous diagnostic" }
-        )
-        vim.keymap.set(
-          "n",
-          "gd",
-          function() vim.cmd("Lspsaga goto_definition") end,
-          { desc = "Go to definition" }
-        )
-        vim.keymap.set("n", "<leader>li", function() vim.cmd("LspInfo") end, { desc = "Lsp Info" })
+        local function map(l, r, desc) vim.keymap.set("n", l, r, { buffer = bufnr, desc }) end
+        map("<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action")
+        map("<leader>cp", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition")
+        map("<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP rename")
+        map("<leader>co", function() vim.cmd("Lspsaga outline") end, "Code outline")
+        map("]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next diagnostic")
+        map("[d", function() vim.cmd("Lspsaga diagnostic_jump_prev") end, "Previous diagnostic")
+        map("gd", function() vim.cmd("Lspsaga goto_definition") end, "Go to definition")
+        map("<leader>li", function() vim.cmd("LspInfo") end, "Lsp Info")
 
         -- Inlay hint
         if client.supports_method("textDocument/inlayHint") then
