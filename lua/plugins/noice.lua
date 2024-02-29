@@ -1,6 +1,6 @@
 return {
   "folke/noice.nvim",
-  event = { "BufReadPost", "BufNewFile" },
+  event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
