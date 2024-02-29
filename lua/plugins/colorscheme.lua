@@ -27,6 +27,8 @@ return {
       },
       which_key = true,
       gitsigns = true,
+      noice = true,
+      notify = true,
     },
   },
 }
