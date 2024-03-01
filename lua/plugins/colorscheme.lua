@@ -50,7 +50,6 @@ return {
         lsp = false,
       },
       semantic_tokens = true,
-      treesitter_context = true,
       dashboard = true,
       fidget = true,
       flash = true,
