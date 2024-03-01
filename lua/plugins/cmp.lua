@@ -30,13 +30,12 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
 
       return {
-        -- Adding borders to completion menu
+        -- Configuring completion window appearance
         window = {
           completion = cmp.config.window.bordered({ border = "rounded" }),
           documentation = cmp.config.window.bordered({ border = "rounded" }),
         },
-        -- Make the first item in completion menu always be selected.
-        preselect = "item",
+        preselect = "item", -- Preselecting the first item in completion menu
         completion = {
           completeopt = "menu,menuone,noinsert",
         },

@@ -3,7 +3,7 @@ return {
   event = "InsertEnter",
   opts = {
     disable_filetype = { "TelescopePrompt" },
-    check_ts = true,
+    check_ts = true, -- Enable autopairs support for treesitter
     fast_wrap = {
       map = "<M-e>",
       chars = { "{", "[", "(", '"', "'" },
@@ -11,7 +11,7 @@ return {
       offset = 0,
       end_key = "$",
       keys = "qwertyuiopzxcvbnmasdfghjkl",
-      check_comma = true,
+      check_comma = true, -- Enable comma checking for fast wrap
     },
   },
   config = function(_, opts)

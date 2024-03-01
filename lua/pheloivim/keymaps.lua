@@ -16,7 +16,7 @@ map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 map({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
 map({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
 
--- Search inside visually highlighted text. Use `silent = false` for it to make effect immediately.
+-- Search inside visually highlighted text. Use `silent = false` for it to take effect immediately.
 map("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
 
 -- Clear search with <ESC>

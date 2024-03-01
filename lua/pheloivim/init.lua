@@ -3,16 +3,16 @@ local M = {}
 local defaults = {
   colorscheme = "catppuccin",
   mapleader = " ",
-  wrap_spell = { "markdown", "gitcommit" },
-  root_patterns = { ".git" },
-  close_with_q = {
+  wrap_spell = { "markdown", "gitcommit" }, -- Filetypes for spell checking and word wrapping
+  root_patterns = { ".git" }, -- Root patterns for project detection
+  close_with_q = { -- Buffers to close with "q"
     "help",
     "qf",
     "man",
     "lspinfo",
     "checkhealth",
   },
-  modules = {
+  modules = { -- Modules to enable by default
     options = true, -- pheloivim.options
     keymaps = true, -- pheloivim.keymaps
     autocmds = true, -- pheloivim.autocmds
@@ -21,15 +21,18 @@ local defaults = {
 
 M.config = {}
 
+--- Initializes and sets up PheloiVim configuration.
 function M.init()
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
+
+  -- Append PheloiVim plugin directory to the runtime path
   if plugin then vim.opt.rtp:append(plugin.dir) end
 
-  -- force setup during initialization
+  -- Force setup during initialization
   local opts = require("lazy.core.plugin").values(plugin, "opts")
   M.config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
-  -- load modules
+  -- Load modules
   for module, enabled in pairs(M.config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
@@ -37,16 +40,18 @@ function M.init()
     end
   end
 
-  -- leader key
+  -- Set leader key
   vim.g.mapleader = M.config.mapleader
 end
 
+--- Sets up autocmds for PheloiVim configuration.
 function M.setup()
+  -- Set colorscheme on VimEnter
   vim.api.nvim_create_autocmd("VimEnter", {
     callback = function() vim.cmd.colorscheme(M.config.colorscheme) end,
   })
 
-  -- close some filetypes with <q>
+  -- Close specified filetypes with <q>
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
     pattern = M.config.close_with_q,
@@ -56,7 +61,7 @@ function M.setup()
     end,
   })
 
-  -- auto enable wrap and spell in some filetypes
+  -- Auto-enable wrap and spell in specified filetypes
   vim.api.nvim_create_autocmd("FileType", {
     group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
     pattern = M.config.wrap_spell,
