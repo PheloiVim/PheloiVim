@@ -11,7 +11,7 @@ return {
     icons = { group = "" },
     defaults = {
       b = { name = "󰓩 Buffer" },
-      c = { name = " Code" },
+      c = { name = " Code", R = "Refactor" },
       f = { name = "󰈔 Find/File" },
       s = { name = " Search" },
       u = { name = "󰓩 UI" },

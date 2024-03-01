@@ -5,10 +5,8 @@ return {
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
     if vim.fn.argc(-1) > 0 then
-      -- set an empty statusline till lualine loads
       vim.o.statusline = " "
     else
-      -- hide the statusline on the starter page
       vim.o.laststatus = 0
     end
   end,
@@ -48,9 +46,12 @@ return {
           { "branch", icon = icons.git.branch, color = { fg = "pink" } },
           {
             "diff",
-            symbols = icons.git,
+            symbols = {
+              added = icons.git.added,
+              modified = icons.git.modified,
+              removed = icons.git.deleted,
+            },
             source = function()
-              ---@diagnostic disable-next-line: undefined-field
               local gitsigns = vim.b.gitsigns_status_dict
               if gitsigns then
                 return {

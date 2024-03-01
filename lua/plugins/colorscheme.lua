@@ -47,7 +47,7 @@ return {
       lsp_trouble = false,
       illuminate = {
         enabled = true,
-        lsp = true,
+        lsp = false,
       },
       semantic_tokens = true,
       treesitter_context = true,
