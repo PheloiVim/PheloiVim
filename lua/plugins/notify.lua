@@ -14,6 +14,8 @@ return {
     on_open = function(win) vim.api.nvim_win_set_config(win, { zindex = 100 }) end,
   },
   init = function()
-    if not require("utils.manager").has("noice.nvim") then vim.notify = require("notify") end
+    if not require("utils.manager").has("noice.nvim") then
+      vim.notify = require("notify")
+    end
   end,
 }

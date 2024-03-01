@@ -27,7 +27,11 @@ return {
   keys = function()
     local harpoon = require("harpoon")
     return {
-      { "<leader>fa", function() harpoon:list():append() end, desc = "Add file" },
+      {
+        "<leader>fa",
+        function() harpoon:list():append() end,
+        desc = "Add file",
+      },
       {
         "<leader>fe",
         function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
@@ -38,7 +42,11 @@ return {
         function() toggle_telescope(harpoon:list()) end,
         desc = "Show marks in Telescope",
       },
-      { "<leader>fc", function() harpoon:list():clear() end, desc = "Clear all marks" },
+      {
+        "<leader>fc",
+        function() harpoon:list():clear() end,
+        desc = "Clear all marks",
+      },
     }
   end,
   opts = {},

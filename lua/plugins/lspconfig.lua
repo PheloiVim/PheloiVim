@@ -62,14 +62,44 @@ return {
           buffer = bufnr,
           exclude = { "gd", "<F2>", "<F3>", "<F4>", "gl", "[d", "]d" },
         })
-        local function map(l, r, desc) vim.keymap.set("n", l, r, { buffer = bufnr, desc = desc }) end
-        map("<leader>ca", function() vim.cmd("Lspsaga code_action") end, "Code action")
-        map("<leader>cp", function() vim.cmd("Lspsaga peek_definition") end, "Peek definition")
-        map("<leader>cr", function() vim.cmd("Lspsaga rename") end, "LSP rename")
-        map("<leader>co", function() vim.cmd("Lspsaga outline") end, "Code outline")
-        map("]d", function() vim.cmd("Lspsaga diagnostic_jump_next") end, "Next diagnostic")
-        map("[d", function() vim.cmd("Lspsaga diagnostic_jump_prev") end, "Previous diagnostic")
-        map("gd", function() vim.cmd("Lspsaga goto_definition") end, "Go to definition")
+        local function map(l, r, desc)
+          vim.keymap.set("n", l, r, { buffer = bufnr, desc = desc })
+        end
+        map(
+          "<leader>ca",
+          function() vim.cmd("Lspsaga code_action") end,
+          "Code action"
+        )
+        map(
+          "<leader>cp",
+          function() vim.cmd("Lspsaga peek_definition") end,
+          "Peek definition"
+        )
+        map(
+          "<leader>cr",
+          function() vim.cmd("Lspsaga rename") end,
+          "LSP rename"
+        )
+        map(
+          "<leader>co",
+          function() vim.cmd("Lspsaga outline") end,
+          "Code outline"
+        )
+        map(
+          "]d",
+          function() vim.cmd("Lspsaga diagnostic_jump_next") end,
+          "Next diagnostic"
+        )
+        map(
+          "[d",
+          function() vim.cmd("Lspsaga diagnostic_jump_prev") end,
+          "Previous diagnostic"
+        )
+        map(
+          "gd",
+          function() vim.cmd("Lspsaga goto_definition") end,
+          "Go to definition"
+        )
       end)
 
       -- Setup LSP server

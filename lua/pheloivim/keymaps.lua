@@ -17,7 +17,12 @@ map({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
 map({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
 
 -- Search inside visually highlighted text. Use `silent = false` for it to take effect immediately.
-map("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
+map(
+  "x",
+  "g/",
+  "<esc>/\\%V",
+  { silent = false, desc = "Search inside visual selection" }
+)
 
 -- Clear search with <ESC>
 map("n", "<esc>", vim.cmd.nohlsearch, { desc = "Clear hlsearch" })
@@ -29,7 +34,27 @@ map("i", "<C-j>", "<Down>", { desc = "Move down" })
 map("i", "<C-k>", "<Up>", { desc = "Move up" })
 
 -- Resize with arrows
-map("n", "<C-Up>", function() vim.cmd("resize +2") end, { desc = "Increase window height" })
-map("n", "<C-Down>", function() vim.cmd("resize -2") end, { desc = "Decrease window height" })
-map("n", "<C-Left>", function() vim.cmd("vertical resize -2") end, { desc = "Decrease window width" })
-map("n", "<C-Right>", function() vim.cmd("vertical resize +2") end, { desc = "Increase window width" })
+map(
+  "n",
+  "<C-Up>",
+  function() vim.cmd("resize +2") end,
+  { desc = "Increase window height" }
+)
+map(
+  "n",
+  "<C-Down>",
+  function() vim.cmd("resize -2") end,
+  { desc = "Decrease window height" }
+)
+map(
+  "n",
+  "<C-Left>",
+  function() vim.cmd("vertical resize -2") end,
+  { desc = "Decrease window width" }
+)
+map(
+  "n",
+  "<C-Right>",
+  function() vim.cmd("vertical resize +2") end,
+  { desc = "Increase window width" }
+)

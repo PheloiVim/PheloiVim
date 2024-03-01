@@ -2,20 +2,50 @@ return {
   "akinsho/bufferline.nvim",
   event = { "BufReadPost", "BufNewFile" },
   keys = {
-    { "<leader>bp", function() vim.cmd("BufferLineTogglePin") end, desc = "Toggle pin" },
-    { "<leader>bP", function() vim.cmd("BufferLineGroupClose ungrouped") end, desc = "Delete non-pinned buffers" },
-    { "<leader>bo", function() vim.cmd("BufferLineCloseOthers") end, desc = "Delete other buffers" },
-    { "<leader>br", function() vim.cmd("BufferLineCloseRight") end, desc = "Delete buffers to the right" },
-    { "<leader>bl", function() vim.cmd("BufferLineCloseLeft") end, desc = "Delete buffers to the left" },
+    {
+      "<leader>bp",
+      function() vim.cmd("BufferLineTogglePin") end,
+      desc = "Toggle pin",
+    },
+    {
+      "<leader>bP",
+      function() vim.cmd("BufferLineGroupClose ungrouped") end,
+      desc = "Delete non-pinned buffers",
+    },
+    {
+      "<leader>bo",
+      function() vim.cmd("BufferLineCloseOthers") end,
+      desc = "Delete other buffers",
+    },
+    {
+      "<leader>br",
+      function() vim.cmd("BufferLineCloseRight") end,
+      desc = "Delete buffers to the right",
+    },
+    {
+      "<leader>bl",
+      function() vim.cmd("BufferLineCloseLeft") end,
+      desc = "Delete buffers to the left",
+    },
     { "<leader>bt", function() vim.cmd("tabclose") end, desc = "Close tab" },
-    { "<S-h>", function() vim.cmd("BufferLineCyclePrev") end, desc = "Prev buffer" },
-    { "<S-l>", function() vim.cmd("BufferLineCycleNext") end, desc = "Next buffer" },
+    {
+      "<S-h>",
+      function() vim.cmd("BufferLineCyclePrev") end,
+      desc = "Prev buffer",
+    },
+    {
+      "<S-l>",
+      function() vim.cmd("BufferLineCycleNext") end,
+      desc = "Next buffer",
+    },
   },
   opts = function()
     return {
       options = {
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
-        right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
+        right_mouse_command = function(n)
+          require("mini.bufremove").delete(n, false)
+        end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
@@ -34,9 +64,9 @@ return {
         },
       },
       -- Enable catppuccin highlights
-      highlights = require("utils.manager").has("catppuccin")
-          and require("catppuccin.groups.integrations.bufferline").get()
-        or nil,
+      highlights = require("utils.manager").has("catppuccin") and require(
+        "catppuccin.groups.integrations.bufferline"
+      ).get() or nil,
     }
   end,
   init = function()

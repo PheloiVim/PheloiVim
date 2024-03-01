@@ -3,7 +3,11 @@ return {
     "stevearc/conform.nvim",
     cmd = "ConformInfo",
     keys = {
-      { "<leader>cf", function() require("conform").format() end, desc = "Format" },
+      {
+        "<leader>cf",
+        function() require("conform").format() end,
+        desc = "Format",
+      },
     },
     opts = {
       format = {

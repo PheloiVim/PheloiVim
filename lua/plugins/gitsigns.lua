@@ -17,10 +17,17 @@ return {
     },
     on_attach = function(bufnr)
       local gs = require("gitsigns")
-      local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc }) end
+      local function map(mode, l, r, desc)
+        vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
+      end
       map("n", "]h", gs.next_hunk, "Next hunk")
       map("n", "[h", gs.prev_hunk, "Prev hunk")
-      map("n", "<leader>ghb", function() gs.blameline({ full = true }) end, "Blame line")
+      map(
+        "n",
+        "<leader>ghb",
+        function() gs.blameline({ full = true }) end,
+        "Blame line"
+      )
       map({ "n", "v" }, "<leader>ghs", gs.stage_hunk, "Stage hunk")
       map({ "n", "v" }, "<leader>ghr", gs.reset_hunk, "Reset hunk")
       map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")

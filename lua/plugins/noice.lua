@@ -33,7 +33,15 @@ return {
     },
   },
   keys = {
-    { "<leader>nl", function() require("noice").cmd("last") end, desc = "Last Message" },
-    { "<leader>nh", function() require("noice").cmd("history") end, desc = "History" },
+    {
+      "<leader>nl",
+      function() require("noice").cmd("last") end,
+      desc = "Last Message",
+    },
+    {
+      "<leader>nh",
+      function() require("noice").cmd("history") end,
+      desc = "History",
+    },
   },
 }

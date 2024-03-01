@@ -8,7 +8,7 @@ local options = {
   cursorline = true,
   conceallevel = 2,
   signcolumn = "yes",
-  showtabline = 2,
+  showtabline = 0,
   foldcolumn = "1",
 
   -- Behavior

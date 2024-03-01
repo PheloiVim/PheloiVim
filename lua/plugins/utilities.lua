@@ -26,7 +26,11 @@ return {
     cmd = "Spectre",
     opts = { open_cmd = "noswapfile vnew" },
     keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+      {
+        "<leader>sr",
+        function() require("spectre").open() end,
+        desc = "Replace in files (Spectre)",
+      },
       {
         "<leader>sw",
         mode = "v",
@@ -39,10 +43,26 @@ return {
   {
     "chrisgrieser/nvim-spider",
     keys = {
-      { "e", mode = { "n", "o", "x" }, function() require("spider").motion("e") end },
-      { "w", mode = { "n", "o", "x" }, function() require("spider").motion("w") end },
-      { "b", mode = { "n", "o", "x" }, function() require("spider").motion("b") end },
-      { "ge", mode = { "n", "x", "o" }, function() require("spider").motion("ge") end },
+      {
+        "e",
+        mode = { "n", "o", "x" },
+        function() require("spider").motion("e") end,
+      },
+      {
+        "w",
+        mode = { "n", "o", "x" },
+        function() require("spider").motion("w") end,
+      },
+      {
+        "b",
+        mode = { "n", "o", "x" },
+        function() require("spider").motion("b") end,
+      },
+      {
+        "ge",
+        mode = { "n", "x", "o" },
+        function() require("spider").motion("ge") end,
+      },
     },
   },
 

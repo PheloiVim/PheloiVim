@@ -56,7 +56,10 @@ return {
           ["<C-n>"] = cmp.mapping.select_next_item(),
           ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
           ["<C-y>"] = cmp.config.disable,
-          ["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
+          ["<C-e>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+          }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },

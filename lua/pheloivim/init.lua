@@ -36,7 +36,9 @@ function M.init()
   for module, enabled in pairs(M.config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
-      if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
+      if not ok then
+        error(("Error loading %s...\n\n%s"):format(module, err))
+      end
     end
   end
 
@@ -55,7 +57,12 @@ function M.setup()
     pattern = M.config.close_with_q,
     callback = function(event)
       vim.bo[event.buf].buflisted = false
-      vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
+      vim.keymap.set(
+        "n",
+        "q",
+        vim.cmd.close,
+        { buffer = event.buf, silent = true }
+      )
     end,
   })
 
