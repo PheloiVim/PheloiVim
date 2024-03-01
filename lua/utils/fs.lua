@@ -6,7 +6,7 @@ local M = {}
 --- @return string | nil: The root directory path of the current project.
 function M.root_dir()
   local root_dir = vim.fs.dirname(
-    vim.fs.find(require("pheloivim").config.root_patterns, { upward = true, stop = vim.uv.os_homedir() })[1]
+    vim.fs.find(require("pheloivim").config.root_patterns, { upward = true, stop = vim.loop.os_homedir() })[1]
   )
   return root_dir
 end

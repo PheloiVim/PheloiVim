@@ -9,7 +9,7 @@ return {
   keys = {
     {
       "<leader>e",
-      function() require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() }) end,
+      function() require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() }) end,
       desc = "Neotree (cwd)",
     },
     {
@@ -25,7 +25,7 @@ return {
   },
   init = function()
     -- Get file system statistics for the current buffer
-    local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(0))
+    local stats = vim.loop.fs_stat(vim.api.nvim_buf_get_name(0))
 
     -- Check if stats exist and if the type is a directory
     if stats and stats.type == "directory" then

@@ -17,4 +17,11 @@ return {
     info = "󰋼 ",
     warn = " ",
   },
+  dap = {
+    Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+    Breakpoint = { " ", "DapBreakpoint" },
+    BreakpointCondition = { " ", "DapBreakpointCondition" },
+    BreakpointRejected = { " ", "DiagnosticError" },
+    LogPoint = { ".>", "DapLogPoint" },
+  },
 }

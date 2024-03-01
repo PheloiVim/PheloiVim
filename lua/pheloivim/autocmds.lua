@@ -8,7 +8,7 @@ autocmd({ "BufWritePre" }, {
     -- Check if the file path contains a protocol prefix (e.g., "http://", "ftp://")
     if event.match:match("^%w%w+://") then return end
     -- Get the real path of the file and create its parent directories if they do not exist
-    local file = vim.uv.fs_realpath(event.match) or event.match
+    local file = vim.loop.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
 })
