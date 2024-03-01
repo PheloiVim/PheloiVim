@@ -23,11 +23,11 @@ return {
       { "<leader>gh", function() vim.cmd("Telescope git_commits") end, desc = "Commits history" },
       { "<leader>gS", function() vim.cmd("Telescope git_status") end, desc = "Status (Telescope)" },
       {
-        "<leader>sb",
+        "<leader>fb",
         function() vim.cmd("Telescope current_buffer_fuzzy_find") end,
-        desc = "Buffer",
+        desc = "Current buffer fuzzy find",
       },
-      { "<leader>sm", function() vim.cmd("Telescope man_pages") end, desc = "Man Pages" },
+      { "<leader>fm", function() vim.cmd("Telescope man_pages") end, desc = "Man Pages" },
     },
     dependencies = {
       "debugloop/telescope-undo.nvim",
