@@ -20,8 +20,8 @@ return {
         always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
           local icons = require("icons").diagnostic
-          local ret = (diag.error and icons.error .. " " .. diag.error .. " " or "")
-            .. (diag.warning and icons.warn .. " " .. diag.warning or "")
+          local ret = (diag.error and icons.error .. diag.error .. " " or "")
+            .. (diag.warning and icons.warn .. diag.warning or "")
           return vim.trim(ret)
         end,
         offsets = {

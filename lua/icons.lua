@@ -12,9 +12,9 @@ return {
     branch = "",
   },
   diagnostic = {
-    error = "",
-    hint = "󰌵",
-    info = "󰋼",
-    warn = "",
+    error = " ",
+    hint = "󰌵 ",
+    info = "󰋼 ",
+    warn = " ",
   },
 }
