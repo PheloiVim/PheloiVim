@@ -7,6 +7,10 @@ return {
     flavour = "mocha",
     integrations = {
       cmp = true,
+      telescope = {
+        enabled = true,
+        style = "nvchad",
+      },
       neotree = true,
       native_lsp = {
         enabled = true,
