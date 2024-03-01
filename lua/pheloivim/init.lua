@@ -46,10 +46,8 @@ end
 
 --- Sets up autocmds for PheloiVim configuration.
 function M.setup()
-  -- Set colorscheme on VimEnter
-  vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function() vim.cmd.colorscheme(M.config.colorscheme) end,
-  })
+  -- Set colorscheme
+  vim.cmd.colorscheme(M.config.colorscheme)
 
   -- Close specified filetypes with <q>
   vim.api.nvim_create_autocmd("FileType", {
