@@ -7,10 +7,19 @@ return {
     flavour = "mocha",
     integrations = {
       cmp = true,
+      indent_blankline = {
+        enabled = true,
+        scope_color = "lavender",
+        colored_indent_levels = true,
+      },
+      mini = {
+        enabled = true,
+      },
       telescope = {
         enabled = true,
         style = "nvchad",
       },
+      lsp_saga = true,
       neotree = true,
       native_lsp = {
         enabled = true,
