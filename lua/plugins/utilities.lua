@@ -103,4 +103,9 @@ return {
       use_default_keymaps = false,
     },
   },
+
+  {
+    "farmergreg/vim-lastplace",
+    event = "BufReadPost",
+  },
 }
