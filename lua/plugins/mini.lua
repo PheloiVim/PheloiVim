@@ -41,28 +41,6 @@ return {
     },
   },
 
-  -- Indent line
-  {
-    "echasnovski/mini.indentscope",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "dashboard",
-          "lazy",
-          "neo-tree",
-          "Trouble",
-          "trouble",
-          "toggleterm",
-          "mason",
-        },
-        callback = function() vim.b.miniindentscope_disable = true end,
-      })
-    end,
-  },
-
   -- Move any selection in any direction
   {
     "echasnovski/mini.move",
