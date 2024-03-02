@@ -5,16 +5,20 @@ return {
   init = function()
     vim.g.lualine_laststatus = vim.o.laststatus
     if vim.fn.argc(-1) > 0 then
+      -- set an empty statusline till lualine loads
       vim.o.statusline = " "
     else
+      -- hide the statusline on the starter page
       vim.o.laststatus = 0
     end
   end,
   opts = function()
-    local icons = require("icons")
-    vim.o.laststatus = vim.g.lualine_laststatus
+    -- PERF: we don't need this lualine require madness 🤷
     local lualine_require = require("lualine_require")
     lualine_require.require = require
+    local icons = require("icons")
+
+    vim.o.laststatus = vim.g.lualine_laststatus
 
     return {
       options = {
@@ -66,25 +70,17 @@ return {
         lualine_x = {
           {
             function() return require("noice").api.status.command.get() end,
-            cond = function()
-              return package.loaded["noice"]
-                and require("noice").api.status.command.has()
-            end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
             color = { fg = "pink" },
           },
           {
             function() return require("noice").api.status.mode.get() end,
-            cond = function()
-              return package.loaded["noice"]
-                and require("noice").api.status.mode.has()
-            end,
+            cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = { fg = "pink" },
           },
           {
             function() return "  " .. require("dap").status() end,
-            cond = function()
-              return package.loaded["dap"] and require("dap").status() ~= ""
-            end,
+            cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
             color = { fg = "pink" },
           },
           {
@@ -96,13 +92,10 @@ return {
               local clients = vim.lsp.get_active_clients({ bufnr = 0 })
               local client_names = {}
               for _, client in ipairs(clients) do
-                if client.name ~= "null-ls" then
-                  table.insert(client_names, client.name)
-                end
+                if client.name ~= "null-ls" then table.insert(client_names, client.name) end
               end
 
-              local pretty_list_clients = #client_names ~= 0
-                and table.concat(client_names, ", ")
+              local pretty_list_clients = #client_names ~= 0 and table.concat(client_names, ", ")
               return "[" .. pretty_list_clients .. "]"
             end,
             color = { fg = "pink" },
@@ -113,13 +106,10 @@ return {
               local formatters = require("conform").list_formatters(0)
               local available_formatters = {}
               for _, fmt in ipairs(formatters) do
-                if fmt.available then
-                  table.insert(available_formatters, fmt.name)
-                end
+                if fmt.available then table.insert(available_formatters, fmt.name) end
               end
 
-              local pretty_list_formatters = #available_formatters ~= 0
-                and table.concat(available_formatters, ", ")
+              local pretty_list_formatters = #available_formatters ~= 0 and table.concat(available_formatters, ", ")
               return "[" .. pretty_list_formatters .. "]"
             end,
             color = { fg = "pink" },
@@ -128,13 +118,7 @@ return {
         },
         lualine_y = {
           {
-            function()
-              return "Tab size: "
-                .. vim.api.nvim_get_option_value(
-                  "shiftwidth",
-                  { scope = "local" }
-                )
-            end,
+            function() return "Tab size: " .. vim.api.nvim_get_option_value("shiftwidth", { scope = "local" }) end,
           },
         },
         lualine_z = {

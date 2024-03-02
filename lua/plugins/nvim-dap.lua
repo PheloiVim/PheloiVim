@@ -1,5 +1,5 @@
 return {
-  -- fancy UI for the debugger
+  -- Fancy UI for the debugger
   {
     "rcarriga/nvim-dap-ui",
     keys = {
@@ -20,19 +20,13 @@ return {
       local dap = require("dap")
       local dapui = require("dapui")
       dapui.setup(opts)
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open({})
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close({})
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close({})
-      end
+      dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open({}) end
+      dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close({}) end
+      dap.listeners.before.event_exited["dapui_config"] = function() dapui.close({}) end
     end,
   },
 
-  -- virtual text for the debugger
+  -- Virtual text for the debugger
   {
     "theHamsta/nvim-dap-virtual-text",
     opts = {
@@ -42,6 +36,7 @@ return {
     },
   },
 
+  -- Persistent breakpoints
   {
     "Weissle/persistent-breakpoints.nvim",
     opts = {
@@ -49,10 +44,11 @@ return {
     },
   },
 
-  -- mason.nvim integration
+  -- Plugin for mason.nvim integration with debugger
   {
     "jay-babu/mason-nvim-dap.nvim",
     cmd = { "DapInstall", "DapUninstall" },
+    dependencies = { "mfussenegger/nvim-dap", "williamboman/mason.nvim" },
     opts = {
       automatic_installation = true,
       handlers = {}, -- Automatic Setup
@@ -60,6 +56,7 @@ return {
     },
   },
 
+  -- Main DAP plugin for debugger functionality
   {
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -70,16 +67,12 @@ return {
     keys = {
       {
         "<leader>dB",
-        function()
-          require("persistent-breakpoints.api").set_conditional_breakpoint()
-        end,
+        function() require("persistent-breakpoints.api").set_conditional_breakpoint() end,
         desc = "Conditional Breakpoint",
       },
       {
         "<leader>dd",
-        function()
-          require("persistent-breakpoints.api").clear_all_breakpoints()
-        end,
+        function() require("persistent-breakpoints.api").clear_all_breakpoints() end,
         desc = "Clear Breakpoints",
       },
       {
@@ -147,25 +140,20 @@ return {
       },
     },
     config = function()
-      vim.api.nvim_set_hl(
-        0,
-        "DapStoppedLine",
-        { default = true, link = "Visual" }
-      )
+      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
+      -- Define signs for debugger icons
       for name, sign in pairs(require("icons").dap) do
         sign = type(sign) == "table" and sign or { sign }
-        vim.fn.sign_define(
-          "Dap" .. name,
-          {
-            text = sign[1],
-            texthl = sign[2] or "DiagnosticInfo",
-            linehl = sign[3],
-            numhl = sign[3],
-          }
-        )
+        vim.fn.sign_define("Dap" .. name, {
+          text = sign[1],
+          texthl = sign[2] or "DiagnosticInfo",
+          linehl = sign[3],
+          numhl = sign[3],
+        })
       end
 
+      -- Load launch configurations from vscode
       require("dap.ext.vscode").load_launchjs()
     end,
   },

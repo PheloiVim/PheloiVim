@@ -1,10 +1,13 @@
 local M = {}
 
+-- Default config for PheloiVim
 local defaults = {
   colorscheme = "catppuccin",
   mapleader = " ",
+  maplocalleader = "\\",
   wrap_spell = { "markdown", "gitcommit" }, -- Filetypes for spell checking and word wrapping
-  root_patterns = { ".git" }, -- Root patterns for project detection
+  -- PheloiVim root dir detection
+  root_patterns = { ".git" },
   close_with_q = { -- Buffers to close with "q"
     "help",
     "qf",
@@ -21,7 +24,7 @@ local defaults = {
 
 M.config = {}
 
---- Initializes and sets up PheloiVim configuration.
+--- Initializes and set up PheloiVim configuration.
 function M.init()
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
 
@@ -36,14 +39,13 @@ function M.init()
   for module, enabled in pairs(M.config.modules) do
     if enabled then
       local ok, err = pcall(require, "pheloivim." .. module)
-      if not ok then
-        error(("Error loading %s...\n\n%s"):format(module, err))
-      end
+      if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
     end
   end
 
   -- Set leader key
   vim.g.mapleader = M.config.mapleader
+  vim.g.maplocalleader = M.config.maplocalleader
 end
 
 --- Sets up autocmds for PheloiVim configuration.
@@ -57,12 +59,7 @@ function M.setup()
     pattern = M.config.close_with_q,
     callback = function(event)
       vim.bo[event.buf].buflisted = false
-      vim.keymap.set(
-        "n",
-        "q",
-        vim.cmd.close,
-        { buffer = event.buf, silent = true }
-      )
+      vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
     end,
   })
 

@@ -64,10 +64,7 @@ return {
         else
           -- If the node does not have children or is not expanded,
           -- focus on its parent node by calling the focus_node function from the renderer module
-          require("neo-tree.ui.renderer").focus_node(
-            state,
-            node:get_parent_id()
-          )
+          require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
         end
       end,
       child_or_open = function(state)
@@ -87,10 +84,7 @@ return {
               state.commands.open(state)
             else
               -- If it's a directory node, focus on the first child node
-              require("neo-tree.ui.renderer").focus_node(
-                state,
-                node:get_child_ids()[1]
-              )
+              require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
             end
           end
         else

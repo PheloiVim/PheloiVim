@@ -4,9 +4,7 @@ local M = {}
 --- This function checks if a specified plugin is available in the `lazy.nvim` configuration.
 --- @param plugin string The name of the plugin to check for availability.
 --- @return boolean true if the plugin is available, false otherwise.
-function M.has(plugin)
-  return require("lazy.core.config").spec.plugins[plugin] ~= nil
-end
+function M.has(plugin) return require("lazy.core.config").spec.plugins[plugin] ~= nil end
 
 --- Install a package using Mason
 ---@param package_name string
@@ -24,18 +22,10 @@ function M.install_package(package_name)
     end)
     :if_present(function(pkg)
       if not pkg:is_installed() then
-        vim.notify(
-          ("[pheloivim-mason] installing %s"):format(pkg.name),
-          vim.log.levels.INFO
-        )
+        vim.notify(("[pheloivim-mason] installing %s"):format(pkg.name), vim.log.levels.INFO)
         pkg:install():once(
           "closed",
-          function()
-            vim.notify(
-              ("[pheloivim-mason] %s was installed"):format(pkg.name),
-              vim.log.levels.INFO
-            )
-          end
+          function() vim.notify(("[pheloivim-mason] %s was installed"):format(pkg.name), vim.log.levels.INFO) end
         )
       end
     end)

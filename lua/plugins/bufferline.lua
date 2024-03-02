@@ -27,15 +27,14 @@ return {
       function() vim.cmd("BufferLineCloseLeft") end,
       desc = "Delete buffers to the left",
     },
-    { "<leader>bt", function() vim.cmd("tabclose") end, desc = "Close tab" },
     {
       "<S-h>",
-      function() vim.cmd("BufferLineCyclePrev") end,
+      vim.cmd.BufferLineCyclePrev,
       desc = "Prev buffer",
     },
     {
       "<S-l>",
-      function() vim.cmd("BufferLineCycleNext") end,
+      vim.cmd.BufferLineCycleNext,
       desc = "Next buffer",
     },
   },
@@ -43,9 +42,7 @@ return {
     return {
       options = {
         close_command = function(n) require("mini.bufremove").delete(n, false) end,
-        right_mouse_command = function(n)
-          require("mini.bufremove").delete(n, false)
-        end,
+        right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
@@ -64,15 +61,17 @@ return {
         },
       },
       -- Enable catppuccin highlights
-      highlights = require("utils.manager").has("catppuccin") and require(
-        "catppuccin.groups.integrations.bufferline"
-      ).get() or nil,
+      highlights = require("utils.manager").has("catppuccin")
+          and require("catppuccin.groups.integrations.bufferline").get()
+        or nil,
     }
   end,
   init = function()
     -- Fix bufferline when restoring a session
     vim.api.nvim_create_autocmd("BufAdd", {
-      callback = function() require("bufferline") end,
+      callback = function()
+        vim.schedule(function() pcall(nvim_bufferline) end)
+      end,
     })
   end,
 }

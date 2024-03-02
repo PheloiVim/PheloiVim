@@ -33,9 +33,7 @@ return {
     },
     {
       "<leader>to",
-      function()
-        require("neotest").output.open({ enter = true, auto_close = true })
-      end,
+      function() require("neotest").output.open({ enter = true, auto_close = true }) end,
       desc = "Show Output",
     },
     {
@@ -73,11 +71,7 @@ return {
       virtual_text = {
         format = function(diagnostic)
           -- Replace newline and tab characters with space for more compact diagnostics
-          local message = diagnostic.message
-            :gsub("\n", " ")
-            :gsub("\t", " ")
-            :gsub("%s+", " ")
-            :gsub("^%s+", "")
+          local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
           return message
         end,
       },

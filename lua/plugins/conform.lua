@@ -2,6 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     cmd = "ConformInfo",
+    event = "BufWritePre",
     keys = {
       {
         "<leader>cf",
@@ -11,9 +12,13 @@ return {
     },
     opts = {
       format = {
-        timeout_ms = 3000,
+        timeout_ms = 1000,
         async = true,
         quiet = false,
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
       },
       formatters_by_ft = {
         lua = { "stylua" },

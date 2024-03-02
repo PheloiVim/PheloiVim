@@ -62,13 +62,7 @@ return {
           local stats = require("lazy").stats()
           local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
           return {
-            "⚡ Neovim loaded "
-              .. stats.loaded
-              .. "/"
-              .. stats.count
-              .. " plugins in "
-              .. ms
-              .. "ms",
+            "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms",
           }
         end,
       },
