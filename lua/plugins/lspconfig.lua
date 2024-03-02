@@ -20,6 +20,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       "williamboman/mason.nvim",
       { "folke/neodev.nvim", opts = {} },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = false },
     },
     opts = {
       -- Diagnostic options
@@ -48,6 +49,12 @@ return {
       handlers = {},
     },
     config = function(_, opts)
+      -- Set up "neoconf.nvim"
+      if require("utils.manager").has("neoconf.nvim") then
+        local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
+        require("neoconf").setup(require("lazy.core.plugin").values(plugin, "opts", false))
+      end
+
       local lsp_zero = require("lsp-zero")
       -- Extend nvim-lspconfig with lsp-zero features
       lsp_zero.extend_lspconfig()

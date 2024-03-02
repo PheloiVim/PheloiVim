@@ -48,7 +48,7 @@ function M.init()
   vim.g.maplocalleader = M.config.maplocalleader
 end
 
---- Sets up autocmds for PheloiVim configuration.
+--- Set up PheloiVim.
 function M.setup()
   -- Set colorscheme
   vim.cmd.colorscheme(M.config.colorscheme)
