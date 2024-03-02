@@ -1,6 +1,5 @@
 -- Configuration options for Neovim
 local options = {
-  -- Appearance
   number = true,
   relativenumber = true,
   laststatus = 3,
@@ -9,9 +8,7 @@ local options = {
   conceallevel = 2,
   signcolumn = "yes",
   showtabline = 0,
-  foldcolumn = "1",
-
-  -- Behavior
+  foldcolumn = "0",
   clipboard = "unnamedplus",
   autowrite = true,
   undofile = true,
@@ -47,6 +44,7 @@ local options = {
   foldenable = true,
   foldlevel = 99,
   foldlevelstart = 99,
+  foldnestmax = 0,
   history = 100,
   preserveindent = true,
   hlsearch = true,
