@@ -13,10 +13,12 @@ return {
     end
   end,
   opts = function()
-    local icons = require("icons")
-    vim.o.laststatus = vim.g.lualine_laststatus
+    -- PERF: we don't need this lualine require madness 🤷
     local lualine_require = require("lualine_require")
     lualine_require.require = require
+    local icons = require("icons")
+
+    vim.o.laststatus = vim.g.lualine_laststatus
 
     return {
       options = {
@@ -37,7 +39,6 @@ return {
         "nvim-dap-ui",
         "toggleterm",
         "man",
-        "oil",
         "fugitive",
       },
       sections = {
@@ -49,9 +50,12 @@ return {
           { "branch", icon = icons.git.branch, color = { fg = "pink" } },
           {
             "diff",
-            symbols = icons.git,
+            symbols = {
+              added = icons.git.added,
+              modified = icons.git.modified,
+              removed = icons.git.deleted,
+            },
             source = function()
-              ---@diagnostic disable-next-line: undefined-field
               local gitsigns = vim.b.gitsigns_status_dict
               if gitsigns then
                 return {
@@ -65,16 +69,12 @@ return {
         },
         lualine_x = {
           {
-            ---@diagnostic disable-next-line: undefined-field
             function() return require("noice").api.status.command.get() end,
-            ---@diagnostic disable-next-line: undefined-field
             cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
             color = { fg = "pink" },
           },
           {
-            ---@diagnostic disable-next-line: undefined-field
             function() return require("noice").api.status.mode.get() end,
-            ---@diagnostic disable-next-line: undefined-field
             cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
             color = { fg = "pink" },
           },
@@ -85,15 +85,7 @@ return {
           },
           {
             "diagnostics",
-            symbols = icons.diagnostics,
-          },
-          {
-            function()
-              local linters = require("lint").get_running()
-              if #linters == 0 then return "󰦕 " end
-              return "󱉶 " .. table.concat(linters, ", ")
-            end,
-            color = { fg = "pink" },
+            symbols = icons.diagnostic,
           },
           {
             function()

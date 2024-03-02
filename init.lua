@@ -1,70 +1,18 @@
-local modules = {
-  "pheloivim.options",
-  "pheloivim.keymaps",
-  "pheloivim.autocmds",
-}
+-- Display messages in the command line with different highlight groups
+vim.api.nvim_echo({
+  {
+    "This repository is not meant to be used as a direct Neovim configuration\n",
+    "ErrorMsg",
+  }, -- Display an error message
+  {
+    "Please check the PheloiVim documentation for installation details\n",
+    "WarningMsg",
+  }, -- Display a warning message
+  { "Press any key to exit...", "MoreMsg" }, -- Display a message prompting to press any key
+}, true, {}) -- The `true` argument clears the command line before displaying messages, `{}` is used for options which are empty in this case
 
-for _, module in ipairs(modules) do
-  local ok, err = pcall(require, module)
-  if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
-end
+-- Wait for a single character input from the user
+vim.fn.getchar()
 
--- Install lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-  spec = {
-    { import = "plugins" }, -- import plugins
-  },
-  install = {
-    colorscheme = { "tokyonight" },
-  },
-  defaults = {
-    lazy = true,
-    version = false, -- always use the latest git commit
-  },
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "2html_plugin",
-        "tohtml",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "matchit",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
-        "spellfile_plugin",
-        "vimball",
-        "vimballPlugin",
-        "zip",
-        "zipPlugin",
-        "tutor",
-        "rplugin",
-        "syntax",
-        "synmenu",
-        "optwin",
-        "compiler",
-        "bugreport",
-        "ftplugin",
-      },
-    },
-  },
-})
+-- Quit Neovim
+vim.cmd.quit()

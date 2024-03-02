@@ -1,13 +1,5 @@
 return {
   "nvim-neotest/neotest",
-  cmd = "Neotest",
-  dependencies = {
-    "nvim-neotest/neotest-go",
-    "mrcjkb/rustaceanvim",
-    "Issafalcon/neotest-dotnet",
-    "marilari88/neotest-vitest",
-    "nvim-neotest/neotest-jest",
-  },
   keys = {
     {
       "<leader>td",
@@ -24,9 +16,21 @@ return {
       function() require("neotest").run.run(vim.loop.cwd()) end,
       desc = "Run All Test Files",
     },
-    { "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest" },
-    { "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run Last" },
-    { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary" },
+    {
+      "<leader>tr",
+      function() require("neotest").run.run() end,
+      desc = "Run Nearest",
+    },
+    {
+      "<leader>tl",
+      function() require("neotest").run.run_last() end,
+      desc = "Run Last",
+    },
+    {
+      "<leader>ts",
+      function() require("neotest").summary.toggle() end,
+      desc = "Toggle Summary",
+    },
     {
       "<leader>to",
       function() require("neotest").output.open({ enter = true, auto_close = true }) end,
@@ -37,7 +41,11 @@ return {
       function() require("neotest").output_panel.toggle() end,
       desc = "Toggle Output Panel",
     },
-    { "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop" },
+    {
+      "<leader>tS",
+      function() require("neotest").run.stop() end,
+      desc = "Stop",
+    },
   },
   opts = {
     status = { virtual_text = true },
@@ -55,15 +63,7 @@ return {
     --     args = { "-tags=integration" },
     --   },
     -- },
-    adapters = {
-      ["neotest-go"] = {
-        args = { "-tags=integration" },
-      },
-      ["rustaceanvim.neotest"] = {},
-      ["neotest-dotnet"] = {},
-      ["neotest-jest"] = {},
-      ["neotest-vitest"] = {},
-    },
+    adapters = {},
   },
   config = function(_, opts)
     local neotest_ns = vim.api.nvim_create_namespace("neotest")

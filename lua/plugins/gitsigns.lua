@@ -1,13 +1,13 @@
 return {
   "lewis6991/gitsigns.nvim",
-  event = { "BufReadPost", "BufNewFile", "BufWritePost" },
+  event = { "BufReadPost", "BufNewFile" },
   opts = {
     signs = {
       add = { text = "▎" },
       change = { text = "▎" },
-      delete = { text = "" },
-      topdelete = { text = "" },
-      changedelete = { text = "▎" },
+      delete = { text = "󰍵" },
+      topdelete = { text = "‾" },
+      changedelete = { text = "~" },
       untracked = { text = "▎" },
     },
     preview_config = {
@@ -26,7 +26,8 @@ return {
       map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
       map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
       map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+      map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk")
+      map("n", "<leader>ud", gs.toggle_deleted, "Toggle deleted")
     end,
   },
 }

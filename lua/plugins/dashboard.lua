@@ -25,12 +25,37 @@ return {
       config = {
         header = vim.split(logo, "\n"),
         center = {
-          { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
-          { action = "ene | startinsert", desc = " New file", icon = " ", key = "n" },
-          { action = "Telescope oldfiles", desc = " Recent files", icon = " ", key = "r" },
-          { action = "Telescope live_grep", desc = " Find text", icon = " ", key = "g" },
+          {
+            action = "Telescope find_files",
+            desc = " Find file",
+            icon = " ",
+            key = "f",
+          },
+          {
+            action = "ene | startinsert",
+            desc = " New file",
+            icon = " ",
+            key = "n",
+          },
+          {
+            action = "Telescope oldfiles",
+            desc = " Recent files",
+            icon = " ",
+            key = "r",
+          },
+          {
+            action = "Telescope live_grep",
+            desc = " Find text",
+            icon = " ",
+            key = "g",
+          },
           { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
-          { action = "Neotree toggle", desc = " NeoTree", icon = " ", key = "e" },
+          {
+            action = "Neotree toggle",
+            desc = " NeoTree",
+            icon = " ",
+            key = "e",
+          },
           { action = "qa", desc = " Quit", icon = " ", key = "q" },
         },
         footer = function()

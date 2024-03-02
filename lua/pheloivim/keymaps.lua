@@ -1,21 +1,35 @@
 local map = vim.keymap.set
-vim.g.mapleader = " "
 
--- Lazy
-map("n", "<leader>pl", function() require("lazy").home() end, { desc = "Lazy" })
-map("n", "<leader>ps", function() require("lazy").sync() end, { desc = "Lazy sync" })
-map("n", "<leader>pu", function() require("lazy").update() end, { desc = "Lazy update" })
-map("n", "<leader>pc", function() require("lazy").check() end, { desc = "Lazy check for update" })
+-- Save file with Ctrl+s
+map("n", "<C-s>", vim.cmd.w, { desc = "Save file" })
+
+-- Disable <Space> for which-key
+map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Window navigation
+map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+-- Condition on `v:count == 0` to allow easier use of relative line numbers
+map({ "n", "x" }, "j", [[v:count == 0 ? 'gj' : 'j']], { expr = true })
+map({ "n", "x" }, "k", [[v:count == 0 ? 'gk' : 'k']], { expr = true })
+
+-- Search inside visually highlighted text. Use `silent = false` for it to take effect immediately.
+map("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search inside visual selection" })
 
 -- Clear search with <ESC>
-map("n", "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+map("n", "<esc>", vim.cmd.nohlsearch, { desc = "Clear hlsearch" })
 
--- Windows
-map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
-map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
-map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+-- Navigate within insert mode
+map("i", "<C-h>", "<Left>", { desc = "Move left" })
+map("i", "<C-l>", "<Right>", { desc = "Move right" })
+map("i", "<C-j>", "<Down>", { desc = "Move down" })
+map("i", "<C-k>", "<Up>", { desc = "Move up" })
 
--- Quick fix
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location list" })
-map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix list" })
-map("n", "<leader>xc", ":cexpr []<cr>", { desc = "Clear list" })
+-- Resize with arrows
+map("n", "<C-Up>", function() vim.cmd("resize +2") end, { desc = "Increase window height" })
+map("n", "<C-Down>", function() vim.cmd("resize -2") end, { desc = "Decrease window height" })
+map("n", "<C-Left>", function() vim.cmd("vertical resize -2") end, { desc = "Decrease window width" })
+map("n", "<C-Right>", function() vim.cmd("vertical resize +2") end, { desc = "Increase window width" })

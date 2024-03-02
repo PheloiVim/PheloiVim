@@ -1,11 +1,10 @@
--- Better vim.notify
 return {
   "rcarriga/nvim-notify",
   keys = {
     {
-      "<leader>un",
+      "<leader>nd",
       function() require("notify").dismiss({ silent = true, pending = true }) end,
-      desc = "Dismiss all Notifications",
+      desc = "Dismiss all",
     },
   },
   opts = {
@@ -14,4 +13,7 @@ return {
     max_width = function() return math.floor(vim.o.columns * 0.75) end,
     on_open = function(win) vim.api.nvim_win_set_config(win, { zindex = 100 }) end,
   },
+  init = function()
+    if not require("utils.manager").has("noice.nvim") then vim.notify = require("notify") end
+  end,
 }

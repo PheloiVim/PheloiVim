@@ -1,60 +1,13 @@
 return {
-  -- Better text-objects
-  { "echasnovski/mini.ai", event = "VeryLazy", opts = {} },
-
   -- Go forward/backward with square brackets
   {
     "echasnovski/mini.bracketed",
-    event = "VeryLazy",
+    keys = { "[", "]" },
     opts = {
       -- Supply empty string `''` to not create mappings.
       diagnostic = {
         suffix = "",
       },
-    },
-  },
-
-  -- Common configuration presets for options, mappings, and autocommands
-  {
-    "echasnovski/mini.basics",
-    event = "VimEnter",
-    opts = {
-      options = {
-        -- Basic options ('number', 'ignorecase', and many more)
-        basic = true,
-
-        -- Extra UI features ('winblend', 'cmdheight=0', ...)
-        extra_ui = false,
-
-        -- Presets for window borders ('single', 'double', ...)
-        win_borders = "rounded",
-      },
-
-      mappings = {
-        -- Basic mappings (better 'jk', save with Ctrl+S, ...)
-        basic = true,
-
-        -- Window navigation with <C-hjkl>, resize with <C-arrow>
-        windows = true,
-
-        -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
-        -- Supply empty string to not create these mappings.
-        option_toggle_prefix = "<leader>u",
-
-        -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
-        move_with_alt = false,
-      },
-
-      autocommands = {
-        -- Basic autocommands (highlight on yank, start Insert in terminal, ...)
-        basic = true,
-
-        -- Set 'relativenumber' only in linewise and blockwise Visual mode
-        relnum_in_visual_mode = false,
-      },
-
-      -- Whether to disable showing non-error feedback
-      silent = true,
     },
   },
 
@@ -86,28 +39,6 @@ return {
         desc = "Delete Buffer (Force)",
       },
     },
-  },
-
-  -- Indent line
-  {
-    "echasnovski/mini.indentscope",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-    init = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "help",
-          "dashboard",
-          "lazy",
-          "neo-tree",
-          "Trouble",
-          "trouble",
-          "toggleterm",
-          "mason",
-        },
-        callback = function() vim.b.miniindentscope_disable = true end,
-      })
-    end,
   },
 
   -- Move any selection in any direction

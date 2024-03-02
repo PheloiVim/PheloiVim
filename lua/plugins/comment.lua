@@ -20,6 +20,6 @@ return {
       basic = false,
       extra = false,
     },
-    pre_hook = function() return vim.bo.commentstring or require("ts_context_commentstring").calculate_commentstring() end,
+    pre_hook = function() return vim.bo.commentstring end,
   },
 }
