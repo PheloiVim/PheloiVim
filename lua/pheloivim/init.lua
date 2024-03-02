@@ -25,7 +25,11 @@ local defaults = {
 M.config = {}
 
 --- Initializes and set up PheloiVim configuration.
+M.did_init = false
 function M.init()
+  if M.did_init then return end
+  M.did_init = true
+
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
 
   -- Append PheloiVim plugin directory to the runtime path
