@@ -2,7 +2,7 @@ local M = {}
 
 -- Default config for PheloiVim
 local defaults = {
-  colorscheme = "catppuccin",
+  colorscheme = "catppuccin", --- @type function|string
   mapleader = " ",
   maplocalleader = "\\",
   wrap_spell = { "markdown", "gitcommit" }, -- Filetypes for spell checking and word wrapping
@@ -51,7 +51,11 @@ end
 --- Set up PheloiVim.
 function M.setup()
   -- Set colorscheme
-  vim.cmd.colorscheme(M.config.colorscheme)
+  if type(M.config.colorscheme) == "function" then
+    M.config.colorscheme()
+  else
+    vim.cmd.colorscheme(M.config.colorscheme)
+  end
 
   -- Close specified filetypes with <q>
   vim.api.nvim_create_autocmd("FileType", {
