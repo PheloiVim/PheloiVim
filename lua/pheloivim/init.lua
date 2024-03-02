@@ -39,6 +39,13 @@ function M.init()
   local opts = require("lazy.core.plugin").values(plugin, "opts")
   M.config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
+  -- Set leader key
+  vim.g.mapleader = M.config.mapleader
+  vim.g.maplocalleader = M.config.maplocalleader
+end
+
+--- Set up PheloiVim.
+function M.setup()
   -- Load modules
   for module, enabled in pairs(M.config.modules) do
     if enabled then
@@ -47,13 +54,6 @@ function M.init()
     end
   end
 
-  -- Set leader key
-  vim.g.mapleader = M.config.mapleader
-  vim.g.maplocalleader = M.config.maplocalleader
-end
-
---- Set up PheloiVim.
-function M.setup()
   -- Set colorscheme
   if type(M.config.colorscheme) == "function" then
     M.config.colorscheme()
