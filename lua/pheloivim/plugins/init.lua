@@ -7,7 +7,7 @@ if vim.fn.has("nvim-0.9") == 0 then
   }, true, {})
   vim.fn.getchar()
   vim.cmd.quit()
-  return
+  return {}
 end
 
 -- Initializes PheloiVim before plugins are loaded by lazy.nvim

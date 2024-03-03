@@ -9,6 +9,14 @@ local defaults = {
     autocmds = true,
     keymaps = true,
   },
+  icons = {
+    diagnostic = {
+      error = " ",
+      hint = "󰌵 ",
+      info = "󰋼 ",
+      warn = " ",
+    },
+  },
 }
 
 --- Current configuration options
