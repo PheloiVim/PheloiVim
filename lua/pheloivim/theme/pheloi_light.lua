@@ -2,8 +2,6 @@
 
 local M = {}
 
-function M.load()
-	print("pheloi_light")
-end
+function M.load() print("pheloi_light") end
 
 return M
