@@ -4,7 +4,7 @@ local M = {}
 --- Default configuration options
 ---@class PheloiVimOptions
 local defaults = {
-  colorscheme = "pheloi_dark",
+  colorscheme = "tokyonight",
   modules = {
     autocmds = true,
     keymaps = true,
