@@ -9,9 +9,6 @@ return {
     },
     ui = {
       code_action = "",
-      kind = require("pheloivim.utils.manager").has("catppuccin") and require(
-        "catppuccin.groups.integrations.lsp_saga"
-      ).custom_kind() or nil,
     },
     symbol_in_winbar = {
       show_file = false,
