@@ -1,85 +1,107 @@
+---@class PheloiVimConfig: PheloiVimOptions
 local M = {}
 
--- Default config for PheloiVim
+--- Default configuration options
+---@class PheloiVimOptions
 local defaults = {
-  colorscheme = "catppuccin", --- @type function|string
-  mapleader = " ",
-  maplocalleader = "\\",
-  wrap_spell = { "markdown", "gitcommit" }, -- Filetypes for spell checking and word wrapping
-  -- PheloiVim root dir detection
-  root_patterns = { ".git" },
-  close_with_q = { -- Buffers to close with "q"
-    "help",
-    "qf",
-    "man",
-    "lspinfo",
-    "checkhealth",
+  colorscheme = "tokyonight",
+  modules = {
+    autocmds = true,
+    keymaps = true,
   },
-  modules = { -- Modules to enable by default
-    options = true, -- pheloivim.options
-    keymaps = true, -- pheloivim.keymaps
-    autocmds = true, -- pheloivim.autocmds
+  icons = {
+    git = {
+      added = " ",
+      modified = " ",
+      deleted = " ",
+      renamed = "➜",
+      untracked = "★",
+      ignored = "◌",
+      unstaged = "✗",
+      staged = "✓",
+      conflict = "",
+      branch = "",
+    },
+    diagnostic = {
+      error = " ",
+      hint = "󰌵 ",
+      info = "󰋼 ",
+      warn = " ",
+    },
+    dap = {
+      Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+      Breakpoint = { " ", "DapBreakpoint" },
+      BreakpointCondition = { " ", "DapBreakpointCondition" },
+      BreakpointRejected = { " ", "DiagnosticError" },
+      LogPoint = { ".>", "DapLogPoint" },
+    },
   },
 }
 
-M.config = {}
+--- Current configuration options
+---@type PheloiVimOptions
+local options
 
---- Initializes and set up PheloiVim configuration.
+--- Setup PheloiVim configuration
+---@param opts? PheloiVimOptions: Options for PheloiVim (optional)
+function M.setup(opts)
+  options = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
+
+  local lazy_autocmds = vim.fn.argc(-1) == 0
+  if not lazy_autocmds then M.load("autocmds") end
+
+  local group = vim.api.nvim_create_augroup("PheloiVim", { clear = true })
+  vim.api.nvim_create_autocmd("User", {
+    group = group,
+    pattern = "VeryLazy",
+    callback = function()
+      if lazy_autocmds then M.load("autocmds") end
+      M.load("keymaps")
+    end,
+  })
+
+  if type(M.colorscheme) == "function" then
+    M.colorscheme()
+  else
+    vim.cmd.colorscheme(M.colorscheme)
+  end
+end
+
+--- Load configurations for a specific module
+---@param name "autocmds" | "options" | "keymaps"
+function M.load(name)
+  local function _load(mod)
+    if require("lazy.core.cache").find(mod)[1] then require(mod) end
+  end
+
+  if M.modules[name] or name == "options" then _load("pheloivim.core." .. name) end
+
+  _load("config." .. name)
+
+  if vim.bo.filetype == "lazy" then vim.cmd("do VimResized") end
+
+  local pattern = "PheloiVim" .. name:sub(1, 1):upper() .. name:sub(2)
+  vim.api.nvim_exec_autocmds("User", { pattern = pattern, modeline = false })
+end
+
 M.did_init = false
+
+--- Initialize PheloiVim
 function M.init()
   if M.did_init then return end
   M.did_init = true
-
   local plugin = require("lazy.core.config").spec.plugins.PheloiVim
-
-  -- Append PheloiVim plugin directory to the runtime path
   if plugin then vim.opt.rtp:append(plugin.dir) end
-
-  -- Force setup during initialization
-  local opts = require("lazy.core.plugin").values(plugin, "opts")
-  M.config = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
-
-  -- Set leader key
-  vim.g.mapleader = M.config.mapleader
-  vim.g.maplocalleader = M.config.maplocalleader
+  M.load("options")
 end
 
---- Set up PheloiVim.
-function M.setup()
-  -- Load modules
-  for module, enabled in pairs(M.config.modules) do
-    if enabled then
-      local ok, err = pcall(require, "pheloivim." .. module)
-      if not ok then error(("Error loading %s...\n\n%s"):format(module, err)) end
-    end
-  end
-
-  -- Set colorscheme
-  if type(M.config.colorscheme) == "function" then
-    M.config.colorscheme()
-  else
-    vim.cmd.colorscheme(M.config.colorscheme)
-  end
-
-  -- Close specified filetypes with <q>
-  vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
-    pattern = M.config.close_with_q,
-    callback = function(event)
-      vim.bo[event.buf].buflisted = false
-      vim.keymap.set("n", "q", vim.cmd.close, { buffer = event.buf, silent = true })
-    end,
-  })
-
-  -- Auto-enable wrap and spell in specified filetypes
-  vim.api.nvim_create_autocmd("FileType", {
-    group = vim.api.nvim_create_augroup("wrap_spell", { clear = true }),
-    pattern = M.config.wrap_spell,
-    callback = function()
-      vim.opt_local.wrap = true
-      vim.opt_local.spell = true
-    end,
-  })
-end
+--- Metatable to provide default values when accessing M
+---@type table<string, function>
+setmetatable(M, {
+  __index = function(_, key)
+    if options == nil then return vim.deepcopy(defaults)[key] end
+    return options[key]
+  end,
+})
 
 return M

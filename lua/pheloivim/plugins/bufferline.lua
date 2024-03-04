@@ -46,7 +46,7 @@ return {
         diagnostics = "nvim_lsp",
         always_show_bufferline = true,
         diagnostics_indicator = function(_, _, diag)
-          local icons = require("icons").diagnostic
+          local icons = require("pheloivim").icons.diagnostic
           local ret = (diag.error and icons.error .. diag.error .. " " or "")
             .. (diag.warning and icons.warn .. diag.warning or "")
           return vim.trim(ret)
@@ -60,10 +60,6 @@ return {
           },
         },
       },
-      -- Enable catppuccin highlights
-      highlights = require("utils.manager").has("catppuccin")
-          and require("catppuccin.groups.integrations.bufferline").get()
-        or nil,
     }
   end,
   init = function()

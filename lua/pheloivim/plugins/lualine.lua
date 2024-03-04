@@ -16,7 +16,7 @@ return {
     -- PERF: we don't need this lualine require madness 🤷
     local lualine_require = require("lualine_require")
     lualine_require.require = require
-    local icons = require("icons")
+    local icons = require("pheloivim").icons
 
     vim.o.laststatus = vim.g.lualine_laststatus
 

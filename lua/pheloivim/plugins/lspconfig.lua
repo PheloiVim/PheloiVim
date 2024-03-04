@@ -50,7 +50,7 @@ return {
     },
     config = function(_, opts)
       -- Set up "neoconf.nvim"
-      if require("utils.manager").has("neoconf.nvim") then
+      if require("pheloivim.utils.manager").has("neoconf.nvim") then
         local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
         require("neoconf").setup(require("lazy.core.plugin").values(plugin, "opts", false))
       end
@@ -60,7 +60,7 @@ return {
       lsp_zero.extend_lspconfig()
 
       -- Use icons in the sign column for diagnostics
-      lsp_zero.set_sign_icons(require("icons").diagnostic)
+      lsp_zero.set_sign_icons(require("pheloivim").icons.diagnostic)
 
       -- Configure diagnostics
       vim.diagnostic.config(opts.diagnostic)

@@ -3,9 +3,6 @@ local map = vim.keymap.set
 -- Save file with Ctrl+s
 map("n", "<C-s>", vim.cmd.w, { desc = "Save file" })
 
--- Disable <Space> for which-key
-map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-
 -- Window navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })

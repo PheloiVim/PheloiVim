@@ -22,7 +22,7 @@ return {
       function()
         require("neo-tree.command").execute({
           toggle = true,
-          dir = require("utils.fs").root_dir(),
+          dir = require("pheloivim.utils.fs").root_dir(),
         })
       end,
       desc = "Neotree (root)",
@@ -49,7 +49,7 @@ return {
       },
       modified = { symbol = "" },
       git_status = {
-        symbols = require("icons").git,
+        symbols = require("pheloivim").icons.git,
       },
     },
     commands = {

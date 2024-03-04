@@ -143,7 +143,7 @@ return {
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
       -- Define signs for debugger icons
-      for name, sign in pairs(require("icons").dap) do
+      for name, sign in pairs(require("pheloivim").icons.dap) do
         sign = type(sign) == "table" and sign or { sign }
         vim.fn.sign_define("Dap" .. name, {
           text = sign[1],
