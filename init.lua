@@ -1,18 +1,21 @@
--- Display messages in the command line with different highlight groups
-vim.api.nvim_echo({
-  {
-    "This repository is not meant to be used as a direct Neovim configuration\n",
-    "ErrorMsg",
-  }, -- Display an error message
-  {
-    "Please check the PheloiVim documentation for installation details\n",
-    "WarningMsg",
-  }, -- Display a warning message
-  { "Press any key to exit...", "MoreMsg" }, -- Display a message prompting to press any key
-}, true, {}) -- The `true` argument clears the command line before displaying messages, `{}` is used for options which are empty in this case
+require "core"
 
--- Wait for a single character input from the user
-vim.fn.getchar()
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
 
--- Quit Neovim
-vim.cmd.quit()
+if custom_init_path then
+  dofile(custom_init_path)
+end
+
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
