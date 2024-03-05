@@ -3,6 +3,8 @@ require("core.autocmds")
 require("core.keymaps")
 require("bootstrap").lazy()
 
+vim.cmd.colorscheme("pheloi")
+
 local icons = require("icons")
 
 require("lazy").setup({
