@@ -19,6 +19,9 @@ require("lazy").setup({
       not_loaded = icons.circle,
     },
   },
+  install = {
+    colorscheme = { "tokyodark" },
+  },
   performance = {
     rtp = {
       disabled_plugins = {

@@ -1,11 +1,18 @@
 local palette = {
   black = "#06080A",
-  bg = "#0B0E14",
+  grey = "#33363c",
+  white = "#ced4df",
+  bg = "#11121D",
   fg = "#A0A8CD",
+  grey_fg = "#4A5057",
 }
 
 local highlight = {
   Normal = { fg = palette.fg, bg = palette.bg },
+  MatchWord = { bg = palette.grey, fg = palette.white },
+  Pmenu = { bg = palette.black },
+  Comment = { fg = palette.grey_fg },
+  FloatBorder = { fg = palette.grey, bg = palette.black },
 }
 
 vim.cmd("hi clear")
