@@ -214,4 +214,69 @@ return {
       end,
     },
   },
+
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", "z", "d", "c", "v", "g", "]", "[", "y", "'" },
+    opts = {
+      window = {
+        border = "rounded",
+      },
+      show_help = false,
+      show_keys = false,
+      plugins = { spelling = true },
+      icons = { group = "" },
+      defaults = {
+        b = { name = "󰓩 Buffer" },
+        c = { name = " Code", R = "Refactor" },
+        f = { name = "󰈔 Find/File" },
+        s = { name = " Search" },
+        u = { name = "󰓩 UI" },
+        w = { name = " Windows" },
+        x = { name = " Diagnostics/Quickfix" },
+        d = { name = " Debug" },
+        t = { name = "󰙨 Test" },
+        T = { name = " Terminal" },
+        g = { name = "󰊢 Git", h = "Hunks" },
+        p = { name = " Packages" },
+        n = { name = " Notifications" },
+      },
+    },
+    config = function(_, opts)
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.defaults, { prefix = "<leader>", mode = { "n", "v" } })
+    end,
+  },
+
+  {
+    "akinsho/toggleterm.nvim",
+    cmd = { "ToggleTerm", "TermExec" },
+    keys = {
+      {
+        "<leader>gl",
+        function()
+          require("utils.terminal").toggle({
+            cmd = "lazygit",
+            size = 30,
+            direction = "float",
+          })
+        end,
+        desc = "Lazygit",
+      },
+      {
+        "<leader>Tt",
+        vim.cmd.ToggleTerm,
+        desc = "Toggle terminal",
+      },
+    },
+    opts = {
+      size = 14,
+      open_mapping = [[<c-\>]],
+      hide_numbers = true, -- hide the number column in toggleterm buffers
+      shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+      shade_terminals = true,
+      start_in_insert = true,
+    },
+  },
 }
