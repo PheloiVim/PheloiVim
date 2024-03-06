@@ -19,7 +19,7 @@ function M.lazy()
     vim.api.nvim_echo({
       string.format("Unable to load lazy from %s\n", lazypath),
       "ErrorMsg",
-    })
+    }, true)
     vim.fn.getchar()
     vim.cmd.quit()
   end
