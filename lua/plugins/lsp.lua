@@ -24,7 +24,7 @@ return {
         },
       },
       ui = {
-        code_action = icons.tip,
+        code_action = icons.ui.tip,
       },
       symbol_in_winbar = {
         show_file = false,
@@ -48,9 +48,9 @@ return {
       ui = {
         border = "rounded",
         icons = {
-          package_installed = icons.check,
-          package_uninstalled = icons.close,
-          package_pending = icons.circle,
+          package_installed = icons.ui.check,
+          package_uninstalled = icons.ui.close,
+          package_pending = icons.ui.circle,
         },
       },
     },

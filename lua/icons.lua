@@ -1,9 +1,11 @@
 return {
-  check = "󰗠",
-  close = "󰅙",
-  circle = "",
-  default_ft = "",
-  tip = "󰌵",
+  ui = {
+    check = "󰗠",
+    close = "󰅙",
+    circle = "",
+    default_ft = "",
+    tip = "󰌵",
+  },
   diagnostic = {
     error = " ",
     hint = "󰌵 ",
