@@ -53,7 +53,7 @@ autocmd("FileType", {
 })
 
 -- Close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   group = augroup("close_with_q", { clear = true }),
   pattern = {
     "help",

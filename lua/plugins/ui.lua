@@ -18,4 +18,14 @@ return {
       },
     },
   },
+
+  {
+    "tiagovla/tokyodark.nvim",
+    lazy = false,
+    opts = {},
+    config = function(_, opts)
+      require("tokyodark").setup(opts)
+      vim.cmd.colorscheme("tokyodark")
+    end,
+  },
 }
