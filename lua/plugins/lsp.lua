@@ -44,6 +44,7 @@ return {
     "williamboman/mason.nvim",
     cmd = "Mason",
     opts = {
+      ensure_installed = { "stylua" },
       max_concurrent_installers = 5,
       ui = {
         border = "rounded",
@@ -54,6 +55,13 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      require("mason").setup(opts)
+
+      for _, tool in ipairs(opts.ensure_installed) do
+        require("utils.manager").install_package(tool)
+      end
+    end,
   },
 
   {
