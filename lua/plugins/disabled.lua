@@ -1,6 +1,7 @@
 local disabled_plugins = {
 	"catppuccin",
 	"vim-startuptime",
+	"tokyonight.nvim",
 }
 
 local spec = {}
