@@ -1,12 +1,5 @@
 return {
   {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    enabled = vim.fn.executable("make") == 1,
-    build = "make",
-    config = function() require("telescope").load_extension("fzf") end,
-  },
-
-  {
     "debugloop/telescope-undo.nvim",
     config = function() require("telescope").load_extension("undo") end,
   },
@@ -70,14 +63,6 @@ return {
         layout_config = {
           prompt_position = "top",
           horizontal = { preview_cutoff = 80, width = 0.9 },
-        },
-      },
-      extensions = {
-        fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         },
       },
     },
