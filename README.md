@@ -1,20 +1,14 @@
 # LazyVim Configuration
 
-My Neovim configuration built on LazyVim to empower your editing experience! This configuration prioritizes both efficiency and customization, allowing you to tailor your development environment to your specific needs.
+This repository contains my personal configuration for Neovim, built on top of the LazyVim framework.
 
-**Features:**
+## Features:
 
 - **Effortless Setup:** Leverage the power of LazyVim for a streamlined installation and configuration process.
 - **Customizable:** Tweak various aspects of Neovim to match your workflow preferences.
 - **Optimized for:** Replace with your specific use cases (e.g., web development, writing)
 
-**Installation:**
-
-**Prerequisites:**
-
-- **Neovim:** Ensure you have Neovim installed on your system.
-
-**Steps:**
+## Installation:
 
 1. **Clone this repository:**
 
@@ -28,11 +22,11 @@ My Neovim configuration built on LazyVim to empower your editing experience! Thi
    nvim
    ```
 
-**Customization:**
+## **Customization:**
 
-This configuration utilizes Lua for customization. Explore the files within the repository (`~/.config/nvim`) to understand the current settings. Modify these files to personalize your Neovim experience.
+This configuration utilizes Lua for customization. Explore the files within the repository to understand the current settings. Modify these files to personalize your Neovim experience.
 
-**Further Information:**
+## Further Information:
 
 - **LazyVim Documentation:** [https://www.lazyvim.org/](https://www.lazyvim.org/)
 - **Feel free to reach out with any questions or suggestions!**
