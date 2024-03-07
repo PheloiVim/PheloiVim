@@ -1,14 +1,24 @@
-vim.api.nvim_echo({
-  {
-    "This repository is not meant to be used as a direct Neovim configuration\n",
-    "ErrorMsg",
-  },
-  {
-    "Please check the PheloiVim documentation for installation details\n",
-    "WarningMsg",
-  },
-  { "Press any key to exit...", "MoreMsg" },
-}, true, {})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+end
+vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
-vim.fn.getchar()
-vim.cmd.quit()
+require("lazy").setup({
+  spec = {
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+    { import = "plugins" },
+  },
+  defaults = {
+    lazy = true,
+    version = false, -- always use the latest git commit
+  },
+  install = { colorscheme = { "tokyonight", "habamax" } },
+  checker = { enabled = true }, -- automatically check for plugin updates
+  performance = {
+    rtp = {
+      disabled_plugins = {
+      },
+    },
+  },
+})
