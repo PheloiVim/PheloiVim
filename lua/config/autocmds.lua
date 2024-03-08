@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- Reset relativenumber after leaving command mode
+-- Reset relative number after leaving command mode
 vim.api.nvim_create_autocmd("CmdLineLeave", {
 	callback = function()
 		local excluded_filetypes = { "lazy" }
