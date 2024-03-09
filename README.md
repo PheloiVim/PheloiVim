@@ -8,7 +8,7 @@ built on top of the LazyVim framework.
 1. **Clone this repository:**
 
    ```bash
-   git clone https://github.com/2giosangmitom/neovim-config ~/.config/nvim
+   git clone https://github.com/2giosangmitom/neovim-config.git --depth 1 ~/.config/nvim
    ```
 
 2. **Open Neovim**:
