@@ -1,7 +1,7 @@
 -- Disable relative number in command mode
 vim.api.nvim_create_autocmd("CmdLineEnter", {
 	callback = function()
-		local excluded_filetypes = { "lazy", "help" }
+		local excluded_filetypes = { "lazy", "help", "mason" }
 		local ft = vim.bo.filetype
 		if vim.tbl_contains(excluded_filetypes, ft) then
 			return
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("CmdLineEnter", {
 -- Reset relative number after leaving command mode
 vim.api.nvim_create_autocmd("CmdLineLeave", {
 	callback = function()
-		local excluded_filetypes = { "lazy", "help" }
+		local excluded_filetypes = { "lazy", "help", "mason" }
 		local ft = vim.bo.filetype
 		if vim.tbl_contains(excluded_filetypes, ft) then
 			return
