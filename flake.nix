@@ -15,9 +15,6 @@
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
         packages = with pkgs; [
-          rustc
-          cargo
-          clippy
           dotnet-sdk_8
           fish
           nodejs_21
