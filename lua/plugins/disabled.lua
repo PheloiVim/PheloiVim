@@ -3,6 +3,7 @@ local disabled_plugins = {
 	"vim-startuptime",
 	"dashboard-nvim",
 	"persistence.nvim",
+	"mini.indentscope",
 }
 
 local spec = {}
